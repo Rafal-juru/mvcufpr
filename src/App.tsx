@@ -1,4 +1,5 @@
 import Header from './components/layout/Header'
+import Footer from './components/layout/Footer'
 import HeroSection from './components/sections/HeroSection'
 import CoursePillars from './components/sections/CoursePillars'
 
@@ -30,6 +31,8 @@ function App() {
 
       {/* Fixed WhatsApp CTA */}
       {/* <FloatingCTA /> */}
+
+      <Footer />
     </div>
   )
 }
