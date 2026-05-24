@@ -15,6 +15,12 @@
     "noEmit": true,
     "jsx": "react-jsx",
 
+    /* Path mapping */
+    "paths": {
+      "@/*": ["./src/*"]
+    },
+
+
     /* Linting */
     "noUnusedLocals": true,
     "noUnusedParameters": true,
@@ -23,3 +29,4 @@
   },
   "include": ["src"]
 }
+

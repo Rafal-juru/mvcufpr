@@ -134,3 +134,22 @@ body {
   background: #2E6F57;
   border-radius: 3px;
 }
+
+/*Halftone Illustrations*/
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-serif-display: "DM Serif Display", "Playfair Display", Georgia, serif;
+  --font-sans: "Inter", "Plus Jakarta Sans", system-ui, sans-serif;
+}
+
+/* Custom styles for high-fidelity dither texture and print look */
+.paper-grain {
+  background-image: radial-gradient(rgba(11, 40, 30, 0.05) 1px, transparent 0);
+  background-size: 12px 12px;
+}
+
+.gavel-gradient {
+  background: radial-gradient(circle at top right, rgba(249, 232, 199, 0) 10%, rgba(249, 232, 199, 1) 100%);
+}
