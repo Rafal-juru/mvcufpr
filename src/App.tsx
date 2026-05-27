@@ -1,35 +1,41 @@
-import Header from './components/layout/Header'
-import HeroSection from './components/sections/HeroSection'
+import Header       from './components/layout/Header'
+import HeroSection  from './components/sections/HeroSection'
 import CoursePillars from './components/sections/CoursePillars'
+import Faculty      from './components/sections/Faculty'
+import Testimonials from './components/sections/Testimonials'
+import PricingInfo  from './components/sections/PricingInfo'
 
-// Componentes que vamos criar na Parte 2:
-// import Faculty from './components/sections/Faculty'
-// import Testimonials from './components/sections/Testimonials'
-// import BlogSection from './components/sections/BlogSection'
-// import PricingInfo from './components/sections/PricingInfo'
-// import FloatingCTA from './components/ui/FloatingCTA'
+/*
+  ─── IDs das seções (devem bater com os hrefs do Header) ───────
+  #hero         → HeroSection
+  #pilares      → CoursePillars
+  #docentes     → Faculty
+  #depoimentos  → Testimonials
+  #valores      → PricingInfo
+*/
 
 function App() {
   return (
     <div className="relative min-h-screen bg-cesmvc-sand font-sans">
-      {/* Fixed top navigation */}
+      {/* ── Fixed top navigation ── */}
       <Header />
 
-      {/* Page sections in order */}
+      {/* ── Page sections in order ── */}
       <main>
-        <HeroSection />
-        <CoursePillars />
-
-        {/*
-        <Faculty />
-        <Testimonials />
-        <BlogSection />
-        <PricingInfo />
-        */}
+        <HeroSection  />   {/* id="hero"        */}
+        <CoursePillars />  {/* id="pilares"     */}
+        <Faculty      />   {/* id="docentes"    */}
+        <Testimonials />   {/* id="depoimentos" */}
+        <PricingInfo  />   {/* id="valores"     */}
       </main>
 
-      {/* Fixed WhatsApp CTA */}
-      {/* <FloatingCTA /> */}
+      {/* ── Footer minimal ── */}
+      <footer className="bg-gray-900 text-white/50 text-center py-8 text-xs">
+        <p>
+          © {new Date().getFullYear()} CESMVC – Centro de Especialização em Medicina
+          Veterinária Coletiva · UFPR · Todos os direitos reservados.
+        </p>
+      </footer>
     </div>
   )
 }
