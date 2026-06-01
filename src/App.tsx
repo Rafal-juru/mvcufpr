@@ -1,42 +1,66 @@
-import Header       from './components/layout/Header'
-import HeroSection  from './components/sections/HeroSection'
-import CoursePillars from './components/sections/CoursePillars'
-import Faculty      from './components/sections/Faculty'
-import Testimonials from './components/sections/Testimonials'
-import PricingInfo  from './components/sections/PricingInfo'
+import { Routes, Route, Navigate } from 'react-router-dom'
+
+import HomePage      from './pages/HomePage'
+import BlogPage      from './pages/BlogPage'
+import BlogPostPage  from './pages/BlogPostPage'
+import LoginPage     from './pages/admin/LoginPage'
+import AdminDashboard from './pages/admin/AdminDashboard'
+import PostEditor    from './pages/admin/PostEditor'
+
+import { AuthProvider } from './context/AuthContext'
+import ProtectedRoute   from './components/admin/ProtectedRoute'
 
 /*
-  ─── IDs das seções (devem bater com os hrefs do Header) ───────
-  #hero         → HeroSection
-  #pilares      → CoursePillars
-  #docentes     → Faculty
-  #depoimentos  → Testimonials
-  #valores      → PricingInfo
+  ─── Rotas da aplicação ────────────────────────────────────────
+  /                    → HomePage  (landing page atual)
+  /blog                → BlogPage  (listagem de artigos)
+  /blog/:slug          → BlogPostPage (artigo individual)
+  /admin/login         → LoginPage (acesso ao painel)
+  /admin               → AdminDashboard (lista de posts, protegido)
+  /admin/posts/new     → PostEditor (criar, protegido)
+  /admin/posts/:id     → PostEditor (editar, protegido)
 */
 
 function App() {
   return (
-    <div className="relative min-h-screen bg-cesmvc-sand font-sans">
-      {/* ── Fixed top navigation ── */}
-      <Header />
+    <AuthProvider>
+      <Routes>
+        {/* ── Público ── */}
+        <Route path="/" element={<HomePage />} />
+        <Route path="/blog" element={<BlogPage />} />
+        <Route path="/blog/:slug" element={<BlogPostPage />} />
 
-      {/* ── Page sections in order ── */}
-      <main>
-        <HeroSection  />   {/* id="hero"        */}
-        <CoursePillars />  {/* id="pilares"     */}
-        <Faculty      />   {/* id="docentes"    */}
-        <Testimonials />   {/* id="depoimentos" */}
-        <PricingInfo  />   {/* id="valores"     */}
-      </main>
+        {/* ── Administração ── */}
+        <Route path="/admin/login" element={<LoginPage />} />
+        <Route
+          path="/admin"
+          element={
+            <ProtectedRoute>
+              <AdminDashboard />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/admin/posts/new"
+          element={
+            <ProtectedRoute>
+              <PostEditor />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/admin/posts/:id"
+          element={
+            <ProtectedRoute>
+              <PostEditor />
+            </ProtectedRoute>
+          }
+        />
 
-      {/* ── Footer minimal ── */}
-      <footer className="bg-gray-900 text-white/50 text-center py-8 text-xs">
-        <p>
-          © {new Date().getFullYear()} CESMVC – Centro de Especialização em Medicina
-          Veterinária Coletiva · UFPR · Todos os direitos reservados.
-        </p>
-      </footer>
-    </div>
+        {/* ── Fallback ── */}
+        <Route path="*" element={<Navigate to="/" replace />} />
+      </Routes>
+    </AuthProvider>
   )
 }
 

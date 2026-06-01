@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react'
+import { Link } from 'react-router-dom'
 import logoDescritivaLaranja from '../../assets/images/logoDescitivabLaranja.png'
 
 const NAV_LINKS = [
@@ -77,6 +78,21 @@ export default function Header() {
                 {item.label}
               </a>
             ))}
+            <Link
+              to="/blog"
+              className="
+                text-white/90 hover:text-white
+                text-sm font-medium tracking-wide
+                transition-colors duration-200
+                relative
+                after:absolute after:bottom-[-4px] after:left-0
+                after:h-[2px] after:w-0 after:bg-cesmvc-orange
+                after:transition-all after:duration-300
+                hover:after:w-full
+              "
+            >
+              Blog
+            </Link>
           </nav>
 
           {/* ── CTA + Mobile Toggle ── */}
@@ -148,6 +164,18 @@ export default function Header() {
                 {item.label}
               </a>
             ))}
+            <Link
+              to="/blog"
+              onClick={() => setMenuOpen(false)}
+              className="
+                text-white/90 hover:text-white hover:bg-white/10
+                text-sm font-medium tracking-wide
+                px-4 py-3 rounded-xl
+                transition-colors duration-200
+              "
+            >
+              Blog
+            </Link>
             <a
               href="#valores"
               onClick={() => setMenuOpen(false)}
