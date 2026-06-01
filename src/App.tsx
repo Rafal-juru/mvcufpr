@@ -1,5 +1,6 @@
-import Header       from './components/layout/Header'
-import HeroSection  from './components/sections/HeroSection'
+import Header from './components/layout/Header'
+import Footer from './components/layout/Footer'
+import HeroSection from './components/sections/HeroSection'
 import CoursePillars from './components/sections/CoursePillars'
 import Faculty      from './components/sections/Faculty'
 import Testimonials from './components/sections/Testimonials'
@@ -29,13 +30,7 @@ function App() {
         <PricingInfo  />   {/* id="valores"     */}
       </main>
 
-      {/* ── Footer minimal ── */}
-      <footer className="bg-gray-900 text-white/50 text-center py-8 text-xs">
-        <p>
-          © {new Date().getFullYear()} CESMVC – Centro de Especialização em Medicina
-          Veterinária Coletiva · UFPR · Todos os direitos reservados.
-        </p>
-      </footer>
+      <Footer />
     </div>
   )
 }
