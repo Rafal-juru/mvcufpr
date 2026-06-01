@@ -1,9 +1,8 @@
+/* ─── All @imports must come first ─────────────────────────────────────── */
 @import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
 
-/* ─── Google Fonts ─────────────────────────────────────────────────── */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
-
-/* ─── Tailwind v4 Custom Theme ──────────────────────────────────────── */
+/* ─── Tailwind v4 Custom Theme ──────────────────────────────────────────── */
 @theme {
   /* Colors */
   --color-cesmvc-sand: #F9E8C7;
@@ -19,13 +18,13 @@
   --color-cesmvc-sand-dark: #f0d09a;
 
   /* Fonts */
-  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Inter", "Plus Jakarta Sans", system-ui, sans-serif;
   --font-serif: 'Georgia', ui-serif, serif;
   --font-grift: 'Georgia', 'Times New Roman', serif;
-  /* Grift fallback - local font */
+  --font-serif-display: "DM Serif Display", "Playfair Display", Georgia, serif;
 }
 
-/* ─── Base Resets ───────────────────────────────────────────────────── */
+/* ─── Base Resets ───────────────────────────────────────────────────────── */
 *,
 *::before,
 *::after {
@@ -56,13 +55,13 @@ body {
   display: block;
 }
 
-/* ─── Typography helpers ────────────────────────────────────────────── */
+/* ─── Typography helpers ────────────────────────────────────────────────── */
 .font-grift {
   font-family: 'Georgia', 'Times New Roman', serif;
   letter-spacing: -0.02em;
 }
 
-/* ─── Keyframe Animations ───────────────────────────────────────────── */
+/* ─── Keyframe Animations ───────────────────────────────────────────────── */
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -130,7 +129,7 @@ body {
   animation-delay: 2s;
 }
 
-/* ─── Scrollbar Styling ─────────────────────────────────────────────── */
+/* ─── Scrollbar Styling ─────────────────────────────────────────────────── */
 ::-webkit-scrollbar {
   width: 6px;
 }
@@ -144,16 +143,7 @@ body {
   border-radius: 3px;
 }
 
-/*Halftone Illustrations*/
-@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
-@import "tailwindcss";
-
-@theme {
-  --font-serif-display: "DM Serif Display", "Playfair Display", Georgia, serif;
-  --font-sans: "Inter", "Plus Jakarta Sans", system-ui, sans-serif;
-}
-
-/* Custom styles for high-fidelity dither texture and print look */
+/* ─── Halftone / paper texture helpers ─────────────────────────────────── */
 .paper-grain {
   background-image: radial-gradient(rgba(11, 40, 30, 0.05) 1px, transparent 0);
   background-size: 12px 12px;

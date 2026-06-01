@@ -48,7 +48,7 @@ export const SEED_POSTS: BlogPost[] = [
       '## Detectar cedo, responder rápido\n\nZoonoses emergentes representam um dos maiores desafios da saúde pública contemporânea. A chave está na **detecção precoce** e na **resposta coordenada**.\n\n### Componentes de um sistema robusto\n\n- Rede sentinela de notificação\n- Integração de dados laboratoriais e de campo\n- Georreferenciamento de casos\n- Protocolos de resposta intersetorial\n\nA bioestatística e a epidemiologia aplicada são as ferramentas que transformam dados dispersos em inteligência sanitária acionável.',
     category: 'Epidemiologia',
     coverImage:
-      'https://images.unsplash.com/photo-1583912267550-d6c2ac3196c0?auto=format&fit=crop&w=1200&q=80',
+      'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1200&q=80',
     author: 'Prof. Dr. Carlos Vieira',
     status: 'published',
     publishedAt: '2025-04-10',
