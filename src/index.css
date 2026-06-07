@@ -1,8 +1,7 @@
 /* ─── All @imports must come first ─────────────────────────────────────── */
-@import "tailwindcss";
 @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
+@import "tailwindcss";
 
-/* ─── Tailwind v4 Custom Theme ──────────────────────────────────────────── */
 @theme {
   /* Colors */
   --color-cesmvc-sand: #F9E8C7;
@@ -85,8 +84,15 @@ body {
 }
 
 @keyframes blink {
-  0%, 100% { opacity: 1; }
-  50%       { opacity: 0; }
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
 }
 
 .cursor-blink {
@@ -152,3 +158,20 @@ body {
 .gavel-gradient {
   background: radial-gradient(circle at top right, rgba(249, 232, 199, 0) 10%, rgba(249, 232, 199, 1) 100%);
 }
+
+/* ─── Course Modal entrance animation ──────────────────────────────────── */
+@keyframes modalIn {
+  from {
+    opacity: 0;
+    transform: scale(0.94) translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.animate-modal-in {
+  animation: modalIn 0.28s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}

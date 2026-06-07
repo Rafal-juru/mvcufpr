@@ -6,9 +6,9 @@ import logoUFPR from '../../assets/images/logoUFPR.png'
 
 /* ── Typewriter config ────────────────────────────────────────── */
 const ROTATING_WORDS = ['Coletiva.', 'Sistêmica.', 'Científica.', 'Transformadora.', 'Humana.']
-const TYPE_SPEED   = 80   // ms por caractere ao digitar
+const TYPE_SPEED = 80   // ms por caractere ao digitar
 const DELETE_SPEED = 45   // ms por caractere ao apagar
-const PAUSE_AFTER  = 1800 // ms de pausa após palavra completa
+const PAUSE_AFTER = 1800 // ms de pausa após palavra completa
 const PAUSE_BEFORE = 350  // ms de pausa antes de começar a digitar
 
 /* ── Feature badges ───────────────────────────────────────────── */
@@ -19,9 +19,9 @@ const BADGES = [
 ]
 
 export default function HeroSection() {
-  const [loaded, setLoaded]     = useState(false)
+  const [loaded, setLoaded] = useState(false)
   const [displayed, setDisplayed] = useState('')
-  const [wordIdx, setWordIdx]   = useState(0)
+  const [wordIdx, setWordIdx] = useState(0)
   const [isDeleting, setIsDeleting] = useState(false)
 
   /* ── Mount fade-in ── */
