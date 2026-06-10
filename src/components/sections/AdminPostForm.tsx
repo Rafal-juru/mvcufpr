@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import ImageUploader from '../ui/ImageUploader';
 
 const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3001';
 
@@ -137,17 +138,10 @@ export default function AdminPostForm() {
           </div>
         </div>
 
-        <div>
-          <label className="block text-sm font-medium mb-1">URL da Imagem</label>
-          <input
-            type="url"
-            name="image_url"
-            value={formData.image_url}
-            onChange={handleChange}
-            className="w-full px-3 py-2 border border-gray-300 rounded-md"
-            placeholder="https://..."
-          />
-        </div>
+        <ImageUploader
+          onImageUrl={(url) => setFormData(prev => ({ ...prev, image_url: url }))}
+          label="Imagem do Post"
+        />
 
         {message && (
           <div className={`p-3 rounded-md ${message.includes('✓') ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'}`}>
