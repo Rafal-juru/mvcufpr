@@ -1,4 +1,3 @@
-import React from 'react';
 import { CourseCard } from '@/components/ui/cards/CourseCard';
 import { courseCards } from '@/data/courseData';
 

@@ -1,31 +1,25 @@
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import BlogCard from '../blog/BlogCard';
+import { blogApi } from '../../lib/api';
+import type { BlogPost } from '../../types';
 
-interface DatabasePost {
-  id: number;
-  title: string;
-  excerpt: string;
-  image_url: string | null;
-  category: string;
-  author: string;
-  created_at: string;
-}
-
+/* Teaser do blog na landing page: mostra os 3 artigos publicados mais recentes
+   e leva para a página completa em /blog. */
 export default function BlogSection() {
-  const [posts, setPosts] = useState<DatabasePost[]>([]);
+  const [posts, setPosts] = useState<BlogPost[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3001';
-    fetch(`${API_URL}/api/posts`)
-      .then(res => res.json())
-      .then((data: DatabasePost[]) => {
-        setPosts(data);
-        setLoading(false);
-      })
-      .catch(err => {
-        console.error('Erro ao buscar posts:', err);
-        setLoading(false);
-      });
+    let active = true;
+    blogApi
+      .listPublished()
+      .then((data) => active && setPosts(data.slice(0, 3)))
+      .catch((err) => console.error('Erro ao buscar posts:', err))
+      .finally(() => active && setLoading(false));
+    return () => {
+      active = false;
+    };
   }, []);
 
   return (
@@ -33,45 +27,36 @@ export default function BlogSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <span className="inline-flex items-center gap-2 text-cesmvc-green text-xs font-bold tracking-widest uppercase mb-4">
           <span className="w-8 h-px bg-cesmvc-green inline-block" />
-          Conteúdo & SEO
+          Conteúdo &amp; SEO
         </span>
         <h2 className="font-grift text-gray-900 text-3xl sm:text-4xl font-bold mb-12">
           Artigos e Recursos
         </h2>
 
         {loading ? (
-          <p className="text-gray-500 text-center">Carregando artigos...</p>
+          <p className="text-gray-500 text-center py-12">Carregando artigos…</p>
         ) : posts.length === 0 ? (
-          <p className="text-gray-500 text-center">Nenhum artigo publicado ainda</p>
+          <p className="text-gray-500 text-center py-12">Nenhum artigo publicado ainda.</p>
         ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {posts.map(post => (
-              <article key={post.id} className="bg-gray-50 rounded-lg overflow-hidden hover:shadow-lg transition-shadow">
-                {post.image_url && (
-                  <img
-                    src={post.image_url}
-                    alt={post.title}
-                    className="w-full h-48 object-cover"
-                  />
-                )}
-                <div className="p-6">
-                  <span className="text-cesmvc-green text-xs font-bold tracking-widest uppercase">
-                    {post.category}
-                  </span>
-                  <h3 className="text-xl font-bold text-gray-900 mt-2 mb-3">
-                    {post.title}
-                  </h3>
-                  <p className="text-gray-600 text-sm mb-4">
-                    {post.excerpt}
-                  </p>
-                  <div className="flex justify-between items-center text-xs text-gray-500">
-                    <span>{post.author}</span>
-                    <span>{new Date(post.created_at).toLocaleDateString('pt-BR')}</span>
-                  </div>
-                </div>
-              </article>
-            ))}
-          </div>
+          <>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {posts.map((post) => (
+                <BlogCard key={post.id} post={post} />
+              ))}
+            </div>
+
+            <div className="mt-12 text-center">
+              <Link
+                to="/blog"
+                className="inline-flex items-center gap-2 text-cesmvc-green font-semibold hover:text-cesmvc-green-dark transition-colors"
+              >
+                Ver todos os artigos
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </Link>
+            </div>
+          </>
         )}
       </div>
     </section>

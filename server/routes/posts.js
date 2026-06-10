@@ -1,89 +1,36 @@
 import express from 'express';
 import pool from '../db.js';
-import { authMiddleware } from './auth.js';
+import { rowToPost } from '../mapPost.js';
 
 const router = express.Router();
 
-// GET todos os posts (públicos)
+// GET /api/posts — apenas artigos publicados, mais recentes primeiro.
 router.get('/', async (req, res) => {
   try {
-    const [posts] = await pool.query(
-      'SELECT id, title, excerpt, image_url, category, author, created_at FROM posts ORDER BY created_at DESC LIMIT 10'
+    const [rows] = await pool.query(
+      "SELECT * FROM posts WHERE status = 'published' ORDER BY published_at DESC, id DESC"
     );
-    res.json(posts);
+    res.json(rows.map(rowToPost));
   } catch (error) {
     console.error('Erro ao buscar posts:', error);
-    res.status(500).json({ error: 'Erro ao buscar posts' });
+    res.status(500).json({ message: 'Erro ao buscar posts' });
   }
 });
 
-// GET post por ID (público)
-router.get('/:id', async (req, res) => {
+// GET /api/posts/:slug — um artigo publicado, buscado pelo slug.
+router.get('/:slug', async (req, res) => {
   try {
-    const [posts] = await pool.query(
-      'SELECT * FROM posts WHERE id = ?',
-      [req.params.id]
+    const [rows] = await pool.query(
+      "SELECT * FROM posts WHERE slug = ? AND status = 'published'",
+      [req.params.slug]
     );
-    if (posts.length === 0) {
-      return res.status(404).json({ error: 'Post não encontrado' });
+    if (rows.length === 0) {
+      return res.status(404).json({ message: 'Artigo não encontrado' });
     }
-    res.json(posts[0]);
+    res.json(rowToPost(rows[0]));
   } catch (error) {
     console.error('Erro ao buscar post:', error);
-    res.status(500).json({ error: 'Erro ao buscar post' });
-  }
-});
-
-// POST criar novo post (requer autenticação)
-router.post('/', authMiddleware, async (req, res) => {
-
-  const { title, excerpt, content, category, image_url, author } = req.body;
-
-  if (!title || !content) {
-    return res.status(400).json({ error: 'Título e conteúdo são obrigatórios' });
-  }
-
-  try {
-    const [result] = await pool.query(
-      'INSERT INTO posts (title, excerpt, content, category, image_url, author) VALUES (?, ?, ?, ?, ?, ?)',
-      [title, excerpt || null, content, category || 'Geral', image_url || null, author || 'UFPR']
-    );
-    res.status(201).json({ id: result.insertId, message: 'Post criado com sucesso' });
-  } catch (error) {
-    console.error('Erro ao criar post:', error);
-    res.status(500).json({ error: 'Erro ao criar post' });
-  }
-});
-
-// PUT atualizar post (requer autenticação)
-router.put('/:id', authMiddleware, async (req, res) => {
-
-  const { title, excerpt, content, category, image_url, author } = req.body;
-
-  try {
-    await pool.query(
-      'UPDATE posts SET title = ?, excerpt = ?, content = ?, category = ?, image_url = ?, author = ? WHERE id = ?',
-      [title, excerpt || null, content, category || 'Geral', image_url || null, author || 'UFPR', req.params.id]
-    );
-    res.json({ message: 'Post atualizado com sucesso' });
-  } catch (error) {
-    console.error('Erro ao atualizar post:', error);
-    res.status(500).json({ error: 'Erro ao atualizar post' });
-  }
-});
-
-// DELETE post (requer autenticação)
-router.delete('/:id', authMiddleware, async (req, res) => {
-
-  try {
-    const [result] = await pool.query('DELETE FROM posts WHERE id = ?', [req.params.id]);
-    if (result.affectedRows === 0) {
-      return res.status(404).json({ error: 'Post não encontrado' });
-    }
-    res.json({ message: 'Post deletado com sucesso' });
-  } catch (error) {
-    console.error('Erro ao deletar post:', error);
-    res.status(500).json({ error: 'Erro ao deletar post' });
+    res.status(500).json({ message: 'Erro ao buscar post' });
   }
 });
 

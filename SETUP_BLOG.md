@@ -88,18 +88,40 @@ No hosting, configure as variáveis de ambiente (`server/.env` com dados reais d
 
 ## 5. API Endpoints
 
+O backend segue o contrato definido em `src/lib/api.ts`. Os campos seguem o
+formato `BlogPost` (camelCase: `slug`, `coverImage`, `status`, `publishedAt`, …).
+
 ```
-GET  /api/posts              — Listar últimos 10 posts
-GET  /api/posts/:id          — Detalhes de um post
-POST /api/posts              — Criar post (requer Authorization: Bearer {ADMIN_SECRET})
-PUT  /api/posts/:id          — Atualizar post
-DELETE /api/posts/:id        — Deletar post
+Público
+  GET    /api/posts              — Lista artigos PUBLICADOS (mais recentes primeiro)
+  GET    /api/posts/:slug        — Um artigo publicado, pelo slug
+
+Autenticação
+  POST   /api/auth/login         — { token, user }   body: { email, password }
+
+Admin (requer header Authorization: Bearer <token JWT>)
+  GET    /api/admin/posts        — Lista TODOS os artigos (inclusive rascunhos)
+  GET    /api/admin/posts/:id    — Um artigo, pelo id
+  POST   /api/admin/posts        — Cria artigo (BlogPostInput)
+  PUT    /api/admin/posts/:id    — Atualiza artigo
+  DELETE /api/admin/posts/:id    — Remove artigo (204)
+  POST   /api/upload-image       — Upload de imagem (multipart, campo "image") → { url }
 ```
+
+### Credenciais de acesso ao painel
+- **Email:** `admin@cesmvc.ufpr.br`
+- **Senha:** `cesmvc2025`
+- Definidas em `server/auth.js` (`ADMIN_USERS`).
+
+### Imagens
+As imagens enviadas pelo painel são salvas no **servidor**, na pasta
+`server/uploads/`, e servidas em `/uploads/<arquivo>`. A URL completa é
+gravada no campo `coverImage` do post.
 
 ---
 
 ## ⚠️ Segurança
 
-- **ADMIN_SECRET**: Guarde bem! Use uma senha forte e única
-- **Não compartilhe** a chave secreta
-- Em produção, considere usar autenticação mais robusta (JWT, OAuth)
+- **JWT_SECRET**: defina um valor forte e aleatório no `server/.env`.
+- Troque a senha padrão do admin antes de ir para produção (em `server/auth.js`).
+- Em produção, mova as credenciais do admin para o banco de dados com hash (bcrypt).

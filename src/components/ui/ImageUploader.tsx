@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { getToken } from '../../lib/api';
 
 interface ImageUploaderProps {
   onImageUrl: (url: string) => void;
@@ -30,13 +31,16 @@ export default function ImageUploader({ onImageUrl, label = 'URL da Imagem' }: I
     formData.append('image', file);
 
     try {
+      const token = getToken();
       const response = await fetch(`${API_URL}/api/upload-image`, {
         method: 'POST',
+        headers: token ? { Authorization: `Bearer ${token}` } : {},
         body: formData,
       });
 
       if (!response.ok) {
-        throw new Error(await response.text());
+        const body = await response.json().catch(() => null);
+        throw new Error(body?.message || `Erro ${response.status}`);
       }
 
       const data = await response.json();

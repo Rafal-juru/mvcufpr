@@ -11,29 +11,51 @@ const pool = mysql.createPool({
   waitForConnections: true,
   connectionLimit: 10,
   queueLimit: 0,
+  // Retorna DATE/DATETIME como string ('YYYY-MM-DD'), evitando objetos Date —
+  // o frontend trabalha com publishedAt no formato 'YYYY-MM-DD'.
+  dateStrings: true,
 });
 
-// Criar tabela de posts se não existir
+const CREATE_TABLE = `
+  CREATE TABLE IF NOT EXISTS posts (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    slug VARCHAR(191) NOT NULL UNIQUE,
+    title VARCHAR(255) NOT NULL,
+    excerpt VARCHAR(500),
+    content LONGTEXT NOT NULL,
+    category VARCHAR(100),
+    cover_image VARCHAR(1000),
+    author VARCHAR(150),
+    status ENUM('draft','published') NOT NULL DEFAULT 'draft',
+    published_at DATE,
+    reading_minutes INT DEFAULT 1,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    INDEX idx_status (status),
+    INDEX idx_published_at (published_at)
+  ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
+`;
+
+// Cria/migra a tabela de posts para o schema esperado pelo frontend.
 async function initializeDB() {
   const connection = await pool.getConnection();
-
   try {
-    await connection.execute(`
-      CREATE TABLE IF NOT EXISTS posts (
-        id INT AUTO_INCREMENT PRIMARY KEY,
-        title VARCHAR(255) NOT NULL,
-        excerpt VARCHAR(500),
-        content LONGTEXT NOT NULL,
-        category VARCHAR(100),
-        image_url VARCHAR(500),
-        author VARCHAR(150),
-        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-        updated_at TIMESTAMP,
-        INDEX idx_created_at (created_at),
-        INDEX idx_category (category)
-      ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
-    `);
-    console.log('✓ Tabela de posts inicializada');
+    // Detecta um schema antigo (sem a coluna `slug`) e recria a tabela.
+    const [cols] = await connection.query(
+      `SELECT COLUMN_NAME FROM information_schema.COLUMNS
+       WHERE TABLE_SCHEMA = ? AND TABLE_NAME = 'posts'`,
+      [process.env.DB_NAME || 'mvcufpr']
+    );
+
+    const tableExists = cols.length > 0;
+    const hasSlug = cols.some((c) => c.COLUMN_NAME === 'slug');
+
+    if (tableExists && !hasSlug) {
+      console.log('⚠ Schema antigo detectado — recriando tabela posts');
+      await connection.query('DROP TABLE posts');
+    }
+
+    await connection.query(CREATE_TABLE);
+    console.log('✓ Tabela de posts pronta');
   } catch (error) {
     console.error('Erro ao inicializar banco:', error);
   } finally {
@@ -41,7 +63,6 @@ async function initializeDB() {
   }
 }
 
-// Chamar ao iniciar
 initializeDB();
 
 export default pool;

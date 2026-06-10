@@ -3,6 +3,7 @@ import multer from 'multer';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import fs from 'fs';
+import { authMiddleware } from './auth.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const uploadsDir = path.join(__dirname, '../uploads');
@@ -40,13 +41,18 @@ const upload = multer({
 
 const router = express.Router();
 
-router.post('/upload-image', upload.single('image'), (req, res) => {
-  if (!req.file) {
-    return res.status(400).json({ error: 'Nenhuma imagem enviada' });
-  }
-
-  const imageUrl = `/uploads/${req.file.filename}`;
-  res.json({ url: imageUrl });
+// Upload protegido — só admin autenticado envia imagens.
+// O multer roda dentro do handler para devolver erros como JSON.
+router.post('/upload-image', authMiddleware, (req, res) => {
+  upload.single('image')(req, res, (err) => {
+    if (err) {
+      return res.status(400).json({ message: err.message });
+    }
+    if (!req.file) {
+      return res.status(400).json({ message: 'Nenhuma imagem enviada' });
+    }
+    res.json({ url: `/uploads/${req.file.filename}` });
+  });
 });
 
 export default router;
