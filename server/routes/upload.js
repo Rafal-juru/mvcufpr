@@ -51,8 +51,26 @@ router.post('/upload-image', authMiddleware, (req, res) => {
     if (!req.file) {
       return res.status(400).json({ message: 'Nenhuma imagem enviada' });
     }
-    res.json({ url: `/uploads/${req.file.filename}` });
+    // URL servida via /api/media (sem extensão de arquivo no caminho) para que
+    // o nginx do Plesk NÃO trate como estático e repasse ao Node. Imagens em
+    // /uploads/*.png seriam interceptadas pelo nginx e dariam 404.
+    res.json({ url: `/api/media?file=${encodeURIComponent(req.file.filename)}` });
   });
+});
+
+// GET /api/media?file=<nome> — serve a imagem da pasta uploads.
+// O caminho "/api/media" não tem extensão, então o nginx repassa ao Node.
+router.get('/media', (req, res) => {
+  const file = String(req.query.file || '');
+  // Bloqueia path traversal: nada de barras nem "..".
+  if (!file || /[\\/]/.test(file) || file.includes('..')) {
+    return res.status(400).json({ message: 'Arquivo inválido' });
+  }
+  const filePath = path.join(uploadsDir, file);
+  if (!fs.existsSync(filePath)) {
+    return res.status(404).json({ message: 'Imagem não encontrada' });
+  }
+  res.sendFile(filePath);
 });
 
 export default router;
