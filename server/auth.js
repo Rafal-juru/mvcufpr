@@ -5,18 +5,21 @@ dotenv.config();
 
 const JWT_SECRET = process.env.JWT_SECRET || 'seu_secret_jwt_muito_seguro_aqui_12345';
 
-// Credenciais padrão (pode expandir para banco de dados depois)
+// Credenciais do admin configuráveis por variável de ambiente (Plesk).
+// Em produção, defina ADMIN_EMAIL e ADMIN_PASSWORD fortes; os valores abaixo
+// são apenas fallback para desenvolvimento.
 const ADMIN_USERS = [
   {
     id: 1,
-    email: 'admin@cesmvc.ufpr.br',
-    password: 'cesmvc2025',
-    name: 'Administrador',
+    email: process.env.ADMIN_EMAIL || 'admin@cesmvc.ufpr.br',
+    password: process.env.ADMIN_PASSWORD || 'cesmvc2025',
+    name: process.env.ADMIN_NAME || 'Administrador',
   },
 ];
 
 export function login(email, password) {
-  const user = ADMIN_USERS.find(u => u.email === email && u.password === password);
+  const normalized = String(email || '').trim().toLowerCase();
+  const user = ADMIN_USERS.find(u => u.email.toLowerCase() === normalized && u.password === password);
 
   if (!user) {
     throw new Error('Email ou senha incorretos');

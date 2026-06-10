@@ -1,4 +1,19 @@
+import { Link } from 'react-router-dom'
 import logoBranco from '../../assets/images/logoComNome-branco.png'
+
+/* Endereço do CESMVC e link para o Google Maps (busca pelo endereço). */
+const ENDERECO = 'Rua dos Funcionários, 1540 — Cabral, Curitiba — PR, 80.035-050'
+const MAPS_URL =
+  'https://www.google.com/maps/search/?api=1&query=' +
+  encodeURIComponent('Rua dos Funcionários, 1540, Cabral, Curitiba - PR, 80035-050')
+
+/* Navegação útil do site (âncoras das seções da home + página do blog). */
+const navLinks = [
+  { label: 'O Curso', href: '#pilares' },
+  { label: 'Docentes', href: '#docentes' },
+  { label: 'Depoimentos', href: '#depoimentos' },
+  { label: 'Investimento', href: '#valores' },
+]
 
 const redes = [
   {
@@ -46,7 +61,7 @@ export default function Footer() {
   return (
     <footer className="bg-cesmvc-green text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8">
 
           {/* ── Brand ── */}
           <div className="flex flex-col items-center md:items-start text-center md:text-left">
@@ -66,18 +81,59 @@ export default function Footer() {
               Contato
             </h3>
             <ul className="space-y-3 text-sm text-white/80">
-              <li className="flex items-center gap-2 md:justify-start justify-center">
-                <svg className="w-4 h-4 shrink-0 text-cesmvc-sand" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                </svg>
-                <span>Rua dos Funcionários, 1540 — Cabral<br />Curitiba — PR, 80.035-050</span>
+              <li>
+                <a
+                  href={MAPS_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-start gap-2 md:justify-start justify-center hover:text-white transition-colors group"
+                >
+                  <svg className="w-4 h-4 shrink-0 mt-0.5 text-cesmvc-sand" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                  </svg>
+                  <span>
+                    {ENDERECO}
+                    <span className="block text-cesmvc-sand text-xs mt-1 group-hover:underline">Ver no Google Maps →</span>
+                  </span>
+                </a>
               </li>
               <li className="flex items-center gap-2 md:justify-start justify-center">
                 <svg className="w-4 h-4 shrink-0 text-cesmvc-sand" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                 </svg>
                 <a href="mailto:mvc@ufpr.br" className="hover:text-white transition-colors">mvc@ufpr.br</a>
+              </li>
+            </ul>
+          </div>
+
+          {/* ── Navegação ── */}
+          <div className="flex flex-col items-center md:items-start text-center md:text-left">
+            <h3 className="text-sm font-semibold uppercase tracking-widest text-cesmvc-sand mb-4">
+              Navegação
+            </h3>
+            <ul className="space-y-2 text-sm text-white/80">
+              {navLinks.map((link) => (
+                <li key={link.href}>
+                  <a href={link.href} className="hover:text-white transition-colors">
+                    {link.label}
+                  </a>
+                </li>
+              ))}
+              <li>
+                <Link to="/blog" className="hover:text-white transition-colors">
+                  Blog
+                </Link>
+              </li>
+              <li>
+                <a
+                  href="https://www.ufpr.br"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-white transition-colors"
+                >
+                  Portal da UFPR ↗
+                </a>
               </li>
             </ul>
           </div>
@@ -94,14 +150,17 @@ export default function Footer() {
                 </SocialLink>
               ))}
             </div>
+            <p className="text-white/60 text-xs mt-4 max-w-xs">
+              Acompanhe nossos conteúdos sobre saúde única, manejo populacional e políticas públicas.
+            </p>
           </div>
 
         </div>
 
         {/* ── Divider ── */}
         <div className="border-t border-white/10 mt-10 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-white/50">
-          <p>&copy; {new Date().getFullYear()} Universidade Federal do Paraná</p>
-          <p>Desenvolvido pela AGTIC — Agência de Tecnologia da Informação e Comunicação da UFPR</p>
+          <p>&copy; {new Date().getFullYear()} Universidade Federal do Paraná · CESMVC</p>
+          <p>Todos os direitos reservados.</p>
         </div>
       </div>
     </footer>
