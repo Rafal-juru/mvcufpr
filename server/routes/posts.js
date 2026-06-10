@@ -1,5 +1,6 @@
 import express from 'express';
 import pool from '../db.js';
+import { authMiddleware } from './auth.js';
 
 const router = express.Router();
 
@@ -33,12 +34,8 @@ router.get('/:id', async (req, res) => {
   }
 });
 
-// POST criar novo post (requer autenticação — simplificado com chave secreta)
-router.post('/', async (req, res) => {
-  const authHeader = req.headers.authorization;
-  if (!authHeader || authHeader !== `Bearer ${process.env.ADMIN_SECRET}`) {
-    return res.status(401).json({ error: 'Não autorizado' });
-  }
+// POST criar novo post (requer autenticação)
+router.post('/', authMiddleware, async (req, res) => {
 
   const { title, excerpt, content, category, image_url, author } = req.body;
 
@@ -59,11 +56,7 @@ router.post('/', async (req, res) => {
 });
 
 // PUT atualizar post (requer autenticação)
-router.put('/:id', async (req, res) => {
-  const authHeader = req.headers.authorization;
-  if (!authHeader || authHeader !== `Bearer ${process.env.ADMIN_SECRET}`) {
-    return res.status(401).json({ error: 'Não autorizado' });
-  }
+router.put('/:id', authMiddleware, async (req, res) => {
 
   const { title, excerpt, content, category, image_url, author } = req.body;
 
@@ -80,11 +73,7 @@ router.put('/:id', async (req, res) => {
 });
 
 // DELETE post (requer autenticação)
-router.delete('/:id', async (req, res) => {
-  const authHeader = req.headers.authorization;
-  if (!authHeader || authHeader !== `Bearer ${process.env.ADMIN_SECRET}`) {
-    return res.status(401).json({ error: 'Não autorizado' });
-  }
+router.delete('/:id', authMiddleware, async (req, res) => {
 
   try {
     const [result] = await pool.query('DELETE FROM posts WHERE id = ?', [req.params.id]);

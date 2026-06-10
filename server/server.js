@@ -3,6 +3,7 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 import postsRoutes from './routes/posts.js';
 import uploadRoutes from './routes/upload.js';
+import authRoutes from './routes/auth.js';
 
 dotenv.config();
 
@@ -14,6 +15,7 @@ app.use(express.json());
 app.use('/uploads', express.static('uploads'));
 
 // Rotas
+app.use('/api/auth', authRoutes);
 app.use('/api/posts', postsRoutes);
 app.use('/api', uploadRoutes);
 
