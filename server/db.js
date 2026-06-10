@@ -28,7 +28,7 @@ async function initializeDB() {
         image_url VARCHAR(500),
         author VARCHAR(150),
         created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-        updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+        updated_at TIMESTAMP,
         INDEX idx_created_at (created_at),
         INDEX idx_category (category)
       ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
