@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import logoBranco from '../../assets/images/logoComNome-branco.png'
+import logoBege from '../../assets/images/logoDescitivabBege.png'
 
 /* Endereço do CESMVC e link para o Google Maps (busca pelo endereço). */
 const ENDERECO = 'Rua dos Funcionários, 1540 — Cabral, Curitiba — PR, 80.035-050'
@@ -66,12 +66,12 @@ export default function Footer() {
           {/* ── Brand ── */}
           <div className="flex flex-col items-center md:items-start text-center md:text-left">
             <img
-              src={logoBranco}
-              alt="MVC UFPR"
-              className="h-16 w-auto mb-4 brightness-0 invert"
+              src={logoBege}
+              alt="CESMVC — Curso de Especialização em Medicina Veterinária do Coletivo"
+              className="w-full max-w-[240px] h-auto mb-4"
             />
             <p className="text-white/80 text-sm leading-relaxed max-w-xs">
-              Medicina Veterinária do Coletivo — Universidade Federal do Paraná
+              Universidade Federal do Paraná
             </p>
           </div>
 
