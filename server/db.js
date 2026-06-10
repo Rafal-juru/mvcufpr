@@ -37,8 +37,10 @@ const CREATE_TABLE = `
 
 // Cria/migra a tabela de posts para o schema esperado pelo frontend.
 async function initializeDB() {
-  const connection = await pool.getConnection();
+  let connection;
   try {
+    connection = await pool.getConnection();
+
     // Detecta um schema antigo (sem a coluna `slug`) e recria a tabela.
     const [cols] = await connection.query(
       `SELECT COLUMN_NAME FROM information_schema.COLUMNS
@@ -57,12 +59,16 @@ async function initializeDB() {
     await connection.query(CREATE_TABLE);
     console.log('✓ Tabela de posts pronta');
   } catch (error) {
-    console.error('Erro ao inicializar banco:', error);
+    // NUNCA deixar virar unhandled rejection: isso derrubaria o processo inteiro
+    // (Passenger: "application process exited prematurely"). O app sobe mesmo
+    // com o banco indisponível; as rotas que usam o banco respondem erro limpo.
+    console.error('⚠ Banco indisponível na inicialização:', error.message);
   } finally {
-    connection.release();
+    if (connection) connection.release();
   }
 }
 
-initializeDB();
+// Rede de segurança extra: garante que nada derrube o processo no boot.
+initializeDB().catch((e) => console.error('initializeDB falhou:', e.message));
 
 export default pool;
