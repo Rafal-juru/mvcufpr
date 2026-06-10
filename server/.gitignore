@@ -7,3 +7,6 @@ node_modules/
 # Imagens enviadas em runtime — não versionar (manter só a pasta via .gitkeep)
 uploads/*
 !uploads/.gitkeep
+
+# Build do frontend copiado para cá no deploy (gerado por `npm run build:deploy`)
+public/

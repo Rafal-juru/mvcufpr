@@ -12,7 +12,10 @@ export default function ImageUploader({ onImageUrl, label = 'URL da Imagem' }: I
   const [preview, setPreview] = useState<string>('');
   const [error, setError] = useState('');
 
-  const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3001';
+  // Produção: mesma origem (URL relativa). Dev: o backend roda em :3001,
+  // origem diferente do Vite (:5173), então usamos a URL absoluta local.
+  const API_URL =
+    import.meta.env.VITE_API_URL ?? (import.meta.env.DEV ? 'http://localhost:3001' : '');
 
   const handleDragOver = (e: React.DragEvent) => {
     e.preventDefault();
