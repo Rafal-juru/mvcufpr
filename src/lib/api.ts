@@ -28,7 +28,7 @@ import { mockStore } from './mockStore'
 */
 
 const USE_MOCK = import.meta.env.VITE_USE_MOCK !== 'false'
-const API_BASE = `${import.meta.env.BASE_URL}api`
+const API_BASE = import.meta.env.VITE_API_URL ? `${import.meta.env.VITE_API_URL}/api` : `${import.meta.env.BASE_URL}api`
 const TOKEN_KEY = 'cesmvc.blog.token'
 
 export function getToken(): string | null {
