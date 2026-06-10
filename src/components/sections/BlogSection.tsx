@@ -1,23 +1,24 @@
 import { useEffect, useState } from 'react';
 
-interface Post {
+interface DatabasePost {
   id: number;
   title: string;
   excerpt: string;
-  image_url: string;
+  image_url: string | null;
   category: string;
   author: string;
   created_at: string;
 }
 
 export default function BlogSection() {
-  const [posts, setPosts] = useState<Post[]>([]);
+  const [posts, setPosts] = useState<DatabasePost[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:3001'}/api/posts`)
+    const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3001';
+    fetch(`${API_URL}/api/posts`)
       .then(res => res.json())
-      .then(data => {
+      .then((data: DatabasePost[]) => {
         setPosts(data);
         setLoading(false);
       })
