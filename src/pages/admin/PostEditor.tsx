@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import AdminLayout from '../../components/admin/AdminLayout'
+import ImageUploader from '../../components/ui/ImageUploader'
 import { blogApi } from '../../lib/api'
 import { slugify } from '../../lib/format'
 import type { BlogPostInput, PostStatus } from '../../types'
@@ -167,23 +168,10 @@ export default function PostEditor() {
         </div>
 
         {/* Imagem de capa */}
-        <Field label="URL da imagem de capa" htmlFor="coverImage">
-          <input
-            id="coverImage"
-            type="url"
-            value={form.coverImage}
-            onChange={(e) => update('coverImage', e.target.value)}
-            className={inputClass}
-            placeholder="https://…/capa.jpg"
-          />
-          {form.coverImage && (
-            <img
-              src={form.coverImage}
-              alt="Pré-visualização da capa"
-              className="mt-3 w-full max-w-sm aspect-[16/9] object-cover rounded-xl border border-gray-100"
-            />
-          )}
-        </Field>
+        <ImageUploader
+          onImageUrl={(url) => update('coverImage', url)}
+          label="Imagem de capa"
+        />
 
         {/* Resumo */}
         <Field label="Resumo" htmlFor="excerpt" hint="Aparece nos cards e na meta description">
