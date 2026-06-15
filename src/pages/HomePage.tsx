@@ -1,18 +1,21 @@
-import Header from '../components/layout/Header'
-import Footer from '../components/layout/Footer'
-import HeroSection    from '../components/sections/HeroSection'
-import CoursePillars  from '../components/sections/CoursePillars'
-import Faculty        from '../components/sections/Faculty'
-import Testimonials   from '../components/sections/Testimonials'
-import PricingInfo    from '../components/sections/PricingInfo'
+import Header       from '../components/layout/Header'
+import Footer       from '../components/layout/Footer'
+import HeroSection  from '../components/sections/HeroSection'
+import AboutCourse  from '../components/sections/AboutCourse'
+import CoursePillars from '../components/sections/CoursePillars'
+import Faculty       from '../components/sections/Faculty'
+import Testimonials  from '../components/sections/Testimonials'
+import PricingInfo   from '../components/sections/PricingInfo'
+import WhatsAppButton from '../components/ui/WhatsAppButton'
 
 /*
   ─── IDs das seções (devem bater com os hrefs do Header) ───────
-  #hero         → HeroSection
-  #pilares      → CoursePillars
-  #docentes     → Faculty
-  #depoimentos  → Testimonials
-  #valores      → PricingInfo
+  #hero             → HeroSection
+  #sobre-o-curso    → AboutCourse
+  #pilares          → CoursePillars
+  #docentes         → Faculty
+  #depoimentos      → Testimonials
+  #investimento     → PricingInfo
 */
 
 export default function HomePage() {
@@ -23,14 +26,17 @@ export default function HomePage() {
 
       {/* ── Page sections in order ── */}
       <main>
-        <HeroSection  />   {/* id="hero"        */}
-        <CoursePillars />  {/* id="pilares"     */}
+        <HeroSection  />   {/* id="hero"            */}
+        <div className="w-full h-[2px] bg-gradient-to-r from-[#0B281E] via-[#2E6F57] to-[#F9E8C7]" />
+        <AboutCourse  />   {/* id="sobre-o-curso"  */}
+        <CoursePillars />  {/* id="pilares"         */}
         <Faculty      />   {/* id="docentes"    */}
         <Testimonials />   {/* id="depoimentos" */}
-        <PricingInfo  />   {/* id="valores"     */}
+        <PricingInfo  />   {/* id="investimento" */}
       </main>
 
       <Footer />
+      <WhatsAppButton />
     </div>
   )
 }

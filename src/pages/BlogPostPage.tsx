@@ -110,7 +110,7 @@ export default function BlogPostPage() {
                   Conheça a especialização do CESMVC – UFPR.
                 </p>
                 <Link
-                  to="/#valores"
+                  to="/#investimento"
                   className="
                     inline-flex items-center gap-2
                     bg-cesmvc-orange hover:bg-cesmvc-orange-dark

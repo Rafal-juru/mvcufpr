@@ -12,6 +12,9 @@ dist
 dist-ssr
 *.local
 
+# Documentos de referência e textos
+**/context/textos/
+
 # Claude Code
 .claude/
 

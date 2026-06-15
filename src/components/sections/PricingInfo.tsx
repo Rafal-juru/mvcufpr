@@ -1,8 +1,10 @@
 /* PricingInfo.tsx — Seção de Investimento — Fundo Azul Marinho #2B4C7E */
 
+import logoUFPR3 from '../../assets/images/logoUFPR3(semNome).png'
+
 const FEATURES = [
-  '360h de carga horária total',
-  '18 meses de duração',
+  '544 horas de carga horária total',
+  '24 meses de duração',
   'Corpo docente 100% UFPR',
   'Material didático incluso',
   'Acesso à Biblioteca UFPR',
@@ -17,34 +19,50 @@ const PAYMENT_OPTIONS = [
     highlight: true,
     badge: 'Mais escolhido',
     label: 'Parcelado',
-    priceDisplay: '18x de',
-    price: 'R$ 580',
+    priceDisplay: '24x de',
+    price: 'R$ 664,39',
     note: 'sem juros no cartão',
-    sub: 'Total: R$ 10.440',
-    cta: 'Garantir Minha Vaga',
-    ctaHref: '#',
+    sub: 'Total: R$ 15.945,36',
+    cta: 'Inscrever-se via WhatsApp',
+    ctaHref: 'https://wa.me/5500000000000',
   },
   {
     id: 'upfront',
     highlight: false,
     badge: 'Maior economia',
     label: 'À Vista',
-    priceDisplay: 'por',
-    price: 'R$ 9.200',
-    note: 'desconto de R$ 1.240',
-    sub: '12% off no pagamento único',
-    cta: 'Pagar à Vista',
-    ctaHref: '#',
+    priceDisplay: 'Sob consulta',
+    price: 'Com Desconto',
+    note: 'Consultar desconto para pagamento à vista',
+    sub: 'Fale com a secretaria do curso',
+    cta: 'Consultar À Vista',
+    ctaHref: 'https://wa.me/5541999999999?text=Olá!%20Gostaria%20de%20saber%20sobre%20o%20desconto%20para%20pagamento%20à%20vista%20do%20CESMVC%20UFPR.',
   },
 ]
 
 export default function PricingInfo() {
   return (
     <section
-      id="valores"
+      id="investimento"
       className="relative py-24 sm:py-32 overflow-hidden"
       style={{ background: '#2B4C7E' }}
     >
+      {/* ── Logo UFPR (Endosso no Canto Superior Direito) ── */}
+      <div className="absolute top-12 right-6 sm:right-12 z-20">
+        <a
+          href="https://agrarias.ufpr.br/mvc/"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="Site Oficial UFPR MVC"
+          className="flex items-center drop-shadow-md hover:drop-shadow-xl hover:scale-105 transition-all duration-300 cursor-pointer"
+        >
+          <img
+            src={logoUFPR3}
+            alt="UFPR"
+            className="h-9 sm:h-10 w-auto object-contain"
+          />
+        </a>
+      </div>
       {/* ── Subtle texture overlay ── */}
       <div
         className="absolute inset-0 pointer-events-none"
@@ -182,6 +200,8 @@ export default function PricingInfo() {
                 {/* CTA */}
                 <a
                   href={opt.ctaHref}
+                  target={opt.ctaHref.startsWith('http') ? '_blank' : undefined}
+                  rel={opt.ctaHref.startsWith('http') ? 'noopener noreferrer' : undefined}
                   className={`
                     mt-auto inline-flex items-center justify-center gap-2
                     font-bold text-sm px-6 py-3.5 rounded-xl
@@ -218,7 +238,7 @@ export default function PricingInfo() {
 
         {/* ── Urgency note ── */}
         <p className="mt-8 text-center text-white/50 text-xs">
-          Vagas limitadas para a turma 2025. Inscrições encerram em <strong className="text-white/70">31 de julho de 2025</strong>.
+          Vagas limitadas para a turma 2026/2028. Inscrições encerram em <strong className="text-white/70">31 de julho de 2026</strong>.
         </p>
       </div>
     </section>

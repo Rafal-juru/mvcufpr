@@ -1,4 +1,7 @@
-import logoBranco from '../../assets/images/logoComNome-branco.png'
+import logoDescritivaBege from '../../assets/images/logoDescitivabBege.png'
+import logoUFPR3 from '../../assets/images/logoUFPR3(semNome).png'
+import seloMEC from '../../assets/images/seloMEC.png'
+import seloCFMV from '../../assets/images/seloCFMV.png'
 
 const redes = [
   {
@@ -51,13 +54,40 @@ export default function Footer() {
           {/* ── Brand ── */}
           <div className="flex flex-col items-center md:items-start text-center md:text-left">
             <img
-              src={logoBranco}
-              alt="MVC UFPR"
-              className="h-16 w-auto mb-4 brightness-0 invert"
+              src={logoDescritivaBege}
+              alt="CESMVC UFPR"
+              className="h-12 w-auto mb-4 object-contain"
             />
-            <p className="text-white/80 text-sm leading-relaxed max-w-xs">
+            <p className="text-white/80 text-sm leading-relaxed max-w-xs mb-4">
               Medicina Veterinária do Coletivo — Universidade Federal do Paraná
             </p>
+            <div className="flex items-center gap-4 mt-2">
+              <a
+                href="https://agrarias.ufpr.br/mvc/"
+                target="_blank"
+                rel="noopener noreferrer"
+                title="Site Oficial UFPR MVC"
+                className="inline-flex items-center drop-shadow-md hover:drop-shadow-xl hover:scale-105 transition-all duration-300 cursor-pointer"
+              >
+                <img
+                  src={logoUFPR3}
+                  alt="UFPR"
+                  className="h-9 w-auto object-contain"
+                />
+              </a>
+              <img
+                src={seloMEC}
+                alt="Selo MEC"
+                title="Pós-Graduação autorizada e reconhecida pelo MEC (Ministério da Educação)"
+                className="h-9 w-auto object-contain cursor-help transition-all hover:scale-105"
+              />
+              <img
+                src={seloCFMV}
+                alt="Selo CFMV"
+                title="Especialização homologada e de acordo com as normas do CFMV (Conselho Federal de Medicina Veterinária)"
+                className="h-9 w-auto object-contain cursor-help transition-all hover:scale-105"
+              />
+            </div>
           </div>
 
           {/* ── Contact ── */}

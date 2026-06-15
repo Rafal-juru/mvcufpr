@@ -34,7 +34,7 @@ export default function BlogHeader() {
               Blog
             </Link>
             <Link
-              to="/#valores"
+              to="/#investimento"
               className="
                 hidden sm:inline-flex items-center gap-2
                 bg-cesmvc-orange hover:bg-cesmvc-orange-dark
