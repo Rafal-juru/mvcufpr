@@ -114,7 +114,7 @@ export const CourseCard: React.FC<CourseCardProps> = ({ card }) => {
                         whiteSpace: 'nowrap',
                     }}
                 >
-                    {/* Arrow icon — left side, pointing upper-left ↖ */}
+                    {/* Seta diagonal ↖ à esquerda */}
                     <svg
                         width="12"
                         height="12"
@@ -124,7 +124,7 @@ export const CourseCard: React.FC<CourseCardProps> = ({ card }) => {
                     >
                         <path
                             d="M9.5 9.5L2.5 2.5M2.5 2.5H7.5M2.5 2.5V7.5"
-                            stroke="#0B281E"
+                            stroke="#F9E8C7"
                             strokeWidth="1.8"
                             strokeLinecap="round"
                             strokeLinejoin="round"
@@ -137,7 +137,7 @@ export const CourseCard: React.FC<CourseCardProps> = ({ card }) => {
                             fontWeight: 700,
                             letterSpacing: '0.1em',
                             textTransform: 'uppercase',
-                            color: '#0B281E',
+                            color: '#F9E8C7',
                             lineHeight: 1,
                         }}
                     >

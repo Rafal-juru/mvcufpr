@@ -1,13 +1,14 @@
 import { Link } from 'react-router-dom'
 import logoBege from '../../assets/images/logoDescitivabBege.png'
+import logoUFPR3 from '../../assets/images/logoUFPR3(semNome).png'
+import seloMEC from '../../assets/images/seloMEC.png'
+import seloCFMV from '../../assets/images/seloCFMV.png'
 
-/* Endereço do CESMVC e link para o Google Maps (busca pelo endereço). */
 const ENDERECO = 'Rua dos Funcionários, 1540 — Cabral, Curitiba — PR, 80.035-050'
 const MAPS_URL =
   'https://www.google.com/maps/search/?api=1&query=' +
   encodeURIComponent('Rua dos Funcionários, 1540, Cabral, Curitiba - PR, 80035-050')
 
-/* Navegação útil do site (âncoras das seções da home + página do blog). */
 const navLinks = [
   { label: 'O Curso', href: '#pilares' },
   { label: 'Docentes', href: '#docentes' },
@@ -70,9 +71,36 @@ export default function Footer() {
               alt="CESMVC — Curso de Especialização em Medicina Veterinária do Coletivo"
               className="w-full max-w-[240px] h-auto mb-4"
             />
-            <p className="text-white/80 text-sm leading-relaxed max-w-xs">
-              Universidade Federal do Paraná
+            <p className="text-white/80 text-sm leading-relaxed max-w-xs mb-4">
+              Medicina Veterinária do Coletivo — Universidade Federal do Paraná
             </p>
+            <div className="flex items-center gap-4 mt-2">
+              <a
+                href="https://agrarias.ufpr.br/mvc/"
+                target="_blank"
+                rel="noopener noreferrer"
+                title="Site Oficial UFPR MVC"
+                className="inline-flex items-center drop-shadow-md hover:drop-shadow-xl hover:scale-105 transition-all duration-300 cursor-pointer"
+              >
+                <img
+                  src={logoUFPR3}
+                  alt="UFPR"
+                  className="h-9 w-auto object-contain"
+                />
+              </a>
+              <img
+                src={seloMEC}
+                alt="Selo MEC"
+                title="Pós-Graduação autorizada e reconhecida pelo MEC (Ministério da Educação)"
+                className="h-9 w-auto object-contain cursor-help transition-all hover:scale-105"
+              />
+              <img
+                src={seloCFMV}
+                alt="Selo CFMV"
+                title="Especialização homologada e de acordo com as normas do CFMV (Conselho Federal de Medicina Veterinária)"
+                className="h-9 w-auto object-contain cursor-help transition-all hover:scale-105"
+              />
+            </div>
           </div>
 
           {/* ── Contact ── */}

@@ -178,7 +178,7 @@ export default function Testimonials() {
         {/* ── Bottom CTA ── */}
         <div className="mt-14 text-center">
           <a
-            href="#valores"
+            href="#investimento"
             className="
               inline-flex items-center gap-2
               text-cesmvc-green hover:text-cesmvc-green-dark

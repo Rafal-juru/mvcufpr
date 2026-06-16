@@ -1,0 +1,239 @@
+/**
+ * AboutCourse.tsx — Secção "O Curso" (#sobre-o-curso)
+ *
+ * Conteúdo extraído da REDAÇÃO 3 do ficheiro
+ * "CESMVC - Controle de redações.md" (textos aprovados).
+ *
+ * Layout editorial: bloco intro largo + 2 blocos laterais
+ * para evitar o cansaço de texto corrido.
+ */
+
+const SECTIONS = [
+  {
+    id: 'mvc',
+    eyebrow: 'A Especialidade',
+    title: 'O que é a Medicina Veterinária do Coletivo?',
+    body: [
+      'A Medicina Veterinária do Coletivo (MVC) é uma especialidade da Medicina Veterinária voltada à compreensão das relações entre saúde humana, saúde animal e meio ambiente, sob a perspectiva da Saúde Única e do Bem-Estar Único.',
+      'Diferente da abordagem tradicional centrada no paciente individual, a MVC ocupa-se de grupos, comunidades e ecossistemas. Seu campo de ação abrange desde o controle de zoonoses e o manejo populacional de cães e gatos até a atuação em situações de desastres, perícia veterinária, abrigos e comunidades tradicionais.',
+      'Nessa perspectiva, a MVC propõe uma atuação ética, interdisciplinar e territorial, preparada para enfrentar desafios contemporâneos que exigem respostas coletivas, institucionais e socialmente comprometidas.',
+    ],
+    accent: '#2E6F57',
+    wide: true,
+  },
+  {
+    id: 'imvc',
+    eyebrow: 'O Instituto',
+    title: 'O Instituto de Medicina Veterinária do Coletivo (IMVC)',
+    body: [
+      'O IMVC é uma organização não governamental, sem fins lucrativos, dedicada a promover interações positivas entre humanos, animais e meio ambiente em toda a América Latina.',
+      'Sua atuação inclui a realização de conferências, capacitações e formações voltadas a profissionais que trabalham direta ou indiretamente com essas interações.',
+      'A Medicina Veterinária do Coletivo foi recentemente reconhecida como especialidade pelo Conselho Federal de Medicina Veterinária (CFMV), e o IMVC é a organização habilitada a conceder o título de especialista na área, consolidando sua legitimidade e protagonismo no campo.',
+    ],
+    accent: '#2B4C7E',
+    wide: false,
+  },
+  {
+    id: 'cesmvc',
+    eyebrow: 'O Curso',
+    title: 'O CESMVC: especialização UFPR que prepara para o coletivo',
+    body: [
+      'O Curso de Especialização em Medicina Veterinária do Coletivo da Universidade Federal do Paraná (CESMVC – UFPR) é uma pós-graduação lato sensu destinada a médicas e médicos veterinários que atuam, ou desejam atuar, em contextos coletivos, públicos e intersetoriais.',
+      'Vinculado à UFPR e desenvolvido em parceria com o PECCA, o curso reúne rigor acadêmico, aplicação prática e compromisso público em uma formação interdisciplinar e conectada à realidade profissional.',
+      'O CESMVC conta com mais de 40 professores e profissionais convidados, sendo a maior parte formada por doutores de universidades federais e profissionais com ampla experiência prática em serviços públicos e gestão. Muitos participaram diretamente da criação e consolidação da Medicina Veterinária do Coletivo no Brasil.',
+      'Com formato 100% EAD, aulas síncronas semanais e acompanhamento contínuo por meio de tutoria acadêmica e suporte institucional, o curso oferece uma formação sólida para profissionais que desejam atuar de maneira transformadora nas relações entre humanos, animais e ambiente.',
+    ],
+    accent: '#D96C2B',
+    wide: false,
+  },
+] as const;
+
+/* ── Stat cards ── */
+const STATS = [
+  { value: '+40', label: 'Professores e\nProfissionais' },
+  { value: '75%', label: 'Doutores no\nCorpo Docente' },
+  { value: '100%', label: 'EAD com aulas\nsíncronas semanais' },
+  { value: '100%', label: 'dos egressos\nrecomendam' },
+];
+
+export default function AboutCourse() {
+  return (
+    <section
+      id="sobre-o-curso"
+      className="relative pt-24 pb-24 sm:pt-32 sm:pb-24 overflow-hidden bg-cesmvc-sand"
+    >
+      {/* ── Decorative blobs ── */}
+      <div
+        className="absolute -top-32 -right-32 w-[28rem] h-[28rem] rounded-full opacity-10 blur-3xl pointer-events-none"
+        style={{ background: '#2E6F57' }}
+        aria-hidden="true"
+      />
+      {/* Dot grid texture */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          backgroundImage: 'radial-gradient(rgba(46,111,87,0.07) 1px, transparent 0)',
+          backgroundSize: '1.5rem 1.5rem',
+        }}
+        aria-hidden="true"
+      />
+
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        {/* ── Section eyebrow ── */}
+        <div className="mb-16">
+          <span className="inline-flex items-center gap-2 text-[#2E6F57] text-xs font-bold tracking-widest uppercase mb-4">
+            <span className="w-8 h-px" style={{ background: '#2E6F57' }} />
+            O Curso
+          </span>
+          <h2
+            className="font-serif-display font-medium tracking-tight text-[#0B281E] leading-[1.1] max-w-3xl"
+            style={{ fontSize: 'clamp(2rem, 4.5vw, 3.25rem)' }}
+          >
+            Uma formação construída
+            <span className="text-[#2E6F57]"> para transformar realidades</span>
+          </h2>
+        </div>
+
+        {/* ─────────────────────────────────────────────────────────────
+            BLOCO 1 — MVC: texto largo com linha lateral colorida
+        ───────────────────────────────────────────────────────────── */}
+        <div className="mb-20">
+          {/* Eyebrow */}
+          <div className="flex items-center gap-2 mb-3">
+            <span className="w-5 h-px" style={{ background: SECTIONS[0].accent }} />
+            <span className="font-mono text-[0.65rem] uppercase tracking-widest" style={{ color: SECTIONS[0].accent }}>
+              {SECTIONS[0].eyebrow}
+            </span>
+          </div>
+          {/* Layout: título à esquerda + texto à direita */}
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-16 items-start">
+            <div className="lg:col-span-2">
+              <h3
+                className="font-serif-display font-medium leading-snug tracking-tight text-[#0B281E]"
+                style={{ fontSize: 'clamp(1.375rem, 2.5vw, 1.875rem)' }}
+              >
+                {SECTIONS[0].title}
+              </h3>
+            </div>
+            <div className="lg:col-span-3 space-y-4" style={{ borderLeft: `2px solid ${SECTIONS[0].accent}20`, paddingLeft: '1.5rem' }}>
+              {SECTIONS[0].body.map((p, i) => (
+                <p
+                  key={i}
+                  className="font-sans leading-relaxed text-[#0B281E]/80"
+                  style={{ fontSize: 'clamp(0.9375rem, 1.4vw, 1.0625rem)' }}
+                >
+                  {p}
+                </p>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* ─────────────────────────────────────────────────────────────
+            BLOCO 2+3 — IMVC e CESMVC: dois cards lado a lado
+        ───────────────────────────────────────────────────────────── */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-20">
+          {[SECTIONS[1], SECTIONS[2]].map((sec) => (
+            <div
+              key={sec.id}
+              className="rounded-2xl p-8 relative overflow-hidden"
+              style={{
+                background: 'rgba(255,255,255,0.55)',
+                border: '1px solid rgba(11,40,30,0.08)',
+                backdropFilter: 'blur(4px)',
+              }}
+            >
+              {/* Accent bar no topo */}
+              <div
+                className="absolute top-0 left-8 right-8 h-[2px] rounded-full"
+                style={{ background: sec.accent }}
+                aria-hidden="true"
+              />
+              {/* Eyebrow */}
+              <div className="flex items-center gap-2 mb-3 mt-2">
+                <span className="w-4 h-px" style={{ background: sec.accent }} />
+                <span className="font-mono text-[0.6rem] uppercase tracking-widest" style={{ color: sec.accent }}>
+                  {sec.eyebrow}
+                </span>
+              </div>
+              <h3
+                className="font-serif-display font-medium leading-snug tracking-tight text-[#0B281E] mb-5"
+                style={{ fontSize: 'clamp(1.125rem, 1.8vw, 1.4375rem)' }}
+              >
+                {sec.title}
+              </h3>
+              <div className="space-y-3">
+                {sec.body.map((p, i) => (
+                  <p
+                    key={i}
+                    className="font-sans leading-relaxed text-[#0B281E]/75"
+                    style={{ fontSize: 'clamp(0.875rem, 1.2vw, 1rem)' }}
+                  >
+                    {p}
+                  </p>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* ── Stats bar ── */}
+        <div
+          className="grid grid-cols-2 md:grid-cols-4 gap-4 p-8 rounded-2xl"
+          style={{
+            background: '#2E6F57',
+            boxShadow: '0 1rem 2rem rgba(46,111,87,0.25)',
+          }}
+        >
+          {STATS.map((s) => (
+            <div key={s.label} className="flex flex-col items-center text-center">
+              <span
+                className="font-serif-display font-bold leading-none mb-2"
+                style={{ fontSize: 'clamp(2rem, 3.5vw, 2.75rem)', color: '#F9E8C7' }}
+              >
+                {s.value}
+              </span>
+              <span
+                className="font-sans font-medium text-center leading-snug"
+                style={{ fontSize: '0.8125rem', color: 'rgba(249,232,199,0.85)', whiteSpace: 'pre-line' }}
+              >
+                {s.label}
+              </span>
+            </div>
+          ))}
+        </div>
+
+        {/* ── Bottom CTA ── */}
+        <div className="mt-14 flex flex-col sm:flex-row items-start sm:items-center gap-4">
+          <a
+            href="#pilares"
+            className="inline-flex items-center gap-2 font-semibold transition-colors duration-200 group"
+            style={{ color: '#2E6F57', fontSize: '0.9375rem' }}
+          >
+            Conheça os pilares do curso
+            <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </a>
+          <span className="hidden sm:block text-[#0B281E]/20">·</span>
+          <a
+            href="#investimento"
+            className="inline-flex items-center gap-2 font-bold text-white rounded-full transition-all duration-300 hover:-translate-y-0.5"
+            style={{
+              fontSize: '0.875rem',
+              padding: '0.625rem 1.5rem',
+              background: '#D96C2B',
+              boxShadow: '0 0.25rem 1rem rgba(217,108,43,0.35)',
+            }}
+          >
+            Garanta sua vaga
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </section>
+  );
+}

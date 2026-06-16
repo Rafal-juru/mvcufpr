@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react'
 import heropc from '../../assets/images/heropc.png'
 import heromob from '../../assets/images/heromob.png'
 import logoDescritivaBege from '../../assets/images/logoDescitivabBege.png'
-import logoUFPR from '../../assets/images/logoUFPR.png'
 
 /* ── Typewriter config ────────────────────────────────────────── */
 const ROTATING_WORDS = ['Coletiva.', 'Sistêmica.', 'Científica.', 'Transformadora.', 'Humana.']
@@ -13,9 +12,10 @@ const PAUSE_BEFORE = 350  // ms de pausa antes de começar a digitar
 
 /* ── Feature badges ───────────────────────────────────────────── */
 const BADGES = [
-  { label: '360h de Carga Horária' },
-  { label: '18 Meses de Duração' },
+  { label: '100% remoto' },
+  { label: '24 Meses de Duração' },
   { label: '15+ Professores Federais' },
+  { label: 'Certificação UFPR | Reconhecimento MEC e CFMV' },
 ]
 
 export default function HeroSection() {
@@ -136,7 +136,7 @@ export default function HeroSection() {
         {/* CTA Buttons */}
         <div className="flex flex-col sm:flex-row gap-4 mb-16">
           <a
-            href="#valores"
+            href="#investimento"
             className="
               group inline-flex items-center justify-center gap-3
               font-bold text-white
@@ -174,10 +174,32 @@ export default function HeroSection() {
         </div>
 
         {/* ── Feature Badges (Ultra minimalistas) ── */}
-        <div className="flex flex-col sm:flex-row flex-wrap gap-3">
-          {BADGES.map((b) => (
+        <div className="flex flex-col gap-3">
+          {/* Linha 1: Badges principais */}
+          <div className="flex flex-col sm:flex-row flex-wrap gap-3">
+            {BADGES.slice(0, 3).map((b) => (
+              <div
+                key={b.label}
+                className="
+                  inline-flex items-center gap-2.5
+                  px-5 py-3 rounded-2xl
+                  bg-white/5 backdrop-blur-md
+                  border border-white/10
+                "
+              >
+                <span className="w-1.5 h-1.5 rounded-full" style={{ background: '#D96C2B' }} />
+                <span className="text-white font-semibold tracking-wide"
+                  style={{ fontSize: 'clamp(0.8rem, 1.2vw, 0.9375rem)' }}
+                >
+                  {b.label}
+                </span>
+              </div>
+            ))}
+          </div>
+
+          {/* Linha 2: Certificação ampla abaixo */}
+          <div className="flex">
             <div
-              key={b.label}
               className="
                 inline-flex items-center gap-2.5
                 px-5 py-3 rounded-2xl
@@ -189,21 +211,14 @@ export default function HeroSection() {
               <span className="text-white font-semibold tracking-wide"
                 style={{ fontSize: 'clamp(0.8rem, 1.2vw, 0.9375rem)' }}
               >
-                {b.label}
+                {BADGES[3].label}
               </span>
             </div>
-          ))}
+          </div>
         </div>
       </div>
 
-      {/* ── Logo UFPR (Endosso no Canto Inferior Direito) ── */}
-      <div className="absolute bottom-12 right-6 sm:right-12 z-20 pointer-events-none">
-        <img
-          src={logoUFPR}
-          alt="Universidade Federal do Paraná (UFPR)"
-          className="h-10 sm:h-14 w-auto object-contain opacity-90"
-        />
-      </div>
+
 
       {/* ── Scroll indicator ── */}
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2 animate-bounce">

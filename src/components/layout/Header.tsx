@@ -1,12 +1,14 @@
 import { useState, useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
-import logoDescritivaLaranja from '../../assets/images/logoDescitivabLaranja.png'
+import logoMVCfeatUF_Bege from '../../assets/images/logoMVCfeatUF_Bege.png'
+import logoUFPR3 from '../../assets/images/logoUFPR3(semNome).png'
 
 const NAV_LINKS = [
-  { label: 'O Curso',       href: '#pilares'    },
-  { label: 'Docentes',      href: '#docentes'   },
-  { label: 'Depoimentos',   href: '#depoimentos' },
-  { label: 'Investimento',  href: '#valores'    },
+  { label: 'O Curso', href: '#sobre-o-curso' },
+  { label: 'Eixos de Aprendizado', href: '#pilares' },
+  { label: 'Docentes', href: '#docentes' },
+  { label: 'Depoimentos', href: '#depoimentos' },
+  { label: 'Investimento', href: '#investimento' },
 ]
 
 export default function Header() {
@@ -44,22 +46,40 @@ export default function Header() {
           : 'bg-transparent py-5'}
       `}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" ref={menuRef}>
-        <div className="flex items-center justify-between">
-
-          {/* ── Brand Logo ── */}
-          <a href="#hero" className="flex items-center h-12">
+      <div
+        ref={menuRef}
+        className="w-full px-4 md:px-8 lg:px-12 flex justify-between md:justify-center items-center relative"
+      >
+        {/* ── Lado Esquerdo (Extrema Esquerda - Apenas UFPR) ── */}
+        <div className="flex-shrink-0 md:absolute md:left-8 lg:left-12 md:top-1/2 md:-translate-y-1/2">
+          <a
+            href="https://agrarias.ufpr.br/mvc/"
+            target="_blank"
+            rel="noopener noreferrer"
+            title="Site Oficial UFPR MVC"
+            className="flex items-center drop-shadow-md hover:drop-shadow-xl hover:scale-105 transition-all duration-300 cursor-pointer"
+          >
             <img
-              src={logoDescritivaLaranja}
-              alt="CESMVC UFPR"
-              className={`h-10 sm:h-12 w-auto object-contain transition-opacity duration-500 ease-in-out ${
-                scrolled ? 'opacity-100' : 'opacity-0 pointer-events-none'
-              }`}
+              src={logoUFPR3}
+              alt="UFPR"
+              className="h-8 sm:h-9 w-auto object-contain"
+            />
+          </a>
+        </div>
+
+        {/* ── Lado Direito (CESMVC + Menu + Botão) ── */}
+        <div className="flex items-center gap-6 lg:gap-8 flex-shrink-0">
+          {/* Logo do CESMVC */}
+          <a href="#hero" className="flex items-center h-12 flex-shrink-0">
+            <img
+              src={logoMVCfeatUF_Bege}
+              alt="CESMVC"
+              className={`h-10 sm:h-12 w-auto object-contain transition-opacity duration-500 ease-in-out ${scrolled ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
             />
           </a>
 
-          {/* ── Desktop Navigation ── */}
-          <nav className="hidden md:flex items-center gap-8" aria-label="Navegação principal">
+          {/* Desktop Navigation */}
+          <nav className="hidden md:flex items-center gap-4 lg:gap-6" aria-label="Navegação principal">
             {NAV_LINKS.map((item) => (
               <a
                 key={item.href}
@@ -69,6 +89,7 @@ export default function Header() {
                   text-sm font-medium tracking-wide
                   transition-colors duration-200
                   relative
+                  whitespace-nowrap
                   after:absolute after:bottom-[-4px] after:left-0
                   after:h-[2px] after:w-0 after:bg-cesmvc-orange
                   after:transition-all after:duration-300
@@ -85,6 +106,7 @@ export default function Header() {
                 text-sm font-medium tracking-wide
                 transition-colors duration-200
                 relative
+                whitespace-nowrap
                 after:absolute after:bottom-[-4px] after:left-0
                 after:h-[2px] after:w-0 after:bg-cesmvc-orange
                 after:transition-all after:duration-300
@@ -95,10 +117,10 @@ export default function Header() {
             </Link>
           </nav>
 
-          {/* ── CTA + Mobile Toggle ── */}
-          <div className="flex items-center gap-3">
+          {/* CTA + Mobile Toggle */}
+          <div className="flex items-center gap-3 flex-shrink-0">
             <a
-              href="#valores"
+              href="#investimento"
               className="
                 hidden sm:inline-flex items-center gap-2
                 bg-cesmvc-orange hover:bg-cesmvc-orange-dark
@@ -108,6 +130,7 @@ export default function Header() {
                 shadow-md shadow-cesmvc-orange/30
                 hover:shadow-lg hover:shadow-cesmvc-orange/40
                 hover:-translate-y-0.5
+                whitespace-nowrap
               "
             >
               Inscreva-se
@@ -126,17 +149,21 @@ export default function Header() {
             >
               {menuOpen
                 ? <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                  </svg>
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
                 : <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-                  </svg>
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
               }
             </button>
           </div>
         </div>
+      </div>
 
-        {/* ── Mobile Dropdown Menu ── */}
+      {/* ── Mobile Dropdown Menu ── */}
+      <div
+        className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
+      >
         <div
           className={`
             md:hidden overflow-hidden
@@ -159,6 +186,7 @@ export default function Header() {
                   text-sm font-medium tracking-wide
                   px-4 py-3 rounded-xl
                   transition-colors duration-200
+                  whitespace-nowrap
                 "
               >
                 {item.label}
@@ -172,12 +200,13 @@ export default function Header() {
                 text-sm font-medium tracking-wide
                 px-4 py-3 rounded-xl
                 transition-colors duration-200
+                whitespace-nowrap
               "
             >
               Blog
             </Link>
             <a
-              href="#valores"
+              href="#investimento"
               onClick={() => setMenuOpen(false)}
               className="
                 mt-2 inline-flex items-center justify-center gap-2
@@ -185,6 +214,7 @@ export default function Header() {
                 text-white font-semibold text-sm
                 px-5 py-3 rounded-xl
                 transition-all duration-300
+                whitespace-nowrap
               "
             >
               Inscreva-se Agora
