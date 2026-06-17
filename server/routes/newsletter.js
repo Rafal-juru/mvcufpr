@@ -1,5 +1,6 @@
 import express from 'express';
 import pool from '../db.js';
+import { sendNewsletterConfirmation, sendAdminNotification } from '../mailer.js';
 
 const router = express.Router();
 
@@ -11,11 +12,22 @@ router.post('/', async (req, res) => {
     return res.status(400).json({ message: 'E-mail inválido.' });
   }
 
+  const normalized = email.toLowerCase().trim();
+
   try {
     await pool.query(
       'INSERT INTO newsletter_subscribers (email) VALUES (?)',
-      [email.toLowerCase().trim()]
+      [normalized]
     );
+
+    // Fire-and-forget — SMTP errors don't affect the HTTP response.
+    sendNewsletterConfirmation(normalized).catch((err) =>
+      console.error('Erro ao enviar e-mail de confirmação:', err.message)
+    );
+    sendAdminNotification(normalized).catch((err) =>
+      console.error('Erro ao notificar admin:', err.message)
+    );
+
     return res.status(201).json({ message: 'Inscrição realizada com sucesso!' });
   } catch (error) {
     // ER_DUP_ENTRY → e-mail já cadastrado, retorna 200 sem vazar informação.
