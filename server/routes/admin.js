@@ -148,4 +148,35 @@ router.delete('/posts/:id', async (req, res) => {
   }
 });
 
+// ── Newsletter subscribers ────────────────────────────────────────────────────
+
+// GET /api/admin/subscribers
+router.get('/subscribers', async (req, res) => {
+  try {
+    const [rows] = await pool.query(
+      'SELECT id, email, created_at FROM newsletter_subscribers ORDER BY created_at DESC'
+    );
+    res.json(rows);
+  } catch (error) {
+    console.error('Erro ao listar inscritos:', error);
+    res.status(500).json({ message: 'Erro ao listar inscritos' });
+  }
+});
+
+// DELETE /api/admin/subscribers/:id
+router.delete('/subscribers/:id', async (req, res) => {
+  try {
+    const [result] = await pool.query(
+      'DELETE FROM newsletter_subscribers WHERE id = ?', [req.params.id]
+    );
+    if (result.affectedRows === 0) {
+      return res.status(404).json({ message: 'Inscrito não encontrado' });
+    }
+    res.status(204).end();
+  } catch (error) {
+    console.error('Erro ao excluir inscrito:', error);
+    res.status(500).json({ message: 'Erro ao excluir inscrito' });
+  }
+});
+
 export default router;

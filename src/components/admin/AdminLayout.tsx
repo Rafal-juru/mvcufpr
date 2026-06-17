@@ -33,6 +33,12 @@ export default function AdminLayout({ children }: { children: ReactNode }) {
               <span className="text-white/70 text-xs hidden sm:inline">{user.email}</span>
             )}
             <Link
+              to="/admin/subscribers"
+              className="text-white/80 hover:text-white text-sm font-medium transition-colors hidden sm:inline"
+            >
+              Newsletter
+            </Link>
+            <Link
               to="/blog"
               target="_blank"
               className="text-white/80 hover:text-white text-sm font-medium transition-colors"

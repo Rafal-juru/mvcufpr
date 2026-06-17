@@ -4,8 +4,9 @@ import HomePage       from './pages/HomePage'
 import BlogPage       from './pages/BlogPage'
 import BlogPostPage   from './pages/BlogPostPage'
 import LoginPage      from './pages/admin/LoginPage'
-import AdminDashboard from './pages/admin/AdminDashboard'
-import PostEditor     from './pages/admin/PostEditor'
+import AdminDashboard   from './pages/admin/AdminDashboard'
+import PostEditor       from './pages/admin/PostEditor'
+import SubscribersPage  from './pages/admin/SubscribersPage'
 
 import { AuthProvider }  from './context/AuthContext'
 import ProtectedRoute    from './components/admin/ProtectedRoute'
@@ -53,6 +54,15 @@ function App() {
           element={
             <ProtectedRoute>
               <PostEditor />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/admin/subscribers"
+          element={
+            <ProtectedRoute>
+              <SubscribersPage />
             </ProtectedRoute>
           }
         />
