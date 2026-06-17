@@ -8,6 +8,7 @@ import postsRoutes from './routes/posts.js';
 import adminRoutes from './routes/admin.js';
 import uploadRoutes from './routes/upload.js';
 import authRoutes from './routes/auth.js';
+import newsletterRoutes from './routes/newsletter.js';
 
 dotenv.config();
 
@@ -25,6 +26,7 @@ app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 app.use('/api/auth', authRoutes);
 app.use('/api/admin', adminRoutes);
 app.use('/api/posts', postsRoutes);
+app.use('/api/newsletter', newsletterRoutes);
 app.use('/api', uploadRoutes);
 
 app.get('/api/health', (req, res) => {

@@ -35,6 +35,14 @@ const CREATE_TABLE = `
   ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
 `;
 
+const CREATE_NEWSLETTER_TABLE = `
+  CREATE TABLE IF NOT EXISTS newsletter_subscribers (
+    id         INT AUTO_INCREMENT PRIMARY KEY,
+    email      VARCHAR(254) NOT NULL UNIQUE,
+    created_at TIMESTAMP   DEFAULT CURRENT_TIMESTAMP
+  ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
+`;
+
 // Cria/migra a tabela de posts para o schema esperado pelo frontend.
 async function initializeDB() {
   let connection;
@@ -57,7 +65,8 @@ async function initializeDB() {
     }
 
     await connection.query(CREATE_TABLE);
-    console.log('✓ Tabela de posts pronta');
+    await connection.query(CREATE_NEWSLETTER_TABLE);
+    console.log('✓ Tabelas de posts e newsletter prontas');
   } catch (error) {
     // NUNCA deixar virar unhandled rejection: isso derrubaria o processo inteiro
     // (Passenger: "application process exited prematurely"). O app sobe mesmo

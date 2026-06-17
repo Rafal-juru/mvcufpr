@@ -8,10 +8,19 @@ export default function NewsletterSection() {
     e.preventDefault()
     if (!email.trim()) return
     setStatus('loading')
-    // TODO: connect to newsletter backend / mailing service
-    await new Promise((resolve) => setTimeout(resolve, 800))
-    setStatus('success')
-    setEmail('')
+    try {
+      const res = await fetch('/api/newsletter', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: email.trim() }),
+      })
+      if (!res.ok && res.status !== 200) throw new Error()
+      setStatus('success')
+      setEmail('')
+    } catch {
+      setStatus('idle')
+      alert('Não foi possível concluir a inscrição. Tente novamente.')
+    }
   }
 
   return (
