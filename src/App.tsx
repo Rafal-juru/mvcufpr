@@ -68,6 +68,7 @@ function App() {
           }
         />
 
+        <Route path="/newsletter/cancelar"  element={<UnsubscribePage />} />
         <Route path="/newsletter/cancelada" element={<UnsubscribePage />} />
 
         {/* ── Fallback ── */}

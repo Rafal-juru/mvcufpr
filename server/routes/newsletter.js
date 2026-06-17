@@ -56,14 +56,12 @@ router.post('/', async (req, res) => {
   }
 });
 
-// GET /api/newsletter/unsubscribe?email=...&sig=... — cancela inscrição via link.
-router.get('/unsubscribe', async (req, res) => {
-  const { email, sig } = req.query;
-  const site = baseUrl(req);
-  const failUrl = `${site}/newsletter/cancelada?status=invalido`;
+// POST /api/newsletter/unsubscribe — cancela inscrição após confirmação do usuário.
+router.post('/unsubscribe', async (req, res) => {
+  const { email, sig } = req.body ?? {};
 
   if (!email || !sig || !verifyUnsubscribeSig(email, sig)) {
-    return res.redirect(failUrl);
+    return res.status(400).json({ message: 'Link inválido ou expirado.' });
   }
 
   try {
@@ -71,10 +69,10 @@ router.get('/unsubscribe', async (req, res) => {
       'DELETE FROM newsletter_subscribers WHERE email = ?',
       [email.toLowerCase()]
     );
-    return res.redirect(`${site}/newsletter/cancelada?status=ok`);
+    return res.status(200).json({ message: 'Inscrição cancelada com sucesso.' });
   } catch (err) {
     console.error('Erro ao cancelar inscrição:', err.message);
-    return res.redirect(`${site}/newsletter/cancelada?status=erro`);
+    return res.status(500).json({ message: 'Erro interno. Tente novamente.' });
   }
 });
 

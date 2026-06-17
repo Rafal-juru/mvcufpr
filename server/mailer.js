@@ -26,7 +26,8 @@ export function generateUnsubscribeUrl(email, baseUrl) {
     .createHmac('sha256', hmacSecret())
     .update(email.toLowerCase())
     .digest('hex');
-  return `${baseUrl}/api/newsletter/unsubscribe?email=${encodeURIComponent(email)}&sig=${sig}`;
+  // Aponta para a página de confirmação no frontend (não deleta diretamente).
+  return `${baseUrl}/newsletter/cancelar?email=${encodeURIComponent(email)}&sig=${sig}`;
 }
 
 export function verifyUnsubscribeSig(email, sig) {
