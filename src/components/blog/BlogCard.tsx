@@ -26,12 +26,12 @@ export default function BlogCard({ post }: { post: BlogPost }) {
             className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
           />
         ) : (
-          <div className="w-full h-full bg-gradient-to-br from-cesmvc-blue/20 to-cesmvc-green/20 flex items-center justify-center">
+          <div className="w-full h-full bg-gradient-to-br from-cesmvc-blue/20 to-cesmvc-blue/10 flex items-center justify-center">
             <span className="font-grift text-cesmvc-blue/30 text-3xl font-bold select-none">CESMVC</span>
           </div>
         )}
         {post.category && (
-          <span className="absolute top-4 left-4 px-3 py-1 rounded-full text-xs font-bold text-white bg-cesmvc-green/95 backdrop-blur-sm">
+          <span className="absolute top-4 left-4 px-3 py-1 rounded-full text-xs font-bold text-white bg-cesmvc-blue/90 backdrop-blur-sm">
             {post.category}
           </span>
         )}
@@ -45,7 +45,7 @@ export default function BlogCard({ post }: { post: BlogPost }) {
           <span>{post.readingMinutes} min de leitura</span>
         </div>
 
-        <h3 className="font-grift text-gray-900 font-bold text-lg leading-snug mb-2 group-hover:text-cesmvc-green transition-colors">
+        <h3 className="font-grift text-gray-900 font-bold text-lg leading-snug mb-2 group-hover:text-cesmvc-blue transition-colors">
           {post.title}
         </h3>
 
@@ -53,7 +53,7 @@ export default function BlogCard({ post }: { post: BlogPost }) {
           {post.excerpt}
         </p>
 
-        <span className="inline-flex items-center gap-2 mt-4 text-cesmvc-green font-semibold text-sm">
+        <span className="inline-flex items-center gap-2 mt-4 text-cesmvc-blue font-semibold text-sm">
           Ler artigo
           <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />

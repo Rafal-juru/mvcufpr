@@ -84,8 +84,8 @@ export default function BlogPage() {
                   px-4 py-2 rounded-full text-sm font-semibold transition-all duration-200
                   ${
                     activeCategory === cat
-                      ? 'bg-cesmvc-green text-white shadow-md shadow-cesmvc-green/30'
-                      : 'bg-white text-gray-600 border border-gray-200 hover:border-cesmvc-green hover:text-cesmvc-green'
+                      ? 'bg-cesmvc-blue text-white shadow-md shadow-cesmvc-blue/30'
+                      : 'bg-white text-gray-600 border border-gray-200 hover:border-cesmvc-blue hover:text-cesmvc-blue'
                   }
                 `}
               >

@@ -42,7 +42,7 @@ export default function BlogPostPage() {
             </p>
             <Link
               to="/blog"
-              className="inline-flex items-center gap-2 text-cesmvc-green font-semibold hover:text-cesmvc-green-dark"
+              className="inline-flex items-center gap-2 text-cesmvc-blue font-semibold hover:opacity-80"
             >
               ← Voltar para o blog
             </Link>
