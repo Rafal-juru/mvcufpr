@@ -26,7 +26,7 @@ export default function LoginPage() {
   }
 
   return (
-    <div className="min-h-screen bg-cesmvc-green flex flex-col items-center justify-center px-4 font-sans">
+    <div className="min-h-screen bg-cesmvc-blue flex flex-col items-center justify-center px-4 font-sans">
       {/* Blob decorativo */}
       <div
         className="absolute top-0 right-0 w-96 h-96 rounded-full opacity-20 blur-3xl pointer-events-none"
@@ -59,7 +59,7 @@ export default function LoginPage() {
               required
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:border-cesmvc-green focus:ring-2 focus:ring-cesmvc-green/20 outline-none transition"
+              className="w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:border-cesmvc-blue focus:ring-2 focus:ring-cesmvc-blue/20 outline-none transition"
               placeholder="admin@cesmvc.ufpr.br"
             />
           </div>
@@ -74,7 +74,7 @@ export default function LoginPage() {
               required
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:border-cesmvc-green focus:ring-2 focus:ring-cesmvc-green/20 outline-none transition"
+              className="w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:border-cesmvc-blue focus:ring-2 focus:ring-cesmvc-blue/20 outline-none transition"
               placeholder="••••••••"
             />
           </div>
@@ -90,7 +90,7 @@ export default function LoginPage() {
             disabled={submitting}
             className="
               mt-1 inline-flex items-center justify-center gap-2
-              bg-cesmvc-green hover:bg-cesmvc-green-dark
+              bg-cesmvc-blue hover:bg-cesmvc-blue-dark
               text-white font-semibold text-sm
               px-6 py-3 rounded-xl transition-all duration-300
               disabled:opacity-60 disabled:cursor-not-allowed
@@ -99,7 +99,7 @@ export default function LoginPage() {
             {submitting ? 'Entrando…' : 'Entrar'}
           </button>
 
-          <Link to="/" className="text-center text-xs text-gray-400 hover:text-cesmvc-green transition-colors">
+          <Link to="/" className="text-center text-xs text-gray-400 hover:text-cesmvc-blue transition-colors">
             ← Voltar para o site
           </Link>
         </form>

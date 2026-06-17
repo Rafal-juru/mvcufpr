@@ -52,7 +52,7 @@ export default function AdminDashboard() {
           to="/admin/posts/new"
           className="
             inline-flex items-center justify-center gap-2
-            bg-cesmvc-green hover:bg-cesmvc-green-dark
+            bg-cesmvc-blue hover:bg-cesmvc-blue-dark
             text-white font-semibold text-sm
             px-5 py-2.5 rounded-xl transition-all duration-300 hover:-translate-y-0.5
           "
@@ -75,7 +75,7 @@ export default function AdminDashboard() {
       ) : posts.length === 0 ? (
         <div className="bg-white rounded-2xl border border-gray-100 p-12 text-center">
           <p className="text-gray-500 mb-4">Nenhum artigo cadastrado ainda.</p>
-          <Link to="/admin/posts/new" className="text-cesmvc-green font-semibold hover:underline">
+          <Link to="/admin/posts/new" className="text-cesmvc-blue font-semibold hover:underline">
             Criar o primeiro artigo
           </Link>
         </div>
@@ -106,7 +106,7 @@ export default function AdminDashboard() {
                     <span
                       className={`inline-flex px-2.5 py-1 rounded-full text-xs font-semibold ${
                         post.status === 'published'
-                          ? 'bg-cesmvc-green/10 text-cesmvc-green'
+                          ? 'bg-cesmvc-blue/10 text-cesmvc-blue'
                           : 'bg-gray-100 text-gray-500'
                       }`}
                     >

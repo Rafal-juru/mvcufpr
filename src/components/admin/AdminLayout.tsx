@@ -15,7 +15,7 @@ export default function AdminLayout({ children }: { children: ReactNode }) {
 
   return (
     <div className="min-h-screen bg-gray-50 font-sans flex flex-col">
-      <header className="bg-cesmvc-green shadow-md">
+      <header className="bg-cesmvc-blue shadow-md">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between py-3">
           <Link to="/admin" className="flex items-center gap-3">
             <img

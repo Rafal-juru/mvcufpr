@@ -20,7 +20,7 @@ const EMPTY: BlogPostInput = {
 }
 
 const inputClass =
-  'w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:border-cesmvc-green focus:ring-2 focus:ring-cesmvc-green/20 outline-none transition text-sm'
+  'w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:border-cesmvc-blue focus:ring-2 focus:ring-cesmvc-blue/20 outline-none transition text-sm'
 
 export default function PostEditor() {
   const { id } = useParams<{ id: string }>()
@@ -97,7 +97,7 @@ export default function PostEditor() {
     <AdminLayout>
       <div className="mb-8">
         <button type="button" onClick={() => navigate('/admin')}
-          className="text-gray-400 hover:text-cesmvc-green text-sm font-medium mb-3 transition-colors">
+          className="text-gray-400 hover:text-cesmvc-blue text-sm font-medium mb-3 transition-colors">
           ← Voltar para a lista
         </button>
         <div className="flex items-center justify-between flex-wrap gap-3">
@@ -107,8 +107,8 @@ export default function PostEditor() {
           <button type="button" onClick={() => setShowPreview((v) => !v)}
             className={`inline-flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-semibold border transition-all ${
               showPreview
-                ? 'bg-cesmvc-green text-white border-cesmvc-green'
-                : 'bg-white text-gray-600 border-gray-200 hover:border-cesmvc-green hover:text-cesmvc-green'
+                ? 'bg-cesmvc-blue text-white border-cesmvc-blue'
+                : 'bg-white text-gray-600 border-gray-200 hover:border-cesmvc-blue hover:text-cesmvc-blue'
             }`}>
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
@@ -212,7 +212,7 @@ export default function PostEditor() {
         {/* Ações */}
         <div className="flex items-center gap-3 pt-2 border-t border-gray-100 mt-2">
           <button type="submit" disabled={saving}
-            className="inline-flex items-center justify-center gap-2 bg-cesmvc-green hover:bg-cesmvc-green-dark text-white font-semibold text-sm px-6 py-3 rounded-xl transition-all duration-300 disabled:opacity-60 disabled:cursor-not-allowed">
+            className="inline-flex items-center justify-center gap-2 bg-cesmvc-blue hover:bg-cesmvc-blue-dark text-white font-semibold text-sm px-6 py-3 rounded-xl transition-all duration-300 disabled:opacity-60 disabled:cursor-not-allowed">
             {saving ? 'Salvando…' : isEditing ? 'Salvar alterações' : 'Criar artigo'}
           </button>
           <button type="button" onClick={() => navigate('/admin')}
@@ -242,7 +242,7 @@ function CardPreview({ form }: { form: BlogPostInput }) {
         )}
         <div className="p-5">
           {form.category && (
-            <span className="inline-block px-2.5 py-0.5 rounded-full text-xs font-bold bg-cesmvc-green/10 text-cesmvc-green mb-3">
+            <span className="inline-block px-2.5 py-0.5 rounded-full text-xs font-bold bg-cesmvc-blue/10 text-cesmvc-blue mb-3">
               {form.category}
             </span>
           )}

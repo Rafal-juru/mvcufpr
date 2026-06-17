@@ -28,7 +28,7 @@ function Btn({ onClick, active, title, children }: ToolbarButtonProps) {
       className={`
         px-2.5 py-1.5 rounded-lg text-sm transition-colors select-none
         ${active
-          ? 'bg-cesmvc-green text-white'
+          ? 'bg-cesmvc-blue text-white'
           : 'text-gray-600 hover:bg-gray-100 hover:text-gray-900'}
       `}
     >
@@ -79,7 +79,7 @@ export default function RichTextEditor({ value, onChange, placeholder }: Props) 
   if (!editor) return null
 
   return (
-    <div className="border border-gray-200 rounded-xl overflow-hidden focus-within:border-cesmvc-green focus-within:ring-2 focus-within:ring-cesmvc-green/20 transition">
+    <div className="border border-gray-200 rounded-xl overflow-hidden focus-within:border-cesmvc-blue focus-within:ring-2 focus-within:ring-cesmvc-blue/20 transition">
       {/* ── Toolbar ── */}
       <div className="flex flex-wrap items-center gap-0.5 px-3 py-2 bg-gray-50 border-b border-gray-200">
         {/* Desfazer / Refazer */}
