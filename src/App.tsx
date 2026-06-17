@@ -7,6 +7,7 @@ import LoginPage      from './pages/admin/LoginPage'
 import AdminDashboard   from './pages/admin/AdminDashboard'
 import PostEditor       from './pages/admin/PostEditor'
 import SubscribersPage  from './pages/admin/SubscribersPage'
+import UnsubscribePage  from './pages/UnsubscribePage'
 
 import { AuthProvider }  from './context/AuthContext'
 import ProtectedRoute    from './components/admin/ProtectedRoute'
@@ -66,6 +67,8 @@ function App() {
             </ProtectedRoute>
           }
         />
+
+        <Route path="/newsletter/cancelada" element={<UnsubscribePage />} />
 
         {/* ── Fallback ── */}
         <Route path="*" element={<Navigate to="/" replace />} />

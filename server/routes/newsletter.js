@@ -1,6 +1,10 @@
 import express from 'express';
 import pool from '../db.js';
-import { sendNewsletterConfirmation, sendAdminNotification } from '../mailer.js';
+import {
+  sendNewsletterConfirmation,
+  sendAdminNotification,
+  verifyUnsubscribeSig,
+} from '../mailer.js';
 
 const router = express.Router();
 
@@ -12,12 +16,15 @@ const CREATE_SUBSCRIBERS_TABLE = `
   ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
 `;
 
-// Ensure the table exists on every request (no-op if already created).
 async function ensureTable() {
   await pool.query(CREATE_SUBSCRIBERS_TABLE);
 }
 
-// POST /api/newsletter  — registra um e-mail na lista de inscritos.
+function baseUrl(req) {
+  return (process.env.SITE_URL || `${req.protocol}://${req.get('host')}`).replace(/\/$/, '');
+}
+
+// POST /api/newsletter — registra um e-mail na lista de inscritos.
 router.post('/', async (req, res) => {
   const { email } = req.body ?? {};
 
@@ -29,14 +36,11 @@ router.post('/', async (req, res) => {
 
   try {
     await ensureTable();
+    await pool.query('INSERT INTO newsletter_subscribers (email) VALUES (?)', [normalized]);
 
-    await pool.query(
-      'INSERT INTO newsletter_subscribers (email) VALUES (?)',
-      [normalized]
-    );
-
-    sendNewsletterConfirmation(normalized).catch((err) =>
-      console.error('Erro ao enviar e-mail de confirmação:', err.message)
+    const base = baseUrl(req);
+    sendNewsletterConfirmation(normalized, base).catch((err) =>
+      console.error('Erro ao enviar confirmação:', err.message)
     );
     sendAdminNotification(normalized).catch((err) =>
       console.error('Erro ao notificar admin:', err.message)
@@ -48,8 +52,29 @@ router.post('/', async (req, res) => {
       return res.status(200).json({ message: 'E-mail já cadastrado.' });
     }
     console.error('Erro ao salvar inscrito:', error);
-    // Expõe o erro real temporariamente para diagnóstico.
     return res.status(500).json({ message: error.message });
+  }
+});
+
+// GET /api/newsletter/unsubscribe?email=...&sig=... — cancela inscrição via link.
+router.get('/unsubscribe', async (req, res) => {
+  const { email, sig } = req.query;
+  const site = baseUrl(req);
+  const failUrl = `${site}/newsletter/cancelada?status=invalido`;
+
+  if (!email || !sig || !verifyUnsubscribeSig(email, sig)) {
+    return res.redirect(failUrl);
+  }
+
+  try {
+    await pool.query(
+      'DELETE FROM newsletter_subscribers WHERE email = ?',
+      [email.toLowerCase()]
+    );
+    return res.redirect(`${site}/newsletter/cancelada?status=ok`);
+  } catch (err) {
+    console.error('Erro ao cancelar inscrição:', err.message);
+    return res.redirect(`${site}/newsletter/cancelada?status=erro`);
   }
 });
 
