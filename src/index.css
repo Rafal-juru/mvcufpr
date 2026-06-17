@@ -174,4 +174,33 @@ body {
 
 .animate-modal-in {
   animation: modalIn 0.28s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-}
+}
+
+/* ─── TipTap editor — placeholder ──────────────────────────────────────── */
+.tiptap p.is-editor-empty:first-child::before {
+  content: attr(data-placeholder);
+  color: #9ca3af;
+  pointer-events: none;
+  float: left;
+  height: 0;
+}
+
+/* ─── Prose — conteúdo HTML do blog post ───────────────────────────────── */
+.prose h2 { font-size: 1.4rem; font-weight: 700; margin: 1.75rem 0 .75rem; color: #111; }
+.prose h3 { font-size: 1.15rem; font-weight: 700; margin: 1.5rem 0 .6rem; color: #111; }
+.prose p  { margin: 0 0 1rem; line-height: 1.75; color: #374151; }
+.prose ul { list-style: disc; padding-left: 1.5rem; margin: .75rem 0 1rem; }
+.prose ol { list-style: decimal; padding-left: 1.5rem; margin: .75rem 0 1rem; }
+.prose li { margin-bottom: .35rem; line-height: 1.7; color: #374151; }
+.prose blockquote {
+  border-left: 3px solid #2E6F57;
+  padding-left: 1rem;
+  margin: 1.25rem 0;
+  color: #6b7280;
+  font-style: italic;
+}
+.prose strong { font-weight: 700; color: #111; }
+.prose em     { font-style: italic; }
+.prose u      { text-decoration: underline; }
+.prose a      { color: #2B4C7E; text-decoration: underline; }
+.prose hr     { border: none; border-top: 1px solid #e5e7eb; margin: 2rem 0; }

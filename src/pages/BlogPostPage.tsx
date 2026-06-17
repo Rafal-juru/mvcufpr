@@ -3,7 +3,6 @@ import { Link, useParams } from 'react-router-dom'
 import BlogHeader from '../components/blog/BlogHeader'
 import SiteFooter from '../components/layout/SiteFooter'
 import { blogApi } from '../lib/api'
-import { renderMarkdown } from '../lib/markdown'
 import { formatDate } from '../lib/format'
 import type { BlogPost } from '../types'
 
@@ -99,7 +98,10 @@ export default function BlogPostPage() {
               <p className="text-lg text-gray-500 leading-relaxed mb-8 font-medium">
                 {post.excerpt}
               </p>
-              <div className="text-base">{renderMarkdown(post.content)}</div>
+              <div
+                className="prose prose-gray prose-headings:font-grift prose-a:text-cesmvc-blue max-w-none"
+                dangerouslySetInnerHTML={{ __html: post.content }}
+              />
 
               {/* CTA final */}
               <div className="mt-14 p-8 rounded-2xl bg-cesmvc-sand border border-cesmvc-sand-dark text-center">

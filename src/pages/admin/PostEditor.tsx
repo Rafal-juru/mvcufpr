@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import AdminLayout from '../../components/admin/AdminLayout'
+import RichTextEditor from '../../components/admin/RichTextEditor'
 import ImageUploader from '../../components/ui/ImageUploader'
 import { blogApi } from '../../lib/api'
-import { slugify } from '../../lib/format'
+import { slugify, formatDate } from '../../lib/format'
 import type { BlogPostInput, PostStatus } from '../../types'
 
 const EMPTY: BlogPostInput = {
@@ -28,23 +29,20 @@ export default function PostEditor() {
 
   const [form, setForm] = useState<BlogPostInput>(EMPTY)
   const [slugTouched, setSlugTouched] = useState(false)
+  const [showSlug, setShowSlug] = useState(false)
+  const [showPreview, setShowPreview] = useState(false)
   const [loading, setLoading] = useState(isEditing)
   const [saving, setSaving] = useState(false)
   const [error, setError] = useState<string | null>(null)
 
-  /* Carrega o post ao editar */
   useEffect(() => {
     if (!isEditing) return
     blogApi
       .getById(Number(id))
       .then((post) => {
-        if (!post) {
-          setError('Post não encontrado.')
-          return
-        }
+        if (!post) { setError('Post não encontrado.'); return }
         const { id: _id, readingMinutes: _r, ...rest } = post
-        void _id
-        void _r
+        void _id; void _r
         setForm(rest)
         setSlugTouched(true)
       })
@@ -80,170 +78,136 @@ export default function PostEditor() {
   }
 
   if (loading) {
-    return (
-      <AdminLayout>
-        <p className="text-gray-500 py-16 text-center">Carregando…</p>
-      </AdminLayout>
-    )
+    return <AdminLayout><p className="text-gray-500 py-16 text-center">Carregando…</p></AdminLayout>
   }
 
   return (
     <AdminLayout>
       <div className="mb-8">
-        <button
-          type="button"
-          onClick={() => navigate('/admin')}
-          className="text-gray-400 hover:text-cesmvc-green text-sm font-medium mb-3 transition-colors"
-        >
+        <button type="button" onClick={() => navigate('/admin')}
+          className="text-gray-400 hover:text-cesmvc-green text-sm font-medium mb-3 transition-colors">
           ← Voltar para a lista
         </button>
-        <h1 className="font-grift text-gray-900 font-bold text-2xl">
-          {isEditing ? 'Editar artigo' : 'Novo artigo'}
-        </h1>
+        <div className="flex items-center justify-between flex-wrap gap-3">
+          <h1 className="font-grift text-gray-900 font-bold text-2xl">
+            {isEditing ? 'Editar artigo' : 'Novo artigo'}
+          </h1>
+          <button type="button" onClick={() => setShowPreview((v) => !v)}
+            className={`inline-flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-semibold border transition-all ${
+              showPreview
+                ? 'bg-cesmvc-green text-white border-cesmvc-green'
+                : 'bg-white text-gray-600 border-gray-200 hover:border-cesmvc-green hover:text-cesmvc-green'
+            }`}>
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
+                d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
+                d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+            </svg>
+            {showPreview ? 'Ocultar preview' : 'Ver preview do card'}
+          </button>
+        </div>
       </div>
 
-      {error && (
-        <p className="text-cesmvc-orange-dark bg-cesmvc-orange/10 rounded-lg px-4 py-3 mb-6 text-sm">
-          {error}
-        </p>
+      {/* ── Preview do card ── */}
+      {showPreview && (
+        <div className="mb-6">
+          <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3">
+            Preview — como o card aparece no blog
+          </p>
+          <CardPreview form={form} />
+        </div>
       )}
 
-      <form
-        onSubmit={handleSubmit}
-        className="bg-white rounded-2xl border border-gray-100 shadow-sm p-6 sm:p-8 flex flex-col gap-5"
-      >
+      {error && (
+        <p className="text-cesmvc-orange-dark bg-cesmvc-orange/10 rounded-lg px-4 py-3 mb-6 text-sm">{error}</p>
+      )}
+
+      <form onSubmit={handleSubmit}
+        className="bg-white rounded-2xl border border-gray-100 shadow-sm p-6 sm:p-8 flex flex-col gap-5">
+
         {/* Título */}
         <Field label="Título" htmlFor="title">
-          <input
-            id="title"
-            type="text"
-            required
-            value={form.title}
+          <input id="title" type="text" required value={form.title}
             onChange={(e) => handleTitleChange(e.target.value)}
             className={inputClass}
-            placeholder="Ex.: One Health na prática do serviço público"
-          />
+            placeholder="Ex.: One Health na prática do serviço público" />
         </Field>
 
-        {/* Slug */}
-        <Field label="Slug (URL)" htmlFor="slug" hint={`/blog/${form.slug || 'meu-artigo'}`}>
-          <input
-            id="slug"
-            type="text"
-            required
-            value={form.slug}
-            onChange={(e) => {
-              setSlugTouched(true)
-              update('slug', slugify(e.target.value))
-            }}
-            className={inputClass}
-            placeholder="one-health-na-pratica"
-          />
-        </Field>
+        {/* Slug colapsível */}
+        <div>
+          <button type="button" onClick={() => setShowSlug((v) => !v)}
+            className="text-xs text-gray-400 hover:text-cesmvc-green transition-colors flex items-center gap-1">
+            <span>{showSlug ? '▼' : '▶'}</span>
+            Slug gerado automaticamente
+            {form.slug && <span className="ml-1 text-gray-500 font-mono">/blog/{form.slug}</span>}
+          </button>
+          {showSlug && (
+            <input id="slug" type="text" value={form.slug} className={`${inputClass} mt-2 font-mono text-xs`}
+              onChange={(e) => { setSlugTouched(true); update('slug', slugify(e.target.value)) }}
+              placeholder="one-health-na-pratica" />
+          )}
+        </div>
 
         {/* Categoria + Autor */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
           <Field label="Categoria" htmlFor="category">
-            <input
-              id="category"
-              type="text"
-              required
-              value={form.category}
+            <input id="category" type="text" required value={form.category}
               onChange={(e) => update('category', e.target.value)}
-              className={inputClass}
-              placeholder="Saúde Única"
-            />
+              className={inputClass} placeholder="Saúde Única" />
           </Field>
           <Field label="Autor" htmlFor="author">
-            <input
-              id="author"
-              type="text"
-              required
-              value={form.author}
+            <input id="author" type="text" required value={form.author}
               onChange={(e) => update('author', e.target.value)}
-              className={inputClass}
-              placeholder="Profa. Dra. Camila Rocha"
-            />
+              className={inputClass} placeholder="Profa. Dra. Camila Rocha" />
           </Field>
         </div>
 
         {/* Imagem de capa */}
-        <ImageUploader
-          onImageUrl={(url) => update('coverImage', url)}
-          label="Imagem de capa"
-        />
+        <ImageUploader onImageUrl={(url) => update('coverImage', url)} label="Imagem de capa" />
 
         {/* Resumo */}
-        <Field label="Resumo" htmlFor="excerpt" hint="Aparece nos cards e na meta description">
-          <textarea
-            id="excerpt"
-            required
-            rows={2}
-            value={form.excerpt}
+        <Field label="Resumo" htmlFor="excerpt" hint="Aparece nos cards e no e-mail da newsletter">
+          <textarea id="excerpt" required rows={2} value={form.excerpt}
             onChange={(e) => update('excerpt', e.target.value)}
             className={inputClass}
-            placeholder="Uma ou duas frases que resumem o artigo."
-          />
+            placeholder="Uma ou duas frases que resumem o artigo." />
         </Field>
 
-        {/* Conteúdo */}
-        <Field label="Conteúdo (Markdown)" htmlFor="content" hint="Suporta ## títulos, listas, > citações e **negrito**">
-          <textarea
-            id="content"
-            required
-            rows={14}
+        {/* Conteúdo — editor rico */}
+        <Field label="Conteúdo" htmlFor="content">
+          <RichTextEditor
             value={form.content}
-            onChange={(e) => update('content', e.target.value)}
-            className={`${inputClass} font-mono leading-relaxed`}
-            placeholder={'## Subtítulo\n\nTexto do parágrafo...\n\n- item de lista\n- outro item'}
+            onChange={(html) => update('content', html)}
+            placeholder="Escreva o conteúdo do artigo aqui…"
           />
         </Field>
 
         {/* Status + Data */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
           <Field label="Status" htmlFor="status">
-            <select
-              id="status"
-              value={form.status}
+            <select id="status" value={form.status}
               onChange={(e) => update('status', e.target.value as PostStatus)}
-              className={inputClass}
-            >
+              className={inputClass}>
               <option value="draft">Rascunho</option>
               <option value="published">Publicado</option>
             </select>
           </Field>
           <Field label="Data de publicação" htmlFor="publishedAt">
-            <input
-              id="publishedAt"
-              type="date"
-              required
-              value={form.publishedAt}
+            <input id="publishedAt" type="date" required value={form.publishedAt}
               onChange={(e) => update('publishedAt', e.target.value)}
-              className={inputClass}
-            />
+              className={inputClass} />
           </Field>
         </div>
 
         {/* Ações */}
         <div className="flex items-center gap-3 pt-2 border-t border-gray-100 mt-2">
-          <button
-            type="submit"
-            disabled={saving}
-            className="
-              inline-flex items-center justify-center gap-2
-              bg-cesmvc-green hover:bg-cesmvc-green-dark
-              text-white font-semibold text-sm
-              px-6 py-3 rounded-xl transition-all duration-300
-              disabled:opacity-60 disabled:cursor-not-allowed
-            "
-          >
+          <button type="submit" disabled={saving}
+            className="inline-flex items-center justify-center gap-2 bg-cesmvc-green hover:bg-cesmvc-green-dark text-white font-semibold text-sm px-6 py-3 rounded-xl transition-all duration-300 disabled:opacity-60 disabled:cursor-not-allowed">
             {saving ? 'Salvando…' : isEditing ? 'Salvar alterações' : 'Criar artigo'}
           </button>
-          <button
-            type="button"
-            onClick={() => navigate('/admin')}
-            className="text-gray-500 hover:text-gray-700 font-semibold text-sm px-4 py-3"
-          >
+          <button type="button" onClick={() => navigate('/admin')}
+            className="text-gray-500 hover:text-gray-700 font-semibold text-sm px-4 py-3">
             Cancelar
           </button>
         </div>
@@ -252,17 +216,49 @@ export default function PostEditor() {
   )
 }
 
-/* ── Campo de formulário com label e dica ── */
-function Field({
-  label,
-  htmlFor,
-  hint,
-  children,
-}: {
-  label: string
-  htmlFor: string
-  hint?: string
-  children: React.ReactNode
+/* ── Preview do card em tempo real ── */
+function CardPreview({ form }: { form: BlogPostInput }) {
+  const readingEst = Math.max(1, Math.ceil((form.content.replace(/<[^>]+>/g, '').split(/\s+/).length) / 200))
+
+  return (
+    <div className="max-w-sm">
+      <div className="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden">
+        {form.coverImage ? (
+          <img src={form.coverImage} alt={form.title}
+            className="w-full h-44 object-cover" />
+        ) : (
+          <div className="w-full h-44 bg-gray-100 flex items-center justify-center text-gray-300 text-sm">
+            Sem imagem de capa
+          </div>
+        )}
+        <div className="p-5">
+          {form.category && (
+            <span className="inline-block px-2.5 py-0.5 rounded-full text-xs font-bold bg-cesmvc-green/10 text-cesmvc-green mb-3">
+              {form.category}
+            </span>
+          )}
+          <h3 className="font-grift text-gray-900 font-bold text-lg leading-snug mb-2 line-clamp-2">
+            {form.title || 'Título do artigo'}
+          </h3>
+          <p className="text-gray-500 text-sm leading-relaxed line-clamp-2 mb-4">
+            {form.excerpt || 'Resumo do artigo aparece aqui…'}
+          </p>
+          <div className="flex items-center justify-between text-xs text-gray-400">
+            <span>{form.author || 'Autor'}</span>
+            <div className="flex items-center gap-2">
+              <span>{form.publishedAt ? formatDate(form.publishedAt) : '—'}</span>
+              <span>·</span>
+              <span>{readingEst} min</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+function Field({ label, htmlFor, hint, children }: {
+  label: string; htmlFor: string; hint?: string; children: React.ReactNode
 }) {
   return (
     <div>
