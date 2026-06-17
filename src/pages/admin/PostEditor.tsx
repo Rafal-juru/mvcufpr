@@ -33,6 +33,17 @@ export default function PostEditor() {
   const [loading, setLoading] = useState(isEditing)
   const [saving, setSaving] = useState(false)
   const [error, setError] = useState<string | null>(null)
+  const [existingSlugs, setExistingSlugs] = useState<Set<string>>(new Set())
+
+  // Carrega slugs existentes para validação de duplicata em tempo real.
+  useEffect(() => {
+    blogApi.listAll()
+      .then((posts) => {
+        const others = posts.filter((p) => !isEditing || p.id !== Number(id))
+        setExistingSlugs(new Set(others.map((p) => p.slug)))
+      })
+      .catch(() => {/* silencioso — validação é melhor esforço */})
+  }, [id, isEditing])
 
   useEffect(() => {
     if (!isEditing) return
@@ -47,6 +58,8 @@ export default function PostEditor() {
       })
       .finally(() => setLoading(false))
   }, [id, isEditing])
+
+  const slugConflict = Boolean(form.slug && existingSlugs.has(form.slug))
 
   function update<K extends keyof BlogPostInput>(key: K, value: BlogPostInput[K]) {
     setForm((prev) => ({ ...prev, [key]: value }))
@@ -129,8 +142,17 @@ export default function PostEditor() {
         <Field label="Título" htmlFor="title">
           <input id="title" type="text" required value={form.title}
             onChange={(e) => handleTitleChange(e.target.value)}
-            className={inputClass}
+            className={`${inputClass} ${slugConflict ? 'border-amber-400 focus:border-amber-400 focus:ring-amber-400/20' : ''}`}
             placeholder="Ex.: One Health na prática do serviço público" />
+          {slugConflict && (
+            <p className="mt-1.5 text-xs text-amber-600 flex items-center gap-1">
+              <svg className="w-3.5 h-3.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
+                  d="M12 9v4m0 4h.01M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z" />
+              </svg>
+              Já existe um artigo com esse título. Considere usar um título diferente.
+            </p>
+          )}
         </Field>
 
         {/* Slug — oculto, gerado automaticamente a partir do título */}

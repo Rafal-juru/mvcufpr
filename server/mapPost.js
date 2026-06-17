@@ -20,8 +20,9 @@ export function rowToPost(row) {
   };
 }
 
-/* Mesma heurística do mockStore: ~200 palavras por minuto, mínimo de 1. */
+/* Strip HTML tags, count words (~200 wpm), minimum 1 minute. */
 export function estimateReadingMinutes(content) {
-  const words = (content || '').trim().split(/\s+/).filter(Boolean).length;
+  const text = (content || '').replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
+  const words = text.split(' ').filter(Boolean).length;
   return Math.max(1, Math.round(words / 200));
 }

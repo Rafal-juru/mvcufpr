@@ -85,13 +85,15 @@ export default function BlogPostPage() {
             </header>
 
             {/* ── Cover ── */}
-            <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 -mt-10 sm:-mt-12">
-              <img
-                src={post.coverImage}
-                alt={post.title}
-                className="w-full aspect-[16/9] object-cover rounded-2xl shadow-xl"
-              />
-            </div>
+            {post.coverImage && (
+              <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 -mt-10 sm:-mt-12">
+                <img
+                  src={post.coverImage}
+                  alt={post.title}
+                  className="w-full aspect-[16/9] object-cover rounded-2xl shadow-xl"
+                />
+              </div>
+            )}
 
             {/* ── Corpo ── */}
             <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">

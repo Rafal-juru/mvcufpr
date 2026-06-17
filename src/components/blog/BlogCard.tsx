@@ -18,15 +18,23 @@ export default function BlogCard({ post }: { post: BlogPost }) {
     >
       {/* Cover */}
       <div className="relative aspect-[16/10] overflow-hidden bg-gray-100">
-        <img
-          src={post.coverImage}
-          alt={post.title}
-          loading="lazy"
-          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-        />
-        <span className="absolute top-4 left-4 px-3 py-1 rounded-full text-xs font-bold text-white bg-cesmvc-green/95 backdrop-blur-sm">
-          {post.category}
-        </span>
+        {post.coverImage ? (
+          <img
+            src={post.coverImage}
+            alt={post.title}
+            loading="lazy"
+            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+          />
+        ) : (
+          <div className="w-full h-full bg-gradient-to-br from-cesmvc-blue/20 to-cesmvc-green/20 flex items-center justify-center">
+            <span className="font-grift text-cesmvc-blue/30 text-3xl font-bold select-none">CESMVC</span>
+          </div>
+        )}
+        {post.category && (
+          <span className="absolute top-4 left-4 px-3 py-1 rounded-full text-xs font-bold text-white bg-cesmvc-green/95 backdrop-blur-sm">
+            {post.category}
+          </span>
+        )}
       </div>
 
       {/* Body */}
