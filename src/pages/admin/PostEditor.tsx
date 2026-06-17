@@ -29,7 +29,6 @@ export default function PostEditor() {
 
   const [form, setForm] = useState<BlogPostInput>(EMPTY)
   const [slugTouched, setSlugTouched] = useState(false)
-  const [showSlug, setShowSlug] = useState(false)
   const [showPreview, setShowPreview] = useState(false)
   const [loading, setLoading] = useState(isEditing)
   const [saving, setSaving] = useState(false)
@@ -134,20 +133,8 @@ export default function PostEditor() {
             placeholder="Ex.: One Health na prática do serviço público" />
         </Field>
 
-        {/* Slug colapsível */}
-        <div>
-          <button type="button" onClick={() => setShowSlug((v) => !v)}
-            className="text-xs text-gray-400 hover:text-cesmvc-green transition-colors flex items-center gap-1">
-            <span>{showSlug ? '▼' : '▶'}</span>
-            Slug gerado automaticamente
-            {form.slug && <span className="ml-1 text-gray-500 font-mono">/blog/{form.slug}</span>}
-          </button>
-          {showSlug && (
-            <input id="slug" type="text" value={form.slug} className={`${inputClass} mt-2 font-mono text-xs`}
-              onChange={(e) => { setSlugTouched(true); update('slug', slugify(e.target.value)) }}
-              placeholder="one-health-na-pratica" />
-          )}
-        </div>
+        {/* Slug — oculto, gerado automaticamente a partir do título */}
+        <input type="hidden" value={form.slug} readOnly />
 
         {/* Categoria + Autor */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
