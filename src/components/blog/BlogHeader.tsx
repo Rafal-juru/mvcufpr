@@ -7,7 +7,7 @@ import logoDescritivaLaranja from '../../assets/images/logoDescitivabLaranja.png
 */
 export default function BlogHeader() {
   return (
-    <header className="sticky top-0 left-0 right-0 z-50 bg-cesmvc-green shadow-lg shadow-black/20">
+    <header className="sticky top-0 left-0 right-0 z-50 bg-cesmvc-blue shadow-lg shadow-black/20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between py-3">
           {/* ── Brand ── */}

@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from 'react'
 import BlogHeader from '../components/blog/BlogHeader'
 import SiteFooter from '../components/layout/SiteFooter'
 import BlogCard from '../components/blog/BlogCard'
+import NewsletterSection from '../components/sections/NewsletterSection'
 import { blogApi } from '../lib/api'
 import type { BlogPost } from '../types'
 
@@ -41,7 +42,7 @@ export default function BlogPage() {
       <BlogHeader />
 
       {/* ── Hero ── */}
-      <section className="relative bg-cesmvc-green overflow-hidden">
+      <section className="relative bg-cesmvc-blue overflow-hidden">
         <div
           className="absolute -top-32 -right-24 w-96 h-96 rounded-full opacity-20 blur-3xl pointer-events-none"
           style={{ background: '#D96C2B' }}
@@ -50,7 +51,7 @@ export default function BlogPage() {
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-24">
           <span className="inline-flex items-center gap-2 text-white/70 text-xs font-bold tracking-widest uppercase mb-4">
             <span className="w-8 h-px bg-white/50 inline-block" />
-            Conteúdo & SEO
+            Ciência e Informação
           </span>
           <h1
             className="font-grift text-white font-bold leading-tight mb-5"
@@ -58,9 +59,13 @@ export default function BlogPage() {
           >
             Artigos e Recursos
           </h1>
-          <p className="text-white/80 leading-relaxed max-w-2xl" style={{ fontSize: 'clamp(1rem, 1.5vw, 1.125rem)' }}>
-            Conhecimento científico aplicado à medicina veterinária coletiva: Saúde
-            Única, epidemiologia, manejo populacional e políticas públicas.
+          <p className="text-white/90 leading-relaxed max-w-2xl mb-3" style={{ fontSize: 'clamp(1rem, 1.5vw, 1.125rem)' }}>
+            Aqui você acompanha o universo da medicina veterinária coletiva, saúde
+            única, epidemiologia, manejo populacional e bem-estar animal.
+          </p>
+          <p className="text-white/65 leading-relaxed max-w-2xl" style={{ fontSize: 'clamp(0.875rem, 1.3vw, 1rem)' }}>
+            Conhecimento científico aplicado à prática — publicações do CESMVC·UFPR
+            e conteúdos selecionados para profissionais e estudantes.
           </p>
         </div>
       </section>
@@ -113,6 +118,7 @@ export default function BlogPage() {
         )}
       </main>
 
+      <NewsletterSection />
       <SiteFooter />
     </div>
   )

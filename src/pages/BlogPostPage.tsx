@@ -53,7 +53,7 @@ export default function BlogPostPage() {
         {!loading && post && (
           <article>
             {/* ── Hero do artigo ── */}
-            <header className="relative bg-cesmvc-green overflow-hidden">
+            <header className="relative bg-cesmvc-blue overflow-hidden">
               <div
                 className="absolute -bottom-32 -left-24 w-96 h-96 rounded-full opacity-20 blur-3xl pointer-events-none"
                 style={{ background: '#D96C2B' }}
