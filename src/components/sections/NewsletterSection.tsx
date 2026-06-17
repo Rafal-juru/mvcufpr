@@ -14,12 +14,15 @@ export default function NewsletterSection() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email: email.trim() }),
       })
-      if (!res.ok && res.status !== 200) throw new Error()
+      const body = await res.json().catch(() => ({}))
+      if (!res.ok && res.status !== 200) {
+        throw new Error(body.message || `HTTP ${res.status}`)
+      }
       setStatus('success')
       setEmail('')
-    } catch {
+    } catch (err) {
       setStatus('idle')
-      alert('Não foi possível concluir a inscrição. Tente novamente.')
+      alert(`Erro: ${err instanceof Error ? err.message : 'falha desconhecida'}`)
     }
   }
 
