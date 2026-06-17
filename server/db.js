@@ -1,6 +1,12 @@
 import mysql from 'mysql2/promise';
 import dotenv from 'dotenv';
+import path from 'path';
+import { fileURLToPath } from 'url';
 
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+// Load server/.env first (holds real credentials, git-ignored), then fall back
+// to root .env so local dev still works without a server/.env file.
+dotenv.config({ path: path.join(__dirname, '.env') });
 dotenv.config();
 
 const pool = mysql.createPool({
@@ -11,6 +17,7 @@ const pool = mysql.createPool({
   waitForConnections: true,
   connectionLimit: 10,
   queueLimit: 0,
+  connectTimeout: 6000,
   // Retorna DATE/DATETIME como string ('YYYY-MM-DD'), evitando objetos Date —
   // o frontend trabalha com publishedAt no formato 'YYYY-MM-DD'.
   dateStrings: true,
