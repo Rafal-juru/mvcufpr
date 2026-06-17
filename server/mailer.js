@@ -14,7 +14,7 @@ function createTransport() {
 }
 
 const FROM = () =>
-  process.env.SMTP_FROM || `CESMVC UFPR <${process.env.SMTP_USER}>`;
+  (process.env.SMTP_FROM || `CESMVC UFPR <${process.env.SMTP_USER}>`).trim();
 
 // Confirmation e-mail sent to the new subscriber.
 export async function sendNewsletterConfirmation(toEmail) {
