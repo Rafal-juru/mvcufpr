@@ -89,9 +89,19 @@ export async function sendPostBroadcast(post, subscriberEmails, baseUrl) {
         ${post.category
           ? `<p style="font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#2B4C7E;margin:0 0 12px">${post.category}</p>`
           : ''}
-        <h1 style="font-size:22px;font-weight:700;margin:0 0 16px;line-height:1.3;color:#111">
+        <h1 style="font-size:22px;font-weight:700;margin:0 0 10px;line-height:1.3;color:#111">
           ${post.title}
         </h1>
+        ${(post.author || post.publishedAt)
+          ? `<p style="font-size:12px;color:#888;margin:0 0 20px">
+               ${post.author ? `<strong style="color:#555">${post.author}</strong>` : ''}
+               ${post.author && post.publishedAt ? ' &nbsp;·&nbsp; ' : ''}
+               ${post.publishedAt
+                  ? new Date(post.publishedAt + 'T12:00:00').toLocaleDateString('pt-BR', { day: 'numeric', month: 'long', year: 'numeric' })
+                  : ''}
+               ${post.readingMinutes ? ` &nbsp;·&nbsp; ${post.readingMinutes} min de leitura` : ''}
+             </p>`
+          : ''}
         ${coverBlock}
         ${post.excerpt
           ? `<p style="font-size:15px;color:#444;line-height:1.6;margin:0 0 24px">${post.excerpt}</p>`
