@@ -45,7 +45,7 @@ const CREATE_TABLE = `
 const CREATE_NEWSLETTER_TABLE = `
   CREATE TABLE IF NOT EXISTS newsletter_subscribers (
     id         INT AUTO_INCREMENT PRIMARY KEY,
-    email      VARCHAR(254) NOT NULL UNIQUE,
+    email      VARCHAR(191) NOT NULL UNIQUE,
     created_at TIMESTAMP   DEFAULT CURRENT_TIMESTAMP
   ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
 `;
