@@ -10,12 +10,8 @@ import uploadRoutes from './routes/upload.js';
 import authRoutes from './routes/auth.js';
 import newsletterRoutes from './routes/newsletter.js';
 
-// Load server/.env (ignored by git) which holds DB credentials and secrets.
-// Falls back to reading the root .env when server/.env doesn't exist (local dev).
-dotenv.config({ path: path.join(__dirname, '.env') });
-dotenv.config();
-
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
+dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 3001;
 
