@@ -53,7 +53,7 @@ export default function BlogPage() {
             Conteúdo & SEO
           </span>
           <h1
-            className="font-grift text-white font-bold leading-tight mb-5"
+            className="font-grift text-white font-black leading-tight mb-5"
             style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)' }}
           >
             Artigos e Recursos

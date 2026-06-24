@@ -81,7 +81,7 @@ export function renderMarkdown(markdown: string): ReactNode {
     }
     if (line.startsWith('## ')) {
       blocks.push(
-        <h2 key={blocks.length} className="font-grift text-gray-900 font-bold text-2xl mt-10 mb-4">
+        <h2 key={blocks.length} className="font-grift text-gray-900 font-black text-2xl mt-10 mb-4">
           {renderInline(line.slice(3))}
         </h2>,
       )
@@ -89,7 +89,7 @@ export function renderMarkdown(markdown: string): ReactNode {
     }
     if (line.startsWith('# ')) {
       blocks.push(
-        <h1 key={blocks.length} className="font-grift text-gray-900 font-bold text-3xl mt-10 mb-4">
+        <h1 key={blocks.length} className="font-grift text-gray-900 font-black text-3xl mt-10 mb-4">
           {renderInline(line.slice(2))}
         </h1>,
       )

@@ -1,7 +1,7 @@
 /* FloatingCTA.tsx — Botão fixo do WhatsApp */
 export default function FloatingCTA() {
   const whatsappUrl =
-    'https://wa.me/5541999999999?text=Olá!%20Tenho%20interesse%20no%20CESMVC%20UFPR.'
+    'https://wa.me/554196259743?text=Olá!%20Tenho%20interesse%20no%20CESMVC%20UFPR.'
 
   return (
     <a

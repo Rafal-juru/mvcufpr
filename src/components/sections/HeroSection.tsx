@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useRef } from 'react'
 import heropc from '../../assets/images/heropc.png'
 import heromob from '../../assets/images/heromob.png'
 import logoDescritivaBege from '../../assets/images/logoDescitivabBege.png'
@@ -23,6 +23,78 @@ export default function HeroSection() {
   const [displayed, setDisplayed] = useState('')
   const [wordIdx, setWordIdx] = useState(0)
   const [isDeleting, setIsDeleting] = useState(false)
+
+  const badgesRef = useRef<HTMLDivElement>(null)
+  const [isInteracting, setIsInteracting] = useState(false)
+  const interactionTimeoutRef = useRef<any>(null)
+
+  /* ── Auto scroll for badges on mobile ── */
+  useEffect(() => {
+    const container = badgesRef.current
+    if (!container) return
+
+    let frameId: number
+    let lastTime = performance.now()
+    const scrollSpeed = 30 // pixels per second
+
+    // Store the exact float value of scrollLeft to prevent truncation rounding bugs
+    let floatScrollLeft = container.scrollLeft
+
+    const step = (time: number) => {
+      if (window.innerWidth < 768) {
+        const delta = (time - lastTime) / 1000
+
+        // Scroll automatically if the user is not actively interacting
+        if (!isInteracting) {
+          floatScrollLeft += scrollSpeed * delta
+          container.scrollLeft = floatScrollLeft
+        } else {
+          // Sync with manual touch/swipe scroll
+          floatScrollLeft = container.scrollLeft
+        }
+
+        // Seamless wrap check using getBoundingClientRect for absolute reliability
+        const fifthItem = container.children[4] as HTMLElement
+        if (fifthItem) {
+          const rectFifth = fifthItem.getBoundingClientRect()
+          const rectContainer = container.getBoundingClientRect()
+          const W = rectFifth.left - rectContainer.left + container.scrollLeft
+
+          if (container.scrollLeft >= W) {
+            floatScrollLeft -= W
+            container.scrollLeft = floatScrollLeft
+          } else if (container.scrollLeft <= 0 && isInteracting) {
+            floatScrollLeft += W
+            container.scrollLeft = floatScrollLeft
+          }
+        }
+      }
+      lastTime = time
+      frameId = requestAnimationFrame(step)
+    }
+
+    frameId = requestAnimationFrame(step)
+
+    return () => {
+      cancelAnimationFrame(frameId)
+    }
+  }, [isInteracting])
+
+  const handlePointerDown = () => {
+    setIsInteracting(true)
+    if (interactionTimeoutRef.current) {
+      clearTimeout(interactionTimeoutRef.current)
+    }
+  }
+
+  const handlePointerUp = () => {
+    if (interactionTimeoutRef.current) {
+      clearTimeout(interactionTimeoutRef.current)
+    }
+    interactionTimeoutRef.current = window.setTimeout(() => {
+      setIsInteracting(false)
+    }, 3000)
+  }
 
   /* ── Mount fade-in ── */
   useEffect(() => {
@@ -108,17 +180,16 @@ export default function HeroSection() {
         </div>
 
         {/* Animação Typewriter */}
-        <h2 className="font-grift text-white font-bold leading-none mb-8"
-          style={{ fontSize: 'clamp(1.5rem, 3.5vw, 2.5rem)' }}
+        <h2 className="font-grift text-white font-normal leading-none mb-8"
+          style={{ fontSize: 'clamp(1.25rem, 3vw, 2.125rem)' }}
         >
           Uma formação{' '}
           <span
-            style={{ color: '#D96C2B' }}
-            className="inline-block min-w-[0.25rem]"
+            className="inline-block min-w-[0.25rem] text-white"
           >
             {displayed}
             <span
-              className="inline-block w-[0.1em] h-[0.9em] ml-[2px] align-middle rounded-sm cursor-blink bg-[#D96C2B]"
+              className="inline-block w-[0.1em] h-[0.9em] ml-[2px] align-middle rounded-sm cursor-blink bg-white"
               aria-hidden="true"
             />
           </span>
@@ -174,56 +245,45 @@ export default function HeroSection() {
         </div>
 
         {/* ── Feature Badges (Ultra minimalistas) ── */}
-        <div className="flex flex-col gap-3">
-          {/* Linha 1: Badges principais */}
-          <div className="flex flex-col sm:flex-row flex-wrap gap-3">
-            {BADGES.slice(0, 3).map((b) => (
-              <div
-                key={b.label}
-                className="
-                  inline-flex items-center gap-2.5
-                  px-5 py-3 rounded-2xl
-                  bg-white/5 backdrop-blur-md
-                  border border-white/10
-                "
-              >
-                <span className="w-1.5 h-1.5 rounded-full" style={{ background: '#D96C2B' }} />
-                <span className="text-white font-semibold tracking-wide"
-                  style={{ fontSize: 'clamp(0.8rem, 1.2vw, 0.9375rem)' }}
-                >
-                  {b.label}
-                </span>
-              </div>
-            ))}
-          </div>
-
-          {/* Linha 2: Certificação ampla abaixo */}
-          <div className="flex">
+        <div
+          ref={badgesRef}
+          onPointerDown={handlePointerDown}
+          onPointerUp={handlePointerUp}
+          onPointerLeave={handlePointerUp}
+          onPointerCancel={handlePointerUp}
+          onTouchStart={handlePointerDown}
+          onTouchEnd={handlePointerUp}
+          className="flex flex-row overflow-x-auto gap-3 w-full scrollbar-hide mt-12 md:mt-0 md:flex-row md:flex-wrap md:overflow-visible scroll-auto"
+        >
+          {[...BADGES, ...BADGES].map((b, idx) => (
             <div
-              className="
+              key={`${b.label}-${idx}`}
+              className={`
                 inline-flex items-center gap-2.5
                 px-5 py-3 rounded-2xl
                 bg-white/5 backdrop-blur-md
                 border border-white/10
-              "
+                shrink-0
+                w-auto whitespace-nowrap md:shrink
+                ${idx >= 4 ? 'md:hidden' : ''}
+                ${idx === 3 ? 'md:w-full md:max-w-max' : ''}
+              `}
             >
               <span className="w-1.5 h-1.5 rounded-full" style={{ background: '#D96C2B' }} />
               <span className="text-white font-semibold tracking-wide"
                 style={{ fontSize: 'clamp(0.8rem, 1.2vw, 0.9375rem)' }}
               >
-                {BADGES[3].label}
+                {b.label}
               </span>
             </div>
-          </div>
+          ))}
         </div>
       </div>
 
-
-
       {/* ── Scroll indicator ── */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2 animate-bounce">
-        <span className="text-white/40 text-xs tracking-widest uppercase">Role para baixo</span>
-        <svg className="w-5 h-5 text-white/40" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <div className="absolute bottom-12 md:bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-0.5 md:gap-1 animate-bounce">
+        <span className="text-white/80 text-[8px] md:text-xs tracking-widest uppercase">Role para baixo</span>
+        <svg className="w-3 h-3 md:w-5 md:h-5 text-white/80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
         </svg>
       </div>

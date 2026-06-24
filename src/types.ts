@@ -8,6 +8,13 @@ export interface CardComponentData {
     conceptText: string;
     illustrationType: 'legal' | 'indigenista' | 'desastres' | 'saude-unica' | 'manejo-populacional' | 'bem-estar' | 'politicas-publicas' | 'gestao-abrigos';
     tags: string[];
+    pilarImg: string;
+    iconOrange: string;
+    iconGreen: string;
+    /** Custom transform for icons with small artwork inside a large canvas */
+    iconTransform?: { scale: number; x: string; y: string };
+    iconTransformOrange?: { scale: number; x: string; y: string };
+    iconTransformGreen?: { scale: number; x: string; y: string };
 }
 
 /* ─── Blog ──────────────────────────────────────────────────────────── */

@@ -96,7 +96,7 @@ export default function PostEditor() {
         >
           ← Voltar para a lista
         </button>
-        <h1 className="font-grift text-gray-900 font-bold text-2xl">
+        <h1 className="font-grift text-gray-900 font-black text-2xl">
           {isEditing ? 'Editar artigo' : 'Novo artigo'}
         </h1>
       </div>

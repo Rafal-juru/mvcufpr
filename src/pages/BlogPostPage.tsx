@@ -35,7 +35,7 @@ export default function BlogPostPage() {
 
         {!loading && !post && (
           <div className="max-w-2xl mx-auto px-4 py-32 text-center">
-            <h1 className="font-grift text-gray-900 font-bold text-2xl mb-4">
+            <h1 className="font-grift text-gray-900 font-black text-2xl mb-4">
               Artigo não encontrado
             </h1>
             <p className="text-gray-500 mb-8">
@@ -70,7 +70,7 @@ export default function BlogPostPage() {
                   {post.category}
                 </span>
                 <h1
-                  className="font-grift text-white font-bold leading-tight mb-5"
+                  className="font-grift text-white font-black leading-tight mb-5"
                   style={{ fontSize: 'clamp(1.85rem, 4.5vw, 3rem)' }}
                 >
                   {post.title}

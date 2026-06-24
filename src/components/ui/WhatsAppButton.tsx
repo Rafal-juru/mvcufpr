@@ -1,6 +1,6 @@
 /* WhatsAppButton.tsx — Botão flutuante do WhatsApp */
 export default function WhatsAppButton() {
-  const whatsappUrl = 'https://wa.me/5500000000000';
+  const whatsappUrl = 'https://wa.me/554196259743?text=Ol%C3%A1!%20Estava%20navegando%20no%20site%20e%20gostaria%20de%20tirar%20algumas%20d%C3%BAvidas%20sobre%20a%20p%C3%B3s-gradua%C3%A7%C3%A3o%20CESMVC.';
 
   return (
     <a
