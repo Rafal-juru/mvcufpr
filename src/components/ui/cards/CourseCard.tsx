@@ -157,7 +157,11 @@ export const CourseCard: React.FC<CourseCardProps> = ({ card }) => {
                             <img
                                 src={resolveAssetUrl(hovered ? card.iconGreen : card.iconOrange)}
                                 alt=""
-                                className="w-full h-full object-contain"
+                                className={`w-full h-full object-cover ${
+                                    hovered
+                                        ? (card.hoverImageScale || card.imageScale || '')
+                                        : (card.imageScale || '')
+                                }`}
                                 style={(() => {
                                     const transform = hovered
                                         ? card.iconTransformGreen || card.iconTransform

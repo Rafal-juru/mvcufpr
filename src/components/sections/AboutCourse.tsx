@@ -222,11 +222,11 @@ export default function AboutCourse() {
 
         {/* Bloco 2: O Curso (Card à esquerda, imagem à direita no desktop) */}
         <div className="flex flex-col md:flex-row-reverse gap-8 lg:gap-12 items-start mb-20">
-          <div className="w-full md:w-1/2 flex-shrink-0 aspect-[4/3] md:aspect-[16/10] overflow-hidden rounded-2xl shadow-sm">
+          <div className="w-full md:w-1/2 flex-shrink-0 h-auto aspect-auto overflow-hidden rounded-2xl shadow-sm">
             <img
               src={sobreocursoimg2}
               alt="O CESMVC"
-              className="w-full h-full object-cover"
+              className="w-full h-auto object-contain"
               loading="lazy"
             />
           </div>

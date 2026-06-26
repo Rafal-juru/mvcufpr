@@ -79,5 +79,7 @@ export const courseCards: CardComponentData[] = [
         pilarImg: '../../../assets/images/CESMVC - banner Pilar em PNG.png',
         iconOrange: '../../../assets/images/CESMVC - banner Medicina veterinária de abrigos laranja em PNG.png',
         iconGreen: '../../../assets/images/CESMVC - banner Medicina veterinária de abrigos em PNG.png',
+        imageScale: 'scale-[1.25]',
+        hoverImageScale: 'scale-[1.30]',
     },
 ];

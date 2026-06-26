@@ -132,14 +132,14 @@ export default function Header() {
         ref={menuRef}
         className="w-full px-4 md:px-8 lg:px-12 flex justify-between md:justify-center items-center relative"
       >
-        {/* ── Lado Esquerdo — Apenas logo UFPR (fixa na esquerda) ── */}
-        <div className="flex-shrink-0 md:absolute md:left-8 lg:left-12 md:top-1/2 md:-translate-y-1/2">
+        {/* ── Lado Esquerdo — Logo UFPR + Bloco de Texto (Typewriter) ── */}
+        <div className="flex-shrink-0 md:absolute md:left-8 lg:left-12 md:top-1/2 md:-translate-y-1/2 flex items-center gap-4">
           <a
             href="https://agrarias.ufpr.br/mvc/"
             target="_blank"
             rel="noopener noreferrer"
             title="Site Oficial UFPR MVC"
-            className="flex items-center drop-shadow-md hover:drop-shadow-xl hover:scale-105 transition-all duration-300"
+            className="flex-shrink-0 flex items-center drop-shadow-md hover:drop-shadow-xl hover:scale-105 transition-all duration-300"
           >
             <img
               src={logoUFPR3}
@@ -147,6 +147,27 @@ export default function Header() {
               className="h-8 w-auto object-contain"
             />
           </a>
+
+          {/* Typewriter — visível apenas quando não scrollado (no topo) */}
+          {!scrolled && (
+            <div className="hidden md:flex flex-col items-start text-left min-w-0">
+              <p
+                className="text-white/60 font-mono text-[0.6rem] uppercase tracking-widest mb-0.5"
+              >
+                Especialização
+              </p>
+              <p
+                className="font-grift-bold text-white leading-none whitespace-nowrap"
+                style={{ fontSize: 'clamp(0.75rem, 1.1vw, 0.9375rem)' }}
+              >
+                {displayed}
+                <span
+                  className="inline-block w-[0.06em] h-[0.85em] ml-[2px] align-middle rounded-sm cursor-blink bg-white opacity-80"
+                  aria-hidden="true"
+                />
+              </p>
+            </div>
+          )}
         </div>
 
         {/* ── Logo CESMVC Mobile: Direct child for perfect absolute centering on mobile ── */}
@@ -187,26 +208,7 @@ export default function Header() {
             />
           </a>
 
-          {/* Typewriter — visível apenas quando não scrollado (no topo) */}
-          {!scrolled && (
-            <div className="hidden md:flex flex-col items-end absolute right-full mr-5 lg:mr-7 top-1/2 -translate-y-1/2 text-right whitespace-nowrap">
-              <p
-                className="text-white/60 font-mono text-[0.6rem] uppercase tracking-widest mb-0.5"
-              >
-                Especialização
-              </p>
-              <p
-                className="font-grift-bold text-white leading-none"
-                style={{ fontSize: 'clamp(0.75rem, 1.1vw, 0.9375rem)' }}
-              >
-                {displayed}
-                <span
-                  className="inline-block w-[0.06em] h-[0.85em] ml-[2px] align-middle rounded-sm cursor-blink bg-white opacity-80"
-                  aria-hidden="true"
-                />
-              </p>
-            </div>
-          )}
+          {/* Typewriter movido para o Lado Esquerdo */}
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-4 lg:gap-5" aria-label="Navegação principal">

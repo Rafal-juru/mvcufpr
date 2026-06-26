@@ -1,6 +1,6 @@
-import { useEffect, useState, useRef } from 'react'
-import heropc from '../../assets/images/heropc.png'
-import heromob from '../../assets/images/heromob.png'
+import { useEffect, useState, useRef, Fragment } from 'react'
+import heropc2 from '../../assets/images/heropc2.1_.png'
+import heromob2 from '../../assets/images/heromob2.webp'
 import logoDescritivaBege from '../../assets/images/logoDescitivabBege.png'
 
 /* ── Typewriter config ────────────────────────────────────────── */
@@ -138,11 +138,11 @@ export default function HeroSection() {
     >
       {/* ── Responsive Background Image ── */}
       <picture className="absolute inset-0 w-full h-full pointer-events-none" aria-hidden="true">
-        <source media="(max-width: 48rem)" srcSet={heromob} />
+        <source media="(max-width: 48rem)" srcSet={heromob2} />
         <img
-          src={heropc}
+          src={heropc2}
           alt=""
-          className="w-full h-full object-cover object-center"
+          className="w-full h-full object-cover object-right-bottom"
           fetchPriority="high"
         />
       </picture>
@@ -153,13 +153,23 @@ export default function HeroSection() {
         aria-hidden="true"
       />
 
+      {/* ── Legenda Vertical de Créditos da Imagem ── */}
+      <div
+        className="absolute left-3 sm:left-6 top-1/2 -translate-y-1/2 -rotate-180 z-20 pointer-events-none select-none hidden sm:block"
+        style={{ writingMode: 'vertical-rl' }}
+      >
+        <span className="text-white/40 font-sans text-[9px] sm:text-[6px] tracking-[0.2em] uppercase font-light">
+          Foto: Marcos Sólivan/UFPR (com edição do céu)
+        </span>
+      </div>
+
       {/* ── Hero Content — ALINHADO À ESQUERDA ── */}
       <div
         className={`
           relative z-10 w-full max-w-7xl mx-auto
           px-6 sm:px-8 lg:px-12
           pt-36 pb-28
-          flex flex-col items-start justify-center
+          flex flex-col items-start text-left justify-center w-full
           min-h-screen
           transition-all duration-1000 ease-out
           ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}
@@ -256,26 +266,28 @@ export default function HeroSection() {
           className="flex flex-row overflow-x-auto gap-3 w-full scrollbar-hide mt-12 md:mt-0 md:flex-row md:flex-wrap md:overflow-visible scroll-auto"
         >
           {[...BADGES, ...BADGES].map((b, idx) => (
-            <div
-              key={`${b.label}-${idx}`}
-              className={`
-                inline-flex items-center gap-2.5
-                px-5 py-3 rounded-2xl
-                bg-white/5 backdrop-blur-md
-                border border-white/10
-                shrink-0
-                w-auto whitespace-nowrap md:shrink
-                ${idx >= 4 ? 'md:hidden' : ''}
-                ${idx === 3 ? 'md:w-full md:max-w-max' : ''}
-              `}
-            >
-              <span className="w-1.5 h-1.5 rounded-full" style={{ background: '#D96C2B' }} />
-              <span className="text-white font-semibold tracking-wide"
-                style={{ fontSize: 'clamp(0.8rem, 1.2vw, 0.9375rem)' }}
+            <Fragment key={`${b.label}-${idx}`}>
+              {idx === 3 && <div className="hidden md:block basis-full h-0"></div>}
+              <div
+                className={`
+                  inline-flex items-center gap-2.5
+                  px-5 py-3 rounded-2xl
+                  bg-white/5 backdrop-blur-md
+                  border border-white/10
+                  shrink-0
+                  w-auto whitespace-nowrap md:shrink
+                  ${idx >= 4 ? 'md:hidden' : ''}
+                  ${idx === 3 ? 'md:w-full md:max-w-max' : ''}
+                `}
               >
-                {b.label}
-              </span>
-            </div>
+                <span className="w-1.5 h-1.5 rounded-full" style={{ background: '#D96C2B' }} />
+                <span className="text-white font-semibold tracking-wide"
+                  style={{ fontSize: 'clamp(0.8rem, 1.2vw, 0.9375rem)' }}
+                >
+                  {b.label}
+                </span>
+              </div>
+            </Fragment>
           ))}
         </div>
       </div>

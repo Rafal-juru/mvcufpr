@@ -15,6 +15,8 @@ export interface CardComponentData {
     iconTransform?: { scale: number; x: string; y: string };
     iconTransformOrange?: { scale: number; x: string; y: string };
     iconTransformGreen?: { scale: number; x: string; y: string };
+    imageScale?: string;
+    hoverImageScale?: string;
 }
 
 /* ─── Blog ──────────────────────────────────────────────────────────── */
