@@ -106,6 +106,16 @@ function TestimonialCard({ t }: { t: typeof TESTIMONIALS[number] }) {
         "{t.quote}"
       </blockquote>
 
+      {/* Author info */}
+      <div className="pt-4 border-t border-gray-100 mt-auto relative z-10 text-left">
+        <p className="font-sans font-bold text-gray-900 text-sm truncate">
+          {t.name}
+        </p>
+        <p className="font-sans text-gray-500 text-xs truncate">
+          {t.role}
+        </p>
+      </div>
+
     </div>
   );
 }
@@ -284,7 +294,7 @@ export default function Testimonials() {
         <div className="max-w-3xl mb-12">
           <span className="inline-flex items-center gap-2 text-cesmvc-green text-xs font-bold tracking-widest uppercase mb-4">
             <span className="w-8 h-px bg-cesmvc-green inline-block" />
-            Depoimentos
+            Depoimentos — Turma 2025
           </span>
           <h2
             className="font-grift-black text-gray-900 leading-tight mb-5"
