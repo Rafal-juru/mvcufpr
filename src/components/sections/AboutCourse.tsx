@@ -4,14 +4,17 @@
  * Conteúdo extraído da REDAÇÃO 3 do ficheiro
  * "CESMVC - Controle de redações.md" (textos aprovados).
  *
- * Layout editorial: bloco intro largo + 2 blocos laterais
- * para evitar o cansaço de texto corrido.
+ * Layout editorial: bloco intro largo + layout zigue-zague com cards expansíveis.
  */
+
+import { useState } from 'react';
+import sobreocursoimg1 from '../../assets/images/sobreocursoimg1.png';
+import sobreocursoimg2 from '../../assets/images/sobreocursoimg2.png';
 
 const SECTIONS = [
   {
     id: 'mvc',
-    eyebrow: 'A Especialidade',
+    eyebrow: 'Especialidade',
     title: 'O que é a Medicina Veterinária do Coletivo?',
     body: [
       'A Medicina Veterinária do Coletivo (MVC) é uma especialidade da Medicina Veterinária voltada à compreensão das relações entre saúde humana, saúde animal e meio ambiente, sob a perspectiva da Saúde Única e do Bem-Estar Único.',
@@ -21,40 +24,99 @@ const SECTIONS = [
     accent: '#2E6F57',
     wide: true,
   },
-  {
-    id: 'imvc',
-    eyebrow: 'O Instituto',
-    title: 'O Instituto de Medicina Veterinária do Coletivo (IMVC)',
-    body: [
-      'O IMVC é uma organização não governamental, sem fins lucrativos, dedicada a promover interações positivas entre humanos, animais e meio ambiente em toda a América Latina.',
-      'Sua atuação inclui a realização de conferências, capacitações e formações voltadas a profissionais que trabalham direta ou indiretamente com essas interações.',
-      'A Medicina Veterinária do Coletivo foi recentemente reconhecida como especialidade pelo Conselho Federal de Medicina Veterinária (CFMV), e o IMVC é a organização habilitada a conceder o título de especialista na área, consolidando sua legitimidade e protagonismo no campo.',
-    ],
-    accent: '#2B4C7E',
-    wide: false,
-  },
-  {
-    id: 'cesmvc',
-    eyebrow: 'O Curso',
-    title: 'O CESMVC: especialização UFPR que prepara para o coletivo',
-    body: [
-      'O Curso de Especialização em Medicina Veterinária do Coletivo da Universidade Federal do Paraná (CESMVC – UFPR) é uma pós-graduação lato sensu destinada a médicas e médicos veterinários que atuam, ou desejam atuar, em contextos coletivos, públicos e intersetoriais.',
-      'Vinculado à UFPR e desenvolvido em parceria com o PECCA, o curso reúne rigor acadêmico, aplicação prática e compromisso público em uma formação interdisciplinar e conectada à realidade profissional.',
-      'O CESMVC conta com mais de 40 professores e profissionais convidados, sendo a maior parte formada por doutores de universidades federais e profissionais com ampla experiência prática em serviços públicos e gestão. Muitos participaram diretamente da criação e consolidação da Medicina Veterinária do Coletivo no Brasil.',
-      'Com formato 100% EAD, aulas síncronas semanais e acompanhamento contínuo por meio de tutoria acadêmica e suporte institucional, o curso oferece uma formação sólida para profissionais que desejam atuar de maneira transformadora nas relações entre humanos, animais e ambiente.',
-    ],
-    accent: '#D96C2B',
-    wide: false,
-  },
 ] as const;
 
-/* ── Stat cards ── */
 const STATS = [
   { value: '+40', label: 'Professores e\nProfissionais' },
   { value: '75%', label: 'Doutores no\nCorpo Docente' },
   { value: '100%', label: 'EAD com aulas\nsíncronas semanais' },
   { value: '100%', label: 'dos egressos\nrecomendam' },
 ];
+
+function ExpandableCard({
+  eyebrow,
+  title,
+  paragraphs,
+  accent,
+}: {
+  eyebrow: string;
+  title: string;
+  paragraphs: string[];
+  accent: string;
+}) {
+  const [expanded, setExpanded] = useState(false);
+
+  return (
+    <div
+      className="rounded-2xl pt-7 sm:pt-9 pb-7 sm:pb-9 relative overflow-hidden flex flex-col h-full"
+      style={{
+        background: 'rgba(255,255,255,0.60)',
+        border: '1px solid rgba(46,111,87,0.15)',
+        backdropFilter: 'blur(8px)',
+        boxShadow: '0 0.5rem 2rem rgba(46,111,87,0.08)',
+      }}
+    >
+      {/* Accent line on top of card */}
+      <div
+        className="absolute top-0 left-8 right-8 h-[3px] rounded-full"
+        style={{ backgroundColor: accent }}
+      />
+
+      <span className="font-mono text-xs uppercase tracking-widest font-bold mb-3 mt-1 px-7 sm:px-9" style={{ color: accent }}>
+        {eyebrow}
+      </span>
+
+      <h3 className="font-grift-bold text-xl sm:text-2xl text-[#0B281E] leading-snug mb-4 px-7 sm:px-9">
+        {title}
+      </h3>
+
+      {/* Relative text container with max-height transition and mask-image fade-out */}
+      <div
+        className={`relative overflow-hidden w-full transition-all duration-500 ease-in-out ${expanded ? 'max-h-[1000px]' : 'max-h-[11rem]'
+          }`}
+        style={!expanded ? {
+          maskImage: 'linear-gradient(to bottom, black 60%, transparent 100%)',
+          WebkitMaskImage: 'linear-gradient(to bottom, black 60%, transparent 100%)'
+        } : undefined}
+      >
+        <div className="space-y-4 px-7 sm:px-9">
+          {paragraphs.map((p, i) => (
+            <p
+              key={i}
+              className="font-sans leading-relaxed text-[#0B281E]/75 text-sm sm:text-base"
+            >
+              {p}
+            </p>
+          ))}
+        </div>
+      </div>
+
+      <div className="px-7 sm:px-9">
+        <button
+          onClick={() => setExpanded(!expanded)}
+          className="mt-6 font-sans font-bold text-xs uppercase tracking-wider flex items-center gap-1.5 self-start transition-colors duration-200 z-10"
+          style={{ color: accent }}
+        >
+          {expanded ? (
+            <>
+              Ler menos
+              <svg className="w-3.5 h-3.5 transform rotate-180 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M19 9l-7 7-7-7" />
+              </svg>
+            </>
+          ) : (
+            <>
+              Ler mais
+              <svg className="w-3.5 h-3.5 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M19 9l-7 7-7-7" />
+              </svg>
+            </>
+          )}
+        </button>
+      </div>
+    </div>
+  );
+}
 
 export default function AboutCourse() {
   return (
@@ -87,7 +149,7 @@ export default function AboutCourse() {
             O Curso
           </span>
           <h2
-            className="font-serif-display font-medium tracking-tight text-[#0B281E] leading-[1.1] max-w-3xl"
+            className="font-grift-black tracking-tight text-[#0B281E] leading-[1.1] max-w-3xl"
             style={{ fontSize: 'clamp(2rem, 4.5vw, 3.25rem)' }}
           >
             Uma formação construída
@@ -96,7 +158,7 @@ export default function AboutCourse() {
         </div>
 
         {/* ─────────────────────────────────────────────────────────────
-            BLOCO 1 — MVC: texto largo com linha lateral colorida
+            BLOCO 1 — MVC: texto largo com linha lateral colorida (Manter intacta)
         ───────────────────────────────────────────────────────────── */}
         <div className="mb-20">
           {/* Eyebrow */}
@@ -110,7 +172,7 @@ export default function AboutCourse() {
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-16 items-start">
             <div className="lg:col-span-2">
               <h3
-                className="font-serif-display font-medium leading-snug tracking-tight text-[#0B281E]"
+                className="font-grift-bold leading-snug tracking-tight text-[#0B281E]"
                 style={{ fontSize: 'clamp(1.375rem, 2.5vw, 1.875rem)' }}
               >
                 {SECTIONS[0].title}
@@ -131,51 +193,56 @@ export default function AboutCourse() {
         </div>
 
         {/* ─────────────────────────────────────────────────────────────
-            BLOCO 2+3 — IMVC e CESMVC: dois cards lado a lado
+            PARTE INFERIOR: Layout Zigue-Zague com Cards Expansíveis
         ───────────────────────────────────────────────────────────── */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-20">
-          {[SECTIONS[1], SECTIONS[2]].map((sec) => (
-            <div
-              key={sec.id}
-              className="rounded-2xl p-8 relative overflow-hidden"
-              style={{
-                background: 'rgba(255,255,255,0.55)',
-                border: '1px solid rgba(11,40,30,0.08)',
-                backdropFilter: 'blur(4px)',
-              }}
-            >
-              {/* Accent bar no topo */}
-              <div
-                className="absolute top-0 left-8 right-8 h-[2px] rounded-full"
-                style={{ background: sec.accent }}
-                aria-hidden="true"
-              />
-              {/* Eyebrow */}
-              <div className="flex items-center gap-2 mb-3 mt-2">
-                <span className="w-4 h-px" style={{ background: sec.accent }} />
-                <span className="font-mono text-[0.6rem] uppercase tracking-widest" style={{ color: sec.accent }}>
-                  {sec.eyebrow}
-                </span>
-              </div>
-              <h3
-                className="font-serif-display font-medium leading-snug tracking-tight text-[#0B281E] mb-5"
-                style={{ fontSize: 'clamp(1.125rem, 1.8vw, 1.4375rem)' }}
-              >
-                {sec.title}
-              </h3>
-              <div className="space-y-3">
-                {sec.body.map((p, i) => (
-                  <p
-                    key={i}
-                    className="font-sans leading-relaxed text-[#0B281E]/75"
-                    style={{ fontSize: 'clamp(0.875rem, 1.2vw, 1rem)' }}
-                  >
-                    {p}
-                  </p>
-                ))}
-              </div>
-            </div>
-          ))}
+
+        {/* Bloco 1: O Instituto (Imagem à esquerda, card à direita no desktop) */}
+        <div className="flex flex-col md:flex-row gap-8 lg:gap-12 items-start mb-16">
+          <div className="w-full md:w-1/2 flex-shrink-0 aspect-[4/3] md:aspect-[16/10] overflow-hidden rounded-2xl shadow-sm">
+            <img
+              src={sobreocursoimg1}
+              alt="O Instituto de Medicina Veterinária do Coletivo (IMVC)"
+              className="w-full h-full object-cover"
+              loading="lazy"
+            />
+          </div>
+          <div className="w-full md:w-1/2">
+            <ExpandableCard
+              eyebrow="— INSTITUTO"
+              title="O Instituto de Medicina Veterinária do Coletivo (IMVC)"
+              paragraphs={[
+                'O IMVC é uma organização não governamental, sem fins lucrativos, dedicada a promover interações positivas entre humanos, animais e meio ambiente em toda a América Latina.',
+                'Sua atuação inclui a realização de conferências, capacitações e formações voltadas a profissionais que trabalham direta ou indiretamente com essas interações.',
+                'A Medicina Veterinária do Coletivo foi recentemente reconhecida como especialidade pelo Conselho Federal de Medicina Veterinária (CFMV), e o IMVC é a organização habilitada a conceder o título de especialista na área, consolidando sua legitimidade e protagonismo no campo.',
+              ]}
+              accent="#2E6F57"
+            />
+          </div>
+        </div>
+
+        {/* Bloco 2: O Curso (Card à esquerda, imagem à direita no desktop) */}
+        <div className="flex flex-col md:flex-row-reverse gap-8 lg:gap-12 items-start mb-20">
+          <div className="w-full md:w-1/2 flex-shrink-0 h-auto aspect-auto overflow-hidden rounded-2xl shadow-sm">
+            <img
+              src={sobreocursoimg2}
+              alt="O CESMVC"
+              className="w-full h-auto object-contain"
+              loading="lazy"
+            />
+          </div>
+          <div className="w-full md:w-1/2">
+            <ExpandableCard
+              eyebrow="— ENSINO"
+              title="O CESMVC: especialização UFPR que prepara para o coletivo"
+              paragraphs={[
+                'O Curso de Especialização em Medicina Veterinária do Coletivo da Universidade Federal do Paraná (CESMVC – UFPR) é uma pós-graduação lato sensu destinada a médicas e médicos veterinários que atuam, ou desejam atuar, em contextos coletivos, públicos e intersetoriais.',
+                'Vinculado à UFPR e desenvolvido em parceria com o PECCA, o curso reúne rigor acadêmico, aplicação prática e compromisso público em uma formação interdisciplinar e conectada à realidade profissional.',
+                'O CESMVC conta com mais de 40 professores e profissionais convidados, sendo a maior parte formada por doutores de universidades federais e profissionais com ampla experiência prática em serviços públicos e gestão. Muitos participaram diretamente da criação e consolidação da Medicina Veterinária do Coletivo no Brasil.',
+                'Com formato 100% EAD, aulas síncronas semanais e acompanhamento contínuo por meio de tutoria acadêmica e suporte institucional, o curso oferece uma formação sólida para profissionais que desejam atuar de maneira transformadora nas relações entre humanos, animais e ambiente.',
+              ]}
+              accent="#D96C2B"
+            />
+          </div>
         </div>
 
         {/* ── Stats bar ── */}
@@ -189,7 +256,7 @@ export default function AboutCourse() {
           {STATS.map((s) => (
             <div key={s.label} className="flex flex-col items-center text-center">
               <span
-                className="font-serif-display font-bold leading-none mb-2"
+                className="font-grift-black leading-none mb-2"
                 style={{ fontSize: 'clamp(2rem, 3.5vw, 2.75rem)', color: '#F9E8C7' }}
               >
                 {s.value}

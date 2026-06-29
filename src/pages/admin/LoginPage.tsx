@@ -41,7 +41,7 @@ export default function LoginPage() {
             alt="CESMVC UFPR"
             className="h-14 w-auto object-contain mx-auto mb-6"
           />
-          <h1 className="font-grift text-white font-bold text-2xl">Painel do Blog</h1>
+          <h1 className="font-grift text-white font-black text-2xl">Painel do Blog</h1>
           <p className="text-white/70 text-sm mt-1">Acesso restrito à administração</p>
         </div>
 

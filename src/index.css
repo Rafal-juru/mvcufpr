@@ -2,6 +2,25 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
 @import "tailwindcss";
 
+@font-face {
+  font-family: 'Grift';
+  src: url('./context/fonts/Grift-Regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Grift';
+  src: url('./context/fonts/Grift-Bold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Grift';
+  src: url('./context/fonts/Grift-Black.otf') format('opentype');
+  font-weight: 900;
+  font-style: normal;
+}
+
 @theme {
   /* Colors */
   --color-cesmvc-sand: #F9E8C7;
@@ -19,7 +38,7 @@
   /* Fonts */
   --font-sans: "Inter", "Plus Jakarta Sans", system-ui, sans-serif;
   --font-serif: 'Georgia', ui-serif, serif;
-  --font-grift: 'Georgia', 'Times New Roman', serif;
+  --font-grift: "Grift", 'Georgia', 'Times New Roman', serif;
   --font-serif-display: "DM Serif Display", "Playfair Display", Georgia, serif;
 }
 
@@ -56,8 +75,29 @@ body {
 
 /* ─── Typography helpers ────────────────────────────────────────────────── */
 .font-grift {
-  font-family: 'Georgia', 'Times New Roman', serif;
+  font-family: 'Grift', 'Georgia', 'Times New Roman', serif;
   letter-spacing: -0.02em;
+}
+
+.font-grift-black {
+  font-family: 'Grift', 'Georgia', 'Times New Roman', serif;
+  font-weight: 900;
+  letter-spacing: -0.03em;
+}
+
+.font-grift-bold {
+  font-family: 'Grift', 'Georgia', 'Times New Roman', serif;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+/* ─── Scrollbar Hide (for horizontal carousels) ─────────────────────────── */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
 }
 
 /* ─── Keyframe Animations ───────────────────────────────────────────────── */
@@ -203,4 +243,4 @@ body {
 .prose em     { font-style: italic; }
 .prose u      { text-decoration: underline; }
 .prose a      { color: #2B4C7E; text-decoration: underline; }
-.prose hr     { border: none; border-top: 1px solid #e5e7eb; margin: 2rem 0; }
+.prose hr     { border: none; border-top: 1px solid #e5e7eb; margin: 2rem 0; }

@@ -93,7 +93,7 @@ export const CourseModal: React.FC<CourseModalProps> = ({ card, onClose }) => {
                     {/* Título */}
                     <h2
                         id="modal-title"
-                        className="font-serif-display font-medium leading-snug tracking-tight"
+                        className="font-grift-bold leading-snug tracking-tight"
                         style={{ fontSize: 'clamp(1.375rem, 3vw, 2rem)', color: '#0B281E' }}
                     >
                         {card.title}
