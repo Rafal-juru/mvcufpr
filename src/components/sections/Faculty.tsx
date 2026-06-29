@@ -66,7 +66,7 @@ export default function Faculty() {
           
           {/* A Imagem da Rita (Centralizada, Ampliada e com Máscara de Suavização no Topo e Base) */}
           <div 
-            className="relative w-full max-w-xs sm:max-w-lg md:max-w-3xl lg:max-w-[800px] overflow-hidden flex items-end justify-center z-0"
+            className="relative w-full max-w-md sm:max-w-lg md:max-w-3xl lg:max-w-[800px] overflow-hidden flex items-end justify-center z-0"
             style={{
               maskImage: 'linear-gradient(to bottom, transparent 0%, black 15%, black 75%, transparent 100%)',
               WebkitMaskImage: 'linear-gradient(to bottom, transparent 0%, black 15%, black 75%, transparent 100%)'
@@ -190,11 +190,11 @@ export default function Faculty() {
           <div className="animate-marquee gap-10 md:gap-14 items-center">
             {/* Primeira metade da lista */}
             {PARTNERS.map((partner, index) => (
-              <div key={`logo-1-${index}`} className="relative group/logo flex-shrink-0 flex items-center justify-center h-28 w-56">
+              <div key={`logo-1-${index}`} className="relative group/logo flex-shrink-0 flex items-center justify-center h-36 w-64 sm:h-28 sm:w-56">
                 <img
                   src={partner.logo}
                   alt={partner.name}
-                  className="h-full w-auto object-contain max-h-20 opacity-85 hover:opacity-100 transition-all duration-300 transform hover:scale-110"
+                  className="h-full w-auto object-contain max-h-28 sm:max-h-20 opacity-85 hover:opacity-100 transition-all duration-300 transform hover:scale-110"
                 />
                 {/* Legenda (Tooltip) */}
                 <div className="absolute bottom-full mb-2 hidden group-hover/logo:block bg-[#0B281E] text-white text-[11px] font-sans px-3 py-1.5 rounded-lg shadow-md whitespace-nowrap z-50 pointer-events-none border border-white/10">
@@ -204,11 +204,11 @@ export default function Faculty() {
             ))}
             {/* Segunda metade da lista (duplicada para o loop contínuo) */}
             {PARTNERS.map((partner, index) => (
-              <div key={`logo-2-${index}`} className="relative group/logo flex-shrink-0 flex items-center justify-center h-28 w-56">
+              <div key={`logo-2-${index}`} className="relative group/logo flex-shrink-0 flex items-center justify-center h-36 w-64 sm:h-28 sm:w-56">
                 <img
                   src={partner.logo}
                   alt={partner.name}
-                  className="h-full w-auto object-contain max-h-20 opacity-85 hover:opacity-100 transition-all duration-300 transform hover:scale-110"
+                  className="h-full w-auto object-contain max-h-28 sm:max-h-20 opacity-85 hover:opacity-100 transition-all duration-300 transform hover:scale-110"
                 />
                 {/* Legenda (Tooltip) */}
                 <div className="absolute bottom-full mb-2 hidden group-hover/logo:block bg-[#0B281E] text-white text-[11px] font-sans px-3 py-1.5 rounded-lg shadow-md whitespace-nowrap z-50 pointer-events-none border border-white/10">
