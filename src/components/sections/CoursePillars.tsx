@@ -11,7 +11,7 @@ import { courseCards } from '@/data/courseData';
 
 const COMPETENCIAS = [
   'Compreender o que é a Medicina Veterinária do Coletivo e a Medicina Veterinária Social;',
-  'Compreender os principais problemas da Saúde global e como atuar sob a estratégia de saúde única localmente;',
+  'Compreender os principais problemas da Saúde global e como atuar sob a estratégia de saúde coletiva localmente;',
   'Compreender o SUS e SUAS para atuar intersetorialmente e multidisciplinarmente;',
   'Propor estratégias para implantação de programas efetivos de manejo populacional de cães e gatos urbanos;',
   'Propor plano de trabalho para o enfrentamento da problemática das pessoas em situação de acumulação de animais;',

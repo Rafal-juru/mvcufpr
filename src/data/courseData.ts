@@ -11,13 +11,13 @@ import type { CardComponentData } from '../types';
 export const courseCards: CardComponentData[] = [
     {
         id: '1',
-        title: 'Saúde Única',
+        title: 'Saúde Coletiva',
         subtitle: 'One Health',
         description: 'A interconexão entre saúde humana, animal e ambiental — vigilância em saúde, controle de zoonoses e determinantes sociais da saúde.',
         modalText: 'A Saúde Coletiva propõe uma atuação integrada entre saúde humana, animal e ambiental. A especialização prepara profissionais para atuar em temas como vigilância em saúde, controle de zoonoses, manejo populacional, teoria do elo e acumulação de animais, considerando os determinantes sociais da saúde.',
         conceptText: 'One Health',
         illustrationType: 'saude-unica',
-        tags: ['Zoonoses', 'Vigilância', 'Saúde Única'],
+        tags: ['Zoonoses', 'Vigilância', 'Saúde Coletiva'],
         pilarImg: '../../../assets/images/CESMVC - banner Pilar em PNG.png',
         iconOrange: '../../../assets/images/CESMVC - banner Saúde coletiva laranja em PNG.png',
         iconGreen: '../../../assets/images/CESMVC - banner Saúde coletiva (1).png',
