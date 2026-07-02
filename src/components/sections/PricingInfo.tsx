@@ -14,17 +14,14 @@ function trackWhatsAppClick() {
 
 const FEATURES = [
   '544 horas de carga horária total',
-  '24 meses de duração',
-  'Corpo docente 100% UFPR',
+  'Período de realização: abril/26 a abril/28',
   'Material didático incluso',
-  'Acesso à Biblioteca UFPR',
   'Certificado de Especialização reconhecido pelo MEC',
-  'Projeto integrador com orientação individual',
+  'Projeto de intervenção com orientação individual',
   'Rede de ex-alunos em todo o Brasil',
 ]
 
 const WHATSAPP_PARCELADO = 'https://wa.me/554196259743?text=Ol%C3%A1!%20Quero%20garantir%20minha%20vaga%20no%20CESMVC%20utilizando%20a%20op%C3%A7%C3%A3o%20de%20pagamento%20parcelado.'
-const WHATSAPP_AVISTA = 'https://wa.me/554196259743?text=Ol%C3%A1!%20Tenho%20interesse%20no%20CESMVC%20e%20gostaria%20de%20consultar%20as%20condi%C3%A7%C3%B5es%20e%20o%20desconto%20para%20pagamento%20%C3%A0%20vista.'
 
 /* ── Ícone WhatsApp ── */
 function WhatsAppIcon({ className = 'w-5 h-5' }: { className?: string }) {
@@ -46,7 +43,7 @@ export default function PricingInfo() {
       {/* ── Logo UFPR (Endosso) ── */}
       <div className="absolute top-8 right-6 sm:right-12 z-20">
         <a
-          href="https://agrarias.ufpr.br/mvc/"
+          href="https://agrarias.ufpr.br/mvc/especializacao-mvc/"
           target="_blank"
           rel="noopener noreferrer"
           title="Site Oficial UFPR MVC"
@@ -99,127 +96,39 @@ export default function PricingInfo() {
           </p>
         </div>
 
-        {/* ── Layout: Features + Payment cards ── */}
-        <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 lg:gap-16 items-start">
+        {/* ── Layout: Features + Payment Card ── */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center lg:items-start">
 
-          {/* ── Left: Tudo incluso ── */}
-          <div className="lg:col-span-2">
-            <p className="font-sans text-white/60 text-xs font-bold tracking-widest uppercase mb-6">
-              Tudo incluso na especialização
-            </p>
-            <ul className="flex flex-col gap-3">
-              {FEATURES.map((feat) => (
-                <li key={feat} className="flex items-start gap-3">
-                  <span
-                    className="flex-shrink-0 mt-0.5 w-5 h-5 rounded-full flex items-center justify-center"
-                    style={{ background: 'rgba(46,111,87,0.30)' }}
-                    aria-hidden="true"
-                  >
-                    <svg className="w-3 h-3" fill="none" stroke="#7fb8a0" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
-                    </svg>
-                  </span>
-                  <span className="font-sans text-white/80 text-sm leading-snug">{feat}</span>
-                </li>
-              ))}
-            </ul>
+          {/* ── Left: Features & Status Highlight (7 columns) ── */}
+          <div className="lg:col-span-7 flex flex-col gap-6 md:gap-8">
+            <div>
+              <p className="font-sans text-white/60 text-xs font-bold tracking-widest uppercase mb-6">
+                Tudo incluso na especialização
+              </p>
+              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {FEATURES.map((feat) => (
+                  <li key={feat} className="flex items-start gap-3">
+                    <span
+                      className="flex-shrink-0 mt-0.5 w-5 h-5 rounded-full flex items-center justify-center"
+                      style={{ background: 'rgba(46,111,87,0.30)' }}
+                      aria-hidden="true"
+                    >
+                      <svg className="w-3 h-3" fill="none" stroke="#7fb8a0" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+                      </svg>
+                    </span>
+                    <span className="font-sans text-white/80 text-sm leading-snug">{feat}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
 
-            <div className="mt-8 p-4 rounded-xl border border-white/10 bg-white/5">
+            <div className="p-4 rounded-xl border border-white/10 bg-white/5">
               <p className="font-sans text-white/60 text-xs leading-relaxed">
                 <span className="text-white font-semibold">Nota:</span>{' '}
                 Curso de Pós-Graduação Lato Sensu reconhecido pela UFPR, seguindo as
                 diretrizes da resolução CNE/CES nº 1/2018.
               </p>
-            </div>
-          </div>
-
-          {/* ── Right: Payment cards ── */}
-          <div className="lg:col-span-3 flex flex-col gap-6">
-            <div className="flex flex-col sm:flex-row gap-6">
-
-              {/* Card Parcelado — Destaque (azul escuro + branco) */}
-              <div className="relative flex-1 flex flex-col rounded-2xl p-8 bg-white shadow-2xl shadow-black/30 scale-[1.02] sm:scale-105 transition-all duration-300">
-
-                {/* Badge — verde frio */}
-                <span
-                  className="inline-block self-start px-3 py-1 rounded-full text-xs font-bold mb-6 text-white"
-                  style={{ background: '#2E6F57' }}
-                >
-                  Mais escolhido
-                </span>
-
-                <p className="font-sans text-sm font-semibold tracking-wide mb-1 text-gray-500">Parcelado</p>
-                <p className="font-sans text-xs mb-1 text-gray-400">24x de</p>
-
-                {/* Preço em verde frio */}
-                <p
-                  className="font-grift-black leading-none mb-2"
-                  style={{ fontSize: 'clamp(2rem, 4vw, 2.75rem)', color: '#2E6F57' }}
-                >
-                  R$ 664,39
-                </p>
-                <p className="font-sans text-xs font-medium mb-1 text-gray-500">sem juros no cartão</p>
-                <p className="font-sans text-xs mb-8 text-gray-400">Total: R$ 15.945,36</p>
-
-                {/* CTA Principal — verde */}
-                <a
-                  href={WHATSAPP_PARCELADO}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={trackWhatsAppClick}
-                  className="
-                    mt-auto inline-flex items-center justify-center gap-2.5
-                    font-bold text-sm px-6 py-3.5 rounded-xl
-                    text-white
-                    transition-all duration-300 hover:-translate-y-0.5
-                    shadow-lg hover:shadow-xl
-                  "
-                  style={{
-                    background: 'linear-gradient(135deg, #2E6F57 0%, #1e4f3d 100%)',
-                    boxShadow: '0 0.5rem 1.5rem rgba(46,111,87,0.40)',
-                  }}
-                >
-                  <WhatsAppIcon />
-                  Inscreva-se via WhatsApp
-                </a>
-              </div>
-
-              {/* Card À Vista */}
-              <div className="relative flex-1 flex flex-col rounded-2xl p-8 bg-white/10 border border-white/20 hover:bg-white/15 transition-all duration-300">
-
-                <span className="inline-block self-start px-3 py-1 rounded-full text-xs font-bold mb-6 text-white" style={{ background: 'rgba(255,255,255,0.15)' }}>
-                  Maior economia
-                </span>
-
-                <p className="font-sans text-sm font-semibold tracking-wide mb-1 text-white/60">À Vista</p>
-                <p className="font-sans text-xs mb-1 text-white/50">Valor</p>
-
-                <p
-                  className="font-grift-black leading-none mb-2 text-white"
-                  style={{ fontSize: 'clamp(1.75rem, 3vw, 2.25rem)' }}
-                >
-                  Com Desconto
-                </p>
-                <p className="font-sans text-xs font-medium mb-1 text-white/60">Consultar desconto para pagamento à vista</p>
-                <p className="font-sans text-xs mb-8 text-white/40">Fale com a secretaria do curso</p>
-
-                <a
-                  href={WHATSAPP_AVISTA}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={trackWhatsAppClick}
-                  className="
-                    mt-auto inline-flex items-center justify-center gap-2
-                    font-bold text-sm px-6 py-3.5 rounded-xl
-                    text-white border border-white/30
-                    hover:border-white/60 hover:bg-white/10
-                    transition-all duration-300 hover:-translate-y-0.5
-                  "
-                >
-                  <WhatsAppIcon />
-                  Consultar via WhatsApp
-                </a>
-              </div>
             </div>
 
             {/* Status Highlight: 2ª Turma em andamento */}
@@ -233,6 +142,59 @@ export default function PricingInfo() {
               </div>
             </div>
           </div>
+
+          {/* ── Right: Single Payment Card (5 columns) ── */}
+          <div className="lg:col-span-5 w-full flex justify-center lg:justify-end">
+            {/* Card Parcelado — Destaque (azul escuro + branco) */}
+            <div className="relative w-full max-w-md flex flex-col rounded-2xl p-8 sm:p-10 bg-white shadow-2xl shadow-black/30 scale-[1.02] sm:scale-105 transition-all duration-300 border border-gray-100">
+
+              {/* Badge — verde frio */}
+              <span
+                className="inline-block self-start px-3 py-1 rounded-full text-xs font-bold mb-6 text-white"
+                style={{ background: '#2E6F57' }}
+              >
+                Mais escolhido
+              </span>
+
+              <p className="font-sans text-sm font-semibold tracking-wide mb-1 text-gray-500">Parcelado</p>
+              <p className="font-sans text-xs mb-1 text-gray-400">24x de</p>
+
+              {/* Preço em verde frio */}
+              <p
+                className="font-grift-black leading-none mb-2"
+                style={{ fontSize: 'clamp(2.25rem, 5vw, 3rem)', color: '#2E6F57' }}
+              >
+                R$ 664,39*
+              </p>
+              <p className="font-sans text-sm font-semibold mb-2 text-gray-500">Total: R$ 15.945,36</p>
+              <p className="font-sans text-[11px] leading-relaxed text-gray-400 mb-8 text-left">
+                *Valor referente aos ingressantes de abril/26. Consulte as condições de parcelamento.
+              </p>
+
+              {/* CTA Principal — verde */}
+              <a
+                href={WHATSAPP_PARCELADO}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={trackWhatsAppClick}
+                className="
+                  mt-auto inline-flex items-center justify-center gap-2.5
+                  font-bold text-sm px-6 py-4 rounded-xl
+                  text-white
+                  transition-all duration-300 hover:-translate-y-0.5
+                  shadow-lg hover:shadow-xl
+                "
+                style={{
+                  background: 'linear-gradient(135deg, #2E6F57 0%, #1e4f3d 100%)',
+                  boxShadow: '0 0.5rem 1.5rem rgba(46,111,87,0.40)',
+                }}
+              >
+                <WhatsAppIcon />
+                Inscreva-se via WhatsApp
+              </a>
+            </div>
+          </div>
+
         </div>
 
         {/* ── Trust bar — ícones frios ── */}

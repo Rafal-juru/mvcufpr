@@ -5,25 +5,25 @@ import logoMVCfeatUF_Bege from '../../assets/images/logoMVCfeatUF_Bege.png'
 
 /* ── Typewriter config ─────────────────────────────────────── */
 const TW_WORDS = ['UFPR', 'Curso de Especialização Medicina Veterinária do Coletivo']
-const TYPE_SPEED   = 55
+const TYPE_SPEED = 55
 const DELETE_SPEED = 30
-const PAUSE_AFTER  = 2400
+const PAUSE_AFTER = 2400
 const PAUSE_BEFORE = 400
 
 const NAV_LINKS = [
-  { label: 'O Curso',            href: '#sobre-o-curso' },
+  { label: 'O Curso', href: '#sobre-o-curso' },
   { label: 'Estrutura Curricular', href: '#pilares' },
-  { label: 'Docentes',           href: '#docentes' },
-  { label: 'Depoimentos',        href: '#depoimentos' },
-  { label: 'Investimento',       href: '#investimento' },
+  { label: 'Docentes', href: '#docentes' },
+  { label: 'Depoimentos', href: '#depoimentos' },
+  { label: 'Investimento', href: '#investimento' },
 ]
 
 export default function Header() {
-  const [scrolled,    setScrolled]    = useState(false)
-  const [menuOpen,    setMenuOpen]    = useState(false)
-  const [displayed,   setDisplayed]   = useState('UFPR')
-  const [wordIdx,     setWordIdx]     = useState(0)
-  const [isDeleting,  setIsDeleting]  = useState(false)
+  const [scrolled, setScrolled] = useState(false)
+  const [menuOpen, setMenuOpen] = useState(false)
+  const [displayed, setDisplayed] = useState('UFPR')
+  const [wordIdx, setWordIdx] = useState(0)
+  const [isDeleting, setIsDeleting] = useState(false)
   const menuRef = useRef<HTMLDivElement>(null)
   const location = useLocation()
 
@@ -96,8 +96,7 @@ export default function Header() {
   const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     const id = href.includes('#') ? href.split('#')[1] : href
     const target = document.getElementById(id)
-    console.log('handleLinkClick called:', { href, id, target, menuOpen })
-    
+
     if (target) {
       e.preventDefault()
       setMenuOpen(false)
@@ -106,14 +105,12 @@ export default function Header() {
         const headerOffset = 80 // height of header
         const elementPosition = target.getBoundingClientRect().top
         const offsetPosition = elementPosition + window.scrollY - headerOffset
-        console.log('Scrolling calculation:', { elementPosition, scrollY: window.scrollY, offsetPosition })
         window.scrollTo({
           top: offsetPosition,
           behavior: 'smooth'
         })
       }, delay)
     } else {
-      console.log('Target not found, closing menu')
       setMenuOpen(false)
     }
   }
@@ -135,7 +132,7 @@ export default function Header() {
         {/* ── Lado Esquerdo — Logo UFPR + Bloco de Texto (Typewriter) ── */}
         <div className="flex-shrink-0 md:absolute md:left-8 lg:left-12 md:top-1/2 md:-translate-y-1/2 flex items-center gap-4">
           <a
-            href="https://agrarias.ufpr.br/mvc/"
+            href="https://agrarias.ufpr.br/mvc/especializacao-mvc/"
             target="_blank"
             rel="noopener noreferrer"
             title="Site Oficial UFPR MVC"
@@ -182,9 +179,8 @@ export default function Header() {
           <img
             src={logoMVCfeatUF_Bege}
             alt="CESMVC"
-            className={`h-8 w-auto object-contain transition-all duration-500 ease-in-out ${
-              scrolled ? 'opacity-100' : 'opacity-0 pointer-events-none'
-            }`}
+            className={`h-8 w-auto object-contain transition-all duration-500 ease-in-out ${scrolled ? 'opacity-100' : 'opacity-0 pointer-events-none'
+              }`}
           />
         </a>
 
@@ -202,9 +198,8 @@ export default function Header() {
             <img
               src={logoMVCfeatUF_Bege}
               alt="CESMVC"
-              className={`h-8 w-auto object-contain transition-all duration-500 ease-in-out ${
-                scrolled ? 'opacity-100' : 'opacity-0 pointer-events-none'
-              }`}
+              className={`h-8 w-auto object-contain transition-all duration-500 ease-in-out ${scrolled ? 'opacity-100' : 'opacity-0 pointer-events-none'
+                }`}
             />
           </a>
 
@@ -280,11 +275,11 @@ export default function Header() {
             >
               {menuOpen
                 ? <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                  </svg>
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
                 : <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-                  </svg>
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
               }
             </button>
           </div>

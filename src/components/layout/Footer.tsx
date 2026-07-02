@@ -98,7 +98,7 @@ export default function Footer() {
             <div className="flex items-center gap-4 mt-1 flex-wrap justify-center md:justify-start">
               {/* UFPR */}
               <a
-                href="https://agrarias.ufpr.br/mvc/"
+                href="https://agrarias.ufpr.br/mvc/especializacao-mvc/"
                 target="_blank"
                 rel="noopener noreferrer"
                 title="Site Oficial UFPR MVC"
@@ -187,7 +187,7 @@ export default function Footer() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
                 </svg>
                 <a
-                  href="https://agrarias.ufpr.br/mvc/"
+                  href="https://agrarias.ufpr.br/mvc/especializacao-mvc/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="font-sans hover:text-white transition-colors underline underline-offset-2"

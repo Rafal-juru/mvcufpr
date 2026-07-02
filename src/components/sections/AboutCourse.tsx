@@ -8,8 +8,9 @@
  */
 
 import { useState } from 'react';
-import sobreocursoimg1 from '../../assets/images/sobreocursoimg1.png';
-import sobreocursoimg2 from '../../assets/images/sobreocursoimg2.png';
+import imgIntroMVC from '../../assets/images/sobreocursoimgnova_1.png'; // Foto do homem com cachorros de rua
+import imgInstituto from '../../assets/images/sobreocursoimgnova_2.png'; // Foto do cachorro sendo examinado
+import imgCurso from '../../assets/images/sobreocursoimgnova_3.png'; // Foto do atendimento ao cavalo
 
 const SECTIONS = [
   {
@@ -162,10 +163,9 @@ export default function AboutCourse() {
         ───────────────────────────────────────────────────────────── */}
         <div className="mb-20">
           {/* Eyebrow */}
-          <div className="flex items-center gap-2 mb-3">
-            <span className="w-5 h-px" style={{ background: SECTIONS[0].accent }} />
-            <span className="font-mono text-[0.65rem] uppercase tracking-widest" style={{ color: SECTIONS[0].accent }}>
-              {SECTIONS[0].eyebrow}
+          <div className="mb-3">
+            <span className="font-mono text-xs uppercase tracking-widest font-bold" style={{ color: SECTIONS[0].accent }}>
+              — {SECTIONS[0].eyebrow}
             </span>
           </div>
           {/* Layout: título à esquerda + texto à direita */}
@@ -177,6 +177,7 @@ export default function AboutCourse() {
               >
                 {SECTIONS[0].title}
               </h3>
+              <img src={imgIntroMVC} alt="Manejo Populacional" className="mt-8 rounded-2xl w-full object-cover aspect-video shadow-sm" loading="lazy" />
             </div>
             <div className="lg:col-span-3 space-y-4" style={{ borderLeft: `2px solid ${SECTIONS[0].accent}20`, paddingLeft: '1.5rem' }}>
               {SECTIONS[0].body.map((p, i) => (
@@ -200,7 +201,7 @@ export default function AboutCourse() {
         <div className="flex flex-col md:flex-row gap-8 lg:gap-12 items-start mb-16">
           <div className="w-full md:w-1/2 flex-shrink-0 aspect-[4/3] md:aspect-[16/10] overflow-hidden rounded-2xl shadow-sm">
             <img
-              src={sobreocursoimg1}
+              src={imgInstituto}
               alt="O Instituto de Medicina Veterinária do Coletivo (IMVC)"
               className="w-full h-full object-cover"
               loading="lazy"
@@ -222,11 +223,11 @@ export default function AboutCourse() {
 
         {/* Bloco 2: O Curso (Card à esquerda, imagem à direita no desktop) */}
         <div className="flex flex-col md:flex-row-reverse gap-8 lg:gap-12 items-start mb-20">
-          <div className="w-full md:w-1/2 flex-shrink-0 h-auto aspect-auto overflow-hidden rounded-2xl shadow-sm">
+          <div className="w-full md:w-1/2 flex-shrink-0 aspect-[4/3] md:aspect-[16/10] overflow-hidden rounded-2xl shadow-sm">
             <img
-              src={sobreocursoimg2}
+              src={imgCurso}
               alt="O CESMVC"
-              className="w-full h-auto object-contain"
+              className="w-full h-full object-cover"
               loading="lazy"
             />
           </div>
@@ -236,7 +237,7 @@ export default function AboutCourse() {
               title="O CESMVC: especialização UFPR que prepara para o coletivo"
               paragraphs={[
                 'O Curso de Especialização em Medicina Veterinária do Coletivo da Universidade Federal do Paraná (CESMVC – UFPR) é uma pós-graduação lato sensu destinada a médicas e médicos veterinários que atuam, ou desejam atuar, em contextos coletivos, públicos e intersetoriais.',
-                'Vinculado à UFPR e desenvolvido em parceria com o PECCA, o curso reúne rigor acadêmico, aplicação prática e compromisso público em uma formação interdisciplinar e conectada à realidade profissional.',
+                'O curso reúne rigor acadêmico, aplicação prática e compromisso público em uma formação interdisciplinar e conectada à realidade profissional.',
                 'O CESMVC conta com mais de 40 professores e profissionais convidados, sendo a maior parte formada por doutores de universidades federais e profissionais com ampla experiência prática em serviços públicos e gestão. Muitos participaram diretamente da criação e consolidação da Medicina Veterinária do Coletivo no Brasil.',
                 'Com formato 100% EAD, aulas síncronas semanais e acompanhamento contínuo por meio de tutoria acadêmica e suporte institucional, o curso oferece uma formação sólida para profissionais que desejam atuar de maneira transformadora nas relações entre humanos, animais e ambiente.',
               ]}

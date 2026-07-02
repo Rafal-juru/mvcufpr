@@ -41,6 +41,7 @@ export default function AdminLayout({ children }: { children: ReactNode }) {
             <Link
               to="/blog"
               target="_blank"
+              rel="noopener noreferrer"
               className="text-white/80 hover:text-white text-sm font-medium transition-colors"
             >
               Ver site ↗
