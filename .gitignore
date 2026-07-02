@@ -15,6 +15,13 @@ dist-ssr
 # Documentos de referência e textos
 **/context/textos/
 
+# Backend PHP: segredos reais e imagens enviadas em runtime (não versionar).
+# server/public/api é gerado por `npm run build:deploy` a partir de
+# backend-php/api — só o config.example.php viaja no Git.
+server/public/api/config.php
+server/public/api/uploads/*
+!server/public/api/uploads/.gitkeep
+
 # Claude Code
 .claude/
 

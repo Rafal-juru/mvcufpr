@@ -1,0 +1,17 @@
+# Garante que o header Authorization chegue ao PHP em alguns hosts compartilhados.
+RewriteEngine On
+RewriteCond %{HTTP:Authorization} .
+RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+
+# Todo pedido dentro de /api vai pro front controller, exceto se for um
+# arquivo real (ex.: uploads servidas por outro caminho no futuro).
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^ index.php [QSA,L]
+
+# Bloqueia acesso direto a config.php e à pasta lib/.
+<Files "config.php">
+    Require all denied
+</Files>
+<Files "config.example.php">
+    Require all denied
+</Files>

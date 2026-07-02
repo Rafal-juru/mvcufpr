@@ -5,13 +5,9 @@ import { mockStore } from './mockStore'
   ─────────────────────────────────────────────────────────────────────────
   Cliente de API do blog.
 
-  Enquanto o backend PHP/MySQL do Plesk não estiver no ar, o cliente opera em
-  modo MOCK (localStorage) — todo o frontend, inclusive o CRUD do admin,
-  funciona normalmente. Para ligar a API real, defina no arquivo `.env`:
-
-      VITE_USE_MOCK=false
-
-  e implemente os endpoints abaixo no Plesk (mesmo domínio, prefixo /api):
+  Backend real em PHP/MySQL (server/public/api, ver backend-php/), mesmo
+  domínio, prefixo /api — sem CORS. Se `VITE_USE_MOCK=true` no `.env`, o
+  cliente opera em modo MOCK (localStorage) para desenvolvimento sem backend.
 
     Público
       GET  /api/posts                 → BlogPost[]  (apenas publicados)
