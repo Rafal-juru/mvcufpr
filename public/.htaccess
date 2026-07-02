@@ -1,3 +1,13 @@
+# A Hostinger clona o repositório inteiro dentro do Document Root — bloqueia
+# acesso direto ao código-fonte/config que fica exposto ao lado do build.
+<FilesMatch "\.(env(\.\w+)?|md|json|ts|tsx|cjs\.example)$">
+  Require all denied
+</FilesMatch>
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteRule ^(src|backend-php|server|scripts|docs|\.vscode|\.git)(/|$) - [F,L]
+</IfModule>
+
 # SPA fallback for Plesk (Apache) — redirect all client-side routes to index.html
 # so deep links like /blog/<slug> and /admin work on full page reload.
 <IfModule mod_rewrite.c>
