@@ -4,7 +4,12 @@ import Link from '@tiptap/extension-link'
 import Underline from '@tiptap/extension-underline'
 import TextAlign from '@tiptap/extension-text-align'
 import Placeholder from '@tiptap/extension-placeholder'
-import { useEffect, useCallback } from 'react'
+import Image from '@tiptap/extension-image'
+import { useEffect, useCallback, useRef, useState } from 'react'
+import { getToken } from '../../lib/api'
+
+const API_URL =
+  import.meta.env.VITE_API_URL ?? (import.meta.env.DEV ? 'http://localhost:3001' : '')
 
 interface Props {
   value: string
@@ -42,6 +47,9 @@ function Divider() {
 }
 
 export default function RichTextEditor({ value, onChange, placeholder }: Props) {
+  const fileInputRef = useRef<HTMLInputElement>(null)
+  const [uploadingImage, setUploadingImage] = useState(false)
+
   const editor = useEditor({
     extensions: [
       StarterKit.configure({ codeBlock: false }),
@@ -49,6 +57,7 @@ export default function RichTextEditor({ value, onChange, placeholder }: Props) 
       Link.configure({ openOnClick: false, HTMLAttributes: { class: 'text-cesmvc-blue underline' } }),
       TextAlign.configure({ types: ['heading', 'paragraph'] }),
       Placeholder.configure({ placeholder: placeholder || 'Escreva o conteúdo do artigo…' }),
+      Image.configure({ HTMLAttributes: { class: 'rounded-lg' } }),
     ],
     content: value || '',
     onUpdate({ editor }) {
@@ -74,6 +83,39 @@ export default function RichTextEditor({ value, onChange, placeholder }: Props) 
     if (url === null) return
     if (url === '') { editor.chain().focus().unsetLink().run(); return }
     editor.chain().focus().setLink({ href: url }).run()
+  }, [editor])
+
+  const insertImage = useCallback(() => {
+    fileInputRef.current?.click()
+  }, [])
+
+  const handleImageFile = useCallback(async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.currentTarget.files?.[0]
+    e.currentTarget.value = ''
+    if (!file || !editor) return
+
+    setUploadingImage(true)
+    try {
+      const formData = new FormData()
+      formData.append('image', file)
+      const token = getToken()
+      const response = await fetch(`${API_URL}/api/upload-image`, {
+        method: 'POST',
+        headers: token ? { Authorization: `Bearer ${token}` } : {},
+        body: formData,
+      })
+      if (!response.ok) {
+        const body = await response.json().catch(() => null)
+        throw new Error(body?.message || `Erro ${response.status}`)
+      }
+      const data = await response.json()
+      const fullUrl = `${API_URL}${data.url}`
+      editor.chain().focus().setImage({ src: fullUrl }).run()
+    } catch (err) {
+      window.alert(`Erro ao fazer upload da imagem: ${err}`)
+    } finally {
+      setUploadingImage(false)
+    }
   }, [editor])
 
   if (!editor) return null
@@ -132,6 +174,9 @@ export default function RichTextEditor({ value, onChange, placeholder }: Props) 
         <Btn title="Link" active={editor.isActive('link')} onClick={setLink}>
           🔗
         </Btn>
+        <Btn title="Inserir imagem" onClick={insertImage}>
+          {uploadingImage ? '…' : '🖼'}
+        </Btn>
         <Divider />
 
         {/* Alinhamento */}
@@ -152,6 +197,14 @@ export default function RichTextEditor({ value, onChange, placeholder }: Props) 
 
       {/* ── Área de edição ── */}
       <EditorContent editor={editor} />
+
+      <input
+        ref={fileInputRef}
+        type="file"
+        accept="image/*"
+        onChange={handleImageFile}
+        className="hidden"
+      />
     </div>
   )
 }

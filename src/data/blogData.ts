@@ -70,4 +70,27 @@ export const SEED_POSTS: BlogPost[] = [
     publishedAt: '2025-06-01',
     readingMinutes: 4,
   },
+  {
+    id: 5,
+    slug: 'exemplo-artigo-com-multiplas-imagens',
+    title: '[Exemplo] Artigo com imagem de capa e múltiplas imagens no corpo',
+    excerpt:
+      'Rascunho de demonstração: mostra como usar uma imagem de capa e inserir várias imagens ao longo do texto do artigo. Não publicar como está — apenas um modelo.',
+    content:
+      '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>' +
+      '<h2>Primeira seção do artigo</h2>' +
+      '<p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>' +
+      '<img src="https://picsum.photos/seed/cesmvc-exemplo-1/1000/560" alt="Imagem ilustrativa de exemplo 1" class="rounded-lg" />' +
+      '<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>' +
+      '<h2>Segunda seção do artigo</h2>' +
+      '<p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet.</p>' +
+      '<img src="https://picsum.photos/seed/cesmvc-exemplo-2/1000/560" alt="Imagem ilustrativa de exemplo 2" class="rounded-lg" />' +
+      '<p>Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur. Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse.</p>',
+    category: 'Exemplo',
+    coverImage: 'https://picsum.photos/seed/cesmvc-exemplo-capa/1200/630',
+    author: 'Modelo de Rascunho',
+    status: 'draft',
+    publishedAt: '2026-07-03',
+    readingMinutes: 3,
+  },
 ]
