@@ -60,7 +60,7 @@ export default function LoginPage() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               className="w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:border-cesmvc-blue focus:ring-2 focus:ring-cesmvc-blue/20 outline-none transition"
-              placeholder="admin@cesmvc.ufpr.br"
+              placeholder="seu@email.com"
             />
           </div>
 
