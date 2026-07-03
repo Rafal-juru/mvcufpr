@@ -9,6 +9,7 @@ import PricingInfo      from '../components/sections/PricingInfo'
 import BlogSection      from '../components/sections/BlogSection'
 import NewsletterSection from '../components/sections/NewsletterSection'
 import WhatsAppButton   from '../components/ui/WhatsAppButton'
+import BackToTopButton  from '../components/ui/BackToTopButton'
 
 /*
   ─── IDs das seções (devem bater com os hrefs do Header) ───────
@@ -41,6 +42,7 @@ export default function HomePage() {
 
       <Footer />
       <WhatsAppButton />
+      <BackToTopButton />
     </div>
   )
 }

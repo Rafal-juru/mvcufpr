@@ -26,7 +26,7 @@ export default function HeroSection() {
 
   const badgesRef = useRef<HTMLDivElement>(null)
   const [isInteracting, setIsInteracting] = useState(false)
-  const interactionTimeoutRef = useRef<any>(null)
+  const interactionTimeoutRef = useRef<number | null>(null)
 
   /* ── Auto scroll for badges on mobile ── */
   useEffect(() => {
@@ -293,12 +293,20 @@ export default function HeroSection() {
       </div>
 
       {/* ── Scroll indicator ── */}
-      <div className="absolute bottom-12 md:bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-0.5 md:gap-1 animate-bounce">
+      <a
+        href="#sobre-o-curso"
+        onClick={(e) => {
+          e.preventDefault()
+          document.getElementById('sobre-o-curso')?.scrollIntoView({ behavior: 'smooth' })
+        }}
+        className="absolute bottom-12 md:bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-0.5 md:gap-1 animate-bounce cursor-pointer"
+        aria-label="Rolar para a próxima seção"
+      >
         <span className="text-white/80 text-[8px] md:text-xs tracking-widest uppercase">Role para baixo</span>
         <svg className="w-3 h-3 md:w-5 md:h-5 text-white/80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
         </svg>
-      </div>
+      </a>
     </section>
   )
 }
