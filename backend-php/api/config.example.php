@@ -24,4 +24,11 @@ return [
         'from' => '', // ex: "CESMVC UFPR <no-reply@seudominio.com>"
     ],
     'site_url' => '', // ex: https://ufpr.seudominio.com — usado em links de e-mail
+
+    // Caminho absoluto opcional para salvar imagens enviadas FORA do
+    // document root (ex.: um nível acima de public_html). Recomendado em
+    // hosts cujo Git Deploy pode fazer clone limpo e apagar tudo que não
+    // está versionado dentro do document root. Deixe vazio para usar o
+    // padrão (pasta uploads/ dentro de api/, versionada só como .gitkeep).
+    'uploads_dir' => '',
 ];

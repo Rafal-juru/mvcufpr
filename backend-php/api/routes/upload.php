@@ -7,7 +7,7 @@ if ($method !== 'POST') {
     json_response(['message' => 'Not found'], 404);
 }
 
-$uploadsDir = __DIR__ . '/../uploads';
+$uploadsDir = load_config()['uploads_dir'] ?: (__DIR__ . '/../uploads');
 if (!is_dir($uploadsDir)) {
     mkdir($uploadsDir, 0755, true);
 }

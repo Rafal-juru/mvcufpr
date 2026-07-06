@@ -12,7 +12,8 @@ if ($file === '' || str_contains($file, '/') || str_contains($file, '\\') || str
     json_response(['message' => 'Arquivo inválido'], 400);
 }
 
-$path = __DIR__ . '/../uploads/' . $file;
+$uploadsDir = load_config()['uploads_dir'] ?: (__DIR__ . '/../uploads');
+$path = $uploadsDir . '/' . $file;
 
 if (!is_file($path)) {
     json_response(['message' => 'Imagem não encontrada'], 404);

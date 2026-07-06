@@ -125,8 +125,11 @@ function send_post_broadcast(array $post, array $subscriberEmails, string $baseU
 
     $adminEmail = load_config()['admin']['email'] ?? null;
     $postUrl = "{$baseUrl}/blog/{$post['slug']}";
-    $coverBlock = $post['coverImage']
-        ? '<img src="' . $post['coverImage'] . '" alt="' . htmlspecialchars($post['title']) . '" style="width:100%;border-radius:8px;margin-bottom:20px;display:block">'
+    $coverImageUrl = $post['coverImage']
+        ? (str_starts_with($post['coverImage'], 'http') ? $post['coverImage'] : $baseUrl . $post['coverImage'])
+        : '';
+    $coverBlock = $coverImageUrl
+        ? '<img src="' . $coverImageUrl . '" alt="' . htmlspecialchars($post['title']) . '" style="width:100%;border-radius:8px;margin-bottom:20px;display:block">'
         : '';
 
     $metaParts = [];
