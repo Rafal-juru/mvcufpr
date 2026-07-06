@@ -1,3 +1,10 @@
+# Aponta pro config.php real fora do document root (sobrevive a um clone
+# limpo do Git Deploy, que apaga tudo que não está versionado dentro de
+# public_html). Ver lib/config.php.
+<IfModule mod_env.c>
+    SetEnv MVCUFPR_CONFIG_PATH /home/u262251177/config-ufpr.php
+</IfModule>
+
 # Garante que o header Authorization chegue ao PHP em alguns hosts compartilhados.
 RewriteEngine On
 RewriteCond %{HTTP:Authorization} .
