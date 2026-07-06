@@ -26,7 +26,10 @@ export default function SubscribersPage() {
 
   useEffect(() => {
     fetch(API, { headers: authHeaders() })
-      .then((r) => r.json())
+      .then((r) => {
+        if (!r.ok) throw new Error()
+        return r.json()
+      })
       .then(setSubscribers)
       .catch(() => setError('Não foi possível carregar os inscritos.'))
       .finally(() => setLoading(false))
