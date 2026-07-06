@@ -227,7 +227,7 @@ export default function AboutCourse() {
             <img
               src={imgCurso}
               alt="O CESMVC"
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover scale-110"
               loading="lazy"
             />
           </div>

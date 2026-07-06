@@ -62,7 +62,7 @@ export const courseCards: CardComponentData[] = [
         illustrationType: 'desastres',
         tags: ['Contingência', 'Resgate', 'Emergências'],
         pilarImg: '../../../assets/images/CESMVC - banner Pilar em PNG.png',
-        iconOrange: '../../../assets/images/CESMVC - banner Medicina veterinária de desastres laranja em WEBP.webp',
+        iconOrange: '../../../assets/images/CESMVC - banner Medicina veterinária de desastres laranja em PNG.png',
         iconGreen: '../../../assets/images/CESMVC - banner Medicina veterinária de desastres em PNG.png',
         iconTransformOrange: { scale: 6.00, x: '-117.6%', y: '42.6%' },
         iconTransformGreen: { scale: 1.01, x: '1.1%', y: '0.5%' },

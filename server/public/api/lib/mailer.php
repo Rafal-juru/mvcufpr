@@ -129,7 +129,7 @@ function send_post_broadcast(array $post, array $subscriberEmails, string $baseU
         ? (str_starts_with($post['coverImage'], 'http') ? $post['coverImage'] : $baseUrl . $post['coverImage'])
         : '';
     $coverBlock = $coverImageUrl
-        ? '<img src="' . $coverImageUrl . '" alt="' . htmlspecialchars($post['title']) . '" width="560" style="width:100%;max-width:560px;height:auto;border-radius:8px;margin-bottom:20px;display:block">'
+        ? '<img src="' . $coverImageUrl . '" alt="' . htmlspecialchars($post['title']) . '" width="240" style="width:240px;max-width:100%;height:auto;border-radius:8px;margin-bottom:20px;display:block">'
         : '';
 
     $metaParts = [];
