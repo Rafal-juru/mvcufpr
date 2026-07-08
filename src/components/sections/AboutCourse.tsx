@@ -34,6 +34,14 @@ const STATS = [
   { value: '100%', label: 'dos egressos\nrecomendam' },
 ];
 
+// Suporte mínimo a <i>...</i> em textos estáticos (não renderiza HTML arbitrário)
+function renderWithItalics(text: string) {
+  return text.split(/(<i>.*?<\/i>)/g).map((part, i) => {
+    const match = part.match(/^<i>(.*?)<\/i>$/);
+    return match ? <em key={i}>{match[1]}</em> : part;
+  });
+}
+
 function ExpandableCard({
   eyebrow,
   title,
@@ -86,7 +94,7 @@ function ExpandableCard({
               key={i}
               className="font-sans leading-relaxed text-[#0B281E]/75 text-sm sm:text-base"
             >
-              {p}
+              {renderWithItalics(p)}
             </p>
           ))}
         </div>
@@ -236,7 +244,7 @@ export default function AboutCourse() {
               eyebrow="— ENSINO"
               title="O CESMVC: especialização UFPR que prepara para o coletivo"
               paragraphs={[
-                'O Curso de Especialização em Medicina Veterinária do Coletivo da Universidade Federal do Paraná (CESMVC – UFPR) é uma pós-graduação lato sensu destinada a médicas e médicos veterinários que atuam, ou desejam atuar, em contextos coletivos, públicos e intersetoriais.',
+                'O Curso de Especialização em Medicina Veterinária do Coletivo da Universidade Federal do Paraná (CESMVC – UFPR) é uma pós-graduação <i>lato sensu</i> destinada a médicas e médicos veterinários que atuam, ou desejam atuar, em contextos coletivos, públicos e intersetoriais.',
                 'O curso reúne rigor acadêmico, aplicação prática e compromisso público em uma formação interdisciplinar e conectada à realidade profissional.',
                 'O CESMVC conta com mais de 40 professores e profissionais convidados, sendo a maior parte formada por doutores de universidades federais e profissionais com ampla experiência prática em serviços públicos e gestão. Muitos participaram diretamente da criação e consolidação da Medicina Veterinária do Coletivo no Brasil.',
                 'Com formato 100% EAD, aulas síncronas semanais e acompanhamento contínuo por meio de tutoria acadêmica e suporte institucional, o curso oferece uma formação sólida para profissionais que desejam atuar de maneira transformadora nas relações entre humanos, animais e ambiente.',

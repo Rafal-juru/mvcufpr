@@ -14,8 +14,9 @@ const PAUSE_BEFORE = 350  // ms de pausa antes de começar a digitar
 const BADGES = [
   { label: '100% remoto' },
   { label: 'Realização: abril/26 a abril/28' },
-  { label: '15+ Professores Federais' },
-  { label: 'Certificação UFPR | Reconhecimento MEC e CFMV' },
+  { label: '20+ Professores Federais' },
+  { label: 'Certificação UFPR | Reconhecimento MEC' },
+
 ]
 
 export default function HeroSection() {
@@ -210,8 +211,8 @@ export default function HeroSection() {
           style={{ fontSize: 'clamp(1rem, 1.8vw, 1.25rem)' }}
         >
           Um programa da <strong className="text-white font-semibold">UFPR</strong> que une
-          saúde única, bem-estar animal e medicina de populações — formando líderes em
-          saúde coletiva veterinária.
+          saúde única, bem-estar animal e medicina de populações — formando líderes em 
+          Medicina Veterinária do Coletivo.
         </p>
 
         {/* CTA Buttons */}

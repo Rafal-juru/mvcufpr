@@ -12,7 +12,7 @@ import { courseCards } from '@/data/courseData';
 const COMPETENCIAS = [
   'Compreender o que é a Medicina Veterinária do Coletivo e a Medicina Veterinária Social;',
   'Compreender os principais problemas da Saúde global e como atuar sob a estratégia de saúde coletiva localmente;',
-  'Compreender o SUS e SUAS para atuar intersetorialmente e multidisciplinarmente;',
+  'Compreender o SUS e outros sistemas latino-americanos para atuar intersetorialmente e multidisciplinarmente;',
   'Propor estratégias para implantação de programas efetivos de manejo populacional de cães e gatos urbanos;',
   'Propor plano de trabalho para o enfrentamento da problemática das pessoas em situação de acumulação de animais;',
   'Compreender a atuação com povos originários e de comunidades tradicionais para a promoção da saúde;',
@@ -49,7 +49,7 @@ export default function CoursePillars() {
           </h2>
           <p className="font-sans text-base md:text-lg text-[#2E6F57]/90 font-light mt-6 max-w-3xl leading-relaxed">
             Nossa grade curricular é estruturada em cinco eixos temáticos interdependentes, desenhados para formar
-            um profissional completo, ético e com visão sistêmica da medicina veterinária coletiva.
+            um profissional completo, ético e com visão sistêmica da medicina veterinária do coletivo.
             Clique em qualquer eixo para conhecer mais.
           </p>
         </div>
