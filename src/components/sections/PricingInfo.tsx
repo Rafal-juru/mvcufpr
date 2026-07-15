@@ -131,14 +131,14 @@ export default function PricingInfo() {
               </p>
             </div>
 
-            {/* Status Highlight: 2ª Turma em andamento */}
+            {/* Status Highlight: 3ª Turma em andamento */}
             <div className="flex items-center gap-3.5 p-4 rounded-xl border border-[#7fb8a0]/25 bg-white/5 text-white shadow-md">
               <span className="flex-shrink-0 w-8 h-8 rounded-full bg-cesmvc-orange flex items-center justify-center font-grift-bold text-[#F9E8C7] text-sm shadow-md shadow-cesmvc-orange/30">
                 ★
               </span>
               <div className="flex-1 text-left">
                 <p className="font-sans text-xs font-bold text-[#7fb8a0] uppercase tracking-wider">Status Acadêmico</p>
-                <p className="font-sans text-xs text-white/80 mt-0.5">2ª Turma em andamento: aulas síncronas semanais já iniciadas.</p>
+                <p className="font-sans text-xs text-white/80 mt-0.5">3ª Turma em andamento: aulas síncronas semanais já iniciadas.</p>
               </div>
             </div>
           </div>
