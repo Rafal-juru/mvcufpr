@@ -185,7 +185,7 @@ export default function AboutCourse() {
               >
                 {SECTIONS[0].title}
               </h3>
-              <img src={imgIntroMVC} alt="Manejo Populacional" className="mt-8 rounded-2xl w-full object-cover aspect-video shadow-sm" loading="lazy" />
+              <img src={imgIntroMVC} alt="Manejo Populacional de Cães e Gatos e Saúde Única - Especialização Veterinária UFPR" className="mt-8 rounded-2xl w-full object-cover aspect-video shadow-sm" loading="lazy" />
             </div>
             <div className="lg:col-span-3 space-y-4" style={{ borderLeft: `2px solid ${SECTIONS[0].accent}20`, paddingLeft: '1.5rem' }}>
               {SECTIONS[0].body.map((p, i) => (
@@ -210,7 +210,7 @@ export default function AboutCourse() {
           <div className="w-full md:w-1/2 flex-shrink-0 aspect-[4/3] md:aspect-[16/10] overflow-hidden rounded-2xl shadow-sm">
             <img
               src={imgInstituto}
-              alt="O Instituto de Medicina Veterinária do Coletivo (IMVC)"
+              alt="Médico Veterinário examinando cão - Instituto de Medicina Veterinária do Coletivo IMVC"
               className="w-full h-full object-cover"
               loading="lazy"
             />
@@ -234,7 +234,7 @@ export default function AboutCourse() {
           <div className="w-full md:w-1/2 flex-shrink-0 aspect-[4/3] md:aspect-[16/10] overflow-hidden rounded-2xl shadow-sm">
             <img
               src={imgCurso}
-              alt="O CESMVC"
+              alt="Equipe clínica realizando atendimento em animal de grande porte - Especialização Veterinária UFPR"
               className="w-full h-full object-cover scale-110"
               loading="lazy"
             />

@@ -75,7 +75,7 @@ export default function Faculty() {
             {/* Foto da Rita Sem Fundo */}
             <img
               src={fotoRitaCachorroSemFundo}
-              alt="Profa. Dra. Rita de Cassia Maria Garcia"
+              alt="Profa. Dra. Rita de Cassia Maria Garcia - Coordenadora do Curso de Especialização em Medicina Veterinária do Coletivo CESMVC UFPR"
               className="w-full h-auto object-contain drop-shadow-2xl"
             />
           </div>

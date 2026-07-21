@@ -142,7 +142,7 @@ export default function HeroSection() {
         <source media="(max-width: 48rem)" srcSet={heromob2} />
         <img
           src={heropc2}
-          alt=""
+          alt="Campus da UFPR - Especialização em Medicina Veterinária do Coletivo CESMVC"
           className="w-full h-full object-cover object-right-bottom"
           fetchPriority="high"
         />

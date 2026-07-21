@@ -156,7 +156,7 @@ export const CourseCard: React.FC<CourseCardProps> = ({ card }) => {
                         >
                             <img
                                 src={resolveAssetUrl(hovered ? card.iconGreen : card.iconOrange)}
-                                alt=""
+                                alt={`Ícone ${card.title} - Especialização em Medicina Veterinária do Coletivo UFPR`}
                                 className={`w-full h-full object-cover ${
                                     hovered
                                         ? (card.hoverImageScale || card.imageScale || '')
@@ -175,7 +175,7 @@ export const CourseCard: React.FC<CourseCardProps> = ({ card }) => {
                         {/* Pilar (Estático) — alargado para combinar com a base do ícone */}
                         <img
                             src={resolveAssetUrl(card.pilarImg)}
-                            alt=""
+                            alt={`Pilar ${card.title} - Especialização Veterinária UFPR`}
                             className="object-contain"
                             style={{
                                 width: '115%',
