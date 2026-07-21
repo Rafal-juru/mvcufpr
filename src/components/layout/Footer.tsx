@@ -251,7 +251,17 @@ export default function Footer() {
         {/* ── Divider + Assinatura ── */}
         <div className="border-t border-white/10 mt-10 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-white/50">
           <p>&copy; {new Date().getFullYear()} Universidade Federal do Paraná · CESMVC</p>
-          <p>Todos os direitos reservados.</p>
+          <p>
+            Desenvolvido por{' '}
+            <a
+              href="https://www.instagram.com/lunetacomunica/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-white/70 hover:text-white transition-colors underline underline-offset-2"
+            >
+              Luneta Comunicações
+            </a>
+          </p>
         </div>
       </div>
     </footer>

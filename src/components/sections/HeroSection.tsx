@@ -13,10 +13,9 @@ const PAUSE_BEFORE = 350  // ms de pausa antes de começar a digitar
 /* ── Feature badges ───────────────────────────────────────────── */
 const BADGES = [
   { label: '100% remoto' },
-  { label: 'Realização: abril/26 a abril/28' },
+  { label: '24 Meses de Duração' },
   { label: '20+ Professores Federais' },
   { label: 'Certificação UFPR | Reconhecimento MEC' },
-
 ]
 
 export default function HeroSection() {
