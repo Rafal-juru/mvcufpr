@@ -18,9 +18,9 @@ const SECTIONS = [
     eyebrow: 'Especialidade',
     title: 'O que é a Medicina Veterinária do Coletivo?',
     body: [
-      'A Medicina Veterinária do Coletivo (MVC) é uma especialidade da Medicina Veterinária voltada à compreensão das relações entre saúde humana, saúde animal e meio ambiente, sob a perspectiva da Saúde Única e do Bem-Estar Único.',
-      'Diferente da abordagem tradicional centrada no paciente individual, a MVC ocupa-se de grupos, comunidades e ecossistemas. Seu campo de ação abrange desde o controle de zoonoses e o manejo populacional de cães e gatos até a atuação em situações de desastres, perícia veterinária, abrigos e comunidades tradicionais.',
-      'Nessa perspectiva, a MVC propõe uma atuação ética, interdisciplinar e territorial, preparada para enfrentar desafios contemporâneos que exigem respostas coletivas, institucionais e socialmente comprometidas.',
+      'A Medicina Veterinária do Coletivo (Pós MVC) é uma especialidade da Medicina Veterinária voltada à compreensão das relações entre saúde humana, saúde animal e meio ambiente, sob a perspectiva da Saúde Única (One Health) e do Bem-Estar Único.',
+      'Com todo o respaldo e autoridade acadêmica da Universidade Federal do Paraná (UFPR), o curso oferece módulos completos em Saúde Única (One Health), Manejo Populacional de Cães e Gatos, Medicina de Desastres, Gestão de Abrigos e Perícia Veterinária.',
+      'Nessa perspectiva, a Pós-Graduação Veterinária UFPR (CESMVC) propõe uma atuação ética, interdisciplinar e territorial, preparada para formar especialistas prontos para enfrentar os desafios do setor público e privado com foco no coletivo.',
     ],
     accent: '#2E6F57',
     wide: true,
@@ -158,11 +158,10 @@ export default function AboutCourse() {
             O Curso
           </span>
           <h2
-            className="font-grift-black tracking-tight text-[#0B281E] leading-[1.1] max-w-3xl"
+            className="font-grift-black tracking-tight text-[#0B281E] leading-[1.1] max-w-4xl"
             style={{ fontSize: 'clamp(2rem, 4.5vw, 3.25rem)' }}
           >
-            Uma formação construída
-            <span className="text-[#2E6F57]"> para transformar realidades</span>
+            O que é o CESMVC e a <span className="text-[#2E6F57]">Pós-Graduação Veterinária UFPR Online</span>?
           </h2>
         </div>
 

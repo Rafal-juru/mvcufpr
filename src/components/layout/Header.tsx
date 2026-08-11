@@ -16,6 +16,7 @@ const NAV_LINKS = [
   { label: 'Docentes', href: '#docentes' },
   { label: 'Depoimentos', href: '#depoimentos' },
   { label: 'Investimento', href: '#investimento' },
+  { label: 'FAQ', href: '#faq' },
 ]
 
 export default function Header() {

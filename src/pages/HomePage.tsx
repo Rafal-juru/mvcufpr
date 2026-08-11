@@ -6,6 +6,7 @@ import CoursePillars    from '../components/sections/CoursePillars'
 import Faculty          from '../components/sections/Faculty'
 import Testimonials     from '../components/sections/Testimonials'
 import PricingInfo      from '../components/sections/PricingInfo'
+import FAQSection       from '../components/sections/FAQSection'
 import BlogSection      from '../components/sections/BlogSection'
 import NewsletterSection from '../components/sections/NewsletterSection'
 import WhatsAppButton   from '../components/ui/WhatsAppButton'
@@ -19,6 +20,8 @@ import BackToTopButton  from '../components/ui/BackToTopButton'
   #docentes         → Faculty
   #depoimentos      → Testimonials
   #investimento     → PricingInfo
+  #faq              → FAQSection
+  #blog             → BlogSection
 */
 
 export default function HomePage() {
@@ -35,8 +38,9 @@ export default function HomePage() {
         <CoursePillars />  {/* id="pilares"         */}
         <Faculty      />   {/* id="docentes"        */}
         <Testimonials />   {/* id="depoimentos"     */}
-        <PricingInfo  />   {/* id="valores"         */}
-        <BlogSection     />   {/* id="blog"            */}
+        <PricingInfo  />   {/* id="investimento"    */}
+        <FAQSection   />   {/* id="faq"             */}
+        <BlogSection  />   {/* id="blog"            */}
         <NewsletterSection />
       </main>
 

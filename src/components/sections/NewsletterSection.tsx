@@ -51,8 +51,7 @@ export default function NewsletterSection() {
           </h2>
 
           <p className="text-white/70 text-sm sm:text-base mb-8 leading-relaxed">
-            Artigos, pesquisas e atualizações sobre saúde única, medicina veterinária
-            coletiva, epidemiologia e políticas públicas — sem spam.
+            Artigos, pesquisas e atualizações sobre saúde única, Medicina Veterinária do Coletivo, epidemiologia e políticas públicas.
           </p>
 
           <form

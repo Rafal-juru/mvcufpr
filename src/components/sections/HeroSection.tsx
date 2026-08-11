@@ -1,7 +1,6 @@
 import { useEffect, useState, useRef, Fragment } from 'react'
 import heropc2 from '../../assets/images/heropc2.1_.png'
 import heromob2 from '../../assets/images/heromob2.webp'
-import logoDescritivaBege from '../../assets/images/logoDescitivabBege.png'
 
 /* ── Typewriter config ────────────────────────────────────────── */
 const ROTATING_WORDS = ['Coletiva.', 'Sistêmica.', 'Científica.', 'Transformadora.', 'Humana.']
@@ -180,18 +179,17 @@ export default function HeroSection() {
           Uma especialização oficial UFPR
         </p>
 
-        {/* Título Principal (Imagem da Logo Descritiva Bege) */}
-        <div className="w-full max-w-md sm:max-w-xl mb-6">
-          <img
-            src={logoDescritivaBege}
-            alt="CESMVC — Especialização em Medicina Veterinária do Coletivo"
-            className="w-full h-auto object-contain"
-          />
-        </div>
+        {/* Título Principal H1 */}
+        <h1
+          className="font-grift-bold text-[#F9E8C7] leading-tight mb-4 max-w-4xl"
+          style={{ fontSize: 'clamp(1.875rem, 4vw, 3.25rem)' }}
+        >
+          Pós-Graduação em Medicina Veterinária do Coletivo | UFPR (CESMVC)
+        </h1>
 
         {/* Animação Typewriter */}
-        <h2 className="font-grift text-white font-normal leading-none mb-8"
-          style={{ fontSize: 'clamp(1.25rem, 3vw, 2.125rem)' }}
+        <h2 className="font-grift text-white font-normal leading-none mb-6"
+          style={{ fontSize: 'clamp(1.125rem, 2.5vw, 1.75rem)' }}
         >
           Uma formação{' '}
           <span
@@ -206,12 +204,10 @@ export default function HeroSection() {
         </h2>
 
         {/* Sub-headline */}
-        <p className="text-white/80 font-light leading-relaxed mb-10 max-w-lg"
+        <p className="text-white/90 font-light leading-relaxed mb-10 max-w-2xl font-sans"
           style={{ fontSize: 'clamp(1rem, 1.8vw, 1.25rem)' }}
         >
-          Um programa da <strong className="text-white font-semibold">UFPR</strong> que une
-          saúde única, bem-estar animal e medicina de populações — formando líderes em 
-          Medicina Veterinária do Coletivo.
+          A especialização oficial em Medicina Veterinária do Coletivo (Pós MVC) da Universidade Federal do Paraná (UFPR). Curso 100% online (EAD) reconhecido pelo MEC e pelo CFMV.
         </p>
 
         {/* CTA Buttons */}
