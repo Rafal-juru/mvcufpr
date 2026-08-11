@@ -20,7 +20,7 @@ const FAQS: FAQItem[] = [
   },
   {
     question: 'Qual é a duração da Pós-Graduação em Medicina Veterinária do Coletivo (Pós MVC)?',
-    answer: 'O curso tem carga horária total de 544 horas realizada ao longo de 24 meses (abril/26 a abril/28), com projeto de intervenção orientado individualmente.',
+    answer: 'O curso tem carga horária total de 544 horas realizada ao longo de 24 meses, com projeto de intervenção orientado individualmente.',
   },
   {
     question: 'Como consultar as opções de pagamento da pós-graduação veterinária?',
@@ -82,9 +82,8 @@ export default function FAQSection() {
                     {faq.question}
                   </h3>
                   <span
-                    className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-transform duration-300 ${
-                      isOpen ? 'bg-[#2E6F57] text-white rotate-180' : 'bg-gray-200 text-[#0B281E]'
-                    }`}
+                    className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-transform duration-300 ${isOpen ? 'bg-[#2E6F57] text-white rotate-180' : 'bg-gray-200 text-[#0B281E]'
+                      }`}
                   >
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M19 9l-7 7-7-7" />
