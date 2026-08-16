@@ -11,19 +11,19 @@ const FAQS: FAQItem[] = [
     answer: 'Sim, a especialização oferecida pelo CESMVC em parceria com a UFPR é 100% online (EAD), contando com aulas síncronas semanais e acompanhamento por professores federais.',
   },
   {
-    question: 'O certificado da Pós-Graduação Veterinária é emitido pela UFPR?',
+    question: 'O certificado da Pós-Graduação em Medicina Veterinária do Coletivo é emitido pela UFPR?',
     answer: 'Sim, ao concluir o curso, o aluno recebe o certificado oficial de pós-graduação lato sensu emitido diretamente pela Universidade Federal do Paraná (UFPR), reconhecido pelo MEC e CFMV.',
   },
   {
-    question: 'Quem pode fazer a Pós-Graduação MVC?',
-    answer: 'A especialização é destinada a médicos veterinários graduados que desejam atuar em Manejo Populacional, Saúde Pública, Gestão de Abrigos, Perícia e Medicina Veterinária Legal.',
+    question: 'Quem pode fazer a Pós-Graduação em Medicina Veterinária do Coletivo?',
+    answer: 'A especialização é destinada a profissionais que desejam atuar com manejo populacional, saúde pública, gestão de abrigos, perícia e medicina veterinária legal.',
   },
   {
     question: 'Qual é a duração da Pós-Graduação em Medicina Veterinária do Coletivo (Pós MVC)?',
     answer: 'O curso tem carga horária total de 544 horas realizada ao longo de 24 meses, com projeto de intervenção orientado individualmente.',
   },
   {
-    question: 'Como consultar as opções de pagamento da pós-graduação veterinária?',
+    question: 'Como consultar as opções de pagamento da pós-graduação em Medicina Veterinária do Coletivo?',
     answer: 'Você pode consultar os detalhes de investimento e condições de parcelamento falando diretamente com a equipe da secretaria pelo WhatsApp (+55 41 9625-9743) ou pelo e-mail secretariacesmvc@ufpr.br.',
   },
 ];
@@ -56,7 +56,7 @@ export default function FAQSection() {
             className="font-grift-black tracking-tight text-[#0B281E] leading-tight"
             style={{ fontSize: 'clamp(1.75rem, 3.5vw, 2.75rem)' }}
           >
-            Dúvidas sobre a <span className="text-[#2E6F57]">Pós-Graduação Veterinária UFPR</span>
+            Dúvidas sobre a <span className="text-[#2E6F57]">Pós-Graduação em Medicina Veterinária do Coletivo</span>
           </h2>
           <p className="mt-4 text-gray-600 text-sm sm:text-base max-w-2xl mx-auto font-sans">
             Respostas para as principais perguntas sobre a especialização online em Medicina Veterinária do Coletivo (CESMVC).
