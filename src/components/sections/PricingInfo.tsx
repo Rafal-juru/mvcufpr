@@ -1,5 +1,4 @@
-/* PricingInfo.tsx — Seção de Investimento — Paleta 100% fria (azul/verde/branco) */
-
+import { useTranslation, Trans } from 'react-i18next'
 import logoUFPR3 from '../../assets/images/logoUFPR3(semNome).png'
 
 /* ── Click tracking (localStorage) ── */
@@ -11,15 +10,6 @@ function trackWhatsAppClick() {
     // silently fail if localStorage is unavailable
   }
 }
-
-const FEATURES = [
-  '544 horas de carga horária total',
-  'Período de realização: abril/26 a abril/28',
-  'Material didático incluso',
-  'Certificado de Especialização reconhecido pelo MEC',
-  'Projeto de intervenção com orientação individual',
-  'Rede de ex-alunos em todo o Brasil',
-]
 
 const WHATSAPP_PARCELADO = 'https://wa.me/554196259743?text=Ol%C3%A1!%20Quero%20garantir%20minha%20vaga%20no%20CESMVC%20utilizando%20a%20op%C3%A7%C3%A3o%20de%20pagamento%20parcelado.'
 
@@ -34,6 +24,10 @@ function WhatsAppIcon({ className = 'w-5 h-5' }: { className?: string }) {
 }
 
 export default function PricingInfo() {
+  const { t } = useTranslation()
+
+  const features = (t('pricing.features', { returnObjects: true }) as string[]) || []
+
   return (
     <section
       id="investimento"
@@ -46,7 +40,7 @@ export default function PricingInfo() {
           href="https://agrarias.ufpr.br/mvc/especializacao-mvc/"
           target="_blank"
           rel="noopener noreferrer"
-          title="Site Oficial UFPR MVC"
+          title={t('nav.officialUfpr')}
           className="flex items-center drop-shadow-md hover:drop-shadow-xl hover:scale-105 transition-all duration-300"
         >
           <img src={logoUFPR3} alt="UFPR" className="h-9 sm:h-10 w-auto object-contain" />
@@ -81,18 +75,17 @@ export default function PricingInfo() {
         <div className="max-w-3xl mb-12 sm:mb-16">
           <span className="inline-flex items-center gap-2 text-white/60 text-xs font-bold tracking-widest uppercase mb-4">
             <span className="w-8 h-px bg-white/40 inline-block" />
-            Investimento
+            {t('pricing.eyebrow')}
           </span>
           <h2
             className="font-grift-black text-white leading-tight mb-6"
             style={{ fontSize: 'clamp(1.75rem, 4vw, 3rem)' }}
           >
-            Valores e Formas
-            <span className="block text-[#7fb8a0]">de Pagamento</span>
+            {t('pricing.title')}
+            <span className="block text-[#7fb8a0]">{t('pricing.titleHighlight')}</span>
           </h2>
           <p className="font-sans text-white/70 leading-relaxed" style={{ fontSize: 'clamp(1rem, 1.5vw, 1.125rem)' }}>
-            Um investimento em conhecimento que transforma carreiras. Parcelamento
-            facilitado sem acréscimos para que nada impeça sua especialização.
+            {t('pricing.description')}
           </p>
         </div>
 
@@ -103,11 +96,11 @@ export default function PricingInfo() {
           <div className="lg:col-span-7 flex flex-col gap-6 md:gap-8">
             <div>
               <p className="font-sans text-white/60 text-xs font-bold tracking-widest uppercase mb-6">
-                Tudo incluso na especialização
+                {t('pricing.featuresTitle')}
               </p>
               <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                {FEATURES.map((feat) => (
-                  <li key={feat} className="flex items-start gap-3">
+                {features.map((feat, idx) => (
+                  <li key={idx} className="flex items-start gap-3">
                     <span
                       className="flex-shrink-0 mt-0.5 w-5 h-5 rounded-full flex items-center justify-center"
                       style={{ background: 'rgba(46,111,87,0.30)' }}
@@ -125,9 +118,8 @@ export default function PricingInfo() {
 
             <div className="p-4 rounded-xl border border-white/10 bg-white/5">
               <p className="font-sans text-white/60 text-xs leading-relaxed">
-                <span className="text-white font-semibold">Nota:</span>{' '}
-                Curso de Pós-Graduação Lato Sensu reconhecido pela UFPR, seguindo as
-                diretrizes da resolução CNE/CES nº 1/2018.
+                <span className="text-white font-semibold">{t('pricing.noteLabel')}</span>{' '}
+                {t('pricing.noteText')}
               </p>
             </div>
 
@@ -137,8 +129,8 @@ export default function PricingInfo() {
                 ★
               </span>
               <div className="flex-1 text-left">
-                <p className="font-sans text-xs font-bold text-[#7fb8a0] uppercase tracking-wider">Status Acadêmico</p>
-                <p className="font-sans text-xs text-white/80 mt-0.5">3ª Turma em andamento: aulas síncronas semanais já iniciadas.</p>
+                <p className="font-sans text-xs font-bold text-[#7fb8a0] uppercase tracking-wider">{t('pricing.statusBadge')}</p>
+                <p className="font-sans text-xs text-white/80 mt-0.5">{t('pricing.statusText')}</p>
               </div>
             </div>
           </div>
@@ -153,22 +145,22 @@ export default function PricingInfo() {
                 className="inline-block self-start px-3 py-1 rounded-full text-xs font-bold mb-6 text-white"
                 style={{ background: '#2E6F57' }}
               >
-                Mais escolhido
+                {t('pricing.cardBadge')}
               </span>
 
-              <p className="font-sans text-sm font-semibold tracking-wide mb-1 text-gray-500">Parcelado</p>
-              <p className="font-sans text-xs mb-1 text-gray-400">24x de</p>
+              <p className="font-sans text-sm font-semibold tracking-wide mb-1 text-gray-500">{t('pricing.cardPlan')}</p>
+              <p className="font-sans text-xs mb-1 text-gray-400">{t('pricing.cardInstallments')}</p>
 
               {/* Preço em verde frio */}
               <p
                 className="font-grift-black leading-none mb-2"
                 style={{ fontSize: 'clamp(2.25rem, 5vw, 3rem)', color: '#2E6F57' }}
               >
-                R$ 664,39*
+                {t('pricing.cardPrice')}
               </p>
-              <p className="font-sans text-sm font-semibold mb-2 text-gray-500">Total: R$ 15.945,36</p>
+              <p className="font-sans text-sm font-semibold mb-2 text-gray-500">{t('pricing.cardTotal')}</p>
               <p className="font-sans text-[11px] leading-relaxed text-gray-400 mb-8 text-left">
-                *Valor referente aos ingressantes de abril/26. Consulte as condições de parcelamento.
+                {t('pricing.cardObs')}
               </p>
 
               {/* CTA Principal — verde */}
@@ -190,7 +182,7 @@ export default function PricingInfo() {
                 }}
               >
                 <WhatsAppIcon />
-                Inscreva-se via WhatsApp
+                {t('pricing.cardCta')}
               </a>
             </div>
           </div>
@@ -200,11 +192,11 @@ export default function PricingInfo() {
         {/* ── Trust bar — ícones frios ── */}
         <div className="mt-12 sm:mt-16 pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-12 text-center">
           {[
-            { icon: '🔒', text: 'Pagamento 100% seguro' },
-            { icon: '📋', text: 'Contrato claro e transparente' },
-            { icon: '🎓', text: 'Certificado reconhecido pelo MEC' },
-          ].map((item) => (
-            <div key={item.text} className="flex items-center gap-2 text-white/60 text-sm">
+            { icon: '🔒', text: t('pricing.trustSecure') },
+            { icon: '📋', text: t('pricing.trustContract') },
+            { icon: '🎓', text: t('pricing.trustMec') },
+          ].map((item, idx) => (
+            <div key={idx} className="flex items-center gap-2 text-white/60 text-sm">
               <span aria-hidden="true">{item.icon}</span>
               <span className="font-sans">{item.text}</span>
             </div>
@@ -212,9 +204,10 @@ export default function PricingInfo() {
         </div>
 
         {/* ── Urgency note ── */}
-        <p className="mt-8 text-center font-sans text-white/50 text-xs">
-          Vagas limitadas para a turma 2026/2028. Inscrições encerram em{' '}
-          <strong className="text-white/70">31 de julho de 2026</strong>.
+        <p className="mt-8 text-center font-sans text-white/60 text-xs">
+          <Trans i18nKey="pricing.urgencyText">
+            Vagas limitadas para a turma 2026/2028. Inscrições encerram em <strong className="text-white/80">31 de julho de 2026</strong>.
+          </Trans>
         </p>
       </div>
     </section>

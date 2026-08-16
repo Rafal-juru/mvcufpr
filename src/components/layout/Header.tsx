@@ -1,7 +1,9 @@
 import { useState, useEffect, useRef } from 'react'
 import { Link, useLocation } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 import logoUFPR3 from '../../assets/images/logoUFPR3(semNome).png'
 import logoMVCfeatUF_Bege from '../../assets/images/logoMVCfeatUF_Bege.png'
+import LanguageSelector from '../ui/LanguageSelector'
 
 /* ── Typewriter config ─────────────────────────────────────── */
 const TW_WORDS = ['UFPR', 'Curso de Especialização Medicina Veterinária do Coletivo']
@@ -10,16 +12,8 @@ const DELETE_SPEED = 30
 const PAUSE_AFTER = 2400
 const PAUSE_BEFORE = 400
 
-const NAV_LINKS = [
-  { label: 'O Curso', href: '#sobre-o-curso' },
-  { label: 'Estrutura Curricular', href: '#pilares' },
-  { label: 'Docentes', href: '#docentes' },
-  { label: 'Depoimentos', href: '#depoimentos' },
-  { label: 'Investimento', href: '#investimento' },
-  { label: 'FAQ', href: '#faq' },
-]
-
 export default function Header() {
+  const { t } = useTranslation()
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
   const [displayed, setDisplayed] = useState('UFPR')
@@ -27,6 +21,15 @@ export default function Header() {
   const [isDeleting, setIsDeleting] = useState(false)
   const menuRef = useRef<HTMLDivElement>(null)
   const location = useLocation()
+
+  const navLinks = [
+    { label: t('nav.course'), href: '#sobre-o-curso' },
+    { label: t('nav.curriculum'), href: '#pilares' },
+    { label: t('nav.faculty'), href: '#docentes' },
+    { label: t('nav.testimonials'), href: '#depoimentos' },
+    { label: t('nav.investment'), href: '#investimento' },
+    { label: t('nav.faq'), href: '#faq' },
+  ]
 
   /* ── Scroll detection ── */
   useEffect(() => {
@@ -208,7 +211,7 @@ export default function Header() {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-4 lg:gap-5" aria-label="Navegação principal">
-            {NAV_LINKS.map((item) => (
+            {navLinks.map((item) => (
               <a
                 key={item.href}
                 href={location.pathname === '/' ? item.href : `${import.meta.env.BASE_URL}${item.href}`}
@@ -240,12 +243,15 @@ export default function Header() {
                 hover:after:w-full
               "
             >
-              Blog
+              {t('nav.blog')}
             </Link>
           </nav>
 
-          {/* CTA + Mobile Toggle */}
-          <div className="flex items-center gap-3 flex-shrink-0">
+          {/* Language Selector + CTA + Mobile Toggle */}
+          <div className="flex items-center gap-2.5 sm:gap-3 flex-shrink-0">
+            {/* Language Selector Desktop */}
+            <LanguageSelector className="hidden sm:inline-block" dropdownAlign="right" />
+
             <a
               href={location.pathname === '/' ? '#investimento' : `${import.meta.env.BASE_URL}#investimento`}
               onClick={(e) => handleLinkClick(e, '#investimento')}
@@ -260,16 +266,19 @@ export default function Header() {
                 hover:-translate-y-0.5 whitespace-nowrap
               "
             >
-              Inscreva-se
+              {t('nav.enroll')}
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>
             </a>
 
+            {/* Language Selector Mobile Bar */}
+            <LanguageSelector className="sm:hidden" dropdownAlign="right" />
+
             {/* Mobile hamburger */}
             <button
               type="button"
-              aria-label={menuOpen ? 'Fechar menu' : 'Abrir menu'}
+              aria-label={menuOpen ? t('nav.closeMenu') : t('nav.openMenu')}
               aria-expanded={menuOpen}
               onClick={() => setMenuOpen((v) => !v)}
               className="md:hidden text-white p-2 rounded-lg hover:bg-white/10 transition-colors"
@@ -308,19 +317,22 @@ export default function Header() {
         {/* Header of drawer */}
         <div className="flex items-center justify-between p-5 border-b border-white/10">
           <span className="font-grift text-white text-lg tracking-wide">Menu</span>
-          <button
-            onClick={() => setMenuOpen(false)}
-            className="text-white p-2 rounded-lg border border-[#D96C2B] hover:bg-white/10 transition-colors"
-          >
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-            </svg>
-          </button>
+          <div className="flex items-center gap-3">
+            <LanguageSelector dropdownAlign="left" />
+            <button
+              onClick={() => setMenuOpen(false)}
+              className="text-white p-2 rounded-lg border border-[#D96C2B] hover:bg-white/10 transition-colors"
+            >
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+          </div>
         </div>
 
         {/* Scrollable navigation link list inside drawer */}
         <div className="flex-1 overflow-y-auto px-4 pt-6 pb-32 flex flex-col gap-1">
-          {NAV_LINKS.map((item) => (
+          {navLinks.map((item) => (
             <a
               key={item.href}
               href={location.pathname === '/' ? item.href : `${import.meta.env.BASE_URL}${item.href}`}
@@ -345,7 +357,7 @@ export default function Header() {
               transition-colors duration-200 whitespace-nowrap
             "
           >
-            Blog
+            {t('nav.blog')}
           </Link>
           <a
             href={location.pathname === '/' ? '#investimento' : `${import.meta.env.BASE_URL}#investimento`}
@@ -358,7 +370,7 @@ export default function Header() {
               transition-all duration-300 whitespace-nowrap
             "
           >
-            Inscreva-se
+            {t('nav.enroll')}
           </a>
         </div>
       </div>

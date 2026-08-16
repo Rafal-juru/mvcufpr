@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import type { CardComponentData } from '@/types';
 import { CourseModal } from '@/components/ui/CourseModal';
 
@@ -7,10 +8,14 @@ interface CourseCardProps {
 }
 
 export const CourseCard: React.FC<CourseCardProps> = ({ card }) => {
+    const { t } = useTranslation();
     const [hovered, setHovered] = useState(false);
     const [modalOpen, setModalOpen] = useState(false);
     const [cursorPos, setCursorPos] = useState({ x: 0, y: 0 });
     const [cursorVisible, setCursorVisible] = useState(false);
+
+    const cardTitle = t(`curriculum.pillars.${card.id}.title`, { defaultValue: card.title });
+    const cardDescription = t(`curriculum.pillars.${card.id}.description`, { defaultValue: card.description });
 
     // Resolve o caminho da imagem de forma compatível com o build do Vite
     const resolveAssetUrl = (relativePath: string) => {
@@ -112,7 +117,7 @@ export const CourseCard: React.FC<CourseCardProps> = ({ card }) => {
                             lineHeight: 1,
                         }}
                     >
-                        Saiba Mais
+                        {t('curriculum.showMore', { defaultValue: 'Saiba Mais' })}
                     </span>
                 </div>
 
@@ -129,15 +134,15 @@ export const CourseCard: React.FC<CourseCardProps> = ({ card }) => {
                     {/* Left contents */}
                     <div className="flex flex-col justify-between h-full z-10 max-w-[62%] relative">
                         <span className={`font-mono text-[9px] uppercase tracking-widest transition-colors duration-500 ${hovered ? 'text-[#0B281E]/75' : 'text-[#0B281E]/70'
-                            }`}>PÓS-GRADUAÇÃO</span>
+                            }`}>{t('nav.specialization', { defaultValue: 'Pós-Graduação' })}</span>
 
                         <div>
                             <h4 className="font-grift-bold text-xl lg:text-[25px] leading-[1.12] tracking-tight">
-                                {card.title}
+                                {cardTitle}
                             </h4>
                             <p className={`font-sans text-[10.5px] lg:text-[11.5px] mt-3 leading-relaxed font-normal transition-opacity duration-500 ${hovered ? 'opacity-95' : 'opacity-80'
                                 }`}>
-                                {card.description}
+                                {cardDescription}
                             </p>
                         </div>
 

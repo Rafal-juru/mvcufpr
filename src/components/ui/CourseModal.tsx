@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from 'react';
+import { useTranslation } from 'react-i18next';
 import type { CardComponentData } from '@/types';
 import logoDescitivaBege from '@/assets/images/logoDescitivabBege.png';
 
@@ -8,7 +9,13 @@ interface CourseModalProps {
 }
 
 export const CourseModal: React.FC<CourseModalProps> = ({ card, onClose }) => {
+    const { t } = useTranslation();
     const modalRef = useRef<HTMLDivElement>(null);
+
+    const cardTitle = t(`curriculum.pillars.${card.id}.title`, { defaultValue: card.title });
+    const cardSubtitle = t(`curriculum.pillars.${card.id}.subtitle`, { defaultValue: card.subtitle });
+    const cardModalText = t(`curriculum.pillars.${card.id}.modalText`, { defaultValue: card.modalText });
+    const cardTags = (t(`curriculum.pillars.${card.id}.tags`, { returnObjects: true }) as string[]) || card.tags || [];
 
     // Fechar com Escape + bloquear scroll do body
     useEffect(() => {
@@ -86,7 +93,7 @@ export const CourseModal: React.FC<CourseModalProps> = ({ card, onClose }) => {
                     <div className="flex items-center gap-2 mb-2">
                         <span className="w-6 h-px" style={{ background: '#D96C2B' }} />
                         <span className="font-mono text-[0.6rem] uppercase tracking-widest" style={{ color: '#D96C2B' }}>
-                            Pilar Curricular
+                            {t('curriculum.modalEyebrow', { defaultValue: 'Pilar Curricular' })}
                         </span>
                     </div>
 
@@ -96,18 +103,18 @@ export const CourseModal: React.FC<CourseModalProps> = ({ card, onClose }) => {
                         className="font-grift-bold leading-snug tracking-tight"
                         style={{ fontSize: 'clamp(1.375rem, 3vw, 2rem)', color: '#0B281E' }}
                     >
-                        {card.title}
+                        {cardTitle}
                     </h2>
-                    {card.subtitle && (
+                    {cardSubtitle && (
                         <p className="font-mono text-xs mt-1" style={{ color: '#2E6F57' }}>
-                            {card.subtitle}
+                            {cardSubtitle}
                         </p>
                     )}
 
                     {/* Tags */}
-                    {card.tags && card.tags.length > 0 && (
+                    {cardTags && cardTags.length > 0 && (
                         <div className="flex flex-wrap gap-1.5 mt-3">
-                            {card.tags.map((tag) => (
+                            {cardTags.map((tag) => (
                                 <span
                                     key={tag}
                                     className="font-mono text-[0.55rem] uppercase tracking-widest px-2.5 py-1 rounded-full"
@@ -126,7 +133,7 @@ export const CourseModal: React.FC<CourseModalProps> = ({ card, onClose }) => {
                     {/* Botão X */}
                     <button
                         onClick={onClose}
-                        className="absolute top-6 right-6 flex items-center justify-center w-9 h-9 rounded-full transition-all duration-200 hover:scale-105 hover:bg-black/10"
+                        className="absolute top-6 right-6 flex items-center justify-center w-9 h-9 rounded-full transition-all duration-200 hover:scale-105 hover:bg-black/10 cursor-pointer"
                         style={{
                             border: '1px solid rgba(11,40,30,0.15)',
                             color: 'rgba(11,40,30,0.5)',
@@ -144,7 +151,7 @@ export const CourseModal: React.FC<CourseModalProps> = ({ card, onClose }) => {
                     style={{ scrollbarWidth: 'thin', scrollbarColor: 'rgba(46,111,87,0.3) transparent' }}
                 >
                     <div className="space-y-4 pb-24">
-                        {card.modalText.trim().split('\n\n').map((paragraph, i) => (
+                        {cardModalText.trim().split('\n\n').map((paragraph, i) => (
                             <p
                                 key={i}
                                 className="font-sans leading-relaxed"
@@ -170,7 +177,7 @@ export const CourseModal: React.FC<CourseModalProps> = ({ card, onClose }) => {
                     <a
                         href="#investimento"
                         onClick={onClose}
-                        className="inline-flex items-center gap-2 font-bold text-white rounded-full transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg"
+                        className="inline-flex items-center gap-2 font-bold text-white rounded-full transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg cursor-pointer"
                         style={{
                             fontSize: '0.8125rem',
                             padding: '0.625rem 1.375rem',
@@ -179,7 +186,7 @@ export const CourseModal: React.FC<CourseModalProps> = ({ card, onClose }) => {
                             letterSpacing: '0.03em',
                         }}
                     >
-                        Inscreva-se já
+                        {t('nav.enroll', { defaultValue: 'Inscreva-se' })}
                         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                         </svg>

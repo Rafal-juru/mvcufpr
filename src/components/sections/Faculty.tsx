@@ -10,6 +10,7 @@
  * 6. Nota de rodapé (Bottom note)
  */
 
+import { useTranslation, Trans } from 'react-i18next';
 import fotoRitaCachorroSemFundo from '../../assets/images/fotoRitaCachorroSemFundo.png';
 
 // Importações dos logos das universidades parceiras
@@ -36,6 +37,8 @@ const PARTNERS = [
 ];
 
 export default function Faculty() {
+  const { t } = useTranslation();
+
   return (
     <section
       id="docentes"
@@ -46,17 +49,17 @@ export default function Faculty() {
         <div className="flex items-center gap-3 mb-4">
           <span className="w-8 h-px bg-[#2E6F57]" />
           <span className="text-[#2E6F57] font-mono text-xs font-bold uppercase tracking-widest">
-            Corpo Docente
+            {t('faculty.eyebrow')}
           </span>
         </div>
         <h2
           className="font-grift-black text-[#0B281E] leading-[1.05] max-w-4xl"
           style={{ fontSize: 'clamp(2rem, 4.5vw, 3.25rem)' }}
         >
-          Coordenação Geral <span className="text-[#2E6F57]">e Corpo Docente</span>
+          {t('faculty.title')}<span className="text-[#2E6F57]">{t('faculty.titleHighlight')}</span>
         </h2>
         <p className="font-sans text-[#0B281E]/60 text-base md:text-lg mt-4 max-w-3xl leading-relaxed">
-          Nossa especialização é liderada por pioneiros da área e conta com professores pesquisadores e especialistas atuando em grandes instituições públicas e federais.
+          {t('faculty.description')}
         </p>
       </div>
 
@@ -83,15 +86,15 @@ export default function Faculty() {
           {/* O Card de Texto (Sobreposição / Overlap) */}
           <div className="relative z-10 -mt-12 md:-mt-20 w-full max-w-2xl bg-white p-8 md:p-10 rounded-2xl shadow-xl border border-gray-100/80 text-center flex flex-col items-center">
             <span className="font-mono text-xs md:text-sm uppercase tracking-widest font-bold text-[#2E6F57] mb-3">
-              COORDENAÇÃO GERAL
+              {t('faculty.coordEyebrow')}
             </span>
             
             <h3 className="font-grift-black text-[#0B281E] text-2xl sm:text-3xl md:text-4xl leading-tight mb-4">
-              Profa. Dra. Rita de Cassia Maria Garcia
+              {t('faculty.coordName')}
             </h3>
             
             <p className="font-sans leading-relaxed text-[#0B281E]/80 text-base sm:text-lg font-light max-w-2xl">
-              Médica-veterinária e pesquisadora pioneira na construção e consolidação da Medicina Veterinária do Coletivo no Brasil. Sob sua coordenação, o CESMVC reúne um corpo docente que combina excelência acadêmica, experiência prática e atuação direta em políticas públicas e iniciativas voltadas à Saúde Única.
+              {t('faculty.coordBio')}
             </p>
           </div>
 
@@ -110,13 +113,15 @@ export default function Faculty() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" />
                 </svg>
               </div>
-              <span className="font-grift-black text-[#D96C2B] text-4xl block leading-none mb-3">75%</span>
+              <span className="font-grift-black text-[#D96C2B] text-4xl block leading-none mb-3">
+                {t('faculty.statPhdNumber')}
+              </span>
               <p className="font-sans text-[#0B281E] text-base font-semibold leading-relaxed">
-                do corpo docente é formado por doutores.
+                {t('faculty.statPhdTitle')}
               </p>
             </div>
             <p className="font-sans text-[#0B281E]/60 text-xs mt-4">
-              Rigor acadêmico e pesquisa científica de ponta.
+              {t('faculty.statPhdDesc')}
             </p>
           </div>
 
@@ -128,13 +133,15 @@ export default function Faculty() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                 </svg>
               </div>
-              <span className="font-grift-bold text-[#2E6F57] text-2xl block leading-tight mb-3">Experiência Real</span>
+              <span className="font-grift-bold text-[#2E6F57] text-2xl block leading-tight mb-3">
+                {t('faculty.statExpTitle')}
+              </span>
               <p className="font-sans text-[#0B281E] text-base font-semibold leading-relaxed">
-                Docentes com sólida experiência em serviços públicos e gestão.
+                {t('faculty.statExpSubtitle')}
               </p>
             </div>
             <p className="font-sans text-[#0B281E]/60 text-xs mt-4">
-              Professores que vivenciam as políticas públicas na prática.
+              {t('faculty.statExpDesc')}
             </p>
           </div>
 
@@ -147,14 +154,14 @@ export default function Faculty() {
                 </svg>
               </div>
               <span className="inline-flex items-center px-2.5 py-0.5 rounded bg-[#D96C2B] text-white text-[9px] font-bold uppercase tracking-wider mb-3">
-                Destaque Histórico
+                {t('faculty.statHistBadge')}
               </span>
               <p className="font-sans text-[#F9E8C7] text-base font-semibold leading-relaxed">
-                Muitos participaram da construção histórica da Medicina Veterinária do Coletivo no Brasil.
+                {t('faculty.statHistTitle')}
               </p>
             </div>
             <p className="text-white/60 text-xs mt-4">
-              Referência e protagonismo na criação da área de estudo.
+              {t('faculty.statHistDesc')}
             </p>
           </div>
         </div>
@@ -163,7 +170,7 @@ export default function Faculty() {
       {/* ── Seção de Parcerias / Esteira Infinita ── */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-16">
         <p className="text-center text-[#0B281E]/50 font-mono text-[10px] uppercase tracking-widest font-bold mb-8">
-          Docentes oriundos de instituições parceiras e de excelência
+          {t('faculty.partnersTitle')}
         </p>
 
         {/* Container da Marquee com máscara de fade nas bordas */}
@@ -235,7 +242,7 @@ export default function Faculty() {
               className="font-grift-black text-[#F9E8C7] block leading-none"
               style={{ fontSize: 'clamp(3rem, 6vw, 4.5rem)' }}
             >
-              ~80%
+              {t('faculty.authorityStat')}
             </span>
           </div>
           {/* Divider */}
@@ -246,10 +253,10 @@ export default function Faculty() {
               className="font-grift-bold text-white leading-snug mb-2"
               style={{ fontSize: 'clamp(1.125rem, 2vw, 1.5rem)' }}
             >
-              do nosso corpo docente atua em universidades públicas e federais
+              {t('faculty.authorityTitle')}
             </p>
             <p className="font-sans text-white/65 text-sm leading-relaxed">
-              Mais de 40 doutores pesquisadores ativos — formando profissionais com rigor acadêmico e visão prática.
+              {t('faculty.authorityDesc')}
             </p>
           </div>
           {/* Icon */}
@@ -264,16 +271,16 @@ export default function Faculty() {
 
       {/* ── Bottom note ── */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 pt-12 text-center">
-        <p className="text-[#0B281E]/40 text-sm">
-          E mais{' '}
-          <span className="text-[#2E6F57] font-semibold">9 professores especialistas</span>
-          {' '}convidados de outras instituições federais e do mercado.
+        <p className="text-[#0B281E]/60 text-sm">
+          <Trans i18nKey="faculty.bottomNote">
+            E mais <span className="text-[#2E6F57] font-semibold">9 professores especialistas</span> convidados de outras instituições federais e do mercado.
+          </Trans>
         </p>
         <a
           href="#depoimentos"
-          className="inline-flex items-center gap-2 mt-4 text-[#2E6F57] hover:text-[#1e4f3d] font-semibold text-sm group transition-colors duration-200"
+          className="inline-flex items-center gap-2 mt-4 text-[#2E6F57] hover:text-[#1e4f3d] font-semibold text-sm group transition-colors duration-200 cursor-pointer"
         >
-          Veja o que dizem nossos alunos
+          {t('faculty.testimonialsCta')}
           <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
           </svg>

@@ -1,0 +1,270 @@
+{
+  "nav": {
+    "course": "The Program",
+    "curriculum": "Curriculum",
+    "faculty": "Faculty",
+    "testimonials": "Testimonials",
+    "investment": "Tuition & Fees",
+    "faq": "FAQ",
+    "blog": "Blog",
+    "enroll": "Enroll Now",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "specialization": "Specialization",
+    "officialUfpr": "UFPR Official MVC Website"
+  },
+  "hero": {
+    "officialPreTitle": "An official UFPR specialization program",
+    "title": "Postgraduate Specialization in Shelter & Community Veterinary Medicine | UFPR (CESMVC)",
+    "typewriterPrefix": "An education that is ",
+    "typewriterWords": ["Collective.", "Systemic.", "Scientific.", "Transformative.", "Human."],
+    "subtitle": "The official Postgraduate Specialization Program in Shelter & Community Veterinary Medicine (Pós MVC) from the Federal University of Paraná (UFPR). 100% online program recognized by MEC and CFMV.",
+    "ctaWhatsApp": "Apply Now",
+    "ctaInfo": "View Full Syllabus",
+    "photoCredit": "Photo: Marcos Sólivan/UFPR (sky edited)",
+    "scrollDown": "Scroll down",
+    "badges": {
+      "remote": "100% Remote / Online",
+      "duration": "24 Months Duration",
+      "professors": "20+ Federal Faculty Members",
+      "certification": "UFPR Certification | MEC Accredited"
+    }
+  },
+  "about": {
+    "eyebrow": "The Program",
+    "mainTitle": "What is CESMVC and the ",
+    "mainTitleHighlight": "Online UFPR Veterinary Specialization?",
+    "specialtyEyebrow": "Field of Expertise",
+    "specialtyTitle": "What is Shelter & Community Veterinary Medicine?",
+    "specialtyP1": "Shelter & Community Veterinary Medicine (Pós MVC) is a specialized veterinary field dedicated to understanding the critical interconnections among human health, animal health, and environmental ecosystems, grounded in the One Health and One Welfare frameworks.",
+    "specialtyP2": "Backed by the prestigious academic authority of the Federal University of Paraná (UFPR), the curriculum delivers comprehensive training in One Health, Canine and Feline Population Management, Veterinary Disaster Medicine, Animal Shelter Management, and Veterinary Forensic Medicine and Expertise.",
+    "specialtyP3": "Through this vision, the UFPR Postgraduate Specialization Program (CESMVC) promotes ethical, interdisciplinary, and community-based interventions, preparing leaders to address public health and animal welfare challenges with collective impact.",
+    "institutoEyebrow": "INSTITUTE",
+    "institutoTitle": "The Institute of Community Veterinary Medicine (IMVC)",
+    "institutoP1": "The Institute of Community Veterinary Medicine (IMVC) is the technical and scientific organization leading the advancement of shelter and community veterinary medicine in Brazil.",
+    "institutoP2": "Collaborating closely with public universities, government agencies, and international bodies, IMVC fosters continuing education, applied research, and technical consultancy in One Health, animal shelter management, mass disaster response, and veterinary forensics.",
+    "institutoP3": "As a key institutional partner of CESMVC, the institute ensures that the academic training directly aligns with real-world needs across public health services, NGOs, and veterinary sectors nationwide.",
+    "ensinoEyebrow": "ACADEMICS",
+    "ensinoTitle": "CESMVC: UFPR specialization preparing for collective action",
+    "ensinoP1": "The Postgraduate Specialization Program in Shelter & Community Veterinary Medicine of the Federal University of Paraná (CESMVC – UFPR) is a recognized lato sensu program designed for veterinarians and healthcare professionals who lead or aspire to lead in collective, public, and cross-sector settings.",
+    "ensinoP2": "The program brings together academic rigor, practical application, and public service commitment in an interdisciplinary curriculum deeply connected to field realities.",
+    "ensinoP3": "CESMVC features over 40 distinguished professors and guest experts, mostly PhD faculty from federal universities with extensive operational leadership in public health and governance. Many pioneered the establishment of community veterinary medicine in Brazil.",
+    "ensinoP4": "With a 100% online structure, weekly live synchronous classes, and continuous academic tutoring with institutional support, the program provides solid preparation for professionals seeking to transform human-animal-environment dynamics.",
+    "readMore": "Read more",
+    "readLess": "Read less",
+    "stats": {
+      "professors": "Professors &\nSpecialists",
+      "doctors": "PhD Faculty\nMembers",
+      "classes": "Online with weekly\nlive synchronous classes",
+      "recommendation": "Alumni\nRecommendation Rate"
+    }
+  },
+  "curriculum": {
+    "eyebrow": "Curriculum",
+    "title": "Learning Pillars",
+    "titleHighlight": " & Core Competencies",
+    "description": "Our curriculum is structured into five interdependent thematic pillars, designed to prepare complete, ethical professionals with a systemic perspective on shelter and community veterinary medicine. Click any pillar to explore details.",
+    "profileEyebrow": "Graduate Profile",
+    "profileTitle": "Upon completing the program, graduates will be able to:",
+    "showMore": "Learn more",
+    "showLess": "Show less",
+    "modalEyebrow": "Curricular Pillar",
+    "competencies": [
+      "Understand the scope of Shelter & Community Veterinary Medicine and Social Veterinary Medicine;",
+      "Analyze global health challenges and implement local collective health strategies;",
+      "Navigate public health systems (SUS and Latin American models) for cross-sector collaboration;",
+      "Design and execute effective canine and feline population management programs;",
+      "Develop intervention plans addressing animal hoarding disorder and vulnerable populations;",
+      "Engage with Indigenous and traditional communities to promote integrated health and wellbeing;",
+      "Assess shelter operations and implement standards for animal health, welfare, and adoption;",
+      "Formulate contingency plans for disaster risk prevention, response, and mitigation;",
+      "Train social and institutional stakeholders in confronting animal cruelty and neglect;",
+      "Investigate crimes against animals and produce official veterinary forensic reports;",
+      "Lead strategic action plans in community veterinary medicine and public policy."
+    ],
+    "pillars": {
+      "1": {
+        "title": "Public & Collective Health",
+        "subtitle": "One Health",
+        "concept": "One Health",
+        "description": "The interconnection of human, animal, and environmental health — epidemiological surveillance, zoonosis control, and social determinants of health.",
+        "modalText": "Public & Collective Health promotes integrated action across human, animal, and environmental dimensions. The specialization prepares professionals in epidemiological surveillance, zoonosis prevention, population dynamics, the Link theory, and animal hoarding disorder, grounded in the social determinants of health.",
+        "tags": ["Zoonoses", "Surveillance", "Population Management"]
+      },
+      "2": {
+        "title": "Indigenous & Traditional Peoples",
+        "subtitle": "Communities & Territories",
+        "concept": "Equity",
+        "description": "Work in Indigenous, quilombola, and traditional territories, honoring ancestral wisdom, cultural heritage, and local realities.",
+        "modalText": "Veterinary medicine for Indigenous and traditional peoples operates in diverse cultural territories. This pillar is built collaboratively, respecting local worldviews, ancestral knowledge, cultural practices, and territorial needs. Veterinarians act at the interface of human, animal, and ecosystem health.",
+        "tags": ["Ancestral Knowledge", "Inclusion", "Ethnoveterinary"]
+      },
+      "3": {
+        "title": "Shelter Medicine",
+        "subtitle": "Welfare & Sanitary Management",
+        "concept": "Shelters",
+        "description": "Health and welfare management for animal sheltering facilities — population control, responsible guardianship, and public policy.",
+        "modalText": "Shelter Medicine oversees the health and welfare of animal populations in sheltering and rescue facilities, leading population management, adoption pathways, and public animal protection policies. Training covers shelter design, sanitary protocols, population-level medical and surgical care, behavioral medicine, epidemiology, and biosecurity.",
+        "tags": ["Epidemiology", "Ethology", "Public Policies"]
+      },
+      "4": {
+        "title": "Veterinary Disaster Medicine",
+        "subtitle": "Prevention & Protocols",
+        "concept": "Rescue",
+        "description": "Emergency prevention, response, and recovery — from hazard risk assessment to temporary sheltering and health surveillance.",
+        "modalText": "Veterinary Disaster Medicine encompasses prevention, preparedness, response, and recovery in emergency scenarios. Students master risk mapping, contingency planning, rescue logistics, temporary sheltering, family reunification, and post-disaster health monitoring to protect animals, people, and the environment.",
+        "tags": ["Contingency", "Rescue", "Emergencies"]
+      },
+      "5": {
+        "title": "Veterinary Forensics & Law",
+        "subtitle": "Forensic Expertise & Animal Protection",
+        "concept": "Justice",
+        "description": "Cross-sector action in animal abuse, cruelty, and neglect cases, connecting veterinary forensics, healthcare, social services, and legal networks.",
+        "modalText": "Veterinary Forensic Medicine investigates negative human-animal interactions, focusing on cruelty, abuse, and neglect. The approach is intersectoral, linking veterinary medicine, judicial systems, and social protection networks to recognize how animal violence correlates with broader social violence.",
+        "tags": ["Legislation", "Forensics", "Intersectorality"]
+      }
+    }
+  },
+  "faculty": {
+    "eyebrow": "Faculty / Academic Staff",
+    "title": "General Coordination ",
+    "titleHighlight": "& Faculty",
+    "description": "Our specialization is led by pioneers in the field, featuring distinguished researcher-professors and leading specialists from premier federal institutions.",
+    "coordEyebrow": "GENERAL COORDINATION",
+    "coordName": "Prof. Dr. Rita de Cassia Maria Garcia",
+    "coordBio": "Veterinarian and pioneering researcher who established and consolidated Shelter & Community Veterinary Medicine in Brazil. Under her leadership, CESMVC brings together faculty combining academic excellence, practical field leadership, and active contributions to public policy and One Health initiatives.",
+    "statPhdNumber": "75%",
+    "statPhdTitle": "of the faculty hold doctoral degrees (PhD).",
+    "statPhdDesc": "Academic rigor and cutting-edge scientific research.",
+    "statExpTitle": "Real Experience",
+    "statExpSubtitle": "Faculty with extensive leadership in public health and governance.",
+    "statExpDesc": "Professors with deep hands-on public policy experience.",
+    "statHistBadge": "Historical Milestone",
+    "statHistTitle": "Pioneers who helped build Community Veterinary Medicine in Brazil.",
+    "statHistDesc": "Leading authority in shaping this academic field.",
+    "partnersTitle": "Faculty from prestigious partner institutions of academic excellence",
+    "authorityStat": "~80%",
+    "authorityTitle": "of our faculty teach at public and federal universities",
+    "authorityDesc": "Over 40 active researcher-doctors preparing professionals with scientific excellence and practical vision.",
+    "bottomNote": "Plus <1>9 guest specialist professors</1> from leading federal institutions and the industry.",
+    "testimonialsCta": "See what our alumni say"
+  },
+  "testimonials": {
+    "eyebrow": "Testimonials",
+    "title": "The experience of those ",
+    "titleHighlight": "who transformed their careers",
+    "description": "Real stories and perspectives from professionals who experienced CESMVC in practice.",
+    "turmaTag": "CLASS OF 2025",
+    "quotes": [
+      {
+        "quote": "It was a true turning point that broadened my professional horizon and gave me a deeply humanized perspective.",
+        "name": "CESMVC Alumnus",
+        "role": "Public Service Veterinarian (São Paulo/SP)",
+        "initials": "EX"
+      },
+      {
+        "quote": "The specialization provided a qualification that made a decisive difference in my career, opening a unique worldview through veterinary medicine.",
+        "name": "CESMVC Alumnus",
+        "role": "NGO / Third Sector Leadership",
+        "initials": "EX"
+      },
+      {
+        "quote": "Broadened my reach as a veterinarian. The program gave me the ethical and scientific foundation to elevate animal protection advocacy.",
+        "name": "Specialist Veterinarian",
+        "role": "Autonomous Practice (Florianópolis/SC)",
+        "initials": "MV"
+      },
+      {
+        "quote": "A journey of personal and professional growth. I joined as a recent graduate, learned immensely, and now lead with total confidence.",
+        "name": "CESMVC Alumna",
+        "role": "Small Animal Clinical Practice (Campo Grande/MS)",
+        "initials": "EX"
+      },
+      {
+        "quote": "Directly empowers solutions for public health and animal welfare. It is One Health put into real daily practice.",
+        "name": "CESMVC Alumnus",
+        "role": "Consultancy & Advisory Services",
+        "initials": "EX"
+      }
+    ]
+  },
+  "pricing": {
+    "eyebrow": "Tuition & Fees",
+    "title": "Tuition Plans & ",
+    "titleHighlight": "Payment Options",
+    "description": "An investment in knowledge that transforms professional careers. Flexible installment options designed to make your specialization accessible.",
+    "featuresTitle": "Everything included in the specialization",
+    "features": [
+      "544 total instructional hours",
+      "Program timeframe: April 2026 to April 2028",
+      "All course materials included",
+      "Specialization Certificate accredited by MEC",
+      "Individually mentored intervention capstone project",
+      "Active nationwide alumni network"
+    ],
+    "noteLabel": "Note:",
+    "noteText": "Postgraduate Specialization Program (Lato Sensu) officially recognized by UFPR, under CNE/CES Resolution No. 1/2018.",
+    "statusBadge": "Academic Status",
+    "statusText": "Cohort 3 in progress: weekly live synchronous classes are ongoing.",
+    "cardBadge": "Most Popular",
+    "cardPlan": "Installments",
+    "cardInstallments": "24x of",
+    "cardPrice": "R$ 664,39*",
+    "cardTotal": "Total: R$ 15,945.36",
+    "cardObs": "*Tuition rate for April 2026 entrants. Inquire for current installment conditions.",
+    "cardCta": "Apply via WhatsApp",
+    "trustSecure": "100% secure payment",
+    "trustContract": "Clear, transparent contract",
+    "trustMec": "MEC accredited certificate",
+    "urgencyText": "Limited enrollment spots for the 2026/2028 cohort. Applications close on <1>July 31, 2026</1>."
+  },
+  "faq": {
+    "eyebrow": "Frequently Asked Questions",
+    "title": "Questions about the ",
+    "titleHighlight": "Postgraduate Program in Shelter & Community Veterinary Medicine",
+    "subtitle": "Answers to the main questions about the 100% online CESMVC UFPR specialization program.",
+    "q1": "Is the UFPR Postgraduate Specialization in Shelter & Community Veterinary Medicine online?",
+    "a1": "Yes, the specialization offered by CESMVC in partnership with UFPR is 100% online (EAD), featuring weekly live synchronous classes and continuous guidance by federal faculty.",
+    "q2": "Is the certificate issued directly by the Federal University of Paraná (UFPR)?",
+    "a2": "Yes, upon graduation, students receive the official lato sensu postgraduate certificate issued directly by the Federal University of Paraná (UFPR), fully accredited by MEC and CFMV.",
+    "q3": "Who can apply for the Postgraduate Program in Shelter & Community Veterinary Medicine?",
+    "a3": "The specialization is designed for professionals and veterinarians seeking expertise in population management, public health, animal shelter management, forensics, and veterinary law.",
+    "q4": "What is the duration of the Postgraduate Program (Pós MVC)?",
+    "a4": "The program has a total workload of 544 hours delivered over 24 months, including an individually mentored practical intervention project.",
+    "q5": "How can I inquire about tuition and installment payment options?",
+    "a5": "You can contact our admissions office directly via official WhatsApp (+55 41 9625-9743) or email (secretariacesmvc@ufpr.br) to receive personalized payment assistance."
+  },
+  "blog": {
+    "eyebrow": "Science & Information",
+    "title": "Articles & Insights",
+    "loading": "Loading articles…",
+    "empty": "No articles published yet.",
+    "viewAll": "View all articles",
+    "readArticle": "Read full article",
+    "backToBlog": "Back to Blog",
+    "publishedOn": "Published on"
+  },
+  "newsletter": {
+    "eyebrow": "Newsletter",
+    "title": "Get scientific updates delivered to your inbox",
+    "description": "Articles, research findings, and latest developments in One Health, Shelter & Community Veterinary Medicine, epidemiology, and public policy.",
+    "placeholder": "Your best email address",
+    "button": "Subscribe",
+    "subscribing": "Subscribing…",
+    "successMessage": "Subscription confirmed!",
+    "successDetail": "Please check your inbox for our confirmation email.",
+    "errorMessage": "Unable to subscribe.",
+    "errorDetail": "Please try again in a few moments."
+  },
+  "footer": {
+    "brandSubtitle": "Shelter & Community Veterinary Medicine — Federal University of Paraná",
+    "contact": "Contact",
+    "navigation": "Navigation",
+    "portalUfpr": "UFPR Portal ↗",
+    "social": "Social Media",
+    "socialDesc": "Follow our insights on One Health, animal population management, and public policy.",
+    "rights": "Federal University of Paraná · CESMVC",
+    "developedBy": "Developed by",
+    "luneta": "Luneta Comunicações"
+  }
+}

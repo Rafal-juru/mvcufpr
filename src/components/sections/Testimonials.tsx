@@ -1,56 +1,15 @@
-/* Testimonials.tsx — Depoimentos de Alunos */
-
 import { useRef, useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 
-const TESTIMONIALS = [
-  {
-    id: 1,
-    quote:
-      'Representa um ponto de virada que ampliou minha visão profissional e tornou meu olhar mais humano.',
-    name: 'Ex-aluno(a) do CESMVC',
-    role: 'Atuação em Serviço Público (São Paulo/SP)',
-    initials: 'EX',
-    stars: 5,
-  },
-  {
-    id: 2,
-    quote:
-      'A especialização representa uma qualificação que fez diferença na minha atividade profissional. Proporcionou uma visão de mundo diferenciada com a medicina veterinária.',
-    name: 'Ex-aluno(a) do CESMVC',
-    role: 'Atuação em ONG/Terceiro Setor',
-    initials: 'EX',
-    stars: 5,
-  },
-  {
-    id: 3,
-    quote:
-      'Ampliação da atuação como médica veterinária. O curso forneceu arcabouço ético e científico para amparar meu ativismo em prol dos animais.',
-    name: 'Médica Veterinária Especialista',
-    role: 'Atuação Autônoma (Florianópolis/SC)',
-    initials: 'MV',
-    stars: 5,
-  },
-  {
-    id: 4,
-    quote:
-      'Representa aprendizado, evolução pessoal e profissional. Entrei no curso recém-formada e sem experiência, aprendi muito e me sinto muito mais segura.',
-    name: 'Ex-aluna do CESMVC',
-    role: 'Clínica de Pequenos Animais (Campo Grande/MS)',
-    initials: 'EX',
-    stars: 5,
-  },
-  {
-    id: 5,
-    quote:
-      'Ajuda a solucionar problemas da saúde pública e bem-estar animal. Representa a própria One Health em prática.',
-    name: 'Ex-aluno(a) do CESMVC',
-    role: 'Consultoria e Assessoria',
-    initials: 'EX',
-    stars: 5,
-  },
-];
+interface TestimonialItem {
+  quote: string;
+  name: string;
+  role: string;
+  initials?: string;
+  stars?: number;
+}
 
-function Stars({ count }: { count: number }) {
+function Stars({ count = 5 }: { count?: number }) {
   return (
     <div className="flex gap-1" aria-label={`${count} de 5 estrelas`}>
       {Array.from({ length: 5 }).map((_, i) => (
@@ -74,7 +33,7 @@ function Stars({ count }: { count: number }) {
   );
 }
 
-function TestimonialCard({ t }: { t: typeof TESTIMONIALS[number] }) {
+function TestimonialCard({ item }: { item: TestimonialItem }) {
   return (
     <div
       className="
@@ -97,22 +56,22 @@ function TestimonialCard({ t }: { t: typeof TESTIMONIALS[number] }) {
         "
       </span>
 
-      <Stars count={t.stars} />
+      <Stars count={item.stars || 5} />
 
       <blockquote
         className="font-sans text-gray-700 leading-relaxed flex-1 relative z-10"
         style={{ fontSize: 'clamp(0.875rem, 1.2vw, 1rem)' }}
       >
-        "{t.quote}"
+        "{item.quote}"
       </blockquote>
 
       {/* Author info */}
       <div className="pt-4 border-t border-gray-100 mt-auto relative z-10 text-left">
         <p className="font-sans font-bold text-gray-900 text-sm truncate">
-          {t.name}
+          {item.name}
         </p>
         <p className="font-sans text-gray-500 text-xs truncate">
-          {t.role}
+          {item.role}
         </p>
       </div>
 
@@ -121,7 +80,10 @@ function TestimonialCard({ t }: { t: typeof TESTIMONIALS[number] }) {
 }
 
 export default function Testimonials() {
+  const { t } = useTranslation();
   const carouselRef = useRef<HTMLDivElement>(null);
+  
+  const testimonials = (t('testimonials.quotes', { returnObjects: true }) as TestimonialItem[]) || [];
   
   // Estados para desabilitar as setas de rolagem nos limites
   const [canScrollLeft, setCanScrollLeft] = useState(false);
@@ -294,18 +256,17 @@ export default function Testimonials() {
         <div className="max-w-3xl mb-12">
           <span className="inline-flex items-center gap-2 text-cesmvc-green text-xs font-bold tracking-widest uppercase mb-4">
             <span className="w-8 h-px bg-cesmvc-green inline-block" />
-            Depoimentos — Turma 2025
+            {t('testimonials.eyebrow')} — {t('testimonials.turmaTag')}
           </span>
           <h2
             className="font-grift-black text-gray-900 leading-tight mb-5"
             style={{ fontSize: 'clamp(1.75rem, 4vw, 3rem)' }}
           >
-            O que dizem nossos
-            <span className="text-cesmvc-green block">egressos</span>
+            {t('testimonials.title')}
+            <span className="text-cesmvc-green block">{t('testimonials.titleHighlight')}</span>
           </h2>
           <p className="font-sans text-gray-600 leading-relaxed" style={{ fontSize: 'clamp(1rem, 1.5vw, 1.125rem)' }}>
-            Profissionais que transformaram suas carreiras através de uma formação
-            científica sólida, prática e alinhada às demandas atuais da saúde coletiva.
+            {t('testimonials.description')}
           </p>
         </div>
 
@@ -357,8 +318,8 @@ export default function Testimonials() {
             }`}
             style={{ WebkitOverflowScrolling: 'touch' }}
           >
-            {TESTIMONIALS.map((t) => (
-              <TestimonialCard key={t.id} t={t} />
+            {testimonials.map((item, idx) => (
+              <TestimonialCard key={idx} item={item} />
             ))}
           </div>
         </div>

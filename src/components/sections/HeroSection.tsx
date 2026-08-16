@@ -1,27 +1,35 @@
 import { useEffect, useState, useRef, Fragment } from 'react'
+import { useTranslation } from 'react-i18next'
 import heropc2 from '../../assets/images/heropc2.1_.png'
 import heromob2 from '../../assets/images/heromob2.webp'
 
 /* ── Typewriter config ────────────────────────────────────────── */
-const ROTATING_WORDS = ['Coletiva.', 'Sistêmica.', 'Científica.', 'Transformadora.', 'Humana.']
 const TYPE_SPEED = 80   // ms por caractere ao digitar
 const DELETE_SPEED = 45   // ms por caractere ao apagar
 const PAUSE_AFTER = 1800 // ms de pausa após palavra completa
 const PAUSE_BEFORE = 350  // ms de pausa antes de começar a digitar
 
-/* ── Feature badges ───────────────────────────────────────────── */
-const BADGES = [
-  { label: '100% remoto' },
-  { label: '24 Meses de Duração' },
-  { label: '20+ Professores Federais' },
-  { label: 'Certificação UFPR | Reconhecimento MEC' },
-]
-
 export default function HeroSection() {
+  const { t } = useTranslation()
   const [loaded, setLoaded] = useState(false)
   const [displayed, setDisplayed] = useState('')
   const [wordIdx, setWordIdx] = useState(0)
   const [isDeleting, setIsDeleting] = useState(false)
+
+  const rotatingWords = (t('hero.typewriterWords', { returnObjects: true }) as string[]) || [
+    'Coletiva.',
+    'Sistêmica.',
+    'Científica.',
+    'Transformadora.',
+    'Humana.',
+  ]
+
+  const badges = [
+    { label: t('hero.badges.remote') },
+    { label: t('hero.badges.duration') },
+    { label: t('hero.badges.professors') },
+    { label: t('hero.badges.certification') },
+  ]
 
   const badgesRef = useRef<HTMLDivElement>(null)
   const [isInteracting, setIsInteracting] = useState(false)
@@ -103,32 +111,32 @@ export default function HeroSection() {
 
   /* ── Typewriter engine ── */
   useEffect(() => {
-    const currentWord = ROTATING_WORDS[wordIdx]
+    const currentWord = rotatingWords[wordIdx] || ''
 
     if (!isDeleting && displayed === currentWord) {
       // Palavra completa → pausar e começar a apagar
-      const t = setTimeout(() => setIsDeleting(true), PAUSE_AFTER)
-      return () => clearTimeout(t)
+      const tTimer = setTimeout(() => setIsDeleting(true), PAUSE_AFTER)
+      return () => clearTimeout(tTimer)
     }
 
     if (isDeleting && displayed === '') {
       // Palavra apagada → avançar para a próxima
-      const t = setTimeout(() => {
+      const tTimer = setTimeout(() => {
         setIsDeleting(false)
-        setWordIdx((i) => (i + 1) % ROTATING_WORDS.length)
+        setWordIdx((i) => (i + 1) % rotatingWords.length)
       }, PAUSE_BEFORE)
-      return () => clearTimeout(t)
+      return () => clearTimeout(tTimer)
     }
 
     const speed = isDeleting ? DELETE_SPEED : TYPE_SPEED
-    const t = setTimeout(() => {
+    const tTimer = setTimeout(() => {
       setDisplayed(isDeleting
         ? currentWord.slice(0, displayed.length - 1)
         : currentWord.slice(0, displayed.length + 1)
       )
     }, speed)
-    return () => clearTimeout(t)
-  }, [displayed, isDeleting, wordIdx])
+    return () => clearTimeout(tTimer)
+  }, [displayed, isDeleting, wordIdx, rotatingWords])
 
   return (
     <section
@@ -140,7 +148,7 @@ export default function HeroSection() {
         <source media="(max-width: 48rem)" srcSet={heromob2} />
         <img
           src={heropc2}
-          alt="Campus da UFPR - Especialização em Medicina Veterinária do Coletivo CESMVC"
+          alt={t('hero.title')}
           className="w-full h-full object-cover object-right-bottom"
           fetchPriority="high"
         />
@@ -158,7 +166,7 @@ export default function HeroSection() {
         style={{ writingMode: 'vertical-rl' }}
       >
         <span className="text-white/40 font-sans text-[9px] sm:text-[6px] tracking-[0.2em] uppercase font-light">
-          Foto: Marcos Sólivan/UFPR (com edição do céu)
+          {t('hero.photoCredit')}
         </span>
       </div>
 
@@ -176,7 +184,7 @@ export default function HeroSection() {
       >
         {/* Pre-título oficial */}
         <p className="text-[#F9E8C7]/90 text-xs sm:text-sm font-semibold tracking-[0.25rem] uppercase mb-4">
-          Uma especialização oficial UFPR
+          {t('hero.officialPreTitle')}
         </p>
 
         {/* Título Principal H1 */}
@@ -184,14 +192,14 @@ export default function HeroSection() {
           className="font-grift-bold text-[#F9E8C7] leading-tight mb-4 max-w-4xl"
           style={{ fontSize: 'clamp(1.875rem, 4vw, 3.25rem)' }}
         >
-          Pós-Graduação em Medicina Veterinária do Coletivo | UFPR (CESMVC)
+          {t('hero.title')}
         </h1>
 
         {/* Animação Typewriter */}
         <h2 className="font-grift text-white font-normal leading-none mb-6"
           style={{ fontSize: 'clamp(1.125rem, 2.5vw, 1.75rem)' }}
         >
-          Uma formação{' '}
+          {t('hero.typewriterPrefix')}{' '}
           <span
             className="inline-block min-w-[0.25rem] text-white"
           >
@@ -207,7 +215,7 @@ export default function HeroSection() {
         <p className="text-white/90 font-light leading-relaxed mb-10 max-w-2xl font-sans"
           style={{ fontSize: 'clamp(1rem, 1.8vw, 1.25rem)' }}
         >
-          A especialização oficial em Medicina Veterinária do Coletivo (Pós MVC) da Universidade Federal do Paraná (UFPR). Curso 100% online (EAD) reconhecido pelo MEC e pelo CFMV.
+          {t('hero.subtitle')}
         </p>
 
         {/* CTA Buttons */}
@@ -227,7 +235,7 @@ export default function HeroSection() {
               boxShadow: '0 0.5rem 2rem rgba(217,108,43,0.45)',
             }}
           >
-            Garanta sua Vaga
+            {t('hero.ctaWhatsApp')}
             <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
             </svg>
@@ -246,7 +254,7 @@ export default function HeroSection() {
             "
             style={{ fontSize: 'clamp(0.9rem, 1.5vw, 1.125rem)' }}
           >
-            Conheça o Curso
+            {t('hero.ctaInfo')}
           </a>
         </div>
 
@@ -261,7 +269,7 @@ export default function HeroSection() {
           onTouchEnd={handlePointerUp}
           className="flex flex-row overflow-x-auto gap-3 w-full scrollbar-hide mt-12 md:mt-0 md:flex-row md:flex-wrap md:overflow-visible scroll-auto"
         >
-          {[...BADGES, ...BADGES].map((b, idx) => (
+          {[...badges, ...badges].map((b, idx) => (
             <Fragment key={`${b.label}-${idx}`}>
               {idx === 3 && <div className="hidden md:block basis-full h-0"></div>}
               <div
@@ -298,7 +306,7 @@ export default function HeroSection() {
         className="absolute bottom-12 md:bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-0.5 md:gap-1 animate-bounce cursor-pointer"
         aria-label="Rolar para a próxima seção"
       >
-        <span className="text-white/80 text-[8px] md:text-xs tracking-widest uppercase">Role para baixo</span>
+        <span className="text-white/80 text-[8px] md:text-xs tracking-widest uppercase">{t('hero.scrollDown')}</span>
         <svg className="w-3 h-3 md:w-5 md:h-5 text-white/80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
         </svg>

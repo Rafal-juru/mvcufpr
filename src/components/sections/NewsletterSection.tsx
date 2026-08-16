@@ -1,7 +1,9 @@
 import { useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import Toast from '../ui/Toast'
 
 export default function NewsletterSection() {
+  const { t } = useTranslation()
   const [email, setEmail] = useState('')
   const [loading, setLoading] = useState(false)
   const [toast, setToast] = useState<{ message: string; detail: string } | null>(null)
@@ -20,13 +22,13 @@ export default function NewsletterSection() {
       if (!res.ok && res.status !== 200) throw new Error(body.message || `HTTP ${res.status}`)
       setEmail('')
       setToast({
-        message: 'Inscrição confirmada!',
-        detail: 'Verifique seu e-mail — enviamos uma confirmação.',
+        message: t('newsletter.successMessage'),
+        detail: t('newsletter.successDetail'),
       })
     } catch (err) {
       setToast({
-        message: 'Não foi possível inscrever.',
-        detail: err instanceof Error ? err.message : 'Tente novamente em instantes.',
+        message: t('newsletter.errorMessage'),
+        detail: err instanceof Error ? err.message : t('newsletter.errorDetail'),
       })
     } finally {
       setLoading(false)
@@ -39,7 +41,7 @@ export default function NewsletterSection() {
         <div className="max-w-2xl mx-auto px-4 sm:px-6 text-center">
           <span className="inline-flex items-center gap-3 text-white/60 text-xs font-bold tracking-widest uppercase mb-4">
             <span className="w-8 h-px bg-white/40 inline-block" />
-            Newsletter
+            {t('newsletter.eyebrow')}
             <span className="w-8 h-px bg-white/40 inline-block" />
           </span>
 
@@ -47,11 +49,11 @@ export default function NewsletterSection() {
             className="font-grift text-white font-bold leading-tight mb-3"
             style={{ fontSize: 'clamp(1.5rem, 3vw, 2.25rem)' }}
           >
-            Receba novidades diretamente no seu e-mail
+            {t('newsletter.title')}
           </h2>
 
           <p className="text-white/70 text-sm sm:text-base mb-8 leading-relaxed">
-            Artigos, pesquisas e atualizações sobre saúde única, Medicina Veterinária do Coletivo, epidemiologia e políticas públicas.
+            {t('newsletter.description')}
           </p>
 
           <form
@@ -63,7 +65,7 @@ export default function NewsletterSection() {
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              placeholder="Seu melhor e-mail"
+              placeholder={t('newsletter.placeholder')}
               required
               aria-label="Endereço de e-mail para newsletter"
               className="
@@ -81,9 +83,10 @@ export default function NewsletterSection() {
                 text-white font-semibold text-sm
                 transition-all duration-300 hover:-translate-y-0.5
                 disabled:opacity-60 disabled:cursor-not-allowed
+                cursor-pointer
               "
             >
-              {loading ? 'Inscrevendo…' : 'Inscrever-se'}
+              {loading ? t('newsletter.subscribing') : t('newsletter.button')}
             </button>
           </form>
         </div>

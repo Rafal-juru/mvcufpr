@@ -1,30 +1,13 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { CourseCard } from '@/components/ui/cards/CourseCard';
 import { courseCards } from '@/data/courseData';
 
-/**
- * CoursePillars — Os 5 Eixos de Aprendizado e Competências do CESMVC
- *
- * Grid: 3 cards na 1.ª linha + 2 centralizados na 2.ª linha
- * Bloco de Competências expansível com useState
- */
-
-const COMPETENCIAS = [
-  'Compreender o que é a Medicina Veterinária do Coletivo e a Medicina Veterinária Social;',
-  'Compreender os principais problemas da Saúde global e como atuar sob a estratégia de saúde coletiva localmente;',
-  'Compreender o SUS e outros sistemas latino-americanos para atuar intersetorialmente e multidisciplinarmente;',
-  'Propor estratégias para implantação de programas efetivos de manejo populacional de cães e gatos urbanos;',
-  'Propor plano de trabalho para o enfrentamento da problemática das pessoas em situação de acumulação de animais;',
-  'Compreender a atuação com povos originários e de comunidades tradicionais para a promoção da saúde;',
-  'Identificar problemas de abrigos de cães e gatos e fazer proposituras para a melhoria dos níveis de bem-estar, saúde e adoção;',
-  'Criar planos de contingência para prevenção e minimização de impactos de desastres;',
-  'Capacitar os diversos atores sociais para o enfrentamento dos maus-tratos aos animais;',
-  'Identificar situações de crimes contra animais e elaborar laudos e pareceres de perícia veterinária;',
-  'Criar planos de ação estratégicos na área de medicina veterinária do coletivo.',
-];
-
 export default function CoursePillars() {
+  const { t } = useTranslation();
   const [expanded, setExpanded] = useState(false);
+
+  const competencies = (t('curriculum.competencies', { returnObjects: true }) as string[]) || [];
 
   // 5 cards: primeiros 3 → linha 1, últimos 2 → linha 2 centrada
   const row1 = courseCards.slice(0, 3);
@@ -40,17 +23,15 @@ export default function CoursePillars() {
           <div className="flex items-center space-x-3 mb-6">
             <div className="w-8 h-[1px] bg-[#2E6F57]" />
             <span className="text-[#2E6F57] font-mono text-xs font-bold uppercase tracking-widest">
-              Estrutura Curricular
+              {t('curriculum.eyebrow')}
             </span>
           </div>
           <h2 className="font-grift-black text-4xl md:text-5xl lg:text-[56px] tracking-tight text-[#2E6F57] leading-[1.05] max-w-4xl">
-            Eixos de Aprendizado
-            <span className="block text-[#0B281E]"> e Competências</span>
+            {t('curriculum.title')}
+            <span className="block text-[#0B281E]">{t('curriculum.titleHighlight')}</span>
           </h2>
           <p className="font-sans text-base md:text-lg text-[#2E6F57]/90 font-light mt-6 max-w-3xl leading-relaxed">
-            Nossa grade curricular é estruturada em cinco eixos temáticos interdependentes, desenhados para formar
-            um profissional completo, ético e com visão sistêmica da medicina veterinária do coletivo.
-            Clique em qualquer eixo para conhecer mais.
+            {t('curriculum.description')}
           </p>
         </div>
 
@@ -91,7 +72,7 @@ export default function CoursePillars() {
           <div className="flex items-center gap-2 mb-4 px-8 md:px-12">
             <span className="w-5 h-px bg-[#2E6F57]" />
             <span className="font-mono text-[0.65rem] uppercase tracking-widest text-[#2E6F57] font-bold">
-              Perfil de Saída
+              {t('curriculum.profileEyebrow')}
             </span>
           </div>
 
@@ -99,7 +80,7 @@ export default function CoursePillars() {
             className="font-grift-bold tracking-tight text-[#0B281E] mb-8 leading-snug px-8 md:px-12"
             style={{ fontSize: 'clamp(1.25rem, 2.2vw, 1.75rem)' }}
           >
-            Ao final do curso, os alunos serão capazes de:
+            {t('curriculum.profileTitle')}
           </h3>
 
           {/* Competências — expansível */}
@@ -114,7 +95,7 @@ export default function CoursePillars() {
           >
             <div className="px-8 md:px-12">
               <ul className="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-4">
-                {COMPETENCIAS.map((item, i) => (
+                {competencies.map((item, i) => (
                   <li key={i} className="flex items-start gap-3">
                     <span
                       className="flex-shrink-0 mt-0.5 w-5 h-5 rounded-full flex items-center justify-center"
@@ -142,9 +123,9 @@ export default function CoursePillars() {
             <button
               type="button"
               onClick={() => setExpanded((v) => !v)}
-              className="mt-6 inline-flex items-center gap-2 text-[#2E6F57] font-semibold text-sm hover:text-[#1e4f3d] transition-colors duration-200"
+              className="mt-6 inline-flex items-center gap-2 text-[#2E6F57] font-semibold text-sm hover:text-[#1e4f3d] transition-colors duration-200 cursor-pointer"
             >
-              {expanded ? 'Mostrar menos' : 'Saiba mais'}
+              {expanded ? t('curriculum.showLess') : t('curriculum.showMore')}
               <svg
                 className={`w-4 h-4 transition-transform duration-300 ${expanded ? 'rotate-180' : ''}`}
                 fill="none"

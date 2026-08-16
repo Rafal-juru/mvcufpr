@@ -1,35 +1,22 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 interface FAQItem {
   question: string;
   answer: string;
 }
 
-const FAQS: FAQItem[] = [
-  {
-    question: 'A Pós-Graduação em Medicina Veterinária do Coletivo da UFPR é online?',
-    answer: 'Sim, a especialização oferecida pelo CESMVC em parceria com a UFPR é 100% online (EAD), contando com aulas síncronas semanais e acompanhamento por professores federais.',
-  },
-  {
-    question: 'O certificado da Pós-Graduação em Medicina Veterinária do Coletivo é emitido pela UFPR?',
-    answer: 'Sim, ao concluir o curso, o aluno recebe o certificado oficial de pós-graduação lato sensu emitido diretamente pela Universidade Federal do Paraná (UFPR), reconhecido pelo MEC e CFMV.',
-  },
-  {
-    question: 'Quem pode fazer a Pós-Graduação em Medicina Veterinária do Coletivo?',
-    answer: 'A especialização é destinada a profissionais que desejam atuar com manejo populacional, saúde pública, gestão de abrigos, perícia e medicina veterinária legal.',
-  },
-  {
-    question: 'Qual é a duração da Pós-Graduação em Medicina Veterinária do Coletivo (Pós MVC)?',
-    answer: 'O curso tem carga horária total de 544 horas realizada ao longo de 24 meses, com projeto de intervenção orientado individualmente.',
-  },
-  {
-    question: 'Como consultar as opções de pagamento da pós-graduação em Medicina Veterinária do Coletivo?',
-    answer: 'Você pode consultar os detalhes de investimento e condições de parcelamento falando diretamente com a equipe da secretaria pelo WhatsApp (+55 41 9625-9743) ou pelo e-mail secretariacesmvc@ufpr.br.',
-  },
-];
-
 export default function FAQSection() {
+  const { t } = useTranslation();
   const [openIndex, setOpenIndex] = useState<number | null>(0);
+
+  const faqs: FAQItem[] = [
+    { question: t('faq.q1'), answer: t('faq.a1') },
+    { question: t('faq.q2'), answer: t('faq.a2') },
+    { question: t('faq.q3'), answer: t('faq.a3') },
+    { question: t('faq.q4'), answer: t('faq.a4') },
+    { question: t('faq.q5'), answer: t('faq.a5') },
+  ];
 
   const toggleIndex = (index: number) => {
     setOpenIndex(openIndex === index ? null : index);
@@ -49,23 +36,23 @@ export default function FAQSection() {
         <div className="text-center mb-14 sm:mb-16">
           <span className="inline-flex items-center gap-2 text-[#2E6F57] text-xs font-bold tracking-widest uppercase mb-3">
             <span className="w-6 h-px" style={{ background: '#2E6F57' }} />
-            Perguntas Frequentes
+            {t('faq.eyebrow')}
             <span className="w-6 h-px" style={{ background: '#2E6F57' }} />
           </span>
           <h2
             className="font-grift-black tracking-tight text-[#0B281E] leading-tight"
             style={{ fontSize: 'clamp(1.75rem, 3.5vw, 2.75rem)' }}
           >
-            Dúvidas sobre a <span className="text-[#2E6F57]">Pós-Graduação em Medicina Veterinária do Coletivo</span>
+            {t('faq.title')}<span className="text-[#2E6F57]">{t('faq.titleHighlight')}</span>
           </h2>
           <p className="mt-4 text-gray-600 text-sm sm:text-base max-w-2xl mx-auto font-sans">
-            Respostas para as principais perguntas sobre a especialização online em Medicina Veterinária do Coletivo (CESMVC).
+            {t('faq.subtitle')}
           </p>
         </div>
 
         {/* Accordion list */}
         <div className="space-y-4">
-          {FAQS.map((faq, index) => {
+          {faqs.map((faq, index) => {
             const isOpen = openIndex === index;
             return (
               <div

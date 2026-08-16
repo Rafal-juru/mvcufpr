@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 import logoBege from '../../assets/images/logoDescitivabBege.png'
 import logoUFPR3 from '../../assets/images/logoUFPR3(semNome).png'
 import reconhecidoPeloMecCelo from '../../assets/images/reconhecidoPeloMecCelo.png'
@@ -9,13 +10,6 @@ const ENDERECO = 'Rua dos Funcionários, 1540 — Cabral, Curitiba — PR, 80.03
 const MAPS_URL =
   'https://www.google.com/maps/search/?api=1&query=' +
   encodeURIComponent('Rua dos Funcionários, 1540, Cabral, Curitiba - PR, 80035-050')
-
-const navLinks = [
-  { label: 'O Curso', href: '#pilares' },
-  { label: 'Docentes', href: '#docentes' },
-  { label: 'Depoimentos', href: '#depoimentos' },
-  { label: 'Investimento', href: '#valores' },
-]
 
 const REDES = [
   {
@@ -78,6 +72,16 @@ function SocialLink({ href, label, children }: { href: string; label: string; ch
 }
 
 export default function Footer() {
+  const { t } = useTranslation()
+
+  const navLinks = [
+    { label: t('nav.course'), href: '#sobre-o-curso' },
+    { label: t('nav.curriculum'), href: '#pilares' },
+    { label: t('nav.faculty'), href: '#docentes' },
+    { label: t('nav.testimonials'), href: '#depoimentos' },
+    { label: t('nav.investment'), href: '#investimento' },
+  ]
+
   return (
     <footer className="bg-cesmvc-green text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
@@ -91,7 +95,7 @@ export default function Footer() {
               className="w-full max-w-[240px] h-auto mb-4"
             />
             <p className="font-sans text-white/80 text-sm leading-relaxed max-w-xs mb-5">
-              Medicina Veterinária do Coletivo — Universidade Federal do Paraná
+              {t('footer.brandSubtitle')}
             </p>
 
             {/* Logos parceiros — versão negativa (branca) */}
@@ -101,7 +105,7 @@ export default function Footer() {
                 href="https://agrarias.ufpr.br/mvc/especializacao-mvc/"
                 target="_blank"
                 rel="noopener noreferrer"
-                title="Site Oficial UFPR MVC"
+                title={t('nav.officialUfpr')}
                 className="inline-flex items-center hover:scale-105 transition-all duration-300"
               >
                 <img
@@ -143,7 +147,7 @@ export default function Footer() {
           {/* ── Contact ── */}
           <div className="flex flex-col items-center md:items-start text-center md:text-left">
             <h3 className="font-sans text-sm font-semibold uppercase tracking-widest text-cesmvc-sand mb-4">
-              Contato
+              {t('footer.contact')}
             </h3>
             <ul className="space-y-3 text-sm text-white/80">
               <li>
@@ -201,7 +205,7 @@ export default function Footer() {
           {/* ── Navegação ── */}
           <div className="flex flex-col items-center md:items-start text-center md:text-left">
             <h3 className="text-sm font-semibold uppercase tracking-widest text-cesmvc-sand mb-4">
-              Navegação
+              {t('footer.navigation')}
             </h3>
             <ul className="space-y-2 text-sm text-white/80">
               {navLinks.map((link) => (
@@ -213,7 +217,7 @@ export default function Footer() {
               ))}
               <li>
                 <Link to="/blog" className="hover:text-white transition-colors">
-                  Blog
+                  {t('nav.blog')}
                 </Link>
               </li>
               <li>
@@ -223,7 +227,7 @@ export default function Footer() {
                   rel="noopener noreferrer"
                   className="hover:text-white transition-colors"
                 >
-                  Portal da UFPR ↗
+                  {t('footer.portalUfpr')}
                 </a>
               </li>
             </ul>
@@ -232,7 +236,7 @@ export default function Footer() {
           {/* ── Social ── */}
           <div className="flex flex-col items-center md:items-start text-center md:text-left">
             <h3 className="font-sans text-sm font-semibold uppercase tracking-widest text-cesmvc-sand mb-4">
-              Redes Sociais
+              {t('footer.social')}
             </h3>
             <div className="flex items-center gap-3 flex-wrap">
               {REDES.map((rede) => (
@@ -242,7 +246,7 @@ export default function Footer() {
               ))}
             </div>
             <p className="text-white/60 text-xs mt-4 max-w-xs">
-              Acompanhe nossos conteúdos sobre saúde única, manejo populacional e políticas públicas.
+              {t('footer.socialDesc')}
             </p>
           </div>
 
@@ -250,16 +254,16 @@ export default function Footer() {
 
         {/* ── Divider + Assinatura ── */}
         <div className="border-t border-white/10 mt-10 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-white/50">
-          <p>&copy; {new Date().getFullYear()} Universidade Federal do Paraná · CESMVC</p>
+          <p>&copy; {new Date().getFullYear()} {t('footer.rights')}</p>
           <p>
-            Desenvolvido por{' '}
+            {t('footer.developedBy')}{' '}
             <a
               href="https://www.instagram.com/lunetacomunica/"
               target="_blank"
               rel="noopener noreferrer"
               className="text-white/70 hover:text-white transition-colors underline underline-offset-2"
             >
-              Luneta Comunicações
+              {t('footer.luneta')}
             </a>
           </p>
         </div>

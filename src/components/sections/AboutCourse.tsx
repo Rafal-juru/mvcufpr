@@ -1,38 +1,8 @@
-/**
- * AboutCourse.tsx — Secção "O Curso" (#sobre-o-curso)
- *
- * Conteúdo extraído da REDAÇÃO 3 do ficheiro
- * "CESMVC - Controle de redações.md" (textos aprovados).
- *
- * Layout editorial: bloco intro largo + layout zigue-zague com cards expansíveis.
- */
-
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import imgIntroMVC from '../../assets/images/sobreocursoimgnova_1.png'; // Foto do homem com cachorros de rua
 import imgInstituto from '../../assets/images/sobreocursoimgnova_2.png'; // Foto do cachorro sendo examinado
 import imgCurso from '../../assets/images/sobreocursoimgnova_3.png'; // Foto do atendimento ao cavalo
-
-const SECTIONS = [
-  {
-    id: 'mvc',
-    eyebrow: 'Especialidade',
-    title: 'O que é a Medicina Veterinária do Coletivo?',
-    body: [
-      'A Medicina Veterinária do Coletivo (Pós MVC) é uma especialidade da Medicina Veterinária voltada à compreensão das relações entre saúde humana, saúde animal e meio ambiente, sob a perspectiva da Saúde Única (One Health) e do Bem-Estar Único.',
-      'Com todo o respaldo e autoridade acadêmica da Universidade Federal do Paraná (UFPR), o curso oferece módulos completos em Saúde Única (One Health), Manejo Populacional de Cães e Gatos, Medicina de Desastres, Gestão de Abrigos e Perícia Veterinária.',
-      'Nessa perspectiva, a Pós-Graduação Veterinária UFPR (CESMVC) propõe uma atuação ética, interdisciplinar e territorial, preparada para formar especialistas prontos para enfrentar os desafios do setor público e privado com foco no coletivo.',
-    ],
-    accent: '#2E6F57',
-    wide: true,
-  },
-] as const;
-
-const STATS = [
-  { value: '+40', label: 'Professores e\nProfissionais' },
-  { value: '75%', label: 'Doutores no\nCorpo Docente' },
-  { value: '100%', label: 'EAD com aulas\nsíncronas semanais' },
-  { value: '100%', label: 'dos egressos\nrecomendam' },
-];
 
 // Suporte mínimo a <i>...</i> em textos estáticos (não renderiza HTML arbitrário)
 function renderWithItalics(text: string) {
@@ -47,11 +17,15 @@ function ExpandableCard({
   title,
   paragraphs,
   accent,
+  readMoreText,
+  readLessText,
 }: {
   eyebrow: string;
   title: string;
   paragraphs: string[];
   accent: string;
+  readMoreText: string;
+  readLessText: string;
 }) {
   const [expanded, setExpanded] = useState(false);
 
@@ -103,19 +77,19 @@ function ExpandableCard({
       <div className="px-7 sm:px-9">
         <button
           onClick={() => setExpanded(!expanded)}
-          className="mt-6 font-sans font-bold text-xs uppercase tracking-wider flex items-center gap-1.5 self-start transition-colors duration-200 z-10"
+          className="mt-6 font-sans font-bold text-xs uppercase tracking-wider flex items-center gap-1.5 self-start transition-colors duration-200 z-10 cursor-pointer"
           style={{ color: accent }}
         >
           {expanded ? (
             <>
-              Ler menos
+              {readLessText}
               <svg className="w-3.5 h-3.5 transform rotate-180 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M19 9l-7 7-7-7" />
               </svg>
             </>
           ) : (
             <>
-              Ler mais
+              {readMoreText}
               <svg className="w-3.5 h-3.5 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M19 9l-7 7-7-7" />
               </svg>
@@ -128,6 +102,15 @@ function ExpandableCard({
 }
 
 export default function AboutCourse() {
+  const { t } = useTranslation();
+
+  const stats = [
+    { value: '+40', label: t('about.stats.professors') },
+    { value: '75%', label: t('about.stats.doctors') },
+    { value: '100%', label: t('about.stats.classes') },
+    { value: '100%', label: t('about.stats.recommendation') },
+  ];
+
   return (
     <section
       id="sobre-o-curso"
@@ -155,24 +138,24 @@ export default function AboutCourse() {
         <div className="mb-16">
           <span className="inline-flex items-center gap-2 text-[#2E6F57] text-xs font-bold tracking-widest uppercase mb-4">
             <span className="w-8 h-px" style={{ background: '#2E6F57' }} />
-            O Curso
+            {t('about.eyebrow')}
           </span>
           <h2
             className="font-grift-black tracking-tight text-[#0B281E] leading-[1.1] max-w-4xl"
             style={{ fontSize: 'clamp(2rem, 4.5vw, 3.25rem)' }}
           >
-            O que é o CESMVC e a <span className="text-[#2E6F57]">Pós-Graduação Veterinária UFPR Online</span>?
+            {t('about.mainTitle')}<span className="text-[#2E6F57]">{t('about.mainTitleHighlight')}</span>
           </h2>
         </div>
 
         {/* ─────────────────────────────────────────────────────────────
-            BLOCO 1 — MVC: texto largo com linha lateral colorida (Manter intacta)
+            BLOCO 1 — MVC: texto largo com linha lateral colorida
         ───────────────────────────────────────────────────────────── */}
         <div className="mb-20">
           {/* Eyebrow */}
           <div className="mb-3">
-            <span className="font-mono text-xs uppercase tracking-widest font-bold" style={{ color: SECTIONS[0].accent }}>
-              — {SECTIONS[0].eyebrow}
+            <span className="font-mono text-xs uppercase tracking-widest font-bold" style={{ color: '#2E6F57' }}>
+              — {t('about.specialtyEyebrow')}
             </span>
           </div>
           {/* Layout: título à esquerda + texto à direita */}
@@ -182,20 +165,20 @@ export default function AboutCourse() {
                 className="font-grift-bold leading-snug tracking-tight text-[#0B281E]"
                 style={{ fontSize: 'clamp(1.375rem, 2.5vw, 1.875rem)' }}
               >
-                {SECTIONS[0].title}
+                {t('about.specialtyTitle')}
               </h3>
-              <img src={imgIntroMVC} alt="Manejo Populacional de Cães e Gatos e Saúde Única - Especialização Veterinária UFPR" className="mt-8 rounded-2xl w-full object-cover aspect-video shadow-sm" loading="lazy" />
+              <img src={imgIntroMVC} alt={t('about.specialtyTitle')} className="mt-8 rounded-2xl w-full object-cover aspect-video shadow-sm" loading="lazy" />
             </div>
-            <div className="lg:col-span-3 space-y-4" style={{ borderLeft: `2px solid ${SECTIONS[0].accent}20`, paddingLeft: '1.5rem' }}>
-              {SECTIONS[0].body.map((p, i) => (
-                <p
-                  key={i}
-                  className="font-sans leading-relaxed text-[#0B281E]/80"
-                  style={{ fontSize: 'clamp(0.9375rem, 1.4vw, 1.0625rem)' }}
-                >
-                  {p}
-                </p>
-              ))}
+            <div className="lg:col-span-3 space-y-4" style={{ borderLeft: `2px solid rgba(46,111,87,0.20)`, paddingLeft: '1.5rem' }}>
+              <p className="font-sans leading-relaxed text-[#0B281E]/80" style={{ fontSize: 'clamp(0.9375rem, 1.4vw, 1.0625rem)' }}>
+                {t('about.specialtyP1')}
+              </p>
+              <p className="font-sans leading-relaxed text-[#0B281E]/80" style={{ fontSize: 'clamp(0.9375rem, 1.4vw, 1.0625rem)' }}>
+                {t('about.specialtyP2')}
+              </p>
+              <p className="font-sans leading-relaxed text-[#0B281E]/80" style={{ fontSize: 'clamp(0.9375rem, 1.4vw, 1.0625rem)' }}>
+                {t('about.specialtyP3')}
+              </p>
             </div>
           </div>
         </div>
@@ -204,51 +187,55 @@ export default function AboutCourse() {
             PARTE INFERIOR: Layout Zigue-Zague com Cards Expansíveis
         ───────────────────────────────────────────────────────────── */}
 
-        {/* Bloco 1: O Instituto (Imagem à esquerda, card à direita no desktop) */}
+        {/* Bloco 1: O Instituto */}
         <div className="flex flex-col md:flex-row gap-8 lg:gap-12 items-start mb-16">
           <div className="w-full md:w-1/2 flex-shrink-0 aspect-[4/3] md:aspect-[16/10] overflow-hidden rounded-2xl shadow-sm">
             <img
               src={imgInstituto}
-              alt="Médico Veterinário examinando cão - Instituto de Medicina Veterinária do Coletivo IMVC"
+              alt={t('about.institutoTitle')}
               className="w-full h-full object-cover"
               loading="lazy"
             />
           </div>
           <div className="w-full md:w-1/2">
             <ExpandableCard
-              eyebrow="— INSTITUTO"
-              title="O Instituto de Medicina Veterinária do Coletivo (IMVC)"
+              eyebrow={`— ${t('about.institutoEyebrow')}`}
+              title={t('about.institutoTitle')}
               paragraphs={[
-                'O IMVC é uma organização não governamental, sem fins lucrativos, dedicada a promover interações positivas entre humanos, animais e meio ambiente em toda a América Latina.',
-                'Sua atuação inclui a realização de conferências, capacitações e formações voltadas a profissionais que trabalham direta ou indiretamente com essas interações.',
-                'A Medicina Veterinária do Coletivo foi recentemente reconhecida como especialidade pelo Conselho Federal de Medicina Veterinária (CFMV), e o IMVC é a organização habilitada a conceder o título de especialista na área, consolidando sua legitimidade e protagonismo no campo.',
+                t('about.institutoP1'),
+                t('about.institutoP2'),
+                t('about.institutoP3'),
               ]}
               accent="#2E6F57"
+              readMoreText={t('about.readMore')}
+              readLessText={t('about.readLess')}
             />
           </div>
         </div>
 
-        {/* Bloco 2: O Curso (Card à esquerda, imagem à direita no desktop) */}
+        {/* Bloco 2: O Curso */}
         <div className="flex flex-col md:flex-row-reverse gap-8 lg:gap-12 items-start mb-20">
           <div className="w-full md:w-1/2 flex-shrink-0 aspect-[4/3] md:aspect-[16/10] overflow-hidden rounded-2xl shadow-sm">
             <img
               src={imgCurso}
-              alt="Equipe clínica realizando atendimento em animal de grande porte - Especialização Veterinária UFPR"
+              alt={t('about.ensinoTitle')}
               className="w-full h-full object-cover scale-110"
               loading="lazy"
             />
           </div>
           <div className="w-full md:w-1/2">
             <ExpandableCard
-              eyebrow="— ENSINO"
-              title="O CESMVC: especialização UFPR que prepara para o coletivo"
+              eyebrow={`— ${t('about.ensinoEyebrow')}`}
+              title={t('about.ensinoTitle')}
               paragraphs={[
-                'O Curso de Especialização em Medicina Veterinária do Coletivo da Universidade Federal do Paraná (CESMVC – UFPR) é uma pós-graduação <i>lato sensu</i> destinada a médicas e médicos veterinários que atuam, ou desejam atuar, em contextos coletivos, públicos e intersetoriais.',
-                'O curso reúne rigor acadêmico, aplicação prática e compromisso público em uma formação interdisciplinar e conectada à realidade profissional.',
-                'O CESMVC conta com mais de 40 professores e profissionais convidados, sendo a maior parte formada por doutores de universidades federais e profissionais com ampla experiência prática em serviços públicos e gestão. Muitos participaram diretamente da criação e consolidação da Medicina Veterinária do Coletivo no Brasil.',
-                'Com formato 100% EAD, aulas síncronas semanais e acompanhamento contínuo por meio de tutoria acadêmica e suporte institucional, o curso oferece uma formação sólida para profissionais que desejam atuar de maneira transformadora nas relações entre humanos, animais e ambiente.',
+                t('about.ensinoP1'),
+                t('about.ensinoP2'),
+                t('about.ensinoP3'),
+                t('about.ensinoP4'),
               ]}
               accent="#D96C2B"
+              readMoreText={t('about.readMore')}
+              readLessText={t('about.readLess')}
             />
           </div>
         </div>
@@ -261,8 +248,8 @@ export default function AboutCourse() {
             boxShadow: '0 1rem 2rem rgba(46,111,87,0.25)',
           }}
         >
-          {STATS.map((s) => (
-            <div key={s.label} className="flex flex-col items-center text-center">
+          {stats.map((s, idx) => (
+            <div key={idx} className="flex flex-col items-center text-center">
               <span
                 className="font-grift-black leading-none mb-2"
                 style={{ fontSize: 'clamp(2rem, 3.5vw, 2.75rem)', color: '#F9E8C7' }}
@@ -286,7 +273,7 @@ export default function AboutCourse() {
             className="inline-flex items-center gap-2 font-semibold transition-colors duration-200 group"
             style={{ color: '#2E6F57', fontSize: '0.9375rem' }}
           >
-            Conheça os pilares do curso
+            {t('curriculum.title')}
             <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
             </svg>
@@ -302,7 +289,7 @@ export default function AboutCourse() {
               boxShadow: '0 0.25rem 1rem rgba(217,108,43,0.35)',
             }}
           >
-            Garanta sua vaga
+            {t('nav.enroll')}
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
             </svg>

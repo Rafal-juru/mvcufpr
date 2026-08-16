@@ -1,0 +1,270 @@
+{
+  "nav": {
+    "course": "O Curso",
+    "curriculum": "Estrutura Curricular",
+    "faculty": "Docentes",
+    "testimonials": "Depoimentos",
+    "investment": "Investimento",
+    "faq": "FAQ",
+    "blog": "Blog",
+    "enroll": "Inscreva-se",
+    "openMenu": "Abrir menu",
+    "closeMenu": "Fechar menu",
+    "specialization": "Especialização",
+    "officialUfpr": "Site Oficial UFPR MVC"
+  },
+  "hero": {
+    "officialPreTitle": "Uma especialização oficial UFPR",
+    "title": "Pós-Graduação em Medicina Veterinária do Coletivo | UFPR (CESMVC)",
+    "typewriterPrefix": "Uma formação ",
+    "typewriterWords": ["Coletiva.", "Sistêmica.", "Científica.", "Transformadora.", "Humana."],
+    "subtitle": "A especialização oficial em Medicina Veterinária do Coletivo (Pós MVC) da Universidade Federal do Paraná (UFPR). Curso 100% online (EAD) reconhecido pelo MEC e pelo CFMV.",
+    "ctaWhatsApp": "Quero me Inscrever",
+    "ctaInfo": "Ver Programa Completo",
+    "photoCredit": "Foto: Marcos Sólivan/UFPR (com edição do céu)",
+    "scrollDown": "Role para baixo",
+    "badges": {
+      "remote": "100% remoto",
+      "duration": "24 Meses de Duração",
+      "professors": "20+ Professores Federais",
+      "certification": "Certificação UFPR | Reconhecimento MEC"
+    }
+  },
+  "about": {
+    "eyebrow": "O Curso",
+    "mainTitle": "O que é o CESMVC e a ",
+    "mainTitleHighlight": "Pós-Graduação Veterinária UFPR Online?",
+    "specialtyEyebrow": "Especialidade",
+    "specialtyTitle": "O que é a Medicina Veterinária do Coletivo?",
+    "specialtyP1": "A Medicina Veterinária do Coletivo (Pós MVC) é uma especialidade da Medicina Veterinária voltada à compreensão das relações entre saúde humana, saúde animal e meio ambiente, sob a perspectiva da Saúde Única (One Health) e do Bem-Estar Único.",
+    "specialtyP2": "Com todo o respaldo e autoridade acadêmica da Universidade Federal do Paraná (UFPR), o curso oferece módulos completos em Saúde Única (One Health), Manejo Populacional de Cães e Gatos, Medicina de Desastres, Gestão de Abrigos e Perícia Veterinária.",
+    "specialtyP3": "Nessa perspectiva, a Pós-Graduação Veterinária UFPR (CESMVC) propõe uma atuação ética, interdisciplinar e territorial, preparada para formar especialistas prontos para enfrentar os desafios do setor público e privado com foco no coletivo.",
+    "institutoEyebrow": "INSTITUTO",
+    "institutoTitle": "O Instituto de Medicina Veterinária do Coletivo (IMVC)",
+    "institutoP1": "O Instituto de Medicina Veterinária do Coletivo (IMVC) é a entidade técnico-científica responsável pelo desenvolvimento e consolidação da Medicina Veterinária do Coletivo no Brasil.",
+    "institutoP2": "Com atuação articulada a universidades públicas, órgãos governamentais e organismos internacionais, o IMVC promove formação continuada, pesquisa aplicada e assessoria técnica em saúde única, medicina de abrigos, desastres em massa e medicina veterinária legal.",
+    "institutoP3": "Parceiro estruturante do CESMVC, o instituto garante que a formação oferecida esteja conectada às demandas reais do setor público, das ONGs e dos serviços veterinários de todo o país.",
+    "ensinoEyebrow": "ENSINO",
+    "ensinoTitle": "O CESMVC: especialização UFPR que prepara para o coletivo",
+    "ensinoP1": "O Curso de Especialização em Medicina Veterinária do Coletivo da Universidade Federal do Paraná (CESMVC – UFPR) é uma pós-graduação <i>lato sensu</i> destinada a médicas e médicos veterinários e profissionais que atuam, ou desejam atuar, em contextos coletivos, públicos e intersetoriais.",
+    "ensinoP2": "O curso reúne rigor acadêmico, aplicação prática e compromisso público em uma formação interdisciplinar e conectada à realidade profissional.",
+    "ensinoP3": "O CESMVC conta com mais de 40 professores e profissionais convidados, sendo a maior parte formada por doutores de universidades federais e profissionais com ampla experiência prática em serviços públicos e gestão. Muitos participaram diretamente da criação e consolidação da Medicina Veterinária do Coletivo no Brasil.",
+    "ensinoP4": "Com formato 100% EAD, aulas síncronas semanais e acompanhamento contínuo por meio de tutoria acadêmica e suporte institucional, o curso oferece uma formação sólida para profissionais que desejam atuar de maneira transformadora nas relações entre humanos, animais e ambiente.",
+    "readMore": "Ler mais",
+    "readLess": "Ler menos",
+    "stats": {
+      "professors": "Professores e\nProfissionais",
+      "doctors": "Doutores no\nCorpo Docente",
+      "classes": "EAD com aulas\nsíncronas semanais",
+      "recommendation": "dos egressos\nrecomendam"
+    }
+  },
+  "curriculum": {
+    "eyebrow": "Estrutura Curricular",
+    "title": "Eixos de Aprendizado",
+    "titleHighlight": " e Competências",
+    "description": "Nossa grade curricular é estruturada em cinco eixos temáticos interdependentes, desenhados para formar um profissional completo, ético e com visão sistêmica da medicina veterinária do coletivo. Clique em qualquer eixo para conhecer mais.",
+    "profileEyebrow": "Perfil de Saída",
+    "profileTitle": "Ao final do curso, os alunos serão capazes de:",
+    "showMore": "Saiba mais",
+    "showLess": "Mostrar menos",
+    "modalEyebrow": "Pilar Curricular",
+    "competencies": [
+      "Compreender o que é a Medicina Veterinária do Coletivo e a Medicina Veterinária Social;",
+      "Compreender os principais problemas da Saúde global e como atuar sob a estratégia de saúde coletiva localmente;",
+      "Compreender o SUS e outros sistemas latino-americanos para atuar intersetorialmente e multidisciplinarmente;",
+      "Propor estratégias para implantação de programas efetivos de manejo populacional de cães e gatos urbanos;",
+      "Propor plano de trabalho para o enfrentamento da problemática das pessoas em situação de acumulação de animais;",
+      "Compreender a atuação com povos originários e de comunidades tradicionais para a promoção da saúde;",
+      "Identificar problemas de abrigos de cães e gatos e fazer proposituras para a melhoria dos níveis de bem-estar, saúde e adoção;",
+      "Criar planos de contingência para prevenção e minimização de impactos de desastres;",
+      "Capacitar os diversos atores sociais para o enfrentamento dos maus-tratos aos animais;",
+      "Identificar situações de crimes contra animais e elaborar laudos e pareceres de perícia veterinária;",
+      "Criar planos de ação estratégicos na área de medicina veterinária do coletivo."
+    ],
+    "pillars": {
+      "1": {
+        "title": "Saúde Coletiva",
+        "subtitle": "One Health",
+        "concept": "One Health",
+        "description": "A interconexão entre saúde humana, animal e ambiental — vigilância em saúde, controle de zoonoses e determinantes sociais da saúde.",
+        "modalText": "A Saúde Coletiva propõe uma atuação integrada entre saúde humana, animal e ambiental. A especialização prepara profissionais para atuar em temas como vigilância em saúde, controle de zoonoses, manejo populacional, teoria do elo e acumulação de animais, considerando os determinantes sociais da saúde.",
+        "tags": ["Zoonoses", "Vigilância", "Manejo populacional"]
+      },
+      "2": {
+        "title": "Povos Originários e Tradicionais",
+        "subtitle": "Comunidades & Territórios",
+        "concept": "Equidade",
+        "description": "Atuação em comunidades indígenas, quilombolas e outros territórios, respeitando saberes ancestrais e realidades culturais de cada comunidade.",
+        "modalText": "A Medicina Veterinária de Povos Originários e Tradicionais atua em comunidades indígenas, quilombolas e outros territórios. Essa frente é construída de forma integrada, respeitando a cosmovisão das comunidades, seus imaginários, saberes ancestrais, práticas culturais e as realidades de cada território. O médico-veterinário atua na interface entre a saúde humana, animal e ambiental — incluindo os animais como parte indissociável desse equilíbrio.",
+        "tags": ["Saberes Ancestrais", "Inclusão", "Etnoveterinária"]
+      },
+      "3": {
+        "title": "Medicina de Abrigos",
+        "subtitle": "Bem-estar & Gestão Sanitária",
+        "concept": "Abrigos",
+        "description": "Gestão da saúde e do bem-estar de animais em espaços de acolhimento — manejo populacional, guarda responsável e políticas públicas.",
+        "modalText": "A Medicina de Abrigos é o campo da Medicina Veterinária que cuida da saúde e do bem-estar de populações animais em espaços de acolhimento, atuando também no manejo populacional, na guarda responsável e em políticas públicas de proteção e reinserção animal. A capacitação do profissional para essa área vai além da clínica individual — é estruturada para suprir a gestão de abrigos, protocolos sanitários e operacionais, além da clínica, cirurgia e medicina comportamental aplicadas ao contexto do coletivo. A formação inclui ainda epidemiologia e biossegurança como pilares essenciais da rotina.",
+        "tags": ["Epidemiologia", "Etologia", "Políticas Públicas"]
+      },
+      "4": {
+        "title": "Medicina de Desastres",
+        "subtitle": "Prevenção & Protocolos",
+        "concept": "Resgate",
+        "description": "Prevenção, resposta e recuperação em cenários de emergência — do diagnóstico de risco ao abrigamento temporário e vigilância em saúde.",
+        "modalText": "A Medicina Veterinária de Desastres atua nas ações de prevenção, preparação, resposta e recuperação em cenários de emergência. No CESMVC, os profissionais aprendem desde o diagnóstico de áreas de risco e elaboração de planos de contingência até protocolos de resgate, abrigamento temporário, reunificação familiar e vigilância em saúde, compreendendo o papel estratégico da Medicina Veterinária na proteção de animais, pessoas e ambiente em situações de desastre.",
+        "tags": ["Contingência", "Resgate", "Emergências"]
+      },
+      "5": {
+        "title": "Medicina Veterinária Legal",
+        "subtitle": "Perícia & Proteção Animal",
+        "concept": "Justiça",
+        "description": "Atuação intersetorial nos casos de maus-tratos, crueldade e abuso animal, articulando saúde, assistência social e redes de proteção.",
+        "modalText": "A Medicina Veterinária Legal atua nas interações humano-animal negativas, especialmente em casos de maus-tratos, crueldade e abuso animal. A atuação é intersetorial, articulando medicina veterinária, saúde, assistência social e redes de proteção, reconhecendo que a violência contra os animais também pode indicar outras formas de violência social, como violência doméstica e abuso infantil.",
+        "tags": ["Legislação", "Perícia", "Intersetorialidade"]
+      }
+    }
+  },
+  "faculty": {
+    "eyebrow": "Corpo Docente",
+    "title": "Coordenação Geral ",
+    "titleHighlight": "e Corpo Docente",
+    "description": "Nossa especialização é liderada por pioneiros da área e conta com professores pesquisadores e especialistas atuando em grandes instituições públicas e federais.",
+    "coordEyebrow": "COORDENAÇÃO GERAL",
+    "coordName": "Profa. Dra. Rita de Cassia Maria Garcia",
+    "coordBio": "Médica-veterinária e pesquisadora pioneira na construção e consolidação da Medicina Veterinária do Coletivo no Brasil. Sob sua coordenação, o CESMVC reúne um corpo docente que combina excelência acadêmica, experiência prática e atuação direta em políticas públicas e iniciativas voltadas à Saúde Única.",
+    "statPhdNumber": "75%",
+    "statPhdTitle": "do corpo docente é formado por doutores.",
+    "statPhdDesc": "Rigor acadêmico e pesquisa científica de ponta.",
+    "statExpTitle": "Experiência Real",
+    "statExpSubtitle": "Docentes com sólida experiência em serviços públicos e gestão.",
+    "statExpDesc": "Professores que vivenciam as políticas públicas na prática.",
+    "statHistBadge": "Destaque Histórico",
+    "statHistTitle": "Muitos participaram da construção histórica da Medicina Veterinária do Coletivo no Brasil.",
+    "statHistDesc": "Referência e protagonismo na criação da área de estudo.",
+    "partnersTitle": "Docentes oriundos de instituições parceiras e de excelência",
+    "authorityStat": "~80%",
+    "authorityTitle": "do nosso corpo docente atua em universidades públicas e federais",
+    "authorityDesc": "Mais de 40 doutores pesquisadores ativos — formando profissionais com rigor acadêmico e visão prática.",
+    "bottomNote": "E mais <1>9 professores especialistas</1> convidados de outras instituições federais e do mercado.",
+    "testimonialsCta": "Veja o que dizem nossos alunos"
+  },
+  "testimonials": {
+    "eyebrow": "Depoimentos",
+    "title": "A experiência de quem ",
+    "titleHighlight": "já transformou sua carreira",
+    "description": "Histórias e perspectivas de quem viveu a formação do CESMVC na prática profissional.",
+    "turmaTag": "TURMA — 2025",
+    "quotes": [
+      {
+        "quote": "Representa um ponto de virada que ampliou minha visão profissional e tornou meu olhar mais humano.",
+        "name": "Ex-aluno(a) do CESMVC",
+        "role": "Atuação em Serviço Público (São Paulo/SP)",
+        "initials": "EX"
+      },
+      {
+        "quote": "A especialização representa uma qualificação que fez diferença na minha atividade profissional. Proporcionou uma visão de mundo diferenciada com a medicina veterinária.",
+        "name": "Ex-aluno(a) do CESMVC",
+        "role": "Atuação em ONG/Terceiro Setor",
+        "initials": "EX"
+      },
+      {
+        "quote": "Ampliação da atuação como médica veterinária. O curso forneceu arcabouço ético e científico para amparar meu ativismo em prol dos animais.",
+        "name": "Médica Veterinária Especialista",
+        "role": "Atuação Autônoma (Florianópolis/SC)",
+        "initials": "MV"
+      },
+      {
+        "quote": "Representa aprendizado, evolução pessoal e profissional. Entrei no curso recém-formada e sem experiência, aprendi muito e me sinto muito mais segura.",
+        "name": "Ex-aluna do CESMVC",
+        "role": "Clínica de Pequenos Animais (Campo Grande/MS)",
+        "initials": "EX"
+      },
+      {
+        "quote": "Ajuda a solucionar problemas da saúde pública e bem-estar animal. Representa a própria One Health em prática.",
+        "name": "Ex-aluno(a) do CESMVC",
+        "role": "Consultoria e Assessoria",
+        "initials": "EX"
+      }
+    ]
+  },
+  "pricing": {
+    "eyebrow": "Investimento",
+    "title": "Valores e Formas ",
+    "titleHighlight": "de Pagamento",
+    "description": "Um investimento em conhecimento que transforma carreiras. Parcelamento facilitado para que nada impeça sua especialização.",
+    "featuresTitle": "Tudo incluso na especialização",
+    "features": [
+      "544 horas de carga horária total",
+      "Período de realização: abril/26 a abril/28",
+      "Material didático incluso",
+      "Certificado de Especialização reconhecido pelo MEC",
+      "Projeto de intervenção com orientação individual",
+      "Rede de ex-alunos em todo o Brasil"
+    ],
+    "noteLabel": "Nota:",
+    "noteText": "Curso de Pós-Graduação Lato Sensu reconhecido pela UFPR, seguindo as diretrizes da resolução CNE/CES nº 1/2018.",
+    "statusBadge": "Status Acadêmico",
+    "statusText": "3ª Turma em andamento: aulas síncronas semanais já iniciadas.",
+    "cardBadge": "Mais escolhido",
+    "cardPlan": "Parcelado",
+    "cardInstallments": "24x de",
+    "cardPrice": "R$ 664,39*",
+    "cardTotal": "Total: R$ 15.945,36",
+    "cardObs": "*Valor referente aos ingressantes de abril/26. Consulte as condições de parcelamento.",
+    "cardCta": "Inscreva-se via WhatsApp",
+    "trustSecure": "Pagamento 100% seguro",
+    "trustContract": "Contrato claro e transparente",
+    "trustMec": "Certificado reconhecido pelo MEC",
+    "urgencyText": "Vagas limitadas para a turma 2026/2028. Inscrições encerram em <1>31 de julho de 2026</1>."
+  },
+  "faq": {
+    "eyebrow": "Perguntas Frequentes",
+    "title": "Dúvidas sobre a ",
+    "titleHighlight": "Pós-Graduação em Medicina Veterinária do Coletivo",
+    "subtitle": "Respostas para as principais perguntas sobre a especialização online em Medicina Veterinária do Coletivo (CESMVC).",
+    "q1": "A Pós-Graduação em Medicina Veterinária do Coletivo da UFPR é online?",
+    "a1": "Sim, a especialização oferecida pelo CESMVC em parceria com a UFPR é 100% online (EAD), contando com aulas síncronas semanais e acompanhamento por professores federais.",
+    "q2": "O certificado da Pós-Graduação em Medicina Veterinária do Coletivo é emitido pela UFPR?",
+    "a2": "Sim, ao concluir o curso, o aluno recebe o certificado oficial de pós-graduação lato sensu emitido diretamente pela Universidade Federal do Paraná (UFPR), reconhecido pelo MEC e CFMV.",
+    "q3": "Quem pode fazer a Pós-Graduação em Medicina Veterinária do Coletivo?",
+    "a3": "A especialização é destinada a profissionais que desejam atuar com manejo populacional, saúde pública, gestão de abrigos, perícia e medicina veterinária legal.",
+    "q4": "Qual é a duração da Pós-Graduação em Medicina Veterinária do Coletivo (Pós MVC)?",
+    "a4": "O curso tem carga horária total de 544 horas realizada ao longo de 24 meses, com projeto de intervenção orientado individualmente.",
+    "q5": "Como consultar as opções de pagamento da pós-graduação em Medicina Veterinária do Coletivo?",
+    "a5": "Você pode consultar os detalhes de investimento e condições de parcelamento falando diretamente com a equipe da secretaria pelo WhatsApp (+55 41 9625-9743) ou pelo e-mail secretariacesmvc@ufpr.br."
+  },
+  "blog": {
+    "eyebrow": "Ciência e Informação",
+    "title": "Artigos e Recursos",
+    "loading": "Carregando artigos…",
+    "empty": "Nenhum artigo publicado ainda.",
+    "viewAll": "Ver todos os artigos",
+    "readArticle": "Ler artigo completo",
+    "backToBlog": "Voltar ao Blog",
+    "publishedOn": "Publicado em"
+  },
+  "newsletter": {
+    "eyebrow": "Newsletter",
+    "title": "Receba novidades diretamente no seu e-mail",
+    "description": "Artigos, pesquisas e atualizações sobre saúde única, Medicina Veterinária do Coletivo, epidemiologia e políticas públicas.",
+    "placeholder": "Seu melhor e-mail",
+    "button": "Inscrever-se",
+    "subscribing": "Inscrevendo…",
+    "successMessage": "Inscrição confirmada!",
+    "successDetail": "Verifique seu e-mail — enviamos uma confirmação.",
+    "errorMessage": "Não foi possível inscrever.",
+    "errorDetail": "Tente novamente em instantes."
+  },
+  "footer": {
+    "brandSubtitle": "Medicina Veterinária do Coletivo — Universidade Federal do Paraná",
+    "contact": "Contato",
+    "navigation": "Navegação",
+    "portalUfpr": "Portal da UFPR ↗",
+    "social": "Redes Sociais",
+    "socialDesc": "Acompanhe nossos conteúdos sobre saúde única, manejo populacional e políticas públicas.",
+    "rights": "Universidade Federal do Paraná · CESMVC",
+    "developedBy": "Desenvolvido por",
+    "luneta": "Luneta Comunicações"
+  }
+}

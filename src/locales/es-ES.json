@@ -1,0 +1,270 @@
+{
+  "nav": {
+    "course": "El Curso",
+    "curriculum": "Estructura Curricular",
+    "faculty": "Cuerpo Docente",
+    "testimonials": "Testimonios",
+    "investment": "Inversión",
+    "faq": "Preguntas Frecuentes",
+    "blog": "Blog",
+    "enroll": "Inscríbete",
+    "openMenu": "Abrir menú",
+    "closeMenu": "Cerrar menú",
+    "specialization": "Especialización",
+    "officialUfpr": "Sitio Oficial UFPR MVC"
+  },
+  "hero": {
+    "officialPreTitle": "Una especialización oficial de la UFPR",
+    "title": "Especialización de Posgrado en Medicina Veterinaria del Colectivo | UFPR (CESMVC)",
+    "typewriterPrefix": "Una formación ",
+    "typewriterWords": ["Colectiva.", "Sistémica.", "Científica.", "Transformadora.", "Humana."],
+    "subtitle": "La especialización oficial en Medicina Veterinaria del Colectivo (Pós MVC) de la Universidade Federal do Paraná (UFPR). Curso 100% online (a distancia) reconocido por el MEC y el CFMV.",
+    "ctaWhatsApp": "Quiero Inscribirme",
+    "ctaInfo": "Ver Programa Completo",
+    "photoCredit": "Foto: Marcos Sólivan/UFPR (cielo editado)",
+    "scrollDown": "Desplázate hacia abajo",
+    "badges": {
+      "remote": "100% en línea / remoto",
+      "duration": "24 Meses de Duración",
+      "professors": "20+ Profesores Federales",
+      "certification": "Certificación UFPR | Reconocimiento MEC"
+    }
+  },
+  "about": {
+    "eyebrow": "El Curso",
+    "mainTitle": "¿Qué es el CESMVC y la ",
+    "mainTitleHighlight": "Especialización Veterinaria Online UFPR?",
+    "specialtyEyebrow": "Especialidad",
+    "specialtyTitle": "¿Qué es la Medicina Veterinaria del Colectivo?",
+    "specialtyP1": "La Medicina Veterinaria del Colectivo (Pós MVC) es una especialidad de la Medicina Veterinaria enfocada en comprender las relaciones entre la salud humana, la salud animal y el medio ambiente, bajo la perspectiva de Una Sola Salud (One Health) y el Bienestar Único.",
+    "specialtyP2": "Con el respaldo y la autoridad académica de la Universidade Federal do Paraná (UFPR), el programa ofrece módulos integrales en Una Sola Salud (One Health), Manejo Poblacional de Perros y Gatos, Medicina Veterinaria de Desastres, Gestión de Albergues y Refugios, y Medicina Veterinaria Legal y Peritaje.",
+    "specialtyP3": "Desde esta perspectiva, la Especialización de Posgrado UFPR (CESMVC) propone una actuación ética, interdisciplinaria y comunitaria, capacitando especialistas preparados para afrontar los desafíos del sector público y privado con impacto colectivo.",
+    "institutoEyebrow": "INSTITUTO",
+    "institutoTitle": "El Instituto de Medicina Veterinaria del Colectivo (IMVC)",
+    "institutoP1": "El Instituto de Medicina Veterinaria del Colectivo (IMVC) es la entidad técnico-científica responsable del desarrollo y consolidación de la Medicina Veterinaria del Colectivo en Brasil y América Latina.",
+    "institutoP2": "En estrecha articulación con universidades públicas, organismos gubernamentales y entidades internacionales, el IMVC promueve formación continua, investigación aplicada y asesoría técnica en Una Sola Salud, gestión de refugios, desastres masivos y peritaje veterinario.",
+    "institutoP3": "Socio estratégico del CESMVC, el instituto garantiza que la formación esté directamente conectada con las necesidades reales del sector público, ONGs y servicios veterinarios.",
+    "ensinoEyebrow": "ACADÉMICO",
+    "ensinoTitle": "El CESMVC: especialización UFPR que prepara para la acción colectiva",
+    "ensinoP1": "El Curso de Especialización en Medicina Veterinaria del Colectivo de la Universidade Federal do Paraná (CESMVC – UFPR) es un posgrado <i>lato sensu</i> dirigido a médicas y médicos veterinarios y profesionales que actúan o desean actuar en ámbitos colectivos, públicos e intersectoriales.",
+    "ensinoP2": "El curso reúne rigor académico, aplicación práctica y compromiso social en una formación interdisciplinaria conectada con la realidad profesional.",
+    "ensinoP3": "El CESMVC cuenta con más de 40 profesores y especialistas invitados, en su mayoría doctores de universidades federales con amplia experiencia en gestión pública y servicios de salud. Muchos participaron directamente en la creación de esta especialidad en la región.",
+    "ensinoP4": "Con formato 100% online, clases síncronas semanales en vivo y tutoría académica continua con respaldo institucional, el programa ofrece una formación sólida para transformar la relación entre humanos, animales y el ambiente.",
+    "readMore": "Leer más",
+    "readLess": "Leer menos",
+    "stats": {
+      "professors": "Profesores y\nEspecialistas",
+      "doctors": "Doctores en el\nClaustro Académico",
+      "classes": "100% online con clases\nsíncronas semanales en vivo",
+      "recommendation": "Tasa de\nRecomendación de Alumnos"
+    }
+  },
+  "curriculum": {
+    "eyebrow": "Estructura Curricular",
+    "title": "Ejes de Aprendizaje",
+    "titleHighlight": " y Competencias",
+    "description": "Nuestra malla curricular está estructurada en cinco ejes temáticos interdependientes, diseñados para formar profesionales completos, éticos y con visión sistémica de la medicina veterinaria del colectivo. Haz clic en cualquier eje para conocer más.",
+    "profileEyebrow": "Perfil de Egreso",
+    "profileTitle": "Al finalizar el curso, los egresados serán capaces de:",
+    "showMore": "Conoce más",
+    "showLess": "Mostrar menos",
+    "modalEyebrow": "Pilar Curricular",
+    "competencies": [
+      "Comprender el alcance de la Medicina Veterinaria del Colectivo y la Medicina Veterinaria Social;",
+      "Analizar los desafíos de la salud global y diseñar estrategias de salud colectiva a nivel local;",
+      "Articular intervenciones con sistemas públicos de salud para el trabajo intersectorial y multidisciplinario;",
+      "Diseñar e implementar programas efectivos de manejo poblacional de perros y gatos;",
+      "Elaborar planes de intervención para el abordaje del síndrome de acumulación de animales;",
+      "Trabajar junto a pueblos originarios y comunidades tradicionales en la promoción de la salud integral;",
+      "Evaluar albergues de animales y proponer mejoras en bienestar, salud y adopción responsable;",
+      "Desarrollar planes de contingencia para la prevención y mitigación de desastres;",
+      "Capacitar actores institucionales y sociales para enfrentar el maltrato y la crueldad animal;",
+      "Investigar delitos contra animales y emitir dictámenes periciales veterinarios oficiales;",
+      "Liderar planes de acción estratégicos y políticas públicas en medicina veterinaria del colectivo."
+    ],
+    "pillars": {
+      "1": {
+        "title": "Salud Colectiva",
+        "subtitle": "Una Sola Salud (One Health)",
+        "concept": "One Health",
+        "description": "La interconexión entre la salud humana, animal y ambiental — vigilancia epidemiológica, control de zoonosis y determinantes sociales de la salud.",
+        "modalText": "La Salud Colectiva propone una actuación integrada entre salud humana, animal y ambiental. La especialización prepara profesionales en vigilancia epidemiológica, prevención de zoonosis, manejo de poblaciones, teoría del vínculo y acumulación de animales, considerando los determinantes sociales de la salud.",
+        "tags": ["Zoonosis", "Vigilancia", "Manejo Poblacional"]
+      },
+      "2": {
+        "title": "Pueblos Originarios y Tradicionales",
+        "subtitle": "Comunidades y Territorios",
+        "concept": "Equidad",
+        "description": "Trabajo en comunidades indígenas, afrodescendientes y territorios tradicionales, respetando saberes ancestrales e identidades culturales.",
+        "modalText": "La Medicina Veterinaria para Pueblos Originarios y Tradicionales actúa en comunidades y territorios diversos. Se construye de forma participativa, respetando la cosmovisión, saberes ancestrales y realidades de cada territorio, actuando en la interfaz de la salud humana, animal y ecosistémica.",
+        "tags": ["Saberes Ancestrales", "Inclusión", "Etnoveterinaria"]
+      },
+      "3": {
+        "title": "Medicina de Albergues",
+        "subtitle": "Bienestar y Gestión Sanitaria",
+        "concept": "Albergues",
+        "description": "Gestión sanitaria y bienestar animal en centros de acogida — control poblacional, tenencia responsable y políticas públicas.",
+        "modalText": "La Medicina de Albergues cuida la salud y el bienestar de poblaciones animales en centros de acogida y rescate, liderando el manejo poblacional y políticas de protección y adopción. La formación abarca gestión de refugios, protocolos sanitarios, medicina y cirugía colectiva, etología clínica, epidemiología y bioseguridad.",
+        "tags": ["Epidemiología", "Etología", "Políticas Públicas"]
+      },
+      "4": {
+        "title": "Medicina Veterinaria de Desastres",
+        "subtitle": "Prevención y Protocolos",
+        "concept": "Rescate",
+        "description": "Prevención, respuesta y recuperación ante emergencias — desde el diagnóstico de riesgo hasta el alojamiento temporal y la vigilancia sanitaria.",
+        "modalText": "La Medicina Veterinaria de Desastres actúa en la prevención, preparación, respuesta y recuperación en escenarios de crisis. Los estudiantes aprenden mapeo de riesgos, planes de contingencia, rescate animal, albergues temporales, reunificación familiar y vigilancia epidemiológica para proteger animales, personas y el ambiente.",
+        "tags": ["Contingencia", "Rescate", "Emergencias"]
+      },
+      "5": {
+        "title": "Medicina Veterinaria Legal",
+        "subtitle": "Peritaje y Protección Animal",
+        "concept": "Justicia",
+        "description": "Actuación intersectorial ante casos de maltrato, crueldad y abuso animal, articulando salud, justicia y redes de protección social.",
+        "modalText": "La Medicina Veterinaria Legal interviene en casos de maltrato, crueldad y negligencia animal. Su abordaje es intersectorial, vinculando la medicina veterinaria con la justicia y el bienestar social, reconociendo que la violencia hacia los animales es un indicador clave de violencia familiar y social.",
+        "tags": ["Legislación", "Peritaje", "Intersectorialidad"]
+      }
+    }
+  },
+  "faculty": {
+    "eyebrow": "Claustro Académico",
+    "title": "Coordinación General ",
+    "titleHighlight": "y Cuerpo Docente",
+    "description": "Nuestra especialización está liderada por pioneros del área y cuenta con profesores investigadores y especialistas de prestigiosas instituciones públicas y federales.",
+    "coordEyebrow": "COORDINACIÓN GENERAL",
+    "coordName": "Prof. Dra. Rita de Cassia Maria Garcia",
+    "coordBio": "Médica veterinaria e investigadora pionera en la construcción y consolidación de la Medicina Veterinaria del Colectivo en Brasil. Bajo su liderazgo, el CESMVC reúne un cuerpo docente que combina excelencia académica, experiencia práctica y liderazgo directo en políticas públicas y Una Sola Salud.",
+    "statPhdNumber": "75%",
+    "statPhdTitle": "del claustro docente posee grado de Doctor (PhD).",
+    "statPhdDesc": "Rigor académico e investigación científica de vanguardia.",
+    "statExpTitle": "Experiencia Real",
+    "statExpSubtitle": "Docentes con sólida trayectoria en gestión pública y salud comunitaria.",
+    "statExpDesc": "Profesores que lideran políticas públicas en la práctica.",
+    "statHistBadge": "Hito Histórico",
+    "statHistTitle": "Pioneros que impulsaron la Medicina Veterinaria del Colectivo en la región.",
+    "statHistDesc": "Referencia y liderazgo en la consolidación de esta disciplina.",
+    "partnersTitle": "Docentes provenientes de instituciones asociadas de excelencia",
+    "authorityStat": "~80%",
+    "authorityTitle": "de nuestro cuerpo docente enseña en universidades públicas y federales",
+    "authorityDesc": "Más de 40 doctores investigadores en activo que forman profesionales con rigor científico y visión aplicada.",
+    "bottomNote": "Y más de <1>9 profesores especialistas</1> invitados de instituciones federales y del sector profesional.",
+    "testimonialsCta": "Conoce los testimonios de nuestros alumnos"
+  },
+  "testimonials": {
+    "eyebrow": "Testimonios",
+    "title": "La experiencia de quienes ",
+    "titleHighlight": "ya transformaron su carrera",
+    "description": "Historias y perspectivas de profesionales que vivieron la formación del CESMVC en la práctica.",
+    "turmaTag": "PROMOCIÓN — 2025",
+    "quotes": [
+      {
+        "quote": "Representó un verdadero punto de inflexión que amplió mi visión profesional y humanizó profundamente mi práctica.",
+        "name": "Exalumno(a) del CESMVC",
+        "role": "Servicio Público de Salud (São Paulo/SP)",
+        "initials": "EX"
+      },
+      {
+        "quote": "La especialización brindó una calificación decisiva en mi labor profesional, ofreciéndome una perspectiva transformadora de la medicina veterinaria.",
+        "name": "Exalumno(a) del CESMVC",
+        "role": "Sector No Gubernamental / Tercer Sector",
+        "initials": "EX"
+      },
+      {
+        "quote": "Ampliación del campo de acción profesional. El curso me aportó fundamentos éticos y científicos sólidos para potenciar mi labor de protección animal.",
+        "name": "Médica Veterinaria Especialista",
+        "role": "Ejercicio Profesional Autónomo (Florianópolis/SC)",
+        "initials": "MV"
+      },
+      {
+        "quote": "Un proceso de evolución personal y profesional inmenso. Ingresé recién graduada y aprendí a actuar con total seguridad y solvencia.",
+        "name": "Exalumna del CESMVC",
+        "role": "Clínica de Pequeños Animales (Campo Grande/MS)",
+        "initials": "EX"
+      },
+      {
+        "quote": "Permite resolver problemáticas complejas de salud pública y bienestar animal. Es la materialización práctica de One Health.",
+        "name": "Exalumno(a) del CESMVC",
+        "role": "Consultoría y Asesoría Técnica",
+        "initials": "EX"
+      }
+    ]
+  },
+  "pricing": {
+    "eyebrow": "Inversión",
+    "title": "Valores y Formas ",
+    "titleHighlight": "de Pago",
+    "description": "Una inversión en conocimiento que transforma trayectorias profesionales. Opciones de pago en cuotas para facilitar tu especialización.",
+    "featuresTitle": "Todo incluido en la especialización",
+    "features": [
+      "544 horas lectivas de carga horaria total",
+      "Período de realización: abril 2026 a abril 2028",
+      "Material didáctico e interactivo incluido",
+      "Certificado de Especialización reconocido por el MEC",
+      "Proyecto de intervención con orientación individual",
+      "Red de graduados y contactos en todo Brasil e Iberoamérica"
+    ],
+    "noteLabel": "Nota:",
+    "noteText": "Curso de Posgrado Lato Sensu reconocido oficialmente por la UFPR, conforme a la resolución CNE/CES nº 1/2018.",
+    "statusBadge": "Estado Académico",
+    "statusText": "3.ª Cohorte en curso: clases síncronas semanales ya iniciadas.",
+    "cardBadge": "Opción Principal",
+    "cardPlan": "En Cuotas",
+    "cardInstallments": "24 cuotas de",
+    "cardPrice": "R$ 664,39*",
+    "cardTotal": "Total: R$ 15.945,36",
+    "cardObs": "*Valor para ingresantes de abril 2026. Consulta las condiciones de financiamiento y cuotas.",
+    "cardCta": "Inscríbete por WhatsApp",
+    "trustSecure": "Pago 100% seguro",
+    "trustContract": "Contrato claro y transparente",
+    "trustMec": "Certificado avalado por el MEC",
+    "urgencyText": "Cupos limitados para la cohorte 2026/2028. Las inscripciones cierran el <1>31 de julio de 2026</1>."
+  },
+  "faq": {
+    "eyebrow": "Preguntas Frecuentes",
+    "title": "Dudas sobre la ",
+    "titleHighlight": "Especialización en Medicina Veterinaria del Colectivo",
+    "subtitle": "Respuestas a las principales consultas sobre el posgrado online en Medicina Veterinaria del Colectivo (CESMVC UFPR).",
+    "q1": "¿La Especialización en Medicina Veterinaria del Colectivo de la UFPR es 100% online?",
+    "a1": "Sí, la especialización ofrecida por el CESMVC en colaboración con la UFPR es 100% online (a distancia), con clases síncronas semanales en vivo y orientación por parte de profesores federales.",
+    "q2": "¿El certificado de posgrado es emitido directamente por la UFPR?",
+    "a2": "Sí, al graduarse, el alumno recibe el certificado oficial de posgrado lato sensu emitido directamente por la Universidade Federal do Paraná (UFPR), reconocido por el MEC y el CFMV.",
+    "q3": "¿Quién puede cursar la Especialización en Medicina Veterinaria del Colectivo?",
+    "a3": "El programa está destinado a profesionales y médicos veterinarios que desean especializarse en manejo poblacional, salud pública, gestión de albergues, peritaje y medicina veterinaria legal.",
+    "q4": "¿Cuál es la duración del posgrado en Medicina Veterinaria del Colectivo (Pós MVC)?",
+    "a4": "El curso cuenta con una carga horaria total de 544 horas distribuidas en 24 meses, con un proyecto de intervención práctico guiado de manera individual.",
+    "q5": "¿Cómo consultar los planes de pago y cuotas mensuales?",
+    "a5": "Puedes comunicarte directamente con la secretaría por WhatsApp oficial (+55 41 9625-9743) o por correo electrónico (secretariacesmvc@ufpr.br) para consultar detalles y financiamiento."
+  },
+  "blog": {
+    "eyebrow": "Ciencia e Información",
+    "title": "Artículos y Recursos",
+    "loading": "Cargando artículos…",
+    "empty": "No hay artículos publicados todavía.",
+    "viewAll": "Ver todos los artículos",
+    "readArticle": "Leer artículo completo",
+    "backToBlog": "Volver al Blog",
+    "publishedOn": "Publicado el"
+  },
+  "newsletter": {
+    "eyebrow": "Boletín Informativo",
+    "title": "Recibe novedades científicas directamente en tu correo",
+    "description": "Artículos, investigaciones y actualizaciones sobre Una Sola Salud, Medicina Veterinaria del Colectivo, epidemiología y políticas públicas.",
+    "placeholder": "Tu correo electrónico",
+    "button": "Suscribirme",
+    "subscribing": "Suscribiendo…",
+    "successMessage": "¡Suscripción confirmada!",
+    "successDetail": "Revisa tu bandeja de entrada — te hemos enviado un correo de confirmación.",
+    "errorMessage": "No fue posible realizar la suscripción.",
+    "errorDetail": "Por favor, inténtalo nuevamente en unos instantes."
+  },
+  "footer": {
+    "brandSubtitle": "Medicina Veterinaria del Colectivo — Universidade Federal do Paraná",
+    "contact": "Contacto",
+    "navigation": "Navegación",
+    "portalUfpr": "Portal de la UFPR ↗",
+    "social": "Redes Sociales",
+    "socialDesc": "Sigue nuestros contenidos sobre Una Sola Salud, manejo poblacional y políticas públicas.",
+    "rights": "Universidade Federal do Paraná · CESMVC",
+    "developedBy": "Desarrollado por",
+    "luneta": "Luneta Comunicações"
+  }
+}
