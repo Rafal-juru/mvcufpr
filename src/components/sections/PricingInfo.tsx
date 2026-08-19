@@ -11,7 +11,8 @@ function trackWhatsAppClick() {
   }
 }
 
-const WHATSAPP_PARCELADO = 'https://wa.me/554196259743?text=Ol%C3%A1!%20Quero%20garantir%20minha%20vaga%20no%20CESMVC%20utilizando%20a%20op%C3%A7%C3%A3o%20de%20pagamento%20parcelado.'
+const SIGA_ENROLLMENT_URL = 'https://siga.ufpr.br/siga/visitante/processoseletivo/index.jsp?sequencial=5339'
+const WHATSAPP_DUVIDAS = 'https://wa.me/554196259743?text=Ol%C3%A1!%20Gostaria%20de%20tirar%20algumas%20d%C3%BAvidas%20sobre%20a%20p%C3%B3s-gradua%C3%A7%C3%A3o%20CESMVC.'
 
 /* ── Ícone WhatsApp ── */
 function WhatsAppIcon({ className = 'w-5 h-5' }: { className?: string }) {
@@ -163,12 +164,11 @@ export default function PricingInfo() {
                 {t('pricing.cardObs')}
               </p>
 
-              {/* CTA Principal — verde */}
+              {/* CTA Principal — SIGA UFPR */}
               <a
-                href={WHATSAPP_PARCELADO}
+                href={SIGA_ENROLLMENT_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                onClick={trackWhatsAppClick}
                 className="
                   mt-auto inline-flex items-center justify-center gap-2.5
                   font-bold text-sm px-6 py-4 rounded-xl
@@ -181,8 +181,29 @@ export default function PricingInfo() {
                   boxShadow: '0 0.5rem 1.5rem rgba(46,111,87,0.40)',
                 }}
               >
-                <WhatsAppIcon />
                 {t('pricing.cardCta')}
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </a>
+
+              {/* Botão Secundário — Tirar Dúvidas via WhatsApp */}
+              <a
+                href={WHATSAPP_DUVIDAS}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={trackWhatsAppClick}
+                className="
+                  mt-3 inline-flex items-center justify-center gap-2.5
+                  font-bold text-sm px-6 py-3.5 rounded-xl
+                  text-[#2E6F57] hover:text-[#1e4f3d]
+                  border-2 border-[#2E6F57]/30 hover:border-[#2E6F57]
+                  bg-transparent hover:bg-[#2E6F57]/5
+                  transition-all duration-300
+                "
+              >
+                <WhatsAppIcon />
+                {t('pricing.cardDuvidasCta')}
               </a>
             </div>
           </div>

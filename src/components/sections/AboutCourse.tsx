@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import imgIntroMVC from '../../assets/images/sobreocursoimgnova_1.png'; // Foto do homem com cachorros de rua
-import imgInstituto from '../../assets/images/sobreocursoimgnova_2.png'; // Foto do cachorro sendo examinado
-import imgCurso from '../../assets/images/sobreocursoimgnova_3.png'; // Foto do atendimento ao cavalo
+import imgIntroMVC from '../../assets/images/sobreocursoimgnova_1.png'; // Foto do homem com cachorros de rua / manejo coletivo
+import imgInstituto from '../../assets/images/sobreocursoimgnova_2.png'; // Foto do cachorro sendo examinado / saúde única
+import imgEnsino from '../../assets/images/sobreocursoimg1.png'; // Foto de profissionais veterinários com pequenos animais em ambiente acadêmico/clínico
 
 // Suporte mínimo a <i>...</i> em textos estáticos (não renderiza HTML arbitrário)
 function renderWithItalics(text: string) {
@@ -149,7 +149,36 @@ export default function AboutCourse() {
         </div>
 
         {/* ─────────────────────────────────────────────────────────────
-            BLOCO 1 — MVC: texto largo com linha lateral colorida
+            BLOCO 1 — ENSINO (O CESMVC): Especialização UFPR que prepara para o coletivo
+        ───────────────────────────────────────────────────────────── */}
+        <div className="flex flex-col md:flex-row-reverse gap-8 lg:gap-12 items-start mb-20">
+          <div className="w-full md:w-1/2 flex-shrink-0 aspect-[4/3] md:aspect-[16/10] overflow-hidden rounded-2xl shadow-sm">
+            <img
+              src={imgEnsino}
+              alt={t('about.ensinoTitle')}
+              className="w-full h-full object-cover"
+              loading="lazy"
+            />
+          </div>
+          <div className="w-full md:w-1/2">
+            <ExpandableCard
+              eyebrow={`— ${t('about.ensinoEyebrow')}`}
+              title={t('about.ensinoTitle')}
+              paragraphs={[
+                t('about.ensinoP1'),
+                t('about.ensinoP2'),
+                t('about.ensinoP3'),
+                t('about.ensinoP4'),
+              ]}
+              accent="#D96C2B"
+              readMoreText={t('about.readMore')}
+              readLessText={t('about.readLess')}
+            />
+          </div>
+        </div>
+
+        {/* ─────────────────────────────────────────────────────────────
+            BLOCO 2 — ESPECIALIDADE: O que é a Medicina Veterinária do Coletivo?
         ───────────────────────────────────────────────────────────── */}
         <div className="mb-20">
           {/* Eyebrow */}
@@ -184,11 +213,9 @@ export default function AboutCourse() {
         </div>
 
         {/* ─────────────────────────────────────────────────────────────
-            PARTE INFERIOR: Layout Zigue-Zague com Cards Expansíveis
+            BLOCO 3 — INSTITUTO: O Instituto de Medicina Veterinária do Coletivo (IMVC)
         ───────────────────────────────────────────────────────────── */}
-
-        {/* Bloco 1: O Instituto */}
-        <div className="flex flex-col md:flex-row gap-8 lg:gap-12 items-start mb-16">
+        <div className="flex flex-col md:flex-row gap-8 lg:gap-12 items-start mb-20">
           <div className="w-full md:w-1/2 flex-shrink-0 aspect-[4/3] md:aspect-[16/10] overflow-hidden rounded-2xl shadow-sm">
             <img
               src={imgInstituto}
@@ -207,33 +234,6 @@ export default function AboutCourse() {
                 t('about.institutoP3'),
               ]}
               accent="#2E6F57"
-              readMoreText={t('about.readMore')}
-              readLessText={t('about.readLess')}
-            />
-          </div>
-        </div>
-
-        {/* Bloco 2: O Curso */}
-        <div className="flex flex-col md:flex-row-reverse gap-8 lg:gap-12 items-start mb-20">
-          <div className="w-full md:w-1/2 flex-shrink-0 aspect-[4/3] md:aspect-[16/10] overflow-hidden rounded-2xl shadow-sm">
-            <img
-              src={imgCurso}
-              alt={t('about.ensinoTitle')}
-              className="w-full h-full object-cover scale-110"
-              loading="lazy"
-            />
-          </div>
-          <div className="w-full md:w-1/2">
-            <ExpandableCard
-              eyebrow={`— ${t('about.ensinoEyebrow')}`}
-              title={t('about.ensinoTitle')}
-              paragraphs={[
-                t('about.ensinoP1'),
-                t('about.ensinoP2'),
-                t('about.ensinoP3'),
-                t('about.ensinoP4'),
-              ]}
-              accent="#D96C2B"
               readMoreText={t('about.readMore')}
               readLessText={t('about.readLess')}
             />

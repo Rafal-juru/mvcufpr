@@ -26,7 +26,6 @@ export default function HeroSection() {
 
   const badges = [
     { label: t('hero.badges.remote') },
-    { label: t('hero.badges.duration') },
     { label: t('hero.badges.professors') },
     { label: t('hero.badges.certification') },
   ]
@@ -44,28 +43,24 @@ export default function HeroSection() {
     let lastTime = performance.now()
     const scrollSpeed = 30 // pixels per second
 
-    // Store the exact float value of scrollLeft to prevent truncation rounding bugs
     let floatScrollLeft = container.scrollLeft
 
     const step = (time: number) => {
       if (window.innerWidth < 768) {
         const delta = (time - lastTime) / 1000
 
-        // Scroll automatically if the user is not actively interacting
         if (!isInteracting) {
           floatScrollLeft += scrollSpeed * delta
           container.scrollLeft = floatScrollLeft
         } else {
-          // Sync with manual touch/swipe scroll
           floatScrollLeft = container.scrollLeft
         }
 
-        // Seamless wrap check using getBoundingClientRect for absolute reliability
-        const fifthItem = container.children[4] as HTMLElement
-        if (fifthItem) {
-          const rectFifth = fifthItem.getBoundingClientRect()
+        const wrapItem = container.children[badges.length] as HTMLElement
+        if (wrapItem) {
+          const rectItem = wrapItem.getBoundingClientRect()
           const rectContainer = container.getBoundingClientRect()
-          const W = rectFifth.left - rectContainer.left + container.scrollLeft
+          const W = rectItem.left - rectContainer.left + container.scrollLeft
 
           if (container.scrollLeft >= W) {
             floatScrollLeft -= W
@@ -85,7 +80,7 @@ export default function HeroSection() {
     return () => {
       cancelAnimationFrame(frameId)
     }
-  }, [isInteracting])
+  }, [isInteracting, badges.length])
 
   const handlePointerDown = () => {
     setIsInteracting(true)
@@ -221,7 +216,9 @@ export default function HeroSection() {
         {/* CTA Buttons */}
         <div className="flex flex-col sm:flex-row gap-4 mb-16">
           <a
-            href="#investimento"
+            href="https://siga.ufpr.br/siga/visitante/processoseletivo/index.jsp?sequencial=5339"
+            target="_blank"
+            rel="noopener noreferrer"
             className="
               group inline-flex items-center justify-center gap-3
               font-bold text-white
@@ -271,7 +268,6 @@ export default function HeroSection() {
         >
           {[...badges, ...badges].map((b, idx) => (
             <Fragment key={`${b.label}-${idx}`}>
-              {idx === 3 && <div className="hidden md:block basis-full h-0"></div>}
               <div
                 className={`
                   inline-flex items-center gap-2.5
@@ -280,8 +276,7 @@ export default function HeroSection() {
                   border border-white/10
                   shrink-0
                   w-auto whitespace-nowrap md:shrink
-                  ${idx >= 4 ? 'md:hidden' : ''}
-                  ${idx === 3 ? 'md:w-full md:max-w-max' : ''}
+                  ${idx >= 3 ? 'md:hidden' : ''}
                 `}
               >
                 <span className="w-1.5 h-1.5 rounded-full" style={{ background: '#D96C2B' }} />
