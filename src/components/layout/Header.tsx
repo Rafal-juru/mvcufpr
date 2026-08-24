@@ -131,10 +131,10 @@ export default function Header() {
     >
       <div
         ref={menuRef}
-        className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center relative"
+        className="w-full px-4 sm:px-6 lg:px-8 xl:px-12 flex justify-between items-center relative"
       >
-        {/* ── Lado Esquerdo — Logos UFPR + CESMVC (e Typewriter quando no topo) ── */}
-        <div className="flex items-center gap-2.5 sm:gap-3.5 flex-shrink-0 min-w-0">
+        {/* ── Lado Esquerdo — Logos UFPR + CESMVC (e Typewriter completo no topo) ── */}
+        <div className="flex items-center gap-2.5 sm:gap-3.5 flex-shrink-0 z-10">
           <a
             href="https://agrarias.ufpr.br/mvc/especializacao-mvc/"
             target="_blank"
@@ -149,16 +149,16 @@ export default function Header() {
             />
           </a>
 
-          {/* Typewriter — visível no topo em telas ultra-wide/grandes para evitar colisão */}
+          {/* Typewriter — texto 100% completo sem '...' e sem interferir na posição centralizada do nav */}
           {!scrolled && (
-            <div className="hidden 2xl:flex flex-col items-start text-left min-w-0">
+            <div className="hidden xl:flex flex-col items-start text-left w-[360px] 2xl:w-[430px] shrink-0 overflow-hidden">
               <p
                 className="text-white/60 font-mono text-[0.6rem] uppercase tracking-widest mb-0.5"
               >
                 Especialização
               </p>
               <p
-                className="font-grift-bold text-white leading-none whitespace-nowrap text-xs sm:text-sm"
+                className="font-grift-bold text-white leading-none whitespace-nowrap text-xs 2xl:text-sm"
               >
                 {displayed}
                 <span
@@ -186,8 +186,11 @@ export default function Header() {
           </a>
         </div>
 
-        {/* ── Centro: Desktop Navigation (visível em telas xl >= 1280px para conforto total) ── */}
-        <nav className="hidden xl:flex items-center gap-4 2xl:gap-6 mx-4 flex-shrink min-w-0" aria-label="Navegação principal">
+        {/* ── Centro: Desktop Navigation (perfeitamente centralizado e na mesma posição exata em ambos os modos) ── */}
+        <nav
+          className="hidden xl:flex items-center gap-3.5 2xl:gap-5 xl:absolute xl:left-1/2 xl:-translate-x-1/2 xl:top-1/2 xl:-translate-y-1/2 z-10"
+          aria-label="Navegação principal"
+        >
           {navLinks.map((item) => (
             <a
               key={item.href}
@@ -195,7 +198,7 @@ export default function Header() {
               onClick={(e) => handleLinkClick(e, item.href)}
               className="
                 text-white/90 hover:text-white
-                text-xs 2xl:text-sm font-medium tracking-wide
+                text-[13px] 2xl:text-sm font-medium tracking-wide
                 transition-colors duration-200
                 relative whitespace-nowrap py-1
                 after:absolute after:bottom-[-2px] after:left-0
@@ -211,7 +214,7 @@ export default function Header() {
             to="/blog"
             className="
               text-white/90 hover:text-white
-              text-xs 2xl:text-sm font-medium tracking-wide
+              text-[13px] 2xl:text-sm font-medium tracking-wide
               transition-colors duration-200
               relative whitespace-nowrap py-1
               after:absolute after:bottom-[-2px] after:left-0
@@ -225,7 +228,7 @@ export default function Header() {
         </nav>
 
         {/* ── Lado Direito: Language Selector + CTA + Toggle Mobile/Tablet ── */}
-        <div className="flex items-center gap-2 sm:gap-3 flex-shrink-0">
+        <div className="flex items-center gap-2.5 sm:gap-3 flex-shrink-0 ml-auto z-10">
           {/* Language Selector */}
           <LanguageSelector dropdownAlign="right" />
 
@@ -237,7 +240,7 @@ export default function Header() {
               hidden sm:inline-flex items-center gap-1.5 sm:gap-2
               bg-cesmvc-orange hover:bg-cesmvc-orange-dark
               text-white font-semibold text-xs sm:text-sm
-              px-3.5 sm:px-5 py-2 sm:py-2.5 rounded-full
+              px-3.5 sm:px-4.5 py-2 sm:py-2.5 rounded-full
               transition-all duration-300
               shadow-md shadow-cesmvc-orange/30
               hover:shadow-lg hover:shadow-cesmvc-orange/40
