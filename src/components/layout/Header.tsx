@@ -27,8 +27,8 @@ export default function Header() {
     { label: t('nav.curriculum'), href: '#pilares' },
     { label: t('nav.faculty'), href: '#docentes' },
     { label: t('nav.testimonials'), href: '#depoimentos' },
-    { label: t('nav.investment'), href: '#investimento' },
     { label: t('nav.faq'), href: '#faq' },
+    { label: t('nav.investment'), href: '#investimento' },
   ]
 
   /* ── Scroll detection ── */
