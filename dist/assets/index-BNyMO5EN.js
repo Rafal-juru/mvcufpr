@@ -44,44 +44,39 @@ Recomendación de Alumnos`}},curriculum:{eyebrow:`Estructura Curricular`,title:`
               `,children:[Ua(e.code,`w-4.5 h-3 sm:w-5 sm:h-3.5`),(0,j.jsx)(`span`,{className:`tracking-wide`,children:e.code})]},e.code))})]})},Ga=[`UFPR`,`Curso de Especialização Medicina Veterinária do Coletivo`],Ka=55,qa=30,Ja=2400,Ya=400;function Xa(){let{t:e}=Qi(),[t,n]=(0,x.useState)(!1),[r,i]=(0,x.useState)(!1),[a,o]=(0,x.useState)(`UFPR`),[s,c]=(0,x.useState)(0),[l,u]=(0,x.useState)(!1),d=(0,x.useRef)(null),f=ut(),p=[{label:e(`nav.course`),href:`#sobre-o-curso`},{label:e(`nav.curriculum`),href:`#pilares`},{label:e(`nav.faculty`),href:`#docentes`},{label:e(`nav.testimonials`),href:`#depoimentos`},{label:e(`nav.investment`),href:`#investimento`},{label:e(`nav.faq`),href:`#faq`}];(0,x.useEffect)(()=>{let e=()=>n(window.scrollY>60);return window.addEventListener(`scroll`,e,{passive:!0}),e(),()=>window.removeEventListener(`scroll`,e)},[]),(0,x.useEffect)(()=>{if(!r)return;let e=e=>{d.current&&!d.current.contains(e.target)&&i(!1)};return document.addEventListener(`mousedown`,e),()=>document.removeEventListener(`mousedown`,e)},[r]),(0,x.useEffect)(()=>{let e=Ga[s];if(!l&&a===e){let e=setTimeout(()=>u(!0),Ja);return()=>clearTimeout(e)}if(l&&a===``){let e=setTimeout(()=>{u(!1),c(e=>(e+1)%Ga.length)},Ya);return()=>clearTimeout(e)}let t=setTimeout(()=>{o(l?e.slice(0,a.length-1):e.slice(0,a.length+1))},l?qa:Ka);return()=>clearTimeout(t)},[a,l,s]),(0,x.useEffect)(()=>{if(f.hash){let e=f.hash.replace(`#`,``),t=setTimeout(()=>{let t=document.getElementById(e);if(t){let e=t.getBoundingClientRect().top+window.scrollY-80;window.scrollTo({top:e,behavior:`smooth`})}},300);return()=>clearTimeout(t)}},[f]);let m=(e,t)=>{let n=t.includes(`#`)?t.split(`#`)[1]:t,a=document.getElementById(n);a?(e.preventDefault(),i(!1),setTimeout(()=>{let e=a.getBoundingClientRect().top+window.scrollY-80;window.scrollTo({top:e,behavior:`smooth`})},r?300:0)):i(!1)};return(0,j.jsxs)(`header`,{className:`
         fixed top-0 left-0 right-0 z-50
         transition-all duration-500 ease-in-out
-        ${t?`bg-cesmvc-green/96 backdrop-blur-md shadow-lg shadow-black/20 py-3`:`bg-transparent py-4`}
-      `,children:[(0,j.jsxs)(`div`,{ref:d,className:`w-full px-4 md:px-8 lg:px-12 flex justify-between md:justify-center items-center relative`,children:[(0,j.jsxs)(`div`,{className:`flex-shrink-0 md:absolute md:left-8 lg:left-12 md:top-1/2 md:-translate-y-1/2 flex items-center gap-4`,children:[(0,j.jsx)(`a`,{href:`https://agrarias.ufpr.br/mvc/especializacao-mvc/`,target:`_blank`,rel:`noopener noreferrer`,title:`Site Oficial UFPR MVC`,className:`flex-shrink-0 flex items-center drop-shadow-md hover:drop-shadow-xl hover:scale-105 transition-all duration-300`,children:(0,j.jsx)(`img`,{src:Ta,alt:`UFPR`,className:`h-8 w-auto object-contain`})}),!t&&(0,j.jsxs)(`div`,{className:`hidden md:flex flex-col items-start text-left min-w-0`,children:[(0,j.jsx)(`p`,{className:`text-white/60 font-mono text-[0.6rem] uppercase tracking-widest mb-0.5`,children:`Especialização`}),(0,j.jsxs)(`p`,{className:`font-grift-bold text-white leading-none whitespace-nowrap`,style:{fontSize:`clamp(0.75rem, 1.1vw, 0.9375rem)`},children:[a,(0,j.jsx)(`span`,{className:`inline-block w-[0.06em] h-[0.85em] ml-[2px] align-middle rounded-sm cursor-blink bg-white opacity-80`,"aria-hidden":`true`})]})]})]}),(0,j.jsx)(`a`,{href:f.pathname===`/`?`#hero`:`/#hero`,onClick:e=>m(e,`#hero`),className:`\r
-            md:hidden flex items-center flex-shrink-0\r
-            absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2\r
-          `,children:(0,j.jsx)(`img`,{src:Ea,alt:`CESMVC`,className:`h-8 w-auto object-contain transition-all duration-500 ease-in-out ${t?`opacity-100`:`opacity-0 pointer-events-none`}`})}),(0,j.jsxs)(`div`,{className:`flex items-center gap-5 lg:gap-7 flex-shrink-0 md:relative`,children:[(0,j.jsx)(`a`,{href:f.pathname===`/`?`#hero`:`/#hero`,onClick:e=>m(e,`#hero`),className:`\r
-              hidden md:flex items-center flex-shrink-0\r
-            `,children:(0,j.jsx)(`img`,{src:Ea,alt:`CESMVC`,className:`h-8 w-auto object-contain transition-all duration-500 ease-in-out ${t?`opacity-100`:`opacity-0 pointer-events-none`}`})}),(0,j.jsxs)(`nav`,{className:`hidden md:flex items-center gap-4 lg:gap-5`,"aria-label":`Navegação principal`,children:[p.map(e=>(0,j.jsx)(`a`,{href:f.pathname===`/`?e.href:`/${e.href}`,onClick:t=>m(t,e.href),className:`\r
-                  text-white/90 hover:text-white\r
-                  text-sm font-medium tracking-wide\r
-                  transition-colors duration-200\r
-                  relative whitespace-nowrap\r
-                  after:absolute after:bottom-[-4px] after:left-0\r
-                  after:h-[2px] after:w-0 after:bg-cesmvc-orange\r
-                  after:transition-all after:duration-300\r
-                  hover:after:w-full\r
-                `,children:e.label},e.href)),(0,j.jsx)(Fn,{to:`/blog`,className:`\r
+        ${t?`bg-cesmvc-green/96 backdrop-blur-md shadow-lg shadow-black/20 py-2.5 sm:py-3`:`bg-transparent py-3.5 sm:py-4`}
+      `,children:[(0,j.jsxs)(`div`,{ref:d,className:`w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center relative`,children:[(0,j.jsxs)(`div`,{className:`flex items-center gap-2.5 sm:gap-3.5 flex-shrink-0 min-w-0`,children:[(0,j.jsx)(`a`,{href:`https://agrarias.ufpr.br/mvc/especializacao-mvc/`,target:`_blank`,rel:`noopener noreferrer`,title:`Site Oficial UFPR MVC`,className:`flex-shrink-0 flex items-center drop-shadow-md hover:drop-shadow-xl hover:scale-105 transition-all duration-300`,children:(0,j.jsx)(`img`,{src:Ta,alt:`UFPR`,className:`h-7 sm:h-8 w-auto object-contain`})}),!t&&(0,j.jsxs)(`div`,{className:`hidden 2xl:flex flex-col items-start text-left min-w-0`,children:[(0,j.jsx)(`p`,{className:`text-white/60 font-mono text-[0.6rem] uppercase tracking-widest mb-0.5`,children:`Especialização`}),(0,j.jsxs)(`p`,{className:`font-grift-bold text-white leading-none whitespace-nowrap text-xs sm:text-sm`,children:[a,(0,j.jsx)(`span`,{className:`inline-block w-[0.06em] h-[0.85em] ml-[2px] align-middle rounded-sm cursor-blink bg-white opacity-80`,"aria-hidden":`true`})]})]}),(0,j.jsxs)(`a`,{href:f.pathname===`/`?`#hero`:`/#hero`,onClick:e=>m(e,`#hero`),className:`flex items-center flex-shrink-0 transition-all duration-300 ease-in-out ${t?`opacity-100 scale-100`:`opacity-0 scale-95 w-0 overflow-hidden pointer-events-none`}`,children:[(0,j.jsx)(`div`,{className:`hidden sm:block h-5 w-px bg-white/20 mr-2.5 sm:mr-3`}),(0,j.jsx)(`img`,{src:Ea,alt:`CESMVC`,className:`h-7 sm:h-8 w-auto object-contain`})]})]}),(0,j.jsxs)(`nav`,{className:`hidden xl:flex items-center gap-4 2xl:gap-6 mx-4 flex-shrink min-w-0`,"aria-label":`Navegação principal`,children:[p.map(e=>(0,j.jsx)(`a`,{href:f.pathname===`/`?e.href:`/${e.href}`,onClick:t=>m(t,e.href),className:`\r
                 text-white/90 hover:text-white\r
-                text-sm font-medium tracking-wide\r
+                text-xs 2xl:text-sm font-medium tracking-wide\r
                 transition-colors duration-200\r
-                relative whitespace-nowrap\r
-                after:absolute after:bottom-[-4px] after:left-0\r
+                relative whitespace-nowrap py-1\r
+                after:absolute after:bottom-[-2px] after:left-0\r
                 after:h-[2px] after:w-0 after:bg-cesmvc-orange\r
                 after:transition-all after:duration-300\r
                 hover:after:w-full\r
-              `,children:e(`nav.blog`)})]}),(0,j.jsxs)(`div`,{className:`flex items-center gap-2.5 sm:gap-3 flex-shrink-0`,children:[(0,j.jsx)(Wa,{className:`hidden sm:inline-block`,dropdownAlign:`right`}),(0,j.jsxs)(`a`,{href:f.pathname===`/`?`#investimento`:`/#investimento`,onClick:e=>m(e,`#investimento`),className:`\r
-                hidden sm:inline-flex items-center gap-2\r
-                bg-cesmvc-orange hover:bg-cesmvc-orange-dark\r
-                text-white font-semibold text-sm\r
-                px-5 py-2.5 rounded-full\r
-                transition-all duration-300\r
-                shadow-md shadow-cesmvc-orange/30\r
-                hover:shadow-lg hover:shadow-cesmvc-orange/40\r
-                hover:-translate-y-0.5 whitespace-nowrap\r
-              `,children:[e(`nav.enroll`),(0,j.jsx)(`svg`,{className:`w-4 h-4`,fill:`none`,stroke:`currentColor`,viewBox:`0 0 24 24`,children:(0,j.jsx)(`path`,{strokeLinecap:`round`,strokeLinejoin:`round`,strokeWidth:2,d:`M17 8l4 4m0 0l-4 4m4-4H3`})})]}),(0,j.jsx)(Wa,{className:`sm:hidden`,dropdownAlign:`right`}),(0,j.jsx)(`button`,{type:`button`,"aria-label":e(r?`nav.closeMenu`:`nav.openMenu`),"aria-expanded":r,onClick:()=>i(e=>!e),className:`md:hidden text-white p-2 rounded-lg hover:bg-white/10 transition-colors`,children:r?(0,j.jsx)(`svg`,{className:`w-6 h-6`,fill:`none`,stroke:`currentColor`,viewBox:`0 0 24 24`,children:(0,j.jsx)(`path`,{strokeLinecap:`round`,strokeLinejoin:`round`,strokeWidth:2,d:`M6 18L18 6M6 6l12 12`})}):(0,j.jsx)(`svg`,{className:`w-6 h-6`,fill:`none`,stroke:`currentColor`,viewBox:`0 0 24 24`,children:(0,j.jsx)(`path`,{strokeLinecap:`round`,strokeLinejoin:`round`,strokeWidth:2,d:`M4 6h16M4 12h16M4 18h16`})})})]})]})]}),(0,j.jsx)(`div`,{className:`
-          md:hidden fixed inset-0 z-[99] bg-[#0b281e]/60 backdrop-blur-sm transition-opacity duration-300
+              `,children:e.label},e.href)),(0,j.jsx)(Fn,{to:`/blog`,className:`\r
+              text-white/90 hover:text-white\r
+              text-xs 2xl:text-sm font-medium tracking-wide\r
+              transition-colors duration-200\r
+              relative whitespace-nowrap py-1\r
+              after:absolute after:bottom-[-2px] after:left-0\r
+              after:h-[2px] after:w-0 after:bg-cesmvc-orange\r
+              after:transition-all after:duration-300\r
+              hover:after:w-full\r
+            `,children:e(`nav.blog`)})]}),(0,j.jsxs)(`div`,{className:`flex items-center gap-2 sm:gap-3 flex-shrink-0`,children:[(0,j.jsx)(Wa,{dropdownAlign:`right`}),(0,j.jsxs)(`a`,{href:f.pathname===`/`?`#investimento`:`/#investimento`,onClick:e=>m(e,`#investimento`),className:`\r
+              hidden sm:inline-flex items-center gap-1.5 sm:gap-2\r
+              bg-cesmvc-orange hover:bg-cesmvc-orange-dark\r
+              text-white font-semibold text-xs sm:text-sm\r
+              px-3.5 sm:px-5 py-2 sm:py-2.5 rounded-full\r
+              transition-all duration-300\r
+              shadow-md shadow-cesmvc-orange/30\r
+              hover:shadow-lg hover:shadow-cesmvc-orange/40\r
+              hover:-translate-y-0.5 whitespace-nowrap\r
+            `,children:[e(`nav.enroll`),(0,j.jsx)(`svg`,{className:`w-3.5 h-3.5 sm:w-4 sm:h-4`,fill:`none`,stroke:`currentColor`,viewBox:`0 0 24 24`,children:(0,j.jsx)(`path`,{strokeLinecap:`round`,strokeLinejoin:`round`,strokeWidth:2,d:`M17 8l4 4m0 0l-4 4m4-4H3`})})]}),(0,j.jsx)(`button`,{type:`button`,"aria-label":e(r?`nav.closeMenu`:`nav.openMenu`),"aria-expanded":r,onClick:()=>i(e=>!e),className:`xl:hidden text-white p-2 rounded-lg hover:bg-white/10 transition-colors focus:outline-none cursor-pointer`,children:r?(0,j.jsx)(`svg`,{className:`w-6 h-6`,fill:`none`,stroke:`currentColor`,viewBox:`0 0 24 24`,children:(0,j.jsx)(`path`,{strokeLinecap:`round`,strokeLinejoin:`round`,strokeWidth:2,d:`M6 18L18 6M6 6l12 12`})}):(0,j.jsx)(`svg`,{className:`w-6 h-6`,fill:`none`,stroke:`currentColor`,viewBox:`0 0 24 24`,children:(0,j.jsx)(`path`,{strokeLinecap:`round`,strokeLinejoin:`round`,strokeWidth:2,d:`M4 6h16M4 12h16M4 18h16`})})})]})]}),(0,j.jsx)(`div`,{className:`
+          xl:hidden fixed inset-0 z-[99] bg-[#0b281e]/60 backdrop-blur-sm transition-opacity duration-300
           ${r?`opacity-100 pointer-events-auto`:`opacity-0 pointer-events-none`}
         `,onClick:()=>i(!1)}),(0,j.jsxs)(`div`,{className:`
-          md:hidden fixed top-0 right-0 w-[290px] h-[100dvh] bg-cesmvc-green/98 backdrop-blur-md shadow-2xl
+          xl:hidden fixed top-0 right-0 w-[290px] h-[100dvh] bg-cesmvc-green/98 backdrop-blur-md shadow-2xl
           flex flex-col transition-transform duration-300 ease-out border-l border-white/10 z-[100]
           ${r?`translate-x-0`:`translate-x-full`}
         `,children:[(0,j.jsxs)(`div`,{className:`flex items-center justify-between p-5 border-b border-white/10`,children:[(0,j.jsx)(`span`,{className:`font-grift text-white text-lg tracking-wide`,children:`Menu`}),(0,j.jsxs)(`div`,{className:`flex items-center gap-3`,children:[(0,j.jsx)(Wa,{dropdownAlign:`left`}),(0,j.jsx)(`button`,{onClick:()=>i(!1),className:`text-white p-2 rounded-lg border border-[#D96C2B] hover:bg-white/10 transition-colors`,children:(0,j.jsx)(`svg`,{className:`w-5 h-5`,fill:`none`,stroke:`currentColor`,viewBox:`0 0 24 24`,children:(0,j.jsx)(`path`,{strokeLinecap:`round`,strokeLinejoin:`round`,strokeWidth:2,d:`M6 18L18 6M6 6l12 12`})})})]})]}),(0,j.jsxs)(`div`,{className:`flex-1 overflow-y-auto px-4 pt-6 pb-32 flex flex-col gap-1`,children:[p.map(e=>(0,j.jsx)(`a`,{href:f.pathname===`/`?e.href:`/${e.href}`,onClick:t=>m(t,e.href),className:`\r
