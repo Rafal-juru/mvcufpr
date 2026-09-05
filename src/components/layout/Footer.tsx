@@ -3,7 +3,6 @@ import { useTranslation } from 'react-i18next'
 import logoBege from '../../assets/images/logoDescitivabBege.png'
 import logoUFPR3 from '../../assets/images/logoUFPR3(semNome).png'
 import reconhecidoPeloMecCelo from '../../assets/images/reconhecidoPeloMecCelo.png'
-import CFMVlogofooter from '../../assets/images/CFMVlogofooter.png'
 import IMVClogofooter from '../../assets/images/IMVClogofooter.png'
 
 const ENDERECO = 'Rua dos Funcionários, 1540 — Cabral, Curitiba — PR, 80.035-050'
@@ -122,15 +121,6 @@ export default function Footer() {
                 alt="Reconhecido pelo MEC"
                 title="Pós-Graduação autorizada e reconhecida pelo MEC (Ministério da Educação)"
                 className="h-12 w-auto object-contain cursor-help transition-all hover:scale-105"
-              />
-
-              {/* Selo CFMV — CFMVlogofooter */}
-              <img
-                src={CFMVlogofooter}
-                alt="Selo CFMV"
-                title="Especialização homologada pelo CFMV (Conselho Federal de Medicina Veterinária)"
-                className="h-12 w-auto object-contain cursor-help transition-all hover:scale-105"
-                style={{ filter: 'brightness(0) invert(1)' }}
               />
 
               {/* IMVC — IMVClogofooter */}

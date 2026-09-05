@@ -168,13 +168,13 @@ export default function Faculty() {
       </div>
 
       {/* ── Seção de Parcerias / Esteira Infinita ── */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-16">
-        <p className="text-center text-[#0B281E]/50 font-mono text-[10px] uppercase tracking-widest font-bold mb-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-14">
+        <p className="text-center text-[#0B281E]/50 font-mono text-[10px] sm:text-xs uppercase tracking-widest font-bold mb-6 sm:mb-8">
           {t('faculty.partnersTitle')}
         </p>
 
-        {/* Container da Marquee com máscara de fade nas bordas */}
-        <div className="relative w-full overflow-hidden select-none marquee-container pt-16 pb-8">
+        {/* Container da Marquee com máscara de fade nas bordas e padding vertical seguro */}
+        <div className="relative w-full overflow-hidden select-none marquee-container py-8 sm:py-12">
           <style>{`
             @keyframes marquee {
               0% { transform: translateX(0); }
@@ -183,42 +183,50 @@ export default function Faculty() {
             .animate-marquee {
               display: flex;
               width: max-content;
-              animation: marquee 30s linear infinite;
+              animation: marquee 45s linear infinite;
             }
             .animate-marquee:hover {
               animation-play-state: paused;
             }
             .marquee-container {
-              mask-image: linear-gradient(to right, transparent, black 12%, black 88%, transparent);
-              -webkit-mask-image: linear-gradient(to right, transparent, black 12%, black 88%, transparent);
+              mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+              -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
             }
           `}</style>
 
-          <div className="animate-marquee gap-10 md:gap-14 items-center">
+          <div className="animate-marquee gap-8 sm:gap-12 md:gap-16 lg:gap-20 items-center">
             {/* Primeira metade da lista */}
             {PARTNERS.map((partner, index) => (
-              <div key={`logo-1-${index}`} className="relative group/logo flex-shrink-0 flex items-center justify-center h-48 w-80 sm:h-44 sm:w-72">
+              <div
+                key={`logo-1-${index}`}
+                className="relative group/logo flex-shrink-0 flex items-center justify-center h-48 w-48 sm:h-60 sm:w-60 md:h-72 md:w-72 lg:h-80 lg:w-80"
+              >
                 <img
                   src={partner.logo}
                   alt={partner.name}
-                  className="h-full w-auto object-contain max-h-40 sm:max-h-36 opacity-85 hover:opacity-100 transition-all duration-300 transform hover:scale-110"
+                  className="h-full w-full object-contain max-h-44 sm:max-h-56 md:max-h-64 lg:max-h-72 opacity-90 hover:opacity-100 transition-all duration-300 transform hover:scale-105"
+                  loading="lazy"
                 />
                 {/* Legenda (Tooltip) */}
-                <div className="absolute bottom-full mb-2 hidden group-hover/logo:block bg-[#0B281E] text-white text-[11px] font-sans px-3 py-1.5 rounded-lg shadow-md whitespace-nowrap z-50 pointer-events-none border border-white/10">
+                <div className="absolute bottom-full mb-3 hidden group-hover/logo:block bg-[#0B281E] text-white text-[11px] sm:text-xs font-sans px-3 py-1.5 rounded-lg shadow-xl whitespace-nowrap z-50 pointer-events-none border border-white/10">
                   {partner.name}
                 </div>
               </div>
             ))}
             {/* Segunda metade da lista (duplicada para o loop contínuo) */}
             {PARTNERS.map((partner, index) => (
-              <div key={`logo-2-${index}`} className="relative group/logo flex-shrink-0 flex items-center justify-center h-48 w-80 sm:h-44 sm:w-72">
+              <div
+                key={`logo-2-${index}`}
+                className="relative group/logo flex-shrink-0 flex items-center justify-center h-48 w-48 sm:h-60 sm:w-60 md:h-72 md:w-72 lg:h-80 lg:w-80"
+              >
                 <img
                   src={partner.logo}
                   alt={partner.name}
-                  className="h-full w-auto object-contain max-h-40 sm:max-h-36 opacity-85 hover:opacity-100 transition-all duration-300 transform hover:scale-110"
+                  className="h-full w-full object-contain max-h-44 sm:max-h-56 md:max-h-64 lg:max-h-72 opacity-90 hover:opacity-100 transition-all duration-300 transform hover:scale-105"
+                  loading="lazy"
                 />
                 {/* Legenda (Tooltip) */}
-                <div className="absolute bottom-full mb-2 hidden group-hover/logo:block bg-[#0B281E] text-white text-[11px] font-sans px-3 py-1.5 rounded-lg shadow-md whitespace-nowrap z-50 pointer-events-none border border-white/10">
+                <div className="absolute bottom-full mb-3 hidden group-hover/logo:block bg-[#0B281E] text-white text-[11px] sm:text-xs font-sans px-3 py-1.5 rounded-lg shadow-xl whitespace-nowrap z-50 pointer-events-none border border-white/10">
                   {partner.name}
                 </div>
               </div>

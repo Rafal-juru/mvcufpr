@@ -149,36 +149,7 @@ export default function AboutCourse() {
         </div>
 
         {/* ─────────────────────────────────────────────────────────────
-            BLOCO 1 — ENSINO (O CESMVC): Especialização UFPR que prepara para o coletivo
-        ───────────────────────────────────────────────────────────── */}
-        <div className="flex flex-col md:flex-row-reverse gap-8 lg:gap-12 items-start mb-20">
-          <div className="w-full md:w-1/2 flex-shrink-0 aspect-[4/3] md:aspect-[16/10] overflow-hidden rounded-2xl shadow-sm">
-            <img
-              src={imgEnsino}
-              alt={t('about.ensinoTitle')}
-              className="w-full h-full object-cover"
-              loading="lazy"
-            />
-          </div>
-          <div className="w-full md:w-1/2">
-            <ExpandableCard
-              eyebrow={`— ${t('about.ensinoEyebrow')}`}
-              title={t('about.ensinoTitle')}
-              paragraphs={[
-                t('about.ensinoP1'),
-                t('about.ensinoP2'),
-                t('about.ensinoP3'),
-                t('about.ensinoP4'),
-              ]}
-              accent="#D96C2B"
-              readMoreText={t('about.readMore')}
-              readLessText={t('about.readLess')}
-            />
-          </div>
-        </div>
-
-        {/* ─────────────────────────────────────────────────────────────
-            BLOCO 2 — ESPECIALIDADE: O que é a Medicina Veterinária do Coletivo?
+            BLOCO 1 — ESPECIALIDADE: O que é a Medicina Veterinária do Coletivo?
         ───────────────────────────────────────────────────────────── */}
         <div className="mb-20">
           {/* Eyebrow */}
@@ -209,6 +180,35 @@ export default function AboutCourse() {
                 {t('about.specialtyP3')}
               </p>
             </div>
+          </div>
+        </div>
+
+        {/* ─────────────────────────────────────────────────────────────
+            BLOCO 2 — ENSINO (O CESMVC): Especialização UFPR que prepara para o coletivo
+        ───────────────────────────────────────────────────────────── */}
+        <div className="flex flex-col md:flex-row-reverse gap-8 lg:gap-12 items-start mb-20">
+          <div className="w-full md:w-1/2 flex-shrink-0 aspect-[4/3] md:aspect-[16/10] overflow-hidden rounded-2xl shadow-sm">
+            <img
+              src={imgEnsino}
+              alt={t('about.ensinoTitle')}
+              className="w-full h-full object-cover"
+              loading="lazy"
+            />
+          </div>
+          <div className="w-full md:w-1/2">
+            <ExpandableCard
+              eyebrow={`— ${t('about.ensinoEyebrow')}`}
+              title={t('about.ensinoTitle')}
+              paragraphs={[
+                t('about.ensinoP1'),
+                t('about.ensinoP2'),
+                t('about.ensinoP3'),
+                t('about.ensinoP4'),
+              ]}
+              accent="#D96C2B"
+              readMoreText={t('about.readMore')}
+              readLessText={t('about.readLess')}
+            />
           </div>
         </div>
 

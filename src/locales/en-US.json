@@ -2,7 +2,7 @@
   "nav": {
     "course": "The Program",
     "curriculum": "Curriculum",
-    "faculty": "Faculty",
+    "faculty": "Teaching staff",
     "testimonials": "Testimonials",
     "investment": "Tuition & Fees",
     "faq": "FAQ",
@@ -26,7 +26,7 @@
     "badges": {
       "remote": "100% Remote / Online",
       "duration": "24 Months Duration",
-      "professors": "20+ Federal Faculty Members",
+      "professors": "20+ Federal Teaching Staff",
       "certification": "UFPR Certification | MEC Accredited"
     }
   },
@@ -54,7 +54,7 @@
     "readLess": "Read less",
     "stats": {
       "professors": "Professors &\nSpecialists",
-      "doctors": "PhD Faculty\nMembers",
+      "doctors": "PhD Teaching\nStaff",
       "classes": "Online with weekly\nlive synchronous classes",
       "recommendation": "Alumni\nRecommendation Rate"
     }
@@ -126,25 +126,25 @@
     }
   },
   "faculty": {
-    "eyebrow": "Faculty / Academic Staff",
+    "eyebrow": "Teaching staff",
     "title": "General Coordination ",
-    "titleHighlight": "& Faculty",
+    "titleHighlight": "& Teaching staff",
     "description": "Our specialization is led by pioneers in the field, featuring distinguished researcher-professors and leading specialists from premier federal institutions.",
     "coordEyebrow": "GENERAL COORDINATION",
     "coordName": "Prof. Dr. Rita de Cassia Maria Garcia",
-    "coordBio": "Veterinarian and pioneering researcher who established and consolidated Shelter & Community Veterinary Medicine in Brazil. Under her leadership, CESMVC brings together faculty combining academic excellence, practical field leadership, and active contributions to public policy and One Health initiatives.",
+    "coordBio": "Veterinarian and pioneering researcher who established and consolidated Shelter & Community Veterinary Medicine in Brazil. Under her leadership, CESMVC brings together teaching staff combining academic excellence, practical field leadership, and active contributions to public policy and One Health initiatives.",
     "statPhdNumber": "75%",
-    "statPhdTitle": "of the faculty hold doctoral degrees (PhD).",
+    "statPhdTitle": "of the teaching staff hold doctoral degrees (PhD).",
     "statPhdDesc": "Academic rigor and cutting-edge scientific research.",
     "statExpTitle": "Real Experience",
-    "statExpSubtitle": "Faculty with extensive leadership in public health and governance.",
+    "statExpSubtitle": "Teaching staff with extensive leadership in public health and governance.",
     "statExpDesc": "Professors with deep hands-on public policy experience.",
     "statHistBadge": "Historical Milestone",
     "statHistTitle": "Pioneers who helped build Community Veterinary Medicine in Brazil.",
     "statHistDesc": "Leading authority in shaping this academic field.",
-    "partnersTitle": "Faculty from prestigious partner institutions of academic excellence",
+    "partnersTitle": "Teaching staff from prestigious partner institutions of academic excellence",
     "authorityStat": "~80%",
-    "authorityTitle": "of our faculty teach at public and federal universities",
+    "authorityTitle": "of our teaching staff teach at public and federal universities",
     "authorityDesc": "Over 40 active researcher-doctors preparing professionals with scientific excellence and practical vision.",
     "bottomNote": "Plus <1>9 guest specialist professors</1> from leading federal institutions and the industry.",
     "testimonialsCta": "See what our alumni say"
